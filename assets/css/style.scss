@@ -67,18 +67,12 @@
   }
 }
 
-@import "{{ site.theme }}";
-// @import "jekyll-theme-minimal";
-
-header img {
-  max-width: 300px;
-  width: 100%;
-  height: auto;
-}
-
 .site-title {
-  font-family: "Helvetica Neue", Arial, sans-serif; /* change font */
-  font-size: 2rem;                                  /* change size */
-  color: #b22222;                                   /* change color */
+  font-family: "Helvetica Neue", Arial, sans-serif; // change font
+  font-size: 2rem;                                  // change size
+  color: #b22222;                                   // change color
   font-weight: 700;
 }
+
+@import "{{ site.theme }}";
+// @import "jekyll-theme-minimal";
