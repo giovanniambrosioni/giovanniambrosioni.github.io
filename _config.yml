@@ -1,5 +1,15 @@
-title: Giovanni Ambrosioni
-logo: /avatar.png
-description: giovanni.ambrosioni@math.ethz.ch
-google_analytics:
-theme: jekyll-theme-minimal
+title: "Giovanni Ambrosioni"
+theme: minima
+
+# Replace with your actual GitHub Pages URL
+url: "https://giovanniambrosioni.github.io"
+baseurl: ""
+
+
+# Markdown settings
+markdown: kramdown
+kramdown:
+  input: GFM
+
+# Add a custom footer or modify/remove the existing one
+# footer: "2024 Marco Badran"
