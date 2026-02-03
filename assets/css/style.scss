@@ -97,7 +97,7 @@ header h1 a {
 /* Make header span full width and align contents horizontally */
 header {
   display: flex;
-  align-items: center;
+  align-items: left;
   gap: 1.25rem;
   width: 100%;
   flex-wrap: wrap;
