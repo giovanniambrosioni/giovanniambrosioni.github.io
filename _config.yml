@@ -19,4 +19,4 @@ header_pages:
   - research.md
   - Talks.md
   - teaching.md
-  - blog.md
+#  - blog.md
