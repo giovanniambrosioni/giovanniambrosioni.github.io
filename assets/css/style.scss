@@ -97,8 +97,9 @@ figure.avatar {
 }
 
 figure.avatar img {
-  width: 140px;
-  max-width: 100%;
+  /* Much larger but still responsive */
+  width: 360px;
+  max-width: 60%;
   height: auto;
   display: block;
   margin: 0 auto;
