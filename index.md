@@ -22,7 +22,7 @@ title: Home
     You can find a recent CV <a href="CurriculumVitae/CurriculumVitae.pdf">here</a>.
   </div>
   -->
- 
+  <div style="flex: 1; order: 1;">
   I am a PhD student at ETH Zurich under the supervision of Paul Biran.
   
   You can find a recent CV <a href="CurriculumVitae/AcademicCV_210126.pdf">here</a>.
