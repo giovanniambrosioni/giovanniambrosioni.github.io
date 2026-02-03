@@ -16,7 +16,7 @@ kramdown:
 
 header_pages:
   - index.md
-  - Talks.md
   - research.md
+  - Talks.md
   - teaching.md
   - blog.md

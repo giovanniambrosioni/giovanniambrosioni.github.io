@@ -1,0 +1,31 @@
+.blog-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.blog-card {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.blog-title {
+  margin-bottom: 0.2rem;
+}
+
+.blog-title a {
+  text-decoration: none;
+}
+
+.blog-meta {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.8rem;
+}
+
+.blog-excerpt {
+  margin-bottom: 0.6rem;
+}
+
+.blog-readmore {
+  font-size: 0.9rem;
+}
