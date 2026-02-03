@@ -23,9 +23,9 @@ title: Home
   </div>
   -->
   <div style="flex: 1; order: 1;">
-  I am a PhD student at ETH Zurich under the supervision of Paul Biran.
+ <p> I am a PhD student at ETH Zurich under the supervision of Paul Biran.</p>
   
-  You can find a recent CV <a href="CurriculumVitae/AcademicCV_210126.pdf">here</a>.
+  <p>You can find a recent CV <a href="CurriculumVitae/AcademicCV_210126.pdf">here</a>.</p>
   </div>
 </div>
 
