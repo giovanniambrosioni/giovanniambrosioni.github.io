@@ -5,6 +5,11 @@
 /* Tabs Layout */
 .wrapper {
   display: block;
+  /* allow the header to span the full viewport so large avatars don't overflow */
+  max-width: 100%;
+  width: 100%;
+  padding: 0 1.5rem;
+  box-sizing: border-box;
 }
 
 .sidebar-tabs {
@@ -89,6 +94,15 @@ header h1 a {
   color: #b22222;
 }
 
+/* Make header span full width and align contents horizontally */
+header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
 /* Avatar figure and caption */
 figure.avatar {
   display: inline-block;
@@ -97,16 +111,17 @@ figure.avatar {
 }
 
 figure.avatar img {
-  /* Much larger but still responsive */
-  width: 720px;
-  max-width: 200%;
+  /* Larger and responsive; will fit inside the wider header */
+  width: 480px;
+  max-width: 45%;
   height: auto;
-  //vdisplay: block;
-  margin: 0 auto;
+  display: block;
+  margin: 0;
   border-radius: 50%;
 }
 
-figure.avatar {
-  float: left;
-  margin: 0 1rem 1rem 0;   /* gap to the right for content */
+figure.avatar figcaption {
+  margin-top: 0.4rem;
+  font-size: 0.95rem;
+  color: #666;
 }
