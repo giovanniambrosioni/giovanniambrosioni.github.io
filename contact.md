@@ -26,3 +26,10 @@ mailto:giovanni.ambrosioni@math.ethz.ch
 https://people.math.ethz.ch/~ambrosig
 https://orcid.org/0009-0006-9418-8105
 </address>
+
+<section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:giovanni.ambrosioni@math.ethz.ch">giovanni.ambrosioni@math.ethz.ch</a></p>
+    <p>Profile: <a href="https://people.math.ethz.ch/~ambrosig">https://people.math.ethz.ch/~ambrosig</a></p>
+    <p>ORCID: <a href="https://orcid.org/0009-0006-9418-8105">https://orcid.org/0009-0006-9418-8105</a></p>
+</section>
