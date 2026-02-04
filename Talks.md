@@ -6,7 +6,7 @@ title: Talks
 ## Talks
 
 <style>
-ol { line-height: 3; }
+ol { line-height: 1; }
 </style>
 
 <ol reversed>
