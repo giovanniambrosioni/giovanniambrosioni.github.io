@@ -34,6 +34,7 @@ Here are some notes that I wrote over the years. Some of this material will conv
 
 <h3>Theses</h3>
 <ul>
-<li><b>Immersed Lagrangian quantum cohomology</b>, MSc thesis, <a href="master_thesis.pdf">here</a>. </li>
-<li><b>Lagrangian cutting</b>, BSc thesis, <a href="https://people.math.ethz.ch/~acannas/Student_Papers/BSc_Theses/2020_bsc_giovanni_ambrosioni_lagrangian_cutting.pdf">here</a></li>
+<li><b>On some quantitative aspects of categorical Lagrangian topology</b>, PhD thesis, 2026. </li>
+<li><b>Immersed Lagrangian quantum cohomology</b>, MSc thesis, 2021, <a href="master_thesis.pdf">here</a>. </li>
+<li><b>Lagrangian cutting</b>, BSc thesis, 2020, <a href="https://people.math.ethz.ch/~acannas/Student_Papers/BSc_Theses/2020_bsc_giovanni_ambrosioni_lagrangian_cutting.pdf">here</a></li>
 </ul>
