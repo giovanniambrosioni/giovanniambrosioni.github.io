@@ -1,5 +1,5 @@
 .blog-list {
-  max-width: 800px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
@@ -28,4 +28,8 @@
 
 .blog-readmore {
   font-size: 0.9rem;
+}
+
+.wrapper {
+  max-width: 1100px;
 }
