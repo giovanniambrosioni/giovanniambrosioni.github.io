@@ -12,6 +12,11 @@ ol { line-height: 2; }
 <ol reversed>
   <li>Invited to talk at the conference <a href="https://math.ethz.ch/fim/activities/conferences/symplectic-topology-hamiltonian-dynamics-persistence-structures-octav-cornea.html">Symplectic Topology, Hamiltonian Dynamics, and Persistence Structures. A conference in honour of Octav Cornea</a>, June 2026, Zürich.</li>
 
+  <li><i>Approximability for Lagrangian submanifolds</i>, <a href="">Geometry & Dynamics seminar</a>, TAU, 29th April 2026.    <button class="abstract-link" onclick="toggleAbstract(this)">Abstract</button>
+  <div class="abstract-text">
+TBD
+  </div></li>
+
 <li>
   <i>Categorical metric approximability and applications to Lagrangian topology</i>, 
   <a href="https://www.thibaultpoiret.com/st-andrews-geometry-seminar">Geometry seminar</a>, 
@@ -22,7 +27,7 @@ In this talk I will introduce a new notion of approximability for metric spaces 
   </div>
 </li>
 
-  <li><i>Approximability for Lagrangian submanifolds</i>, <a href="https://math.ethz.ch/news-and-events/events/research-seminars/symplectic-geometry-seminar.html?s=hs25">Symplectic geometry seminar</a>, ETH Zürich, 10th November 2025.    <button class="abstract-link" onclick="toggleAbstract(this)">Abstract</button>
+  <li><i>Approximability for Lagrangian submanifolds</i>, <b><a href="https://math.ethz.ch/news-and-events/events/research-seminars/symplectic-geometry-seminar.html?s=hs25">Symplectic geometry seminar</a></b>, ETH Zürich, 10th November 2025.    <button class="abstract-link" onclick="toggleAbstract(this)">Abstract</button>
   <div class="abstract-text">
 In this talk I will introduce a new notion of approximability for metric spaces that can be seen as a categorification of a concept introduced by Turing for metric groups and as a generalization of total-boundedness. I will explain how recent technological advances in symplectic topology and persistence category theory allow us to talk about approximablity of spaces of Lagrangian submanifolds and discuss applications to rigidity and complexity of Lagrangians, as well as potential relations to open problems in Lagrangian topology. This talk is based on joint work with Paul Biran and Octav Cornea.
   </div></li>
