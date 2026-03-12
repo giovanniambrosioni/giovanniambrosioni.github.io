@@ -66,8 +66,15 @@ We will discuss the topological origin of A_infinity-algebras by looking at loop
   </div></li>
 
   </ol>
+### Conferences attended
 
+<style>
+ol { line-height: 2; }
+</style>
 
+<ol reversed>
+  </ol>
+    <li></li>
   <style>
 .abstract-link {
   background: none;
