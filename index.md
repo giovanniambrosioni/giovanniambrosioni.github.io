@@ -25,7 +25,8 @@ title: Home
   <div style="flex: 1; order: 1;">
  <p> I am a PhD student at ETH Zurich under the supervision of Paul Biran.</p>
 
-  <p> I recently defended my PhD thesis "<i>On some quantitative aspects of categorical Lagrangian topology</i>". Here are the <a href="files/difesafinal.pdf">slides</a> of my defense..</p>
+  <p> I recently defended my PhD thesis "<i>On some quantitative aspects of categorical Lagrangian topology</i>". Here are the <a href="files/difesafinal.pdf">slides</a> of my defense.</p>
+  <p> From September 2026 I will be a postdoc at <a href="crmath.ca">CRM</a> at Université de Montreal. From September 2027 I will be a postdoc at the Institut de Mathématiques de Jussieu-Paris Rive Gauche at Sorbonne Unviersité in Paris.</p> 
   
   <p>You can find a recent CV <a href="CurriculumVitae/AcademicCV_210126.pdf">here</a>.</p>
   </div>
