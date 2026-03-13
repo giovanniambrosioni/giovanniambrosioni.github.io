@@ -20,6 +20,7 @@ header_pages:
   - Talks.md
   - teaching.md
   - links.md
+  - interesting-stuff.md
 #  - blog.md
 # La pagine blog e' nascosta. Se inserisci .../blog la puoi visualizzare. 
 # I blog post si fanno creando un file .md in _blog, poi appare automaticamente.
