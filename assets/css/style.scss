@@ -1,8 +1,15 @@
 ---
 ---
 
+
 .wrapper {
-  max-width: 1100px;
+  max-width: 1100px !important;
+}
+
+.page-content,
+.site-header .wrapper,
+.site-footer .wrapper {
+  max-width: 1100px !important;
 }
 
 .blog-list {
@@ -35,10 +42,4 @@
 
 .blog-readmore {
   font-size: 0.9rem;
-}
-
-.page-content,
-.site-header .wrapper,
-.site-footer .wrapper {
-  max-width: 960px;
 }
