@@ -11,13 +11,7 @@ TBD
 
 
 
-<style>
-ol { line-height: 2; }
-</style>
 
-<ol reversed>
-  </ol>
-    <li></li>
   <style>
 .abstract-link {
   background: none;
