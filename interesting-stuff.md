@@ -50,10 +50,10 @@ function toggleAbstract(button) {
   const abstract = button.nextElementSibling;
   if (abstract.style.display === "none" || abstract.style.display === "") {
     abstract.style.display = "block";
-    button.textContent = "Hide abstract";
+    button.textContent = "Hide";
   } else {
     abstract.style.display = "none";
-    button.textContent = "Abstract";
+    button.textContent = "More";
   }
 }
 </script>
