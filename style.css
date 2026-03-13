@@ -30,3 +30,9 @@
 .blog-readmore {
   font-size: 0.9rem;
 }
+
+.page-content,
+.site-header .wrapper,
+.site-footer .wrapper {
+  max-width: 960px;
+}
