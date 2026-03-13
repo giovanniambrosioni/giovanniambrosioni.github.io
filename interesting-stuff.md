@@ -14,7 +14,7 @@ Framing the dysfunction as “Goodhart’s Law” constrains what questions you 
 
 
 
-  <style>
+<style>
 .abstract-link {
   background: none;
   border: none;
