@@ -55,6 +55,3 @@ function toggleAbstract(button) {
   }
 }
 </script>
-
-
-<iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Europe%2FZurich&showPrint=0&src=Z2lvdmFhbWJyby5nYUBnbWFpbC5jb20&src=Yms5dTlwYzJqcDY2NGFhaDAxNzdxOG11YnNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=Y29tMHJrMGlwY3NlNmVyaWxhcjFrb2E3aGNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=ZGZncWl2NDcyMGg2NHFoY200ZG0yZG8wYmtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&src=Y19lZjN1cXVsNXJlNHM4dWUzY2V0aXZ2MzY3Z0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=MmtiM200YTVkZG1kbnF1bXU0czE0YWk5ZW44YTNlZ2pAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&src=OXRmdTR1bjJqMDh0ZDVqMWNkNDRrdm1nbW40bmZvZGRAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&src=ZXZzMjg3M2w5OGh1dm50cjd0cm9vYmlvaHE0b3IwcjdAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&src=cXJnM2t0c2FvdjZiczhyMmoxdmh1bGZuZW10dDAwbmRAaW1wb3J0LmNhbGVuZGFyLmdvb2dsZS5jb20&color=%237986cb&color=%23b39ddb&color=%23f6bf26&color=%239e69af&color=%23ef6c00&color=%23f09300&color=%23009688&color=%23f09300&color=%23f09300" style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no"></iframe>
