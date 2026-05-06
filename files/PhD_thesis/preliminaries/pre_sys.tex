@@ -1,0 +1,815 @@
+\section{Systems of categories with increasing accuracy}\label{se:sys}\label{s:sys-tpc}
+
+In what follows we will deal with families of TPC's that should be
+thought of as approximations of a (currently not yet defined) limit TPC. The
+TPC's occurring in the family are parametrized by a space controlling
+the accuracy-level of their approximation. This situation naturally
+occurs when dealing with Fukaya categories that can be parametrized by
+different choices of perturbation data. The setting and definitions
+below were conceived with the example of Fukaya categories in
+mind. Nevertheless we believe that a general axiomatic framework may
+prove useful in other cases too.
+
+We will axiomatize these notions in three different settings below,
+starting with the most general one - a system of PC's.
+
+\subsection{The case of PC's} \label{sb:sys-pc}
+Let $(\mathcal{P}, \preceq)$ be a directed set (i.e.~a preordered set
+such that
+$\forall \; p', p'' \in \mathcal{P}, \; \exists \; q \in \mathcal{P}$
+with $p', p'' \preceq q$), together with a function
+$\nu: \mathcal{P} \longrightarrow \mathbb{R}_{\geq 0}$ that has the
+following properties:
+\begin{enumerate}
+\item For every $p \preceq q$ we have $\nu(p) \geq \nu(q)$ (i.e.~$\nu$
+  is decreasing with respect to $\preceq$).
+\item For every $\delta>0$ there exists $p \in \mathcal{P}$ such that
+  $\nu(p) \leq \delta$.
+\end{enumerate}
+
+We will refer to $(\mathcal{P}, \preceq , \nu)$ as the parameter space
+for our system of PC's. For brevity we will omit $\preceq$ and $\nu$
+from the notation and simply write $\mathcal{P}$ for the triple. We
+will refer to $\nu(p)$ as the norm or size of the parameter
+$p \in \mathcal{P}$.
+
+Consider now a family
+$\widehat{\msc} = \{\msc_p\}_{p \in \mathcal{P}}$ of PC's $\msc_p$
+parametrized by $p \in \mathcal{P}$. We will denote the shift and
+translation functors of all the $\msc_p$'s by the same notation,
+$\Sigma$ and $T$, respectively. Assume further that for every
+$p \preceq q$ we are given two sets
+$\msj_{p,q} = \mathscr{J}_{p,q}(\widehat{\msc})$,
+$\msj_{q,p} = \mathscr{J}_{q,p}(\widehat{\msc})$, of PC functors
+$\msc_p \longrightarrow \msc_q$, $\msc_q \longrightarrow \msc_p$,
+respectively, with the following properties: \label{pp:sys-functors}
+\begin{enumerate}
+\item $\msj_{p,p} = \{\id_{\msc_p}\}$ for every $p \in \mathcal{P}$.
+\item \label{i:0-iso-sys-1} If $p \preceq q$ then all the functors in
+  $\msj_{p,q}$ are mutually $0$-isomorphic. More specifically, for
+  every two functors $\msf, \msg \in \msj_{p,q}$ there is a natural
+  isomorphism $\msf \cong \msg$ of persistence level $0$ (in other
+  words, $\msf$ and $\msg$ are isomorphic in the $0$-level category
+  $\text{pc-fun}^0(\msc_p, \msc_q)$ of the PC of PC-functors
+  $\text{pc-fun}(\msc_p, \msc_q)$). Here and in what follows we will
+  abbreviate this by writing $\msf \cong_0 \msg$. Furthermore, we
+  require the same thing also for any two functors in $\msj_{q,p}$.
+\item \label{i:0-iso-sys-2} If $p \preceq q \preceq r$ then for every
+  $\msf \in \msj_{p,q}$, $\msg \in \msj_{q,r}$, $\msh \in \msj_{p,r}$
+  we have $\msg \circ \msf \cong_0 \msh$.
+\item \label{i:d-int-func} If $p \preceq q$ then for every
+  $\msf \in \msj_{p,q}$ and $\msh \in \msj_{q,p}$ we have
+  $$\dint(\msh \circ \msf, \id_{\msc_p}), \, \dint(\msf \circ
+  \msh, \id_{\msc_q}) \leq C | \nu(p) - \nu(q)|,$$ for some constant
+  $C$ that depends only on the entire family $\widehat{\msc}$ but
+  neither on $p, q$ nor on $\msf, \msg$. Here the two $\dint$'s
+  stand for the interleaving distances on the PC's of PC functors
+  $\msc_p \longrightarrow \msc_p$ and $\msc_q \longrightarrow \msc_q$.
+\end{enumerate}
+In what follows we will denote by $\widehat{\msc}$ the entire data
+above, namely both the family of categories
+$\{\msc_p\}_{p \in \mathcal{P}}$ as well the sets of functors
+$\msj_{p,q}$ and refer to $\widehat{\msc}$ as a {\em system of PC's
+  with increasing accuracy}, or sometimes a {\em system of PC's} for
+short. We will call the functors in $\msj_{p,q}$ comparison functors
+and typically denote such a functor by
+$\msh_{p,q}: \msc_p \longrightarrow \msc_q$.
+
+
+\begin{rem} \label{rem:pc-limits}
+  \begin{enumerate}
+  \item Given a system $\widehat{\msc}$ of PC's with increasing accuracy,
+    all the $\infty$-level categories $\msc^{\infty}_p$, corresponding
+    to the PC's $\msc_p$ in the system $\widehat{\msc}$, are mutually
+    equivalent. From the persistence viewpoint, as $p$ ``grows'' (with
+    respect to $\preceq$) the comparison between $\msc_p$ and
+    $\msc_q$ for $p \preceq q$ becomes more and more
+    precise. \label{i:rem-PC-1}
+  \item A single PC $\msc$ makes a special case of the definition
+    above. We can view it as a system of PC's parametrized by a
+    $1$-point parameter space $\mathcal{P} = \{*\}$. In this case we
+    set the norm function $\nu$ to be trivial, $\nu(*) =0$.
+  \end{enumerate}
+\end{rem}
+
+
+
+\subsection{Functors of systems of PC's} \label{sbsb:func-sys-pc}
+Next we discuss functors between systems of PC's with increasing
+accuracy. Let $\widehat{\msc}$ and $\widehat{\msd}$ be two systems of
+PC's with increasing accuracy. Whenever we need to distinguish between
+the additional structures of each of the systems $\widehat{\msc}$ and
+$\widehat{\msd}$ we will use $\widehat{\msc}$ and $\widehat{\msd}$
+subscripts or superscripts, depending on notational convenience (for
+example, the parameter space of $\widehat{\msc}$ will be denoted
+$\mathcal{P}_{\widehat{\msc}}$, the comparison functors
+$\msh_{p,q}^{\widehat{\msc}}$, etc. but we will denote the preorders
+and size of parameters in both systems by $\preceq$ and $\nu$
+respectively).
+
+A functor
+$\widehat{\msf} : \widehat{\msc} \longrightarrow \widehat{\msd}$
+consists of the following structures:
+\begin{enumerate}
+\item A map
+  $\widehat{\msf}: \mathcal{P}_{\widehat{\msc}} \longrightarrow
+  \mathcal{P}_{\widehat{\msd}}$ between the parameter spaces of
+  $\widehat{\msc}$ and of $\widehat{\msd}$ (which for simplicity we
+  have denoted by $\widehat{\msf}$ too). 
+\item A family of PC functors
+  $\bigl\{ \msf_p: \msc_p \longrightarrow
+  \msd_{\widehat{\msf}(p)}\bigr\}_{p \in
+    \mathcal{P}_{\widehat{\msc}}}$, parametrized by
+  $\mathcal{P}_{\widehat{\msc}}$.
+\end{enumerate}
+These two structures are required to have the following additional
+properties. The map $\widehat{\msf}$ from~(1) above should satisfy
+that for every $p,q \in \mathcal{P}_{\widehat{\msc}}$ with
+$p \preceq q$ we have $\widehat{\msf}(p) \preceq
+\widehat{\msf}(q)$. Moreover, we require that
+$\nu(\widehat{\msf}(p)) \leq \nu(p)$ for every
+$p \in \mathcal{P}_{\widehat{\msc}}$. The functors $\msf_p$ are
+required to satisfy the following two conditions. First, for every
+$p \preceq q$ in $\mathcal{P}_{\widehat{\msc}}$ and any choices of
+comparison functors $\msh^{\widehat{\msc}}_{p,q}$,
+$\msh^{\widehat{\msd}}_{\widehat{\msf}(p), \widehat{\msf}(q)}$ the
+following diagram:
+\begin{equation} \label{sys-fun-diag-1} \xymatrixcolsep{3pc}
+  \xymatrixrowsep{3pc} \xymatrix{ \msc_p \ar[r]^-{\msf_p}
+    \ar[d]_-{\msh^{\widehat{\msc}}_{p,q}} & \msd_{\widehat{\msf}(p)}
+    \ar[d]^-{\msh^{\widehat{\msd}}_{\widehat{\msf}(p), \widehat{\msf}(q)}}\\
+    \msc_q \ar[r]^-{\msf_q} & \msd_{\widehat{\msf}(q)}}
+\end{equation}
+commutes up to natural isomorphisms in the $0$-level category
+$\text{pc-fun}^0(\msc_p, \msd_{\widehat{\msf}(q)})$ of the PC of
+PC-functors $\text{pc-fun}(\msc_p, \msd_{\widehat{\msf}(q)})$.
+Similarly, we also require that for every $p \preceq q$ in
+$\mathcal{P}_{\widehat{\msc}}$ and every choice of comparison functors
+$\msh^{\widehat{\msc}}_{q,p}$,
+$\msh^{\widehat{\msd}}_{\widehat{\msf}(q), \widehat{\msf}(p)}$ the
+diagram:
+\begin{equation} \label{sys-fun-diag-2} \xymatrixcolsep{3pc}
+  \xymatrixrowsep{3pc} \xymatrix{ \msc_p \ar[r]^-{\msf_p} &
+    \msd_{\widehat{\msf}(p)}
+    \\
+    \msc_q \ar[u]^-{\msh^{\widehat{\msc}}_{p,q}} \ar[r]^-{\msf_q} &
+    \msd_{\widehat{\msf}(q)}
+    \ar[u]_-{\msh^{\widehat{\msd}}_{\widehat{\msf}(p),
+        \widehat{\msf}(q)}} }
+\end{equation}
+commutes up to natural isomorphisms in the $0$-level category
+$\text{pc-fun}^0(\msc_q, \msd_{\widehat{\msf}(p)})$ of the PC of
+PC-functors $\text{pc-fun}(\msc_q, \msd_{\widehat{\msf}(p)})$.
+
+It remains to define natural transformations between functors of
+systems of PC's. Let $\widehat{\msc}, \widehat{\msd}$ be two systems of PC's and
+$\widehat{\msf}, \widehat{\msg}: \widehat{\msc} \longrightarrow
+\widehat{\msd}$ two functors having the same action on the parameter
+spaces (i.e.~the two maps
+$\widehat{\msf}, \widehat{\msg}: \mathcal{P}_{\widehat{\msc}}
+\longrightarrow \mathcal{P}_{\widehat{\msd}}$ coincide). A natural
+transformation
+$\widehat{\theta}: \widehat{\msf} \longrightarrow \widehat{\msg}$ of
+shift $s \in \mathbb{R}$, consists of a family of persistence natural
+transformations $\theta_p : \msf_p \longrightarrow \msg_p$ for every
+$p \in \mathcal{P}$ each of which of shift $s$. In addition the
+$\theta_p$ are required to have the following weak compatibility with
+the comparison functors. For every $p \preceq q$ and every
+$X \in \Ob(\msc_p)$ there exist $0$-isomorphisms
+$$\tau_{p,q}: \msh_{\widehat{\msf}(p), \widehat{\msf}(q)}(\msf_p (X))
+\longrightarrow \msf_q (\msh_{p,q}(X)), \quad \sigma_{p,q}:
+\msh_{\widehat{\msf}(p), \widehat{\msf}(q)}(\msg_p(X)) \longrightarrow
+\msg_q(\msh_{p,q}(X)),$$ such that
+$$\sigma_{p,q} \circ \msh_{\widehat{\msf}(p), \widehat{\msf}(q)}(\theta_p(X)) = 
+\theta_q(\msh_{p,q}(X)) \circ \tau_{p,q}$$ in
+$\hom_{\msd_{\widehat{\msf}(q)}} \bigl( \msh_{\widehat{\msf}(p),
+  \widehat{\msf}(q)}(\msf_p (X)), \msg_q(\msh_{p,q}(X))
+\bigr)$. Finally, we require a similar compatibility also with the
+comparison functors $\msh_{q,p}$.
+
+\subsection{The case of TPC's} \label{sb:sys-tpc} A system of TPC's
+with increasing accuracy is simply a system $\widehat{\msc}$ of PC's
+as in~\S\ref{sb:sys-pc} with the following additional
+assumptions. Each of the categories $\msc_p$, $p \in \mathcal{P}$, in
+the system is assumed to be a TPC. Moreover, all the functors in the
+collections $\msj_{p,q}$ and $\msj_{q,p}$ are assumed to be TPC
+functors. The notion of functors of PC's (and natural transformations
+between them) from~\S\ref{sbsb:func-sys-pc} extends to the setting of
+systems of TPC's in a straightforward way, by just requiring the
+functors ${\msf}_p$ to be TPC functors.
+
+Note also that point~\eqref{i:rem-PC-1} of Remark~\ref{rem:pc-limits}
+carries over to systems
+$\widehat{\msc} = \{\msc_p\}_{p \in \mathcal{P}}$ of TPC's, namely the
+$\infty$-levels $\msc^{\infty}_p$, $p \in \mathcal{P}$, are mutually
+equivalent in the triangulated sense.
+
+
+
+\subsection{Systems of filtered
+  $A_{\infty}$-categories} \label{sb:sys-ainfty} There is also a
+notion of system of filtered $A_{\infty}$-categories with increasing
+accuracy. The definition is analogous to that given for a system of
+PC's in~\S\ref{sb:sys-pc} above, but with one significant change
+regarding the comparison functors between the $q$th-category and the
+$p$th one when $p \preceq q$.
+
+In the $A_{\infty}$-case a system of categories with increasing
+accuracy consists of the following. A family
+$\widehat{\mathcal{A}} = \{\mathcal{A}_p\}_{p \in \mathcal{P}}$ of
+filtered $A_{\infty}$-categories $\mathcal{A}_p$, parametrized by
+$p \in \mathcal{P}$. Note that we do not assume these
+$A_{\infty}$-categories to be pretriangulated. The parameter space
+$\mathcal{P}$ is endowed with the same structures $\nu$ and $\preceq$
+as in~\S\ref{sb:sys-tpc}. For $p, q \in \mathcal{P}$ with
+$p \preceq q$ we have two collections $\mathcal{J}_{p,q}$ and
+$\mathcal{J}_{q,p}$ of comparison $A_{\infty}$-functors with the
+following properties. The functors
+$\mathcal{H}_{p,q} \in \mathcal{J}_{p,q}$ from the first collection
+are filtered $A_{\infty}$-functors. The functors
+$\mathcal{H}_{q,p} \in \mathcal{J}_{q,p}$ from the second collection
+are assumed to be $A_{\infty}$-functors
+$\mathcal{H}_{q,p}: \mathcal{A}_q \longrightarrow \mathcal{A}_p$ with
+linear deviation rate $\leq C | \nu(p) - \nu(q)|$, for some constant
+$C$ that depends only on $\widehat{\mathcal{A}}$ (and not on $p,
+q$). Moreover, the functors from $\mathcal{J}_{p,q}$ and
+$\mathcal{J}_{q,p}$ are assumed to satisfy the $A_{\infty}$-analogs of
+the properties listed in~\S\ref{sb:sys-tpc} on
+page~\pageref{pp:sys-functors}, with the following obvious
+modifications. Instead of $0$-isomorphisms $\cong_0$ between two
+functors mentioned at points~\eqref{i:0-iso-sys-1}
+and~\eqref{i:0-iso-sys-2} on page~\pageref{pp:sys-functors} we will
+now require that we have $0$-isomorphisms between the respective functors in the persistence homology category of the
+filtered $A_{\infty}$-functors
+$PH (F\text{fun}_{A_{\infty}}(\mathcal{A}_p, \mathcal{A}_q))$, and
+similarly for the comparison functors in
+$PH(\text{fun}^{\text{LD}}(\mathcal{A}_q, \mathcal{A}_p))$. The
+assumptions in point~\eqref{i:d-int-func} on
+page~\pageref{pp:sys-functors} will be now replaced by requiring 
+$\dint(\mathcal{F} \circ \mathcal{H}, \id) \leq C | \nu(p) - \nu(q)|$
+for the interleaving distance on
+$PH (\text{fun}_{A_{\infty}}(\mathcal{A}_p, \mathcal{A}_p))$, and
+similarly for $\dint(\mathcal{H} \circ \mathcal{F}, \id)$.
+
+The notion of functors between systems of PC's (as well as natural
+transformations between them) has an $A_{\infty}$-analog, following
+the preceding principle.
+
+\subsection{Modules and Yoneda embeddings of
+  systems} \label{sbsb:yoneda-sys}
+
+Let $\widehat{\mathcal{A}} = \{\mathcal{A}_p\}_{p \in \mathcal{P}}$ be
+a system of filtered $A_{\infty}$-categories. Denote by
+$F\md_{\mathcal{A}_p}$ the $A_{\infty}$-category of filtered
+$\mathcal{A}_p$-modules. Recall that this is a filtered
+$A_{\infty}$-category (in fact a filtered dg-category). These
+categories fit into a system
+$$F\md(\widehat{\mathcal{A}}) := \{ F\md_{\mathcal{A}_p} \}_{p \in
+  \mathcal{P}}$$ of filtered $A_{\infty}$-categories, where for
+$p \preceq q$ the comparison functors
+$$(\mathcal{H}_{p,q})_* : F\md_{\mathcal{A}_p} \longrightarrow
+F\md_{\mathcal{A}_q}$$ are just the push-forward functors induced by
+the comparison functors $\mathcal{H}_{p,q}$ of the system
+$\widehat{\mathcal{A}}$, and similarly for $(\mathcal{H}_{q,p})_*$.
+Since the comparison functors $\mathcal{H}_{p,q}$, for $p \preceq q$,
+are filtered the same holds for $(\mathcal{H}_{p,q})_*$. As for the
+functors in the opposite direction, interestingly the pushforward
+functors $(\mathcal{H}_{q,p})_*$ behave somewhat better than the
+$\mathcal{H}_{q,p}$ in the following sense. While $\mathcal{H}_{q,p}$
+are not really filtered functors but only LD functors, the induced
+comparison functors $(\mathcal{H}_{q,p})_*$ are genuinely
+filtered. This is a very nice feature of the filtered push-forward
+construction (see~\S\ref{ap:pshf}). However, note that it is still the
+case that $(\mathcal{H}_{p,q})_* \circ (\mathcal{H}_{q,p})_*$ is only
+$r$-quasi-isomorphic to $\id$, for $r = C | \nu(p) - \nu(q)|$, and the
+same for $(\mathcal{H}_{q,p})_* \circ (\mathcal{H}_{p,q})_*$.
+
+
+We now turn to Yoneda embeddings of systems. Let
+$\widehat{\mathcal{A}}$ be a system of filtered
+$A_{\infty}$-categories as above. Denote by 
+$$\mathcal{Y}_p: \mathcal{A}_p \longrightarrow F\md_{\mathcal{A}_p}$$ 
+the filtered Yoneda embedding (see~\S\ref{gio:fyon-def}), and let
+$(\mathcal{Y}_p(\mathcal{A}_p))^{(\text{q-iso},0)}$ be the minimal
+full subcategory of $F\md_{\mathcal{A}_p}$ which contains the objects
+$\mathcal{Y}_p(\Ob(\mathcal{A}_p))$ and is also closed with respect to
+$0$-quasi-isomorphisms. Note that the comparison functors
+$(\mathcal{H}_{p,q})_*$ and $(\mathcal{H}_{q,p})_*$ preserve these
+subcategories. The main point here is that for every
+$A \in \Ob(\mathcal{A}_p)$ and $p \preceq q$ the modules
+$(\mathcal{H}_{p,q})_* \mathcal{Y}_p(A)$ and
+$\mathcal{Y}_q(\mathcal{H}_{p,q}(A))$ are
+$0$-quasi-isomorphic. Similarly, for every $B \in \Ob(\mathcal{A}_q)$
+the modules $(\mathcal{H}_{q,p})_*(\mathcal{Y}_q(B))$ and
+$\Sigma^r \mathcal{Y}_p(\mathcal{H}_{q,p}(B))$ are
+$0$-quasi-isomorphic, where $r \leq C |\nu(p) - \nu(q)|$ is the
+deviation rate of the LD functor $\mathcal{H}_{q,p}$. Recall that our
+categories $\mathcal{A}_p$ are endowed with a shift functor $\Sigma$,
+hence the categories $\mathcal{Y}(A_p)$ and
+$(\mathcal{Y}_p(\mathcal{A}_p))^{(\text{q-iso},0)}$ are both closed
+under shifts.
+
+It follows that the categories
+$(\mathcal{Y}_p(\mathcal{A}_p))^{(\text{q-iso},0)}$,
+$p \in \mathcal{P}$, together with the restrictions of the
+push-forward comparison functors $(\mathcal{H}_{p,q})_*$,
+$(\mathcal{H}_{q,p})_*$ to them, form a system of filtered
+$A_{\infty}$-categories (which can be viewed as a subsystem of
+$F\md(\widehat{\mathcal{A}})$). We denote this system by
+$\mathcal{Y}(\widehat{\mathcal{A}})$ and call it the Yoneda system of
+$\widehat{\mathcal{A}}$.
+
+\subsection{Systems of PC's associated with systems of
+  $A_{\infty}$-categories} \label{sbsb:sys-ai-pc} Given a system of
+filtered $A_{\infty}$-categories
+$\widehat{\mathcal{A}} = \{ \mathcal{A}_p\}_{p \in \mathcal{P}}$ one
+can obtain a system of PC's by passing to persistence
+homology. However, there is a small subtlety in this procedure. The
+corresponding system $\{PH(\mathcal{A}_p)\}_{p \in \mathcal{P}}$ of
+persistence homological categories is not really a system of PC's,
+because for $p \preceq q$ the $A_{\infty}$-functors from
+$\mathcal{J}_{q,p}$ are not filtered but only LD functors, hence do not
+induce PC functors
+$PH(\mathcal{A}_q) \longrightarrow PH(\mathcal{A}_p)$. However this
+problem can be rectified by passing to the Yoneda system introduced
+earlier in~\S\ref{sbsb:yoneda-sys}. More precisely, consider the
+Yoneda system $\mathcal{Y}(\widehat{\mathcal{A}})$ of
+$\widehat{\mathcal{A}}$. Recall from~\S\ref{sbsb:yoneda-sys} that this
+is (genuine) system of filtered $A_{\infty}$-categories. Define
+$$PH(\widehat{\mathcal{A}}) :=
+\{PH((\mathcal{Y}_p(\mathcal{A}_p))^{(\text{q-iso},0)})\}_{p \in
+  \mathcal{P}}$$ to be system consisting of the persistence homology
+categories of $(\mathcal{Y}_p(\mathcal{A}_p))^{(\text{q-iso},0)}$
+forming the Yoneda system $\mathcal{Y}(\widehat{\mathcal{A}})$. The
+comparison functors $\msh_{p,q}$ are defined to be the persistence
+homology functors induced by the $(\mathcal{H}_{p,q})_*$,
+i.e.~$\msh_{p,q} := PH((\mathcal{H}_{p,q})_*)$ and similarly for
+$\msh_{q,p}$.
+  
+
+
+% More precisely, denote by $\mathcal{Y}$ the Yoneda embedding functor
+% and consider the $A_{\infty}$-categories
+% $\mathcal{Y}(\mathcal{A}_p)^{\ziso}$, $p \in \mathcal{P}$, of filtered
+% Yoneda modules (namely, the images of $\mathcal{A}_p$ under the Yoneda
+% embedding followed by a completion with respect to to
+% $0$-quasi-isomorphisms; see~\S\ref{sbsb:comp}).  For $p \preceq q$,
+% the comparision functors $\mathcal{H}_{p,q}$ and $\mathcal{H}_{q,p}$
+% induce now push forward functors
+% $(\mathcal{H}_{p,q})_*: \mathcal{Y}(\mathcal{A}_p)^{\ziso}
+% \longrightarrow \mathcal{Y}(\mathcal{A}_q)^{\ziso}$ and
+% $(\mathcal{H}_{q,p})_*: \mathcal{Y}(\mathcal{A}_q)^{\ziso}
+% \longrightarrow \mathcal{Y}(\mathcal{A}_p)^{\ziso}$. The important
+% point now is that both of these functors are filtered. This is clear
+% for $(\mathcal{H}_{p,q})_*$ (since $\mathcal{H}_{p,q}$ is filtered),
+% but it also holds for $(\mathcal{H}_{q,p})_*$ since
+% $\mathcal{H}_{q,p}$ has linear deviation.
+
+% We now define
+% $PH(\widehat{A}) := \{PH(\mathcal{Y}(\mathcal{A}_p)^{\ziso})\}_{p \in
+%   \mathcal{P}}$ and obtain a system of PC's. It has the same parameter
+% space $\mathcal{P}$, the same preorder $\preceq$, and size function
+% $\nu$. The comparison functors
+% $\msh_{p,q} = PH((\mathcal{H}_{p,q})_*)$ are the persistence homology
+% functors induced from $(\mathcal{H}_{p,q})_*)$ and the same for
+% $\msh_{q,p}$.
+
+The assignment
+$\widehat{\mathcal{A}} \longmapsto PH(\widehat{\mathcal{A}})$ extends
+to a functor
+$\text{SYS}_{F A_{\infty}} \longrightarrow \text{SYS}_{\text{PC}}$
+between the category of systems of filtered $A_{\infty}$-categories
+and the category of systems of PC's. This functor assigns to a functor
+$\widehat{\mathcal{F}} : \widehat{\mathcal{A}} \longrightarrow \widehat{\mathcal{B}}$
+between systems of filtered $A_{\infty}$-categories a functor
+$PH(\widehat{\mathcal{F}}): PH(\widehat{\mathcal{A}}) \longrightarrow
+PH(\widehat{\mathcal{B}})$ between the corresponding systems of PC's and this
+correspondence behaves as expected on natural transformations between
+such functors.
+
+Finally, we remark that if
+$\widehat{\mathcal{B}} = \{\mathcal{B}_p\}_{p \in \mathcal{P}}$ is a systems of
+pre-triangulated filtered $A_{\infty}$-categories then the
+corresponding system $PH(\widehat{\mathcal{B}})$ of PC's is in fact a
+system of TPC's. For the rest of this paper, the most important
+example in this context will be the following. Let
+$\widehat{\mathcal{A}} = \{\mathcal{A}_p\}_{p \in \mathcal{P}}$ be a
+system of filtered $A_{\infty}$-categories. Consider the Yoneda system
+$\mathcal{Y}(\widehat{\mathcal{A}})$ as defined
+in~\S\ref{sbsb:yoneda-sys}. By applying the construction
+from~\S\ref{sbsb:fmod} to each category that participates in the
+latter system we obtain a new system
+$\mathcal{Y}(\mathcal{\widehat{A}})^{\Delta} =
+\{\mathcal{Y}(\mathcal{A}_p)^{\Delta} \}_{p \in \mathcal{P}}$ of
+filtered pre-triangulated categories. The comparison functors for this
+system are induced from those of the Yoneda system
+(see~\S\ref{sbsb:yoneda-sys}). This works since filtered and LD
+$A_{\infty}$-functors preserve triangulated completions as defined
+in~\S\ref{sbsb:fmod}. We now pass to persistence homology and define
+the following system of TPC's:
+\begin{equation} \label{eq:PDA-sys} PD(\widehat{\mathcal{A}}) :=
+  \{PH(\mathcal{Y}(\mathcal{A}_p)^{\Delta})\}_{p \in \mathcal{P}}.
+\end{equation}
+We call this system the {\em persistence derived system of}
+$\widehat{\mathcal{A}}$.
+
+
+\subsection{Systems with a coherent base of
+  objects} \label{sbsb:sys-base} Let
+$\widehat{\msc} = \{\msc_p\}_{p \in \mathcal{P}}$ be a system of PC's
+with increasing accuracy. A coherent base of objects $\{mathscr\}{B}$ for
+$\widehat{\msc}$ is a family of subsets
+  $\mathscr{B} = \{\mathscr{B}_p\}_{p \in \mathcal{P}}$ of objects
+  $\mathscr{B}_p \subset \Ob(\msc_p)$ for every $p \in \mathcal{P}$,
+satisfying the following properties:
+\begin{enumerate}
+\item For every $p \preceq q$, every two comparison functors
+  $\msh'_{p,q}, \msh''_{p,q} \in \mathscr{J}_{p,q}$ and every
+  $A \in \mathscr{B}_p$ we have $\msh'_{p,q}(A) = \msh''_{p,q}(A)$ and
+  $\msh'_{p,q}(A) \in \mathscr{B}_q$. We require the analogous
+  properties to hold also for every two comparison functors
+  $\msh'_{q,p}, \msh''_{q,p} \in \mathscr{J}_{q,p}$ and every
+  $B \in \mathscr{B}_q$.
+\item For every $p \preceq q \preceq r$, every two comparison functors
+  $\msh_{p,q} \in \mathscr{J}_{p,q}$,
+  $\msh_{q,r} \in \mathscr{J}_{q,r}$ and every $A \in \mathscr{B}_p$
+  we have $\msh_{q,r}(\msh_{p,q}(A)) = \msh_{p,r}(A)$. We require the
+  analogous properties to hold also for all comparison functors going
+  in the other direction, namely for $\msh_{r,q}$, $\msh_{q,p}$,
+  $\msh_{r,p}$ and
+  every object $B \in \mathscr{B}_r$.
+\item For every $p \preceq q$, every choice of comparison functors
+  $\msh_{p,q}$, $\msh_{q,p}$ and every $A \in \mathscr{B}_p$,
+  $B \in \mathscr{B}_q$ we have $\msh_{q,p}(\msh_{p,q}(A)) = A$,
+  $\msh_{p,q}(\msh_{q,p}(B)) = B$.
+\end{enumerate}
+It follows from the definition above that for every
+$p', p'' \in \mathcal{P}$ we have a canonical bijection
+$\mathscr{B}_{p'} \longrightarrow \mathcal{B}_{p''}$, namely
+$\msh_{q, p''} \circ \msh_{p', q}$ where $q \in \mathcal{P}$ is any
+element with $q \succeq p', p''$.
+
+One can define functors between systems of PC's with a coherent base
+of objects in a straightforward way.
+
+The concept of systems with a coherent base of objects (as well
+functors between such) carries over without any modification also to
+the case of systems of filtered $A_{\infty}$-categories.
+
+A special case of a system of categories (filtered $A_{\infty}$ or
+PC's) with a coherent base of objects that will appear later is when
+$\mathscr{B}_p = \Ob(\msc_p)$ for every $p \in \mathcal{P}$. We will
+refer to such a situation as a {\em coherent full base of objects}.
+In the following we will encounter an even simpler situation, where
+all the categories $\msc_p$, $p \in \mathcal{P}$, have the same set of
+objects (i.e.~$\Ob(\mathcal{C}_{p'}) = \Ob(\mathcal{C}_{p''})$ for
+every $p', p'' \in \mathcal{P}$) and all the comparison functors act
+like the identity on objects, namely $\msh_{p,q}(X) = X$ for every
+$p \preceq q$, every comparison functor $\msh_{p,q}$, and
+$X \in \Ob(\mathcal{C}_{p})$. In this case we will view the coherent
+base $\mathscr{B}$ as a single set rather than a family, and set
+$\mathscr{B} = \Ob(\mathcal{C}_p)$ for any $p \in \mathcal{P}$.  We
+will call this type of systems by the name {\em system of categories
+  (PC's or filtered $A_{\infty}$-categories) with a fixed full base of
+  objects}.
+
+\begin{rem} \label{r:coh-base} Consider a system of filtered
+  $A_{\infty}$-categories
+  $\widehat{\mathcal{A}} = \{\mathcal{A}_p\}_{p \in \mathcal{P}}$ with
+  a fixed full base of objects $\mathcal{B}$. Let
+  $F\md(\widehat{\mathcal{A}})$ be the corresponding system of
+  filtered modules over the $\mathcal{A}_p$'s and
+  $\mathcal{Y}(\widehat{\mathcal{A}})$ be the Yoneda system of
+  $\widehat{\mathcal{A}}$ (see~\S\ref{sbsb:yoneda-sys}). Unlike
+  $\widehat{\mathcal{A}}$ these other two systems do not have a fixed
+  (or even coherent) full base of objects. The reason is that the
+  comparison functors for $F\md(\widehat{\mathcal{A}})$ and
+  $\mathcal{Y}(\widehat{\mathcal{A}})$ are the ``module push-forward''
+  functors $\mathcal{H}_*$ induced from the comparison functors
+  $\mathcal{H}$ of $\widehat{\mathcal{A}}$ and these do not satisfy
+  the conditions required for a coherent base of objects. More
+  specifically, for $p \preceq q \preceq r$, the functors
+  $(\mathcal{H}_{q,r})_* \circ (\mathcal{H}_{p,q})_*$ and
+  $(\mathcal{H}_{q,r})_*$ do not act in the same way on filtered
+  modules (though the images of a module under these two functors are
+  $0$-quasi-isomorphic). Similarly, the push forward
+  $(\mathcal{H}_{p,q})_* \mathcal{Y}(X)$ of a Yoneda module is not a
+  Yoneda module but only $0$-quasi-isomorphic to a Yoneda module.
+\end{rem}
+
+
+\subsection{Homotopy systems} \label{sbsb:homotopy-sys}
+
+Let $\widehat{\mathcal{A}} = \{\mathcal{A}_p\}_{p \in \mathcal{P}}$ be
+a system of filtered $A_{\infty}$-categories with a coherent full base
+of objects. We say that the system $\widehat{\mathcal{A}}$ is a {\em
+  homotopy system} if the following conditions hold:
+\begin{enumerate}
+\item For every $p \preceq q$ in $\mathcal{P}$, and every two
+  comparison functors
+  $\mathcal{H}'_{p,q}, \mathcal{H}''_{p,q} \in \mathcal{J}_{p,q}$
+  there is a homotopy
+  $$T \in \hom_{F \text{fun}(\mathcal{A}_p,
+    \mathcal{A}_q)}^0(\mathcal{H}'_{p,q}, \mathcal{H}''_{p,q})$$
+  between $\mathcal{H}'_{p,q}$ and $\mathcal{H}''_{p,q}$ that does not
+  shift filtrations. From now on we will call such $T$'s
+  $0$-homotopies and say that $\mathcal{H}'_{p,q}$ and
+  $\mathcal{H}''_{p,q}$ are $0$-homotopic, and the superscript in
+  $\hom^0$ stands for pre-natural transformations of filtration level
+  $0$ (i.e.~they preserve filtrations). We refer
+  to~\cite[Section~(1h)]{Se:book-fukaya-categ} for the definition of
+  homotopy between $A_{\infty}$-functors in the unfiltered case.
+\item For every $p \preceq q$ in $\mathcal{P}$,  every two
+  comparison functors
+  $\mathcal{H}'_{q,p}, \mathcal{H}''_{q,p} \in \mathcal{J}_{q,p}$ are
+  $0$-homotopic as LD-functors with deviation rate
+  $C|\nu(p) - \nu(q)|$, where $C$ is the constant associated with the
+  family $\widehat{\mathcal{A}}$ that appears in the definition of
+  systems of filtered $A_{\infty}$-categories
+  in~\S\ref{sb:sys-ainfty}. Specifically, this means that there exists
+  a homotopy $T$ between the LD-functors
+  $(\mathcal{H}'_{q,p}, C|\nu(p) - \nu(q)|)$ and
+  $(\mathcal{H}''_{q,p}, C|\nu(p) - \nu(q)|)$ of shift $0$, namely its
+  $d$th order $T_d$ shifts filtrations by $\leq d C|\nu(p) -
+  \nu(q)|$. See~\S\ref{a:func-LD}.
+\item For every $p \preceq q \preceq r$ in $\mathcal{P}$ and every
+  choices of comparison functors $\mathcal{H}_{p,q}$,
+  $\mathcal{H}_{q,r}$, $\mathcal{H}_{p,r}$ we have that
+  $\mathcal{H}_{q,r} \circ \mathcal{H}_{p,q}$ and $\mathcal{H}_{p,r}$
+  are $0$-homotopic.
+\end{enumerate}
+
+\subsection{Invariants of systems} \label{sb:sys-inv} Systems of
+categories $\widehat{\msc} = \{\msc_p\}_{p \in \mathcal{P}}$ with
+increasing accuracy call for considering their limits (or rather
+colimits) when the parameter $p \in \mathcal{P}$ goes to ``infinity''
+(or equivalently when the accuracy-levels $\nu(p)$ converges to
+$0$). In other words, it would be desirable to be able to define a
+colimit category $\colim_{p \in \mathcal{P}} \msc_p$ which will have
+the same structures (e.g.~PC or TPC structures, filtered
+$A_{\infty}$-structure etc.) as the categories $\msc_p$ forming the
+family $\widehat{\msc}$. This seems a non-trivial foundational problem
+and we will not attempt to solve it in this paper. Instead, we will
+show that some algebraic invariants and measurements associated with
+the categories $\msc_p$ do admit colimits, even without having a
+colimit category. We will concentrate on three such invariants (each
+of which is defined in a different settings): the interleaving
+(pseudo)-distance on the set of objects of a PC, the Grothendieck
+groups $K_0$ of triangulated categories and Hochschild homologies of
+$A_{\infty}$-categories.
+
+We begin with a useful equivalence relation on the totality of
+  objects of a system of categories.  \label{p:equiv-ob} Let
+  $\widehat{\msc} = \{\msc_p\}_{p \in \mathcal{P}}$ be a system of
+  PC's with increasing accuracy. Consider
+  $$\Ob^{\text{tot}}(\widehat{\msc}) := \coprod_{p\in \mathcal{P}}
+  \Ob(\msc_p)$$ and denote elements of this set by $(A,p)$ with
+  $p \in \mathcal{P}$ and $A \in \msc_p$. Define an equivalence
+  relation $\sim_{\widehat{\msc}}$ on
+  $\Ob^{\text{tot}}(\widehat{\msc})$ as follows:
+  $(A', p') \sim_{\widehat{\msc}} (A'', p'')$ if there exists
+  $q \in \mathcal{P}$ with $p',p'' \preceq q$ such that
+  $\msh_{p',q}(A') \cong_0 \msh_{p'',q}(A'')$ for some comparison
+  functors $\msh_{p',q} \in \msj_{p',q}$ and
+  $\msh_{p'',q} \in \msj_{p'',q}$. Here $\cong_0$ means an isomorphism
+  in $\msc_q^0$. (Since all the functors in each of $\msj_{p',q}$,
+  $\msj_{p'',q}$, are mutually $0$-isomorphic, requiring that
+  $\msh_{p',q}(A') \cong_0 \msh_{p'',q}(A'')$ for some
+  $\msh_{p',q} \in \msj_{p',q}$, $\msh_{p'',q} \in \msj_{p'',q}$, is
+  the same as to ask that the same property holds for {\em all}
+  $\msh_{p',q} \in \msj_{p',q}$, $\msh_{p'',q} \in \msj_{p'',q}$.)
+  Clearly if $A', A'' \in \Ob(\msc_p)$ are $0$-isomorphic then
+  $(A', p) \sim_{\widehat{\msc}} (A'',p)$, but in general the
+  equivalence relation $\sim_{\widehat{\msc}}$ may relate more objects
+  belonging to categories parametrized by different $p$'s.
+Denote by $\widetilde{\Ob}(\widehat{\msc})$ the equivalence
+  classes of $\sim_{\widehat{\msc}}$.  Given
+  $\mathcal{S} \subset \widetilde{\Ob}(\widehat{\msc})$ and
+  $p \in \mathcal{P}$ we write
+$$\mathcal{S}_p := \{ A \in \Ob(\msc_p) \mid [A]_{\widehat{\msc}}
+\in \mathcal{S}\},$$ where $[A]_{\widehat{\msc}}$ stands for the
+equivalence class of $A$ in $\widetilde{\Ob}(\widehat{\msc})$.  We
+will use the same notation $\mathcal{S}_p$ also when we deal with just
+one element $\mathcal{S} \in \widetilde{\Ob}(\widehat{\msc})$.
+
+We will define now a pseudo distance on
+  $\widetilde{\Ob}(\widehat{\msc})$ induced by the interleaving
+  distances on the $\msc_p$'s.
+  Denote by $d^p_{\text{int}}$
+  the interleaving (pseudo) distance on $\Ob(\msc_p)$. We define the
+  following measurement on pairs of elements
+  $\widetilde{X}, \widetilde{Y} \in \widetilde{\Ob}(\widehat{\msc})$:
+\begin{equation} \label{eq:dist-lim}
+  \widetilde{d}_{\text{int}}(\widetilde{X}, \widetilde{Y}) = \inf
+  \bigl\{ d^p_{\text{int}}(X',Y') \mid p \in \mathcal{P}, X' \in
+  \widetilde{X}_p, Y' \in \widetilde{Y}_p \bigr\},
+\end{equation}
+and call it the {\em limit interleaving distance} (the wording "limit"
+will be justified shortly, in Lemma~\ref{l:lim-dint} below). Note that
+the term $d^p_{\text{int}}(X',Y')$ that appears in~\eqref{eq:dist-lim}
+depends only on the $0$-isomorphism classes of
+$X', Y' \in \Ob(\msc_p)$. It is straightforward to see that
+$\widetilde{d}_{\text{int}}$ is a pseudo-distance. Note that due to
+the $\inf$ in~\eqref{eq:dist-lim},
+$\widetilde{d}_{\text{int}}(\widetilde{X}, \widetilde{Y})$ may vanish
+even if $\widetilde{X} \neq \widetilde{Y}$. It may also assume the
+value $\infty$ in case $\widetilde{X}$ and $\widetilde{Y}$ do not
+represent isomorphic objects in the persistence $\infty$-level
+categories $\msc^{\infty}_p$ for ``large'' $p$'s. The pseudo-metric
+$\widetilde{d}_{\text{int}}$ can be viewed as a more robust version of
+the pseudo-distance $\hat{d}$ from Remark
+\ref{rem:def-TPC-approx}. Indeed, as its name suggests, the limit
+distance can also be defined in terms of the limit of
+$d^p_{\text{int}}$ as $\nu(p) \longrightarrow 0$.
+More
+specifically:
+\begin{lem} \label{l:lim-dint} Let $\{p_k\}_{k \in \mathbb{N}}$ be a
+  sequence of elements from $\mathcal{P}$ with
+  $\nu(p_k) \longrightarrow 0$ as $k \longrightarrow \infty$. Then for
+  every
+  $\widetilde{X}, \widetilde{Y} \in \widetilde{\Ob}(\widehat{\msc})$
+  we have
+  $$\lim_{k \to \infty} d^{p_k}_{\text{int}}(X'_k,Y'_k) =
+  \widetilde{d}_{\text{int}}(\widetilde{X},
+  \widetilde{Y}),$$ where $X'_k, Y'_k$ are any sequences with $X'_k
+  \in \widetilde{X}_{p_k}$, $Y'_k \in \widetilde{Y}_{p_k}$.
+\end{lem}
+
+\begin{proof}
+  This follows from elementary arguments, using the properties of the
+  comparison functors listed on page~\pageref{pp:sys-functors}
+  together with Lemma~\ref{l:d-func}.
+\end{proof}
+
+
+  \begin{rem} \label{r:d-limit} Let
+    $\widehat{\msf}: \widehat{\msc} \longrightarrow \widehat{\msd}$ be
+    a functor between two systems of PC's
+    (see~\S\ref{sbsb:func-sys-pc}).  It follows directly from the
+    definitions that $\widehat{\msf}$ induces a well defined map
+    $\widetilde{\msf}: \widetilde{\Ob}(\widehat{\msc})
+    \longrightarrow\widetilde{\Ob}(\widehat{\msd})$ that satisfies
+    $\widetilde{\msf}([A]_{\widehat{\msc}}) =
+    [\msf_p(A)]_{\widehat{\msd}}$ for every $A \in \Ob(\msc_p)$,
+    $p \in \mathcal{P}$. Moreover, $\widetilde{\msf}$ is non-expanding
+    with respect to the limiting interleaving distances on
+    $\widetilde{\Ob}(\widehat{\msc})$ and
+    $\widetilde{\Ob}(\widehat{\msd})$ in the sense that
+    $\widetilde{d}^{\widehat{\msd}}_{\text{int}}
+    (\widetilde{\msf}(\widetilde{X}), \widetilde{\msf}(\widetilde{Y}))
+    \leq \widetilde{d}^{\widehat{\msc}}_{\text{int}}(\widetilde{X},
+    \widetilde{Y})$ for every
+    $\widetilde{X}, \widetilde{Y} \in
+    \widetilde{\Ob}(\widehat{\msc})$.
+\end{rem}
+
+
+We now turn to $K$-groups. Let
+$\widehat{\msc} = \{\msc_p\}_{p \in \mathcal{P}}$ be a system of TPC's
+(see~\S\ref{sb:sys-tpc}). Recall that the $0$-persistence level
+$\msc_p^0$ of each $\msc_p$ is a triangulated category. Denote by
+$K_0(\msc_p^0)$ the Grothendieck (or $K$-) group of $\msc_p^0$. Let
+$p \preceq q$. Recall that all the comparison functors
+$\msh_{p,q}: \msc_p \longrightarrow \msc_q$ are TPC-functors, hence
+they restrict to triangulated functors
+$\msh^0_{p,q}: \msc^0_p \longrightarrow \msc^0_q$. We thus obtain an
+induced homomorphism
+\begin{equation} \label{eq:HK-pq} \mathscr{H}^K_{p,q}: K_0(\msc^0_p)
+  \longrightarrow K_0(\msc^0_q).
+\end{equation}
+This homomorphism turns out to be independent of the specific choice
+of the comparison functor $\mathcal{H}_{p,q}$. To see this, recall
+that for $p \preceq q$ every two comparison functors
+$\msh'_{p,q}, \msh''_{p,q} \in \mathscr{J}_{p,q}$
+are $0$-isomorphic, and
+that if two objects $X, Y \in \Ob(\mathscr{E})$ in a triangulated
+category $\mathscr{E}$ are isomorphic, then their classes in
+$K_0(\mathscr{E})$ are equal.
+
+A similar argument shows that the $K$-group homomorphisms
+from~\eqref{eq:HK-pq} satisfy
+$\msh^K_{q,r} \circ \msh^K_{p,q} = \msh^K_{p,r}$ for every
+$p\preceq q \preceq r$, and clearly $\msh^K_{p,p} = \id$ for every
+$p$. It follows that $\{K_0(\msc_p^0)\}_{p \in \mathcal{P}}$ together
+with the maps $\msh^{K}_{p,q}$ form a directed system of abelian
+groups.  We define the $K_0$-group of $\widehat{\msc}$ to be the
+colimit of this system:
+\begin{equation} \label{eq:K-colim} K_0(\widehat{\msc}^0) := \colim_{p
+    \in \mathcal{P}} K_0(\msc_p^0).
+\end{equation}
+The assignment $\widehat{\msc} \longmapsto K_0(\widehat{\msc}^0)$ is
+functorial in the sense that TPC-functors
+$\widehat{\mathscr{F}}: \widehat{\msc} \longrightarrow \widehat{\msd}$
+between systems of TPC's
+(see~\S\ref{sbsb:func-sys-pc},~\S\ref{sb:sys-tpc}) induce
+homomorphisms
+$\widehat{\mathscr{F}}^K: K_0(\widehat{\msc}^0) \longrightarrow
+K_0(\widehat{\msd}^0)$.
+
+\begin{rem} \label{r:K-Nov} Denote by $\Lambda^P_{\mathbb{Z}}$ the
+  ring of Novikov polynomials (i.e.~finite Novikov series) with
+  coefficients in $\mathbb{Z}$. Its elements can be written as finite
+  sums $\sum n_k t^{a_k}$ with $n_k \in \mathbb{Z}$,
+  $a_k \in \mathbb{R}$ ($t$ stands for the formal Novikov
+  variable). As explained in~\cite{BCZ:PKth}, the Grothendieck group
+  $K_0(\msc^0)$ of the $0$-persistence level category $\msc^0$ of a
+  TPC $\msc$ is a $\Lambda^P_{\mathbb{Z}}$-module, where the action of
+  $t^a$ on the class $[X]$ of an object $X \in \Ob(\msc^0)$ is defined
+  by $t^{a}[X] := [\Sigma^a X]$ (here $\Sigma$ is the shift functor of
+  $\msc$). It is straightforward to check that the homomorphisms
+  $\msh^K_{p,q}$ are $\Lambda^P_{\mathbb{Z}}$-linear and therefore the
+  colimit $K_0(\widehat{\msc})$ inherits the structure of a
+  $\Lambda^P_{\mathbb{Z}}$-module. Similarly, the homomorphisms
+  $\widehat{\mathscr{F}}^K$ induced by functors $\widehat{\msf}$ of TPC-systems
+  are maps of $\Lambda^P_{\mathbb{Z}}$-modules.
+\end{rem}
+
+Finally, we discuss persistence Hochschild invariants of
+  systems. Let
+$\widehat{\mathcal{A}} = \{\mathcal{A}_p\}_{p \in \mathcal{P}}$ be a
+systems of $A_{\infty}$-categories with increasing accuracy, and with a
+coherent full base of objects (see~\S\ref{sbsb:sys-base}). Assume
+further that $\widehat{\mathcal{A}}$ is a homotopy system as defined
+in~\S\ref{sbsb:homotopy-sys}.
+
+For every $p \in \mathcal{P}$ we have the persistence Hochschild
+homology $PHH(\mathcal{A}_p, \mathcal{A}_p)$ of $\mathcal{A}_p$ (with
+coefficients in the diagonal bimodule of $\mathcal{A}_p$). Let
+$p, q \in \mathcal{P}$ with $p \preceq q$. Each comparison functor
+$\mathcal{H}_{p,q} : \mathcal{A}_p \longrightarrow \mathcal{A}_q$
+induces a map of persistence modules
+$$\mathcal{H}^{\text{PHH}}_{p,q}: PHH(\mathcal{A}_p, \mathcal{A}_p)
+\longrightarrow PHH(\mathcal{A}_q, \mathcal{A}_q).$$ Since every two
+comparison functors from $\mathcal{J}_{p,q}$ are homotopic it follows
+from Proposition~\ref{p:homotopy-HH} that
+$\mathcal{H}^{\text{PHH}}_{p,q}$ is independent of the specific choice
+of $\mathcal{H}_{p,q}$. Moreover, for every $p \preceq q \preceq r$ we
+have that
+$\mathcal{H}^{\text{PHH}}_{q,r} \circ \mathcal{H}^{\text{PHH}}_{p,q} =
+\mathcal{H}^{\text{PHH}}_{p,r}$, and
+$\mathcal{H}^{\text{PHH}}_{p,p} = \id$ for every $p \in \mathcal{P}$.
+In other words,
+$\{PHH(\mathcal{A}_p, \mathcal{A}_p)\}_{p \in \mathcal{P}}$ together
+with the maps $\mathcal{H}^{\text{PHH}}_{p,q}$, $p \preceq q$, forms a
+directed system of persistence modules, parametrized by $\mathcal{P}$.
+We define the persistence Hochschild homology of
+$\widehat{\mathcal{A}}$ to be the colimit of this system:
+\begin{equation} \label{eq:HH-colim} PHH(\widehat{\mathcal{A}}) :=
+  \colim_{p \in \mathcal{P}} PHH(\mathcal{A}_p, \mathcal{A}_p).
+\end{equation}
+Note that since colimits of directed systems of persistence modules
+are persistence modules, $PHH(\widehat{\mathcal{A}})$ is a persistence
+module too.
+
+\begin{rem} \label{r:K-HH} Let $\mathcal{A}$ be a strictly unital
+  $A_{\infty}$-category and denote its derived category by
+  $D(\mathcal{A})$. There is a canonical map
+  \begin{equation} \label{eq:K-HH-1} \kappa: K_0(D(\mathcal{A}))
+    \longrightarrow HH_*(\mathcal{A}, \mathcal{A})
+  \end{equation}
+  which satisfies $\kappa([X]) = [e_X]$ for every
+  $X \in \Ob(\mathcal{A})$. Here $[X] \in K_0(D(\mathcal{A}))$ stands
+  for the $K_0$-class of $X$, $e_X \in \hom_{\mathcal{A}}(X,X)$ is the
+  unit and $[e_X] \in HH(\mathcal{A}, \mathcal{A})$ is its Hochschild
+  homology class. The map $\kappa$ is the composition of two maps,
+  $\kappa = j^{-1} \circ \kappa'$, where
+  $\kappa' : K_0(D(\mathcal{A})) \longrightarrow
+  HH(\mathcal{Y}(\mathcal{A})^{\Delta},
+  \mathcal{Y}(\mathcal{A})^{\Delta})$ and
+  $j: HH(\mathcal{A}, \mathcal{A}) \longrightarrow
+  HH(\mathcal{Y}(\mathcal{A})^{\Delta},
+  \mathcal{Y}(\mathcal{A})^{\Delta})$. The map $\kappa'$ is defined by
+  $\kappa([X]) = [e_X]$ for every $X \in \Ob(D(\mathcal{A}))$ and its
+  well-definedness follows from simple considerations (e.g.~by
+  using~\cite[Proposition~3.8]{Se:book-fukaya-categ}). The map $j$ is
+  the one induced in homology by the chain level inclusion of the
+  Hochschild complex of $\mathcal{A}$ into that of
+  $\mathcal{Y}(\mathcal{A})^{\Delta}$. A version of Morita invariance
+  for Hochschild homology states that $j$ is an isomorphism, hence we
+  can define $\kappa = j^{-1} \circ \kappa'$. (For Morita invariance
+  of Hochschild homology see e.g.~\cite{To:dg-cat} in the case when
+  $\mathcal{A}$ is a dg-category, and the discussion
+  in~\cite[Section~5]{Se:homology-spheres}; the case of $A_{\infty}$-categories is treated in~\cite{Sher:form-hodge}. See
+  also~\cite[Section~5.4]{Bi-Co:lefcob-pub} for the significance of
+  the map~\eqref{eq:K-HH-1} in some geometric situations.)
+
+  We expect the same considerations to continue to hold also in our
+  persistence setting. More specifically, let
+  $\widehat{\mathcal{A}} = \{\mathcal{A}_p\}_{p \in \mathcal{P}}$ be a
+  system of filtered $A_{\infty}$-categories. We expect to have for
+  every $p \in \mathcal{P}$ a homomorphism
+  $\kappa_p : K_0(PD(\mathcal{A}_p)^0) \longrightarrow
+  PHH^0(\mathcal{A}_p, \mathcal{A}_p)$, where the $0$-superscript on
+  the left stands for the $0$-persistence level category of
+  $PD(\mathcal{A}_p)$ and the one on the right denotes the
+  $0$-persistence level of the persistence module
+  $PHH(\mathcal{A}_p, \mathcal{A}_p)$. The maps $\kappa_p$ are then
+  expected to be compatible with the respective directed systems
+  parametrized by $p \in \mathcal{P}$ and to induce one map
+  $$\widehat{\kappa}: K_0(PD(\widehat{\mathcal{A}})^0) \longrightarrow
+  PHH^0(\widehat{\mathcal{A}}).$$
+\end{rem}
+
+
+%============================
+%==================================

@@ -1,0 +1,494 @@
+
+
+
+\newcommand{\Cpers}{\msc\mathbf{Pers}}
+\newcommand{\pers}{\mathbf{Pers}}
+\newcommand{\lalpha}{{\leq\alpha}}
+\newcommand{\mA}{\mathcal{A}}
+\newcommand{\mB}{\mathcal{B}}
+\newcommand{\mF}{\mathcal{F}}
+\newcommand{\mG}{\mathcal{G}}
+\usepackage{tikz-cd}
+\usepackage[all,cmtip]{xy}
+\newcommand{\pfun}{\mathcal{P}\fun}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+%% FROM FFUK PAPER
+
+\newcommand{\red}{\textnormal{red}}
+\newcommand{\col}{\textnormal{col}}
+
+\usepackage{tikz-cd}
+\usepackage{tikz}
+\usepackage{tikz-qtree}
+\usetikzlibrary{arrows.meta, decorations.markings}
+
+\tikzset{
+	edge/.style = {thick, postaction={decorate}, decoration={markings, mark=at position 0.5 with {\arrow{>}}}},
+}
+\usetikzlibrary{tqft, calc, arrows, decorations.markings, positioning}
+
+\usepackage{dirtytalk}
+
+%% FROM APPROX PAPER
+
+
+\newcommand{\Tau}{\mathcal{T}}
+
+\newcommand{\ac}{\mathscr{A}}
+\newcommand{\fil}{\mathscr{F}}
+%\newcommand{\ch}{\mathcal{C}h}
+\newcommand{\ch}{\mathbf{Ch}}
+\newcommand{\chfg}{\ch^{\text{fg}}}
+\newcommand{\chb}{\ch^{\text{b}}}
+\newcommand{\chproj}{\ch^{\text{proj}}}
+\newcommand{\chdg}{\mathbf{Ch}_{dg}}
+\newcommand{\chdgfg}{\chdg^{\text{fg}}}
+\newcommand{\chdgb}{\chdg^{\text{b}}}
+\newcommand{\chdgproj}{\chdg^{\text{proj}}}
+\newcommand{\KK}{K}
+\newcommand{\fch}{\mathcal{F} \ch}
+\newcommand{\fchfg}{\fch^{\text{fg}}}
+\newcommand{\fcht}{\fch^{\text{t}}}
+\newcommand{\Ob}{\text{Obj}}
+\newcommand{\ho}{\hom}
+\newcommand{\ta}{\text{t}}
+\newcommand{\fg}{\text{fg}}
+\newcommand{\op}{\text{op}}
+\newcommand{\laideal}{\Lambda_P^{(0)}}
+%\newcommand{\laideal}{\Lambda'_P}
+\newcommand{\md}{\text{mod}}
+\newcommand{\bimd}{\text{bimod}}
+%\newcommand{\md}{{mod}}
+\newcommand{\cl}{\Sigma}
+%\newcommand{\tr}{\text{tree}}
+\newcommand{\tr}{\text{tr}}
+\newcommand{\srf}{S}
+\newcommand{\extp}{\text{ep}}
+\newcommand{\clus}{\text{Clus}}
+\newcommand{\fun}{\text{Fun}}
+\newcommand{\cone}{\text{Cone}}
+\newcommand{\icone}{\text{icone}}
+
+\newcommand{\dint}{{d_{\text{int}}}}
+\newcommand{\dret}{{d_{\text{r-int}}}}
+
+\newcommand{\sdint}{{\bar{d}_{\text{int}}}}
+\newcommand{\sdret}{{\bar{d}_{\text{r-int}}}}
+
+\newcommand{\lag}{{\mathcal{L}\text{ag}}}
+%\newcommand{\lag}{{\mathscr{L}\text{ag}}}
+\newcommand{\lagex}{{\lag}^{\text{(ex)}}}
+\newcommand{\lagwex}{{\lag}^{\text{(wex)}}}
+%\newcommand{\lagexgr}{{\lag}^{\text{(ex,gr)}}}
+\newcommand{\lagmon}{\lag^{\text{(mon,} \mathbf{d} \text{)}}}
+
+\newcommand{\tsn}{{T^*N}}
+%\newcommand{\tsn}{{T^*(N)}}
+\newcommand{\dsn}{{D^*N}}
+%\newcommand{\dsn}{{D^*(N)}}
+
+
+\newcommand{\aiso}{{(\text{\tiny{iso}},*)}}
+\newcommand{\qaiso}{{(\text{\tiny{qiso}},*)}}
+\newcommand{\ziso}{{(\text{\tiny{iso}},0)}}
+\newcommand{\qziso}{{(\text{\tiny{qiso}},0)}}
+
+\newcommand{\msc}{{\mathscr{C}}}
+\newcommand{\msd}{{\mathscr{D}}}
+\newcommand{\msf}{{\mathscr{F}}}
+\newcommand{\msh}{{\mathscr{H}}}
+\newcommand{\msj}{{\mathscr{J}}}
+\newcommand{\msg}{{\mathscr{G}}}
+
+\newcommand{\modl}{\text{mod}^l}
+\newcommand{\modr}{\text{mod}^r}
+
+
+
+%\usepackage{hyperref}
+\usepackage[colorlinks=true,urlcolor=blue,
+bookmarks=true,bookmarksopen=true,citecolor=blue,linkcolor=orange
+%,hypertex
+]{hyperref}
+
+%\usepackage{epstopdf}
+\usepackage{color,soul}
+\setstcolor{red}
+%\definecolor{lightblue}{rgb}{.90,.95,1}
+%\sethlcolor{lightblue}
+%\sethlcolor{green}
+%\sethlcolor{yellow}
+%\usepackage{ulem}
+
+%\usepackage{pdfcomment}
+
+\usepackage{pdfsync}
+\usepackage[all, cmtip]{xy}
+\usepackage{graphicx}
+
+%giovanni's packages
+\usepackage{subcaption} 
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{pgfplots}
+%\pgfplotsset{compat=1.18}
+\usepackage{textcase}   % for stable uppercase/lowercase commands
+\usepackage{microtype}  % for letter spacing (\textls)
+% \usepackage{classicthesis} 
+\DeclareRobustCommand{\spacedlowsmallcaps}[1]{%
+	\textls[80]{\scshape\MakeTextLowercase{#1}}%
+}
+\DeclareRobustCommand{\spacedallcaps}[1]{%
+	\textls[200]{\MakeTextUppercase{#1}}%
+}
+
+
+%JUN'S PACKAGES
+%\usepackage[all]{xy}
+\usepackage{dsfont}
+%\usepackage{hyperref}
+%\usepackage{graphicx}
+\usepackage{float}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage[T1]{fontenc}
+
+%%%%%%%%%%%%%%%%
+
+\usepackage{epsfig}
+\usepackage{amscd}
+\usepackage[mathscr]{eucal}
+%\usepackage[mathscr]{euscript}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{amsxtra}
+\usepackage{amsmath}
+\usepackage{latexsym} 
+\usepackage[all]{xy}
+\usepackage{enumerate}
+\usepackage[normalem]{ulem}
+%\usepackage{mathrsfs}
+
+\usepackage{enumitem}
+
+\usepackage{color}
+\setlength{\textwidth}{100cm}
+\setlength{\textheight}{100cm}
+
+
+%\usepackage[dvipsnames]{xcolor}
+%\usepackage{xcolor}
+\usepackage{xcolor, soul}
+\sethlcolor{green}
+
+\usepackage{bbm}
+
+%----------------------------------------------------------------------
+% Definitions.
+%
+
+\theoremstyle{plain}
+
+\newtheorem{mainthm}{Theorem}
+\setcounter{mainthm}{0}
+\renewcommand{\themainthm}{\Alph{mainthm}}
+
+
+\newtheorem{maincor}[mainthm]{Corollary}
+\newtheorem{thm}{Theorem}[subsection]
+\newtheorem*{thm*}{Theorem}
+\newtheorem{propspec}[thm]{Proposition$^*$}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{corspec}[thm]{Corollary$^*$}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cnj}{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{dfn}[thm]{Definition}
+\newtheorem{example}[thm]{Example}
+\newtheorem*{dfnnonum}{Definition}
+\newtheorem{claim}[thm]{Claim}
+\newtheorem*{claim-nonum}{Claim}
+%\newtheorem{rem}[thm]{Remark}
+
+
+%\newtheorem*{assumption}{Assumption $\mathcal{E}$}
+%\setcounter{assumption}{0}
+%\renewcommand{\theassumption}{\alph{assumption}}
+
+%\usepackage{moreenum}
+
+%\setcounter{assumption}{4}
+%\renewcommand{\theassumption}{\greek{assumption}}
+
+
+%JUN'S DEfinitions
+
+%\usepackage{kpfonts}
+
+%\newtheorem{theorem}{Theorem}[section]
+%\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{lemma}[thm]{Lemma}
+%\newtheorem{cor}[theorem]{Corollary}
+%\newtheorem{assm}[theorem]{Assumption}
+%\newtheorem{conv}[theorem]{Convention}
+%\newtheorem{conj}[theorem]{Conjecture}
+%\newtheorem{cond}[theorem]{Condition}
+%\newtheorem{question}[theorem]{Question}
+%\newtheorem{ex}[theorem]{Example}
+%\theoremstyle{remark}
+%\newtheorem{dfn}[theorem]{Definition}
+%\newtheorem{remark}[theorem]{Remark}
+%\newtheorem{claim}[theorem]{Claim}
+
+\def\nsubset{\not\subset}
+\def\co{\colon\thinspace}
+\def\delbar{\bar{\partial}}
+\def\barmu{\bar{\mu}}
+\def\barnu{\bar{\nu}}
+\def\ep{\epsilon}
+
+
+
+%\def\R{\mathbb{R}}
+%\def\Z{\mathbb{Z}}
+%\def\N{\mathbb{N}}
+\def\C{\mathcal{C}}
+\def\A{\mathcal{A}}
+\def\L{\mathcal{L}}
+\def\I{\mathbb{I}}
+\def\K{\mathcal K}
+\def\P{\mathcal P}
+\def\D{\mathcal{D}}
+\def\p{\mathfrak{p}}
+\def\ev{\mathbf{ev}}
+%\def\Ham{{\rm Ham}}
+\def\CF{{\rm CF}}
+%\def\mm{\mathop{\min\!\max}\nolimits}
+\def\rk{\mathop{rank}\nolimits}
+\DeclareMathOperator{\coker}{coker}
+\def\QH{{\rm QH}}
+\def\HF{{\rm HF}}
+\def\k{{\bf k}}
+\def\F{\mathcal F}
+\def\T{\mathcal T}
+\def\G{\mathcal G}
+\def\U{\mathbb U}
+\def\V{\mathbb V}
+\def\W{\mathbb W}
+\def\J{{J_{\dagger}}}
+\def\I{{\mathds{1}}}
+\def\Mor{{\hom}}
+
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+
+
+
+%----------------------------------------------------------------------
+% Useful abbreviations.
+%
+
+\newcommand{\Qed}{\hfill \qedsymbol \medskip}
+\newcommand{\INS}{{\noindent{\large\textbf{{\color{red}INSERT HERE:}}}}}
+\newcommand{\INSREF}{{\large{\textbf{INSERT REF.}}}}
+\newcommand{\NOTE}{\noindent{\large\textbf{NOTE !!!}}}
+\newcommand{\TBD}{{\noindent{\large\textbf{{\color{red}TO BE DONE}}}}}
+
+
+% Fat 1.
+% ------
+\newcommand{\Id}{{{\mathchoice {\rm 1\mskip-4mu l} {\rm 1\mskip-4mu l}
+			{\rm 1\mskip-4.5mu l} {\rm 1\mskip-5mu l}}}}
+% ---------------
+% Long immersion
+\newcommand{\hooklongrightarrow}{\lhook\joinrel\longrightarrow}
+
+% ---------------
+% cobordism arrow
+\newcommand{\cobto}{\leadsto}
+%\newcommand{\id}{\mathds{1}}
+\newcommand{\id}{\textnormal{id}}
+
+% -----------------------------------------
+% abbreviations with / without decorations
+
+% \newcommand{\cobc}{\mathcal{C}ob^{d}_{0}}
+% \newcommand{\fk}{\mathcal{F}uk^d}
+% \newcommand{\lag}{\mathcal{L}^{\ast}_{d}}
+
+% \newcommand{\cobc}{\mathcal{C}ob^{\mathcal{L}}}
+% \newcommand{\fk}{\mathcal{F}uk^{\mathcal{L}}}
+% \newcommand{\lag}{\mathcal{L}}
+
+\newcommand{\cobc}{\mathcal{C}ob}
+\newcommand{\fk}{\mathcal{F}uk}
+\newcommand{\gcob}{G_{cob}(M)}
+
+
+
+%----------------------------------------------------------------------
+% Local Definitions.
+%
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+%\newcommand{\C}{\mathbb{C}}
+\newcommand{\la}{\lambda}
+\newcommand{\La}{\Lambda}
+\newcommand{\Nn}{{\mathcal{N}}}
+\newcommand{\Mm}{{\mathcal{M}}}
+\newcommand{\mm}{\mbox{\large \mathcal{m}}}
+\newcommand{\nn}{\mbox{\large \mathcal{n}}}
+\newcommand{\Crit}{\textnormal{Crit\/}}
+\newcommand{\cob}{\mathcal{C}ob}
+\newcommand{\fuk}{\mathcal{F}uk}
+\newcommand{\fukcob}{\mathcal{F}uk_{cob}}
+\newcommand{\fukd}{\mathcal{F}uk^d}
+\newcommand{\fukcb}{\mathcal{F}uk^d_{cob}}
+\newcommand{\fukcben}{\mathcal{F}uk^d_{{cob, 1/2}}}
+
+\newcommand{\Ham}{{\mathrm{Ham}}}
+
+\newcommand{\rank}{\mathrm{rank\/}}
+
+\newcommand{\ind}{{\textnormal{ind}}}
+\newcommand{\mubar}{{\bar{\mu}}}
+\newcommand{\mor}{{\hom}}
+
+%%%%%%%%%%%%% We  used  only MOR and not HOM in the 
+%% algebra part of the paper.
+
+\def\Hom{{\hom}}
+%\renewcommand{\hom}{{\textnormal{Mor\/}}}
+
+%\def\Hom{{\rm{Hom}}}
+
+
+\newcommand{\clift}{\mathbb{T}_{\textnormal{clif}}}
+\newcommand{\sym}{\textnormal{symb\/}}
+
+\renewcommand{\k}{\mathbf{k}}
+
+\newcommand{\form}{\Theta}
+
+%\newcommand{\trl}{course}
+%\newcommand{\trl}{trace}
+\newcommand{\trl}{trail}
+
+%\newcommand{\thmb}{\mathcal{T}^{\uparrow}}
+\newcommand{\thmb}{\mathscr{T}}
+\newcommand{\barthmb}{\bar{\mathscr{T}}}
+
+\newcommand{\fuket}{\mathcal{F}uk^{*}_{\pm}}
+
+%%%%%%%%%%%%%%%
+
+\def\hfch{H^{0}(\F\mathbf{Ch})}
+
+%%%%%%%%%%%%%%%%
+
+\newcommand{\bme}{\bm{\epsilon}}
+\newcommand{\eh}{\epsilon^h}
+\newcommand{\bmeh}{\bm{\epsilon}^h}
+\newcommand{\ea}{\epsilon^{\mathcal{A}}}
+\newcommand{\bmea}{\bm{\epsilon}^{\mathcal{A}}}
+\newcommand{\emm}{\epsilon^m}
+\newcommand{\bmemm}{\bm{\epsilon}^m}
+\newcommand{\bmd}{\bm{\delta}}
+\newcommand{\ua}{u^{\mathcal{A}}}
+\newcommand{\ds}{\displaystyle}
+
+\newcommand{\on}{O(\mathcal{N})}
+\newcommand{\onx}[1]{O({#1})}
+%\newcommand{\on}{O(\mathcal{N},0)}
+
+\newcommand{\toba}{\textnormal{Ob}(\mathcal{A})}
+\newcommand{\tmod}{\textnormal{mod}}
+\newcommand{\rmod}{\mathrm{mod}}
+\newcommand{\mdly}{\mathscr{Y}}
+\newcommand{\tcn}{{\mathcal{C}one}}
+\newcommand{\assmpe}{\hyperlink{h:asmp-e}{\lbe(\bmemm, \bmea)}}
+\newcommand{\assmpen}{\hyperlink{h:asmp-e}{\lbe}}
+\newcommand{\assmpue}{\hyperlink{h:asmp-ue}{\lbue}}
+
+\newcommand{\hhat}{roof diagram}
+\newcommand{\hhats}{roof diagrams}
+
+
+
+
+\makeatletter
+\newcommand{\colim@}[2]{%
+	\vtop{\m@th\ialign{##\cr
+			\hfil$#1\operator@font colim$\hfil\cr
+			\noalign{\nointerlineskip\kern1.5\ex@}#2\cr
+			\noalign{\nointerlineskip\kern-\ex@}\cr}}%
+}
+\newcommand{\colim}{%
+	\mathop{\mathpalette\colim@{\rightarrowfill@\scriptscriptstyle}}\nmlimits@
+}
+\renewcommand{\varprojlim}{%
+	\mathop{\mathpalette\varlim@{\leftarrowfill@\scriptscriptstyle}}\nmlimits@
+}
+\renewcommand{\varinjlim}{%
+	\mathop{\mathpalette\varlim@{\rightarrowfill@\scriptscriptstyle}}\nmlimits@
+}
+\makeatother
+
+
+
+%\numberwithin{section}{chapter}
+%\numberwithin{subsection}{section}
+
+%----------------------------------------------------------------------
+% remarks and colours in the text:
+
+%\newcommand{\CCPB}[1]{{\color{blue} \textbf{[PB: #1]}}}
+%\newcommand{\CPB}[1]{{\color{blue} PB: #1}}
+
+\newcommand{\pbred}[1]{{\textbf{{\color{red} #1}}}}
+%\newcommand{\pbred}[1]{#1}
+
+
+%\newcommand{\pbblue}[1]{{\textbf{{\color{blue} #1}}}}
+\newcommand{\pbblue}[1]{#1}
+
+%\newcommand{\pbgreen}[1]{{\textbf{{\color{green} #1}}}}
+\newcommand{\pbgreen}[1]{#1}
+
+%\newcommand{\pbor}[1]{{\textbf{{\color{orange} #1}}}}
+\newcommand{\pbor}[1]{#1}
+
+%\newcommand{\pbhl}[1]{{\hl{#1}}}
+\newcommand{\pbhl}[1]{#1}
+
+%\newcommand{\pbnote}[1]{{\textbf{{\color{blue} #1}}}}
+\newcommand{\pbnote}[1]{#1}
+
+%\newcommand{{\pbrev}}[1]{{\textbf{{\color{red} #1}}}}
+% \newcommand{{\pbrev}}[1]{{\textbf{{\color{green} #1}}}}
+\newcommand{\pbrev}[1]{#1}
+
+%\newcommand{{\pbrrvv}}[1]{{\textbf{{\color{blue} #1}}}}
+\newcommand{\pbrrvv}[1]{#1}
+
+\newcommand{\ocnote}[1]{{\color{red}#1}}
+%\newcommand{\ocnote}[1]{#1}
+\newcommand{\ganote}[1]{{\textbf{{\color{purple} #1}}}}
+
+\newcommand{\pbst}[1]{{\sout{#1}}}
+%\newcommand{\pbst}[1]{}
+
+
+
+% Depth of table of contents
+\setcounter{tocdepth}{1}
+\numberwithin{section}{chapter}
+

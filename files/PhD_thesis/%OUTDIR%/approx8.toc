@@ -1,0 +1,144 @@
+\contentsline {chapter}{\tocchapter {Chapter}{}{Sommario}}{1}{chapter*.1}%
+\contentsline {chapter}{\tocchapter {Chapter}{}{Abstract}}{3}{chapter*.2}%
+\contentsline {chapter}{\tocchapter {Chapter}{1}{Introduction}}{7}{chapter.1}%
+\contentsline {section}{\tocsection {}{1.1}{Chapter 2: Algebraic preliminaries}}{8}{section.1.1}%
+\contentsline {section}{\tocsection {}{1.2}{Chapter 3: Filtered Fukaya categories}}{10}{section.1.2}%
+\contentsline {section}{\tocsection {}{1.3}{Chapter 4: Approximability for Lagrangian submanifolds}}{12}{section.1.3}%
+\contentsline {section}{\tocsection {}{1.4}{Organisation of the thesis}}{14}{section.1.4}%
+\contentsline {subsection}{\tocsubsection {}{}{Chapter 1: Algebraic preliminaries}}{14}{section*.3}%
+\contentsline {subsection}{\tocsubsection {}{}{Chapter 2: Filtered Fukaya categories}}{14}{section*.4}%
+\contentsline {subsection}{\tocsubsection {}{}{Chapter 3: Approximability for Lagrangian submanifolds}}{15}{section*.5}%
+\contentsline {chapter}{\tocchapter {Chapter}{2}{Algebraic preliminaries}}{17}{chapter.2}%
+\contentsline {section}{\tocsection {}{2.1}{Introduction}}{17}{section.2.1}%
+\contentsline {section}{\tocsection {}{2.2}{The Novikov ring}}{18}{section.2.2}%
+\contentsline {section}{\tocsection {}{2.3}{Filtered $dg$-categories as enriched categories}}{19}{section.2.3}%
+\contentsline {subsection}{\tocsubsection {}{2.3.1}{Categories of chain complexes}}{19}{subsection.2.3.1}%
+\contentsline {subsection}{\tocsubsection {}{2.3.2}{$dg$-categories}}{21}{subsection.2.3.2}%
+\contentsline {subsection}{\tocsubsection {}{2.3.3}{The $dg$-category of $dg$-(bi)modules}}{23}{subsection.2.3.3}%
+\contentsline {subsection}{\tocsubsection {}{2.3.4}{Pullback and pushforward(s) of $dg$-modules}}{25}{subsection.2.3.4}%
+\contentsline {subsection}{\tocsubsection {}{2.3.5}{The category of filtered chain complexes}}{28}{subsection.2.3.5}%
+\contentsline {subsection}{\tocsubsection {}{2.3.6}{Shift functors}}{31}{subsection.2.3.6}%
+\contentsline {section}{\tocsection {}{2.4}{A dry introduction to filtered $A_\infty $-categories}}{32}{section.2.4}%
+\contentsline {subsection}{\tocsubsection {}{2.4.1}{Filtered $A_\infty $-categories, $A_\infty $-functors, $A_\infty $-natural transformations}}{33}{subsection.2.4.1}%
+\contentsline {subsection}{\tocsubsection {}{2.4.2}{Shift $A_\infty $-functors}}{36}{subsection.2.4.2}%
+\contentsline {subsection}{\tocsubsection {}{2.4.3}{Filtered $A_{\infty }$-modules and bimodules}}{36}{subsection.2.4.3}%
+\contentsline {subsection}{\tocsubsection {}{2.4.4}{The filtered Yoneda embedding}}{37}{subsection.2.4.4}%
+\contentsline {subsubsection}{\tocsubsubsection {}{2.4.4.1}{Definition}}{37}{subsubsection.2.4.4.1}%
+\contentsline {subsubsection}{\tocsubsubsection {}{2.4.4.2}{The $\lambda $-map}}{38}{subsubsection.2.4.4.2}%
+\contentsline {subsection}{\tocsubsection {}{2.4.5}{Persistence Hochschild homology}}{40}{subsection.2.4.5}%
+\contentsline {subsection}{\tocsubsection {}{2.4.6}{Shifted categories}}{41}{subsection.2.4.6}%
+\contentsline {subsection}{\tocsubsection {}{2.4.7}{Functors with Linear Deviation}}{41}{subsection.2.4.7}%
+\contentsline {subsubsection}{\tocsubsubsection {}{2.4.7.1}{Homotopy between LD-functors}}{42}{subsubsection.2.4.7.1}%
+\contentsline {subsubsection}{\tocsubsubsection {}{2.4.7.2}{From LD-functors to filtered functors}}{43}{subsubsection.2.4.7.2}%
+\contentsline {subsection}{\tocsubsection {}{2.4.8}{Filtered bimodules associated with functors}}{43}{subsection.2.4.8}%
+\contentsline {subsection}{\tocsubsection {}{2.4.9}{Pull back and push forward of filtered $A_{\infty }$-modules}}{44}{subsection.2.4.9}%
+\contentsline {subsection}{\tocsubsection {}{2.4.10}{Filtered twisted complexes}}{45}{subsection.2.4.10}%
+\contentsline {subsubsection}{\tocsubsubsection {}{2.4.10.1}{The filtered $A_\infty $-categories of filtered twisted complexes}}{45}{subsubsection.2.4.10.1}%
+\contentsline {subsubsection}{\tocsubsubsection {}{2.4.10.2}{The filtered extended Yoneda embedding}}{49}{subsubsection.2.4.10.2}%
+\contentsline {subsubsection}{\tocsubsubsection {}{2.4.10.3}{Filtered twistings}}{49}{subsubsection.2.4.10.3}%
+\contentsline {subsubsection}{\tocsubsubsection {}{2.4.10.4}{Functoriality of filtered twisted complexes}}{51}{subsubsection.2.4.10.4}%
+\contentsline {section}{\tocsection {}{2.5}{Persistence categories}}{54}{section.2.5}%
+\contentsline {subsection}{\tocsubsection {}{2.5.1}{The monoidal category of persistence modules.}}{54}{subsection.2.5.1}%
+\contentsline {subsection}{\tocsubsection {}{2.5.2}{Persistence categories}}{57}{subsection.2.5.2}%
+\contentsline {subsection}{\tocsubsection {}{2.5.3}{Persistence functors and persistence natural transformations}}{58}{subsection.2.5.3}%
+\contentsline {subsection}{\tocsubsection {}{2.5.4}{The interleaving distance(s)}}{59}{subsection.2.5.4}%
+\contentsline {subsection}{\tocsubsection {}{2.5.5}{Various completions}}{60}{subsection.2.5.5}%
+\contentsline {section}{\tocsection {}{2.6}{Triangulated persistence categories}}{61}{section.2.6}%
+\contentsline {subsection}{\tocsubsection {}{2.6.1}{Triangulated categories}}{61}{subsection.2.6.1}%
+\contentsline {subsection}{\tocsubsection {}{2.6.2}{Triangulated persistence categories}}{63}{subsection.2.6.2}%
+\contentsline {subsection}{\tocsubsection {}{2.6.3}{Weighted exact triangles in a TPC}}{64}{subsection.2.6.3}%
+\contentsline {section}{\tocsection {}{2.7}{Systems of categories with increasing accuracy}}{65}{section.2.7}%
+\contentsline {subsection}{\tocsubsection {}{2.7.1}{The case of PC's}}{65}{subsection.2.7.1}%
+\contentsline {subsection}{\tocsubsection {}{2.7.2}{Functors of systems of PC's}}{66}{subsection.2.7.2}%
+\contentsline {subsection}{\tocsubsection {}{2.7.3}{The case of TPC's}}{67}{subsection.2.7.3}%
+\contentsline {subsection}{\tocsubsection {}{2.7.4}{Systems of filtered $A_{\infty }$-categories}}{68}{subsection.2.7.4}%
+\contentsline {subsection}{\tocsubsection {}{2.7.5}{Modules and Yoneda embeddings of systems}}{68}{subsection.2.7.5}%
+\contentsline {subsection}{\tocsubsection {}{2.7.6}{Systems of PC's associated with systems of $A_{\infty }$-categories}}{69}{subsection.2.7.6}%
+\contentsline {subsection}{\tocsubsection {}{2.7.7}{Systems with a coherent base of objects}}{70}{subsection.2.7.7}%
+\contentsline {subsection}{\tocsubsection {}{2.7.8}{Homotopy systems}}{71}{subsection.2.7.8}%
+\contentsline {subsection}{\tocsubsection {}{2.7.9}{Invariants of systems}}{71}{subsection.2.7.9}%
+\contentsline {section}{\tocsection {}{2.8}{Approximability}}{74}{section.2.8}%
+\contentsline {subsection}{\tocsubsection {}{2.8.1}{Metric approximability}}{74}{subsection.2.8.1}%
+\contentsline {subsection}{\tocsubsection {}{2.8.2}{Categorical metric approximability}}{76}{subsection.2.8.2}%
+\contentsline {subsection}{\tocsubsection {}{2.8.3}{Approximability in a TPC}}{77}{subsection.2.8.3}%
+\contentsline {subsection}{\tocsubsection {}{2.8.4}{Approximability in a system of TPCs}}{79}{subsection.2.8.4}%
+\contentsline {subsection}{\tocsubsection {}{2.8.5}{Stabilizing functors}}{79}{subsection.2.8.5}%
+\contentsline {chapter}{\tocchapter {Chapter}{3}{Filtered Fukaya categories}}{81}{chapter.3}%
+\contentsline {section}{\tocsection {}{3.1}{Preliminaries}}{81}{section.3.1}%
+\contentsline {subsection}{\tocsubsection {}{3.1.1}{Monotone Lagrangians}}{81}{subsection.3.1.1}%
+\contentsline {subsection}{\tocsubsection {}{3.1.2}{Tuples of Lagrangians}}{81}{subsection.3.1.2}%
+\contentsline {subsection}{\tocsubsection {}{3.1.3}{Trees}}{83}{subsection.3.1.3}%
+\contentsline {subsection}{\tocsubsection {}{3.1.4}{Trees with Lagrangian labels}}{84}{subsection.3.1.4}%
+\contentsline {subsection}{\tocsubsection {}{3.1.5}{Systems of ends for trees with Lagrangian labels}}{87}{subsection.3.1.5}%
+\contentsline {section}{\tocsection {}{3.2}{A Morse-Bott model for the Fukaya category and its weakly filtered structure}}{90}{section.3.2}%
+\contentsline {subsection}{\tocsubsection {}{3.2.1}{Source spaces: moduli spaces of clusters}}{90}{subsection.3.2.1}%
+\contentsline {subsection}{\tocsubsection {}{3.2.2}{Perturbation data for clusters}}{97}{subsection.3.2.2}%
+\contentsline {subsection}{\tocsubsection {}{3.2.3}{Moduli spaces of Floer clusters with Lagrangian boundary}}{99}{subsection.3.2.3}%
+\contentsline {subsection}{\tocsubsection {}{3.2.4}{Transversality for Floer clusters}}{102}{subsection.3.2.4}%
+\contentsline {subsection}{\tocsubsection {}{3.2.5}{Definition of $\mathcal {F}uk(X)$}}{105}{subsection.3.2.5}%
+\contentsline {subsection}{\tocsubsection {}{3.2.6}{Weakly-filtered structure on $\mathcal {F}uk(X)$}}{108}{subsection.3.2.6}%
+\contentsline {section}{\tocsection {}{3.3}{$\epsilon $-Perturbation data and filtered structure on Fukaya categories}}{113}{section.3.3}%
+\contentsline {subsection}{\tocsubsection {}{3.3.1}{$\varepsilon $-Perturbation data for $d^R\leq 2$}}{113}{subsection.3.3.1}%
+\contentsline {subsection}{\tocsubsection {}{3.3.2}{$\varepsilon $-Perturbation data for $d^R>2$}}{118}{subsection.3.3.2}%
+\contentsline {subsection}{\tocsubsection {}{3.3.3}{Observation: the case of the unit in the standard model of Fukaya categories}}{121}{subsection.3.3.3}%
+\contentsline {section}{\tocsection {}{3.4}{Continuation functors}}{124}{section.3.4}%
+\contentsline {subsection}{\tocsubsection {}{3.4.1}{Colored trees}}{124}{subsection.3.4.1}%
+\contentsline {subsection}{\tocsubsection {}{3.4.2}{Stacked disks}}{125}{subsection.3.4.2}%
+\contentsline {subsection}{\tocsubsection {}{3.4.3}{Source spaces: moduli spaces of stacked clusters}}{134}{subsection.3.4.3}%
+\contentsline {subsection}{\tocsubsection {}{3.4.4}{Interpolation data}}{135}{subsection.3.4.4}%
+\contentsline {subsection}{\tocsubsection {}{3.4.5}{Moduli spaces of stacked Floer clusters with Lagrangian boundary}}{138}{subsection.3.4.5}%
+\contentsline {subsection}{\tocsubsection {}{3.4.6}{Definition of continuation functors}}{141}{subsection.3.4.6}%
+\contentsline {subsection}{\tocsubsection {}{3.4.7}{$(\varepsilon _1,\varepsilon _2)$-Continuation functors and filtrations}}{142}{subsection.3.4.7}%
+\contentsline {section}{\tocsection {}{3.5}{Systems of Fukaya categories with increasing accuracy}}{146}{section.3.5}%
+\contentsline {section}{\tocsection {}{3.6}{The exact case}}{147}{section.3.6}%
+\contentsline {section}{\tocsection {}{3.7}{Functors associated with symplectomorphisms}}{150}{section.3.7}%
+\contentsline {chapter}{\tocchapter {Chapter}{4}{Approximability of Lagrangian submanifolds}}{153}{chapter.4}%
+\contentsline {section}{\tocsection {}{4.1}{Nearby Approximability}}{153}{section.4.1}%
+\contentsline {subsection}{\tocsubsection {}{4.1.1}{Setting}}{153}{subsection.4.1.1}%
+\contentsline {subsection}{\tocsubsection {}{4.1.2}{The main statement, and the idea of the proof}}{154}{subsection.4.1.2}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.1.2.1}{Outline of the proof of Theorem \ref {thm:nearby}.}}{155}{subsubsection.4.1.2.1}%
+\contentsline {subsection}{\tocsubsection {}{4.1.3}{Special Morse functions }}{156}{subsection.4.1.3}%
+\contentsline {subsection}{\tocsubsection {}{4.1.4}{Review of Giroux's construction}}{161}{subsection.4.1.4}%
+\contentsline {subsection}{\tocsubsection {}{4.1.5}{Disjunction through Dehn twists}}{163}{subsection.4.1.5}%
+\contentsline {subsection}{\tocsubsection {}{4.1.6}{Proof of Theorem \ref {thm:nearby}}}{165}{subsection.4.1.6}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.1.6.1}{Disjunction with controlled energy.}}{165}{subsubsection.4.1.6.1}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.1.6.2}{Replacing matching cycles by Lagrangian spheres that restrict to fibers}}{166}{subsubsection.4.1.6.2}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.1.6.3}{Translating geometry into algebra}}{167}{subsubsection.4.1.6.3}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.1.6.4}{Conclusion of the proof.}}{170}{subsubsection.4.1.6.4}%
+\contentsline {subsection}{\tocsubsection {}{4.1.7}{Theorem \ref {thm:nearby} implies Theorem \ref {thmmain1} i. and more}}{172}{subsection.4.1.7}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.1.7.1}{Local $\varepsilon $-TPC-approximating data.}}{172}{subsubsection.4.1.7.1}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.1.7.2}{Ambient $\varepsilon $-TPC-approximating data.}}{175}{subsubsection.4.1.7.2}%
+\contentsline {section}{\tocsection {}{4.2}{Abouzaid's splitting principle in the filtered case and approximability}}{178}{section.4.2}%
+\contentsline {subsection}{\tocsubsection {}{4.2.1}{The results}}{178}{subsection.4.2.1}%
+\contentsline {subsection}{\tocsubsection {}{4.2.2}{Proof of Theorem \ref {gio:wabomain}}}{179}{subsection.4.2.2}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.2.2.1}{Retract approximability}}{179}{subsubsection.4.2.2.1}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.2.2.2}{The coproduct}}{186}{subsubsection.4.2.2.2}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.2.2.3}{Ambient quantum cohomology}}{190}{subsubsection.4.2.2.3}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.2.2.4}{The persistence open-closed and closed-open maps}}{191}{subsubsection.4.2.2.4}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.2.2.5}{Abouzaid retract-approximability criterion for a fixed choice of perturbations}}{193}{subsubsection.4.2.2.5}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.2.2.6}{Colimit of open-closed maps}}{196}{subsubsection.4.2.2.6}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.2.2.7}{Proof of Theorem \ref {gio:wabomain}}}{199}{subsubsection.4.2.2.7}%
+\contentsline {subsection}{\tocsubsection {}{4.2.3}{Proof of Corollary \ref {S2T2}}}{200}{subsection.4.2.3}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.2.3.1}{Approximability of equators on the $2$-sphere}}{200}{subsubsection.4.2.3.1}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.2.3.2}{Approximability of non-contractible circles on the $2$-torus}}{203}{subsubsection.4.2.3.2}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.2.3.3}{End of proof of Corollary \ref {S2T2}}}{209}{subsubsection.4.2.3.3}%
+\contentsline {subsection}{\tocsubsection {}{4.2.4}{Proof of Theorem \ref {thmmain1} ii and iii.}}{209}{subsection.4.2.4}%
+\contentsline {section}{\tocsection {}{4.3}{Corollaries of approximability and weighted complexity}}{210}{section.4.3}%
+\contentsline {subsection}{\tocsubsection {}{4.3.1}{Complexity in TPCs}}{210}{subsection.4.3.1}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.3.1.1}{Weighted generating rank and cone-length}}{211}{subsubsection.4.3.1.1}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.3.1.2}{Weighted retracts}}{213}{subsubsection.4.3.1.2}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.3.1.3}{Weighted cone-length for filtered chain complexes}}{217}{subsubsection.4.3.1.3}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.3.1.4}{Proof of Proposition \ref {prop:lower-bd}}}{218}{subsubsection.4.3.1.4}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.3.1.5}{Weighted categorical entropy.}}{219}{subsubsection.4.3.1.5}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.3.1.6}{Weighted complexity of Lagrangians}}{220}{subsubsection.4.3.1.6}%
+\contentsline {subsection}{\tocsubsection {}{4.3.2}{Non-vanishing weighted categorical entropy and Corollary \ref {cor:no-t-b}}}{223}{subsection.4.3.2}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.3.2.1}{The choice of $\Psi $ and $L$}}{224}{subsubsection.4.3.2.1}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.3.2.2}{Floer homology}}{226}{subsubsection.4.3.2.2}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.3.2.3}{An auxiliary algebraic result}}{231}{subsubsection.4.3.2.3}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.3.2.4}{The main step in the proof of Proposition \ref {cor:hyp_ent}}}{232}{subsubsection.4.3.2.4}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.3.2.5}{End of the proof of Proposition \ref {cor:hyp_ent}}}{233}{subsubsection.4.3.2.5}%
+\contentsline {subsection}{\tocsubsection {}{4.3.3}{Complexity of equators on $S{^2}$}}{234}{subsection.4.3.3}%
+\contentsline {subsection}{\tocsubsection {}{4.3.4}{Quasi-rigidity and Corollary \ref {cor:quasi-rig}}}{236}{subsection.4.3.4}%
+\contentsline {subsection}{\tocsubsection {}{4.3.5}{Lagrangian Gromov width and Corollary \ref {cor:link}}}{240}{subsection.4.3.5}%
+\contentsline {subsubsection}{\tocsubsubsection {}{4.3.5.1}{Gromov width, cone length and sizes of approximating families}}{242}{subsubsection.4.3.5.1}%
+\contentsline {chapter}{\tocchapter {Chapter}{}{Bibliography}}{245}{chapter*.28}%

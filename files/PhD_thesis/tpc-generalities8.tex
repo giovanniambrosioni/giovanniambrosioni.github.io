@@ -1,0 +1,540 @@
+% !TEX root = approx8.tex
+
+
+
+%\section{Generalities on PCs and TPCs} \label{s:tpc-gnrl} 
+%
+%\subsection{Persistence modules} \label{sb:per-m} 
+%
+%  
+%\INS \ say something about the ground filed/ring. Sometimes we'll use
+%persistence modules $M^{\alpha}$ such that $M^{\alpha}$ is an
+%$R$-module, e.g.~for $R=\Lambda_0$ etc. \medskip
+%
+%Let
+%$M = \Bigl( \{M^{\alpha}\}_{\alpha \in \mathbb{R}}, \; i_{\alpha,
+%  \beta}: M^{\alpha} \longrightarrow M^{\beta}, \; \forall \alpha \leq
+%\beta \Bigr)$ be a persistence module. We will use the following
+%shorthand notation throughout the paper:
+%\begin{enumerate}
+%\item For every $r \in \mathbb{R}_{\geq 0}$, $\alpha \in \mathbb{R}$
+%  we write $s^{+}_r:M^{\alpha} \longrightarrow M^{\alpha+r}$ for the
+%  map $i_{\alpha, \alpha+r}$.
+%\item Let $u, v \in M^{\alpha}$ and $r \geq 0$. We write
+%  $u \underset{r}{=}v$ to indicate that $s^{+}_r(u) = s^{+}_r(v)$.
+%%\item For $\alpha \leq \beta$ we write
+%%  $m_{\beta}: M^{\alpha} \longrightarrow M^{\beta}$ for the map
+%%  $i_{\alpha, \beta}$.
+%%\item For $u \in M^{\alpha}$, $v \in M^{\beta}$. We write
+%%  $u \underset{\text{per}}{=} v$ to indicate that
+%%  $m_{\gamma}(u) = m_{\gamma}(v)$, where
+%%  $\gamma := \max \{\alpha, \beta \}$.
+%\item For $u \in M^{\alpha}$ we denote 
+%  $\ell(u) := \alpha$ and call $\ell(u)$ the persistence level of $u$.
+%\end{enumerate}
+%
+%We will also denote by
+%$$M_{\text{tot}} := \coprod_{\alpha \in \mathbb{R}} M^{\alpha}$$ the underlying set
+%of $M$. Note that the persistence level $\ell$ can be viewed as a
+%function $\ell: M_{\text{tot}} \longrightarrow \mathbb{R}$.  Finally
+%we define $$M^{\infty} := \colim_{\alpha \to \infty} M^{\alpha},$$
+%where the colimit (or direct limit) is taken with respect to the
+%structural maps $i_{\alpha, \beta}$, $\alpha \leq \beta$, and call it
+%the $\infty$-limit of $M$.
+%
+%\begin{rem}
+%  Let $C$ be a filtered chain complex, with an increasing filtration
+%  $C^{\alpha} \subset C^{\beta} \subset C$,
+%  $\forall \; \alpha \leq \beta$. We will sometimes view $C$ as a
+%  persistence module with
+%  $i_{\alpha. \beta}: C^{\alpha} \longrightarrow C^{\beta}$ being the
+%  inclusion maps. Now, let $u \in C^{\alpha}$ and consider the same
+%  element $u$ but now viewed in $C^{\beta}$ for some $\beta > \alpha$.
+%  For many practical purposes these two elements are viewed as one
+%  element that belongs to $C$. However, from the persistence module
+%  viewpoint $u \in C^{\alpha}$ and its image
+%  $i_{\alpha, \beta}(u) \in C^{\beta}$ should be viewed as distinct
+%  elements, both belonging to $C_{\text{tot}}$. In fact,
+%  $C \neq C_{\text{tot}}$ and every element $u \in C$ appears
+%  infinitely many times in $C_{\text{tot}}$. Finally, the function
+%  $\ell: C_{\text{tot}} \longrightarrow \mathbb{R}$ should not be
+%  confused with the following filtration level measurement:
+%  $$\ell_f : C \longrightarrow \mathbb{R} \cup \{\pm \infty\},
+%  \quad \ell_{f} (c) : = \inf \{ \alpha \mid c \in C^{\alpha} \}$$
+%  which is often used in the context of filtered chain complexes.
+%\end{rem}
+%
+%
+%\subsection{PC's} \label{sb:pc} {\em Persistence Categories} (PC's in
+%short) are categories in which the morphisms between objects form
+%persistence modules and the composition of morphisms is compatible
+%with the persistence structures. The general theory of persistence
+%categories is described in detail in~\cite[Section~2]{BCZ:tpc} and
+%here we will only recall several key concepts and fix some notation.
+%
+%Unless otherwise stated, from now on we will always assume all the PC
+%categories to be endowed with a shift functor (or more precisely a
+%system of shift functors) $\Sigma = \{\Sigma^r\}_{r \in \mathbb{R}}$
+%(see~\cite[Section~2.2.3]{BCZ:tpc} for the definition), and all the PC
+%functors to commute with $\Sigma^r$ for every $r \in \mathbb{R}$.
+%
+%Let $\mathscr{C}$ be a PC category. Denote by $\mathscr{C}^0$ the
+%$0$-level category associated with $\mathscr{C}$ and by
+%$\mathscr{C}^{\infty}$ the limit (or $\infty$-level) category of
+%$\mathscr{C}$. Isomorphisms in $\msc^0$ will be called also
+%$0$-isomorphisms and sometimes denoted by $\cong_0$. Isomorphisms in
+%$\msc^{\infty}$ will sometimes be denoted by $\cong_{\infty}$.
+%
+%Most of the time we will assume our PC's $\mathscr{C}$ to be graded in
+%the sense that the persistence modules $\hom_{\mathscr{C}}(A,B)$ are
+%$\mathbb{Z}$-graded. We will mostly use cohomological grading
+%conventions and denote by $\hom_{\mathscr{C}}(A,B)^k$,
+%$k \in \mathbb{Z}$ the degree-$k$ component of
+%$\hom_{\mathscr{C}}(A,B)$. For $\alpha \in \mathbb{R}$ we denote by
+%$\hom^{\alpha}_{\mathscr{C}}(A,B)^k$ the $\alpha$-persistence level of
+%$\hom_{\mathscr{C}}(A,B)^k$. We will assume composition of morphisms
+%to be degree-preserving and identity morphisms to lie in degree $0$.
+%
+%Our PC's $\mathscr{C}$ will be often endowed with a {\em translation
+%  functor} $T: \mathscr{C} \longrightarrow \mathscr{C}$. This is a PC
+%isomorphism functor with the property that for all
+%$A, B \in \Ob(\mathscr{C})$, $k \in \mathbb{Z}$, we have PC-natural
+%isomorphisms
+%$$\hom_{\mathscr{C}}(TA,B)^k \cong \hom_{\mathscr{C}}(A,B)^{k-1},
+%\quad \hom_{\mathscr{C}}(A,TB)^k \cong
+%\hom_{\mathscr{C}}(A,B)^{k+1}.$$ As mentioned earlier, since $T$ is a
+%PC functor, we will implicitly assume that $T$ commutes with the shift
+%functors, i.e.~$T \circ \Sigma^{r} = \Sigma^r \circ T$,
+%$\forall \, r \in \mathbb{R}$.
+%
+%
+%
+%
+%\subsubsection{Acyclic objects} \label{sbsb:acyclic} Let $\mathscr{C}$
+%be a PC, $A \in \Ob(\mathscr{C})$ and $r \geq 0$. We say that $A$ is
+%$r$-acyclic if the morphism $\eta_r^A: \Sigma^r A \longrightarrow A$
+%equals $0$. Here,
+%$\eta^A_{r} \in \hom_{\mathscr{C}^0}(\Sigma^{r}A, A)$ is the standard
+%map associated with the persistence structure of $\mathscr{C}$. An
+%object $A$ is called acyclic if it is $r$-acyclic for some $r \geq
+%0$. Equivalently, $A$ is acyclic if and only if $A$ is isomorphic to
+%$0$ in the limit category $\mathscr{C}^{\infty}$.  We denote by
+%$A\mathscr{C}$ the full subcategory of $\mathscr{C}$ whose objects are
+%the acylic ones.
+%
+%
+%\subsubsection{Pseudo metrics associated to
+%  PC's} \label{sbsb:pc-metrics}
+%
+%Let $\mathscr{C}$ be a PC with a shift functor $\Sigma$. The
+%collection of objects $\Ob(\mathscr{C})$ carries a pseudo-metric
+%$\dint$, called the interleaving distance, which is defined as
+%follows.  For $X, Y \in \Ob(\mathscr{C})$ define:
+%\begin{equation} \label{eq:d-int}
+%  \begin{aligned}
+%    \dint(X, Y) = \inf \Bigl\{r \geq 0 & \bigm| \exists \, \varphi:
+%    \Sigma^rX \longrightarrow Y, \, \exists \, \psi: \Sigma^rY
+%    \longrightarrow X \\
+%    & \;\;\; \text{such that} \; \psi \circ \Sigma^r \varphi =
+%    \eta_{2r}^X, \; \varphi \circ \Sigma^r \psi = \eta_{2r}^Y \Bigr\}.
+%  \end{aligned}
+%\end{equation}
+%Here, $\eta^X_{2r} \in \hom_{\mathscr{C}^0}(\Sigma^{2r}X, X)$ are the
+%standard maps associated with the persistence structure of
+%$\mathscr{C}$ and its shift functor and similarly for $\eta^Y_{2r}$.
+%
+%Note that $\dint$ is in general not a genuine metric but only a
+%pseudo-metric and moreover it may have infinite values. Indeed, if $X$
+%and $Y$ are isomorphic in the subcategory $\mathscr{C}^0$, then
+%$\dint(X, Y) = 0$. Similarly, if $X$ and $Y$ are not isomorphic in
+%$\mathscr{C}^{\infty}$ then $\dint(X,Y) = \infty$. This is compatible
+%with the convention that $\inf \emptyset = \infty$ which we use
+%in~\eqref{eq:d-int}.
+%
+%There is another variant of $\dint$ which measures how far an object
+%$R$ is from being a retract of another object $X$. More precisely, for
+%$R, X \in \Ob(\mathscr{C})$ we define
+%\begin{equation} \label{eq:d-rint} \dret(R,X) = \inf \Bigl\{r \geq 0
+%  \bigm| \exists \, \varphi: \Sigma^rR \longrightarrow X, \, \exists
+%  \, \psi: \Sigma^rX
+%  \longrightarrow R \\
+%  \;\; \text{such that} \; \psi \circ \Sigma^r \varphi = \eta_{2r}^R
+%  \Bigr\}.
+%\end{equation}
+%In contrast to $\dint$, the measurement $\dret(-,-)$ is in general not
+%symmetric.
+%
+%In what follows we will use the following notation. Let $Z$ be a set
+%endowed with a (not necessarily symmetric) pseudo-metric $d$ and
+%$X, Y \subset Z$. We denote
+%$$\vec{d}(X,Y) := \sup_{x \in X} \inf_{y \in Y} d(x,y)$$ the longest distance
+%between $X$ and $Y$. (The arrow above the $d$ indicates that this is
+%not symmetric in $(X,Y)$.) We will sometimes use this measurement in
+%the case of $d=\dint$ and denote it $\vec{d}_{\text{int}}$. Similarly
+%we can also define also $\vec{d}_{\text{r-int}}$ (although $\dret$ is
+%not a symmetric pseudo-metric to start with).
+%
+%To end this section, we list a few basic metric properties of PC
+%functors. In the following lemma the same notation $\dint$ is used for
+%the inteleaving distance in various PC categories.
+%\begin{lem} \label{l:d-func} Let $\msc', \msc''$ be PC's and
+%  $\msf: \msc' \longrightarrow \msc''$ a PC-functor.
+%  \begin{enumerate}
+%  \item For every $A, B \in \Ob(\msc')$ we have
+%    $\dint(\msf A, \msf B) \leq \dint(A,B)$.
+%  \item If there exists a PC functor
+%    $\msg: \msc'' \longrightarrow \msc'$ such that
+%    $\dint(\msg \circ \msf, \id_{\msc'}) \leq s$ then for every
+%    $A, B \in \Ob(\msc')$ we have
+%    $|\dint(\msf A, \msf B) - \dint (A,B)| \leq 2s$.
+%  \item If there is a PC-functor $\msh: \msc'' \longrightarrow \msc'$
+%    such that $\dint(\msf \circ \msh, \id_{\msc''}) \leq r$ then
+%    $$\vec{d}_{\text{int}}(\msc'', \textnormal{image\,}\msf) \leq r.$$
+%  \end{enumerate}
+%\end{lem}
+%
+%\INS: explain the lemma for the case of $\dret$.
+
+\subsection{Conventions for PC's and filtered $A_{\infty}$
+  categories}\label{subsec:A_{infty}}
+
+\subsubsection{Filtered $A_{\infty}$-categories} \label{sbsb:fai} Most
+of the PC's in this paper arise as persistence homological categories
+of filtered $A_{\infty}$-categories. Unless otherwise stated we will
+always assume such categories, as well as $A_{\infty}$-functors
+between them, to be strictly unital and endowed with a shift and
+translation functors. See~\S\ref{a:fil-ai} for the precise
+definitions.
+
+Let $\mathcal{A}$ be a filtered $A_{\infty}$-category.  We will
+sometimes abbreviate $\mathcal{A}(X,Y) :=
+\hom_{\mathcal{A}}(X,Y)$. For $X, Y \in \Ob(\mathcal{A})$,
+$\alpha \in \mathbb{R}$, we denote by
+$\hom_{\mathcal{A}}^{\alpha}(X,Y) \subset \hom_{\mathcal{A}}(X,Y)$, or
+sometimes by $\mathcal{A}^{\alpha}(X,Y)$ for short, the
+$\alpha$-filtration level of $\hom_{\mathcal{A}}(X,Y)$. Whenever we
+need to combine these with (cohomological) grading we will write
+$\hom_{\mathcal{A}}^{\alpha}(X,Y)^i$ (or
+$\mathcal{A}^{\alpha}(X,Y)^i$) for the degree-$i$ component of
+$\hom_{\mathcal{A}}^{\alpha}(X,Y)$. The notation in case of
+homological grading is similar, by making the degree $i$ a subscript.
+
+Next, we denote by $\mathcal{A}^0$ the $0$-level category of
+$\mathcal{A}$, namely the (unfiltered) $A_{\infty}$-category with the
+same objects as $\mathcal{A}$ and
+$\hom_{\mathcal{A}^0}(X,Y) = \hom_{\mathcal{A}}^0(X,Y)$.
+
+Passing to homology, we write $PH(\mathcal{A})$ for the persistence
+homological category of $\mathcal{A}$. The shift and translation
+functors induce respective functors on $PH(\mathcal{A})$.
+
+As in the case of PC's, we say that an object $A \in \mathcal{A}$ is
+$r$-acyclic if $A$ is $r$-acyclic in the persistence category
+$PH(\mathcal{A})$, and similarly for acyclic objects (without
+reference to a specific $r$). The full $A_{\infty}$-subcategory of
+acyclic objects will be denoted by $A\mathcal{A}$.
+
+Finally, we import the interleaving (and r-interleaving)
+  pseudo-metrics also to the realm of $A_{\infty}$-categories
+$\mathcal{A}$, by setting both of them to be equal to the respective
+distances (as defined in~\S\ref{sbsb:pc-metrics}) in the persistence
+homological category $PH(\mathcal{A})$.
+
+
+\subsubsection{Various completions} \label{sbsb:comp} Let $\msc$ be a
+PC. Given subsets $S_1, S_2, S_3 \subset \Ob(\mathscr{C})$ we define
+their completions with respect to shifts, translations and
+$0$-isomorphisms, respectively, as follows:
+\begin{equation}
+  \begin{aligned}
+    & S_1^{\Sigma} := \{ \Sigma^r(A) \mid A \in S_1, \, r \in
+    \mathbb{R}\}, \quad
+    S_2^{T} := \{T^j(A) \mid A \in S_2, \, j \in \mathbb{Z}\}, \\
+    & S_3^{\ziso} := \{ A \in \Ob(\mathscr{C}) \mid A \text{ is
+      isomorphic in } \mathscr{C}^0 \text{ to an object from } S_3\}.
+  \end{aligned}
+\end{equation}
+We will also need the completion of a subset
+$S \subset \Ob(\mathscr{C})$ with respect to several of the above
+procedures, for example $S^{\Sigma, T} := (S^{\Sigma})^T$ etc.
+
+Another important completion is with respect to the interleaving
+distance. Given a subset $S_4 \subset \Ob(\msc)$ we define
+$$S_4^{\text{int}} :=
+\{ A \in \Ob(\mathscr{C}) \mid \dint(A, B) < \infty \text{ for some }
+B \in S_4\}.$$ To simplify the notation, for $S \subset \Ob{\msc}$ we
+will write $S^{c} := (S^{T})^{\text{int}}$.
+%$$S^{c,0} := S^{\Sigma, T, \ziso}, \quad S^{c} := (S^{T})^{\text{int}}.$$
+Note that $S^c$ is automatically complete with respect to both shifts
+and translations.
+% completing with respect to the interleaving distance already
+% includes the completion with respect to shifts and to
+% $\msc^0$-isomorphisms, hence we can omit them when defining $S^c$.
+One can also define $S^{c,\text{r-int}}$ in a similar way to $S^c$,
+but with $\dint$ replaced by $\dret$.
+
+If $\mathscr{D} \subset \mathscr{C}$ is a full sub-PC we define its
+various completions, e.g.~$\mathscr{D}^{\Sigma}$, $\mathscr{D}^{T}$,
+$\mathscr{D}^{(\text{iso}, 0)}$, $\mathscr{D}^{c}$ etc.~by taking the
+full sub-PC's of $\mathscr{C}$ with the respective completed sets of
+objects $\Ob(\mathscr{D})^{\Sigma}$, $\Ob(\mathscr{D})^{T}$,
+$\Ob(\mathscr{D})^{\ziso}$, $\Ob(\mathscr{D})^{c}$ etc. In the case of
+$A_{\infty}$-categories $\mathcal{A}$, we define analogous
+completions, by completing the subsets of objects using the respective
+structures in $PH(\mathcal{A})$.
+
+%\subsection{TPC's} \label{sb:tpc} A {\em Triangulated Persistence
+%  Category} (TPC in short) $\mathscr{C}$ is a PC with an additional
+%structure which makes its $0$-level category $\mathscr{C}^0$ a
+%triangulated category. The precise definition of TPC involves several
+%other axioms and we refer the reader to~\cite{BCZ:tpc} for a detailed
+%foundation of the subject.
+%
+%Let $\msc$ be a TPC and $S \subset \Ob(\msc)$. We write
+%$\langle S \rangle^{\Delta}$ for the minimal full sub-TPC of $\msc$
+%which contains all the objects of $S$ and is closed under
+%$0$-isomorphisms. (Note that in particular the shift and translation
+%functors of $\msc$ restrict to respective functors on
+%$\langle S \rangle^{\Delta}$.) We denote by
+%$(\langle S \rangle^{\Delta})^0$ the $0$-level category of the TPC
+%$\langle S \rangle^{\Delta}$.
+
+\subsection{Persistence derived categories associated with a filtered
+  $A_{\infty}$-category} \label{sb:pdc} We will present below three
+variants of TPC's that can be viewed each as a generalization of the
+derived category of $\mathcal{A}$ to the realm of persistence
+categories. However before we go into this we need a quick preparation
+about $A_{\infty}$-functors in the filtered context.
+
+\subsubsection{Filtered functors and functors with linear
+  deviation} \label{sbsb:fil-func}
+
+Let $\mathcal{A}$, $\mathcal{B}$ be two filtered
+  $A_{\infty}$-categories. A filtered $A_{\infty}$-functor
+  $\mathcal{F}: \mathcal{A} \longrightarrow \mathcal{B}$ is an
+  $A_{\infty}$-functor whose action on morphisms (in all orders)
+  preserves the filtration levels. More specifically, for every
+  $d \geq 1$, $X_0, \ldots, X_d \in \Ob(\mathcal{A})$ and
+  $\alpha \in \mathbb{R}$ the $d$'th order term
+  $\mathcal{F}_d: \mathcal{A}(X_0, \ldots, X_d) \longrightarrow
+  \mathcal{B}(\mathcal{F}X_0, \mathcal{F}X_d)$ of $\mathcal{F}$
+  satisfies:
+  $$\mathcal{F}_d \bigl(\mathcal{A}^{\alpha}(X_0, \ldots, X_d)\bigr) \subset
+  \mathcal{B}^{\alpha}(\mathcal{F}X_0, \mathcal{F}X_d).$$ Unless
+  otherwise stated, in what follows we will implicitly assume our
+  $A_{\infty}$-functors to be strictly unital.
+
+ Motivated by examples coming from Fukaya categories we will
+  also need the concept of $A_{\infty}$-functors with linear
+  deviation. These are defined as follows. Given a tuple
+  $\vec{X} = (X_0, \ldots, X_d)$ of objects from $\mathcal{A}$ we
+  define its reduced tuple
+  $\vec{X}_R := (X_{i_0}, \ldots, X_{i_{d_R}})$ by ommitting from
+  $\vec{X}$ subsequent (in the cyclic order) objects that are equal up
+  to a shift. The objects forming $\vec{X}_R$ are well defined only up
+  to shifts, but the length of $\vec{X}_R$,  $0 \leq d_R \leq d$, is well defined. We call it the reduced length
+  of $\vec{X}$ and denote it by $d_R$ or $d_R(\vec{X})$ whenever we
+  want to emphasize its dependence on $\vec{X}$. Note that in case
+  every two consecutive objects in $\vec{X}$ are different (up to
+  shifts) then $d_R(\vec{X}) = d$. At the other extreme, if all the
+  objects in $\vec{X}$ are equal up to shifts, then
+  $d_R(\vec{X}) = 0$.  
+
+An $A_{\infty}$-functor
+  $\mathcal{F}: \mathcal{A} \longrightarrow \mathcal{B}$ is said to
+  have linear deviation rate $s \geq 0$ if for every $d \geq 1$, every
+  tuple of objects $\vec{X} = (X_0, \ldots, X_d)$ from
+  $\Ob(\mathcal{A})$ and every $\alpha \in \mathbb{R}$ we have:
+$$\mathcal{F}_d \bigl(\mathcal{A}^{\alpha}(X_0, \ldots, X_d)\bigr)
+\subset \mathcal{B}^{\alpha + d_R(\vec{X}) s}(\mathcal{F}X_0,
+\mathcal{F}X_d).$$ We will often refer to such functors as LD (Linear
+Deviation) functors.
+
+
+\subsubsection{Filtered modules} \label{sbsb:fmod} Let
+$\mathcal{A}$ be a filtered $A_{\infty}$-category. Denote by $F
+\md_{\mathcal{A}}$ the category of filtered strictly unital (left)
+$\mathcal{A}$-modules. This is a filtered 
+$A_{\infty}$-category. The Yoneda embedding
+$$\mathcal{Y}: \mathcal{A} \longrightarrow F\md_{\mathcal{A}}$$
+is a filtered strictly unital $A_{\infty}$-functor which is
+homologically full and faithful.  Denote by
+$\mathcal{Y}(\mathcal{A}) \subset F \md_{\mathcal{A}}$ the image
+category of $\mathcal{A}$ under $\mathcal{Y}$. Denote by
+$\mathcal{Y}(\mathcal{A})^{\Delta} \subset F \md_{\mathcal{A}}$ the
+triangulated completion of $\mathcal{Y}(\mathcal{A})^{\Delta}$,
+namely the minimal full subcategory of $F \md_{\mathcal{A}}$ which is
+closed under mapping cones over morphisms with filtration level
+$\leq 0$ and quasi-isomorphisms of filtration level $\leq 0$
+(these are maps of non-positive filtration level that induce an isomorphism in the $0$-level homological category). Note
+that due to our assumptions on the filtered $A_{\infty}$ category $\mathcal{A}$, the category
+$\mathcal{Y}(\mathcal{A})$ is closed under shifts and translations,
+and therefore the same holds for $\mathcal{Y}(\mathcal{A})^{\Delta}$.
+The construction of $\mathcal{Y}(\mathcal{A})^{\Delta}$ can be
+explicitly carried out by iteratively taking mapping cones over
+morphisms of filtration level $\leq 0$ and adding at each stage
+$0$-quasi-isomorphic modules. The resulting
+$A_{\infty}$-category $\mathcal{Y}(\mathcal{A})^{\Delta}$ is filtered
+and strictly unital $A_{\infty}$ and carries a translation and a shift
+functor. The persistence-homological category of
+$\mathcal{Y}(\mathcal{A})^{\Delta}$
+$$PD(\mathcal{A}) := PH(\mathcal{Y}(\mathcal{A})^{\Delta})$$
+is a TPC which we call the {\em persistence derived} category of
+$\mathcal{A}$.
+
+Let $\mathcal{A}$, $\mathcal{B}$ be two filtered
+$A_{\infty}$-categories. Let
+  $\mathcal{F}: \mathcal{A} \longrightarrow \mathcal{B}$ be an
+  $A_{\infty}$-functor with a given linear deviation rate
+  (see~\S\ref{sbsb:fil-func} and~\S\ref{a:func-LD}). Then the
+  push-forward operation from~\S\ref{ap:pshf} gives rise to a {\em
+    filtered} $A_{\infty}$-functor
+  $\mathcal{F}_*: F\md_{\mathcal{A}} \longrightarrow
+  F\md_{\mathcal{B}}$.  More importantly for us, it sends
+$\mathcal{Y}(\mathcal{A})^{\Delta}$ to
+$\mathcal{Y}(\mathcal{\mathcal{B}})^{\Delta}$ hence it gives rise to a
+filtered $A_{\infty}$-functor
+$$\mathcal{F}_* : \mathcal{Y}(\mathcal{\mathcal{A}})^{\Delta}
+\longrightarrow \mathcal{Y}(\mathcal{\mathcal{B}})^{\Delta}.$$ Passing
+to homology we obtain a TPC functor
+$$PD(\mathcal{F}): PD(\mathcal{A}) \longrightarrow PD(\mathcal{B}).$$
+
+\subsubsection{A larger derived category} \label{sbsb:fmod-2} As in
+the previous sections, let $\mathcal{A}$ be a filtered
+$A_{\infty}$-category. We will now construct a somewhat larger version
+of the category $PD(\mathcal{A})$ from~\S\ref{sbsb:fmod} by adding
+also acyclic modules.
+
+Denote by $AF\md_{\mathcal{A}} \subset F\md_{\mathcal{A}}$ the full
+$A_{\infty}$-subcategory of acyclic modules (see~\S\ref{sbsb:fai} for
+the definition of the acyclic subcategory). Consider now the minimal
+$A_{\infty}$ full subcategory of $F \md_{\mathcal{A}}$ which contains
+both the image of the filtered Yoneda embedding
+$\mathcal{Y}(\mathcal{A})$ as well as $AF\md_{\mathcal{A}}$ and is
+closed under mapping cones over morphisms with filtration level
+$\leq 0$ and quasi-isomorphisms of filtration level $\leq 0$.  Denote
+this filtered $A_{\infty}$-category by
+$\langle \mathcal{Y}(\mathcal{A}), AF\md_{\mathcal{A}}
+\rangle^{\Delta}$. Define now the complete persistence derived
+category of $\mathcal{A}$ to be the persistence homology category of
+the latter, namely:
+$$PD^{c}(\mathcal{A}) := PH \Bigl( \langle \mathcal{Y}(\mathcal{A}),
+AF\md_{\mathcal{A}}\rangle^{\Delta} \Bigr).$$ The discussion
+from~\S\ref{sbsb:fmod} on functors carries over to this case. More
+specifically, if $\mathcal{A}$, $\mathcal{B}$ are filtered
+$A_{\infty}$-categories and
+$\mathcal{F}: \mathcal{A} \longrightarrow \mathcal{B}$ is an
+$A_{\infty}$-functor with linear deviation then we obtain a TPC
+functor:
+$$PD^c(\mathcal{F}): PD^c(\mathcal{A})
+\longrightarrow PD^c(\mathcal{B})$$ induced by $\mathcal{F}$.
+
+
+There is an alternative description of $PD^c(\mathcal{A})$, by
+completing $PD(\mathcal{A})$ with respect to the interleaving distance, or even by applying  the same
+type of completion to $\mathcal{Y}(\mathcal{A})^{\Delta}$ and then
+passing to persistence homology. The result turns out to be the same:
+\begin{lem} \label{l:PDc}
+  $PD^{c}(\mathcal{A}) = \bigl(PD(\mathcal{A})\bigr)^{c} = PH \Bigl(
+  (\mathcal{Y}(\mathcal{A})^{\Delta})^{c} \Bigr)$.
+\end{lem}
+
+\subsubsection{$r$-isomorphisms} \label{sbsb:r-iso} In the context of
+TPC's there is an important notion of $r$-isomorphism that leads to
+interesting measurements and can also be used to arrive at the same
+completion $PD^c(\mathcal{A})$ described in~\S\ref{sbsb:fmod-2}.
+
+Let $\mathscr{C}$ be a TPC, $A,B \in \Ob(\mathscr{C})$,
+$\phi: A \longrightarrow B$ a morphism in $\hom_{\mathscr{C}^0}(A,B)$
+and $r \geq 0$. We say that $\phi$ is an $r$-isomorphism if $\phi$ can
+be completed to an exact triangle in the (triangulated) category
+$\mathscr{C}^0$
+$$A \xrightarrow{\ \phi \ } B \xrightarrow{\ \ \ }
+K \xrightarrow{\ \ \ } TA$$ with $K \in \Ob(\mathscr{C})$ $r$-acyclic
+(see~\S\ref{sbsb:acyclic}). For example, the standard morphism
+$\eta^A_r : \Sigma^r A \longrightarrow A$ is always an $r$-isomorphism
+(this is in fact one of the axioms defining TPC's), but of course
+there are many other examples. We refer the reader to~\cite{BCZ:tpc}
+for more details on the concept of $r$-isomorphisms.
+
+Completing with respect to $r$-isomorphisms is somewhat subtle because
+of the following. The existence of an $r$-isomorphism
+$\phi: A \longrightarrow B$ does not imply that there exists an
+$r$-isomorphism $B \longrightarrow A$, hence this does not lead to a
+symmetric relation on pairs of objects $(A,B)$. Nor is this
+``relation'' transitive (if $\phi: A \longrightarrow B$ is an
+$r_1$-isomorphism and $r_2$-isomorphism $\psi: B \longrightarrow C$ is
+an $r_2$-isomorphism then $\psi \circ \phi: A \longrightarrow C$ is in
+general only an $(r_1+r_2)$-isomorphism). However by the results
+of~\cite{BCZ:tpc}, if $\phi: A \longrightarrow B$ is an
+$r$-isomorphism then there exists a $2r$-isomorphism
+$\Sigma^r B \longrightarrow A$. This leads to the following
+definition: two objects $A, B \in \Ob(\msc)$ are called {\em almost
+  isomorphic} if there is an $r\geq 0$ and $s \in \mathbb{R}$ and an
+$r$-isomorphism $\phi: A \longrightarrow \Sigma^s B$. By the results
+of~\cite{BCZ:tpc}, being ``almost isomorphic'' is an equivalence
+relation. Moreover, we have:
+\begin{lem} \label{l:a-iso} Let $\msc$ be a TPC and Let
+  $A, B \in \Ob(\msc)$. Then $A$ is almost isomorphic to $B$ if and
+  only if $\dint(A,B) < \infty$.
+\end{lem}
+It follows that completing $PD(\mathcal{A})$ with respect to almost
+isomorphisms gives precisely the same category as $PD^c(\mathcal{A})$.
+
+To end this discussion, let us also mention the following useful fact:
+completing a TPC with respect to the interleaving distance always
+yields a TPC. More precisely
+\begin{lem} \label{l:cmp-TPC} Let $\mathscr{C}$ be a TPC and
+  $\mathscr{D} \subset \mathscr{C}$ a full sub-TPC of
+  $\mathscr{C}$. Then $\mathscr{D}^{c} \subset \mathscr{C}$ is also a
+  sub-TPC.
+\end{lem}
+
+\subsubsection{Filtered twisted complexes} \label{sbsb:ftw} Let
+$\mathcal{A}$ be a filtered $A_{\infty}$-category. There is another
+variant of a TPC associated with $\mathcal{A}$ which is based on
+twisted complexes (see~\cite[Chapter~I,
+Section~3(l)]{Se:book-fukaya-categ} for unfiltered
+$A_{\infty}$-categories and~\cite[Section~2.5]{BCZ:tpc} for the case
+of filtered dg-categories. The case of filtered
+$A_{\infty}$-categories is treated in detail in~\S\ref{ap:ftc}.
+
+Roughly speaking, one defines first the additive enlargement
+$\mathcal{A}^{\oplus}$ of $\mathcal{A}$ as
+in~\cite{Se:book-fukaya-categ} (where it is denoted by
+$\Sigma \mathcal{A}$, but in our case $\Sigma$ is already used for
+other purposes), and defines a filtration structure on it by an
+obvious extension of the filtrations on $\mathcal{A}$. Recall that, by
+assumption, $\mathcal{A}$ is closed under shifts and translations.
+Next one forms a new filtered $A_{\infty}$-category $F Tw \mathcal{A}$
+whose objects are all twisted complexes $(X, q_X)$ over $\mathcal{A}$
+with $X \in \Ob(\mathcal{A}^{\oplus})$ and differential
+$q_X \in \hom^{0}_{\mathcal{A}^{\oplus}}(X,X)$ lying at filtration
+level $\leq 0$. The morphisms in this category come from
+$\mathcal{A}^{\oplus}$ and are thus filtered. One then defines the
+$A_{\infty}$-operations on $FTw \mathcal{A}$ in the standard way and
+the fact that $\mathcal{A}$ itself is filtered implies that
+$FTw \mathcal{A}$ is filtered too. Finally note that since
+$\mathcal{A}$ is strictly unital the same holds for
+$F Tw \mathcal{A}$.
+
+The filtered $A_{\infty}$-category $\mathcal{A}$ embeds into
+$Tw \mathcal{A}$ in an obvious way, the embedding being a filtered
+$A_{\infty}$-functor which is full and faithful (on the chain
+level). Moreover, $Tw \mathcal{A}$ is pre-triangulated in the filtered
+sense (which in particular means that it is closed under formation of
+filtered mapping cones). We denote by $PH(F Tw \mathcal{A})$ the
+persistence homological category of $F Tw \mathcal{A}$. Standard
+arguments show that $PH(F Tw \mathcal{A})$ is a TPC with translation
+and shift functors induced from those of $\mathcal{A}$.
+
+An important property of $PH(F Tw \mathcal{A})$ is the following.  Let
+$\mathcal{A}$, $\mathcal{B}$ be two filtered
+$A_{\infty}$-categories. Let
+$\mathcal{F}: \mathcal{A} \longrightarrow \mathcal{B}$ be a filtered
+$A_{\infty}$-functor. Then there is a canonical extension of
+$\mathcal{F}$ to a filtered, strictly unital, $A_{\infty}$-functor
+$Tw \mathcal{F}: FTw \mathcal{A} \longrightarrow FTw \mathcal{B}$.
+Moreover, $Tw \mathcal{F}$ induces a homological functor
+$$PH(Tw \mathcal{F}): PH(F Tw \mathcal{A}) \longrightarrow PH(FTw
+\mathcal{B})$$ which is a TPC functor. 

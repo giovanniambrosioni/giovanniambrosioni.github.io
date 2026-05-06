@@ -1,0 +1,99 @@
+%=========================
+%========================
+
+
+\subsection{The category of filtered chain complexes}\label{se:fcc}
+
+In our geometric examples, we will deal with chain complexes defined over fields that carry non-trivial persistence properties. Hence, a bit of care is required when talking about filtered chain complexes. \\
+
+% Let $\k$ be a field and $\k_0$ be a subring of $\k$. In the following we will talk of $k_0$-submodules of a $k$-module in the obvious sense, and never reference to the pullback by the inclusion.
+% \begin{dfn}
+%     A filtered chain complex over $(\k_0,\k)$ consists of a chain complex $(C,d)$ over $\k$ together with an increasing filtration $(C^{\leq\alpha})_{\alpha\in \mathbb{R}}$ of graded $\k_0$-submodules (of $C$ seen as a $\k_0$-module) such that $$d(C^{\leq\alpha})\subset C^{\leq\alpha}$$ and $$\left(\lim_{\alpha\to \infty}C^{\leq\alpha}\right)\otimes_{\k_0}\k = C$$
+% \end{dfn}
+
+Let $\k$ be a field and $\k_0$ be a subring of $\k$. Assume there is a filtration $(\k^\alpha)_{\alpha\in \mathbb{R}}$ of $\k$ by $\k_0$-modules such that $\k^0=\k_0$ and for all $\alpha,\beta\in \mathbb{R}$ we have $$\k^\alpha\otimes_{\k_0} \k^\beta \subset \k^{\alpha+\beta}.$$
+Note that, since $\k_0$ is a subring of $\k$, it contains in particular the multiplicative identity $1_\k$.
+\begin{example} In this thesis, we will work with two instances of the above structure.
+    \begin{enumerate}
+    \item An example is the Novikov field $\k=\Lambda$ over $\Z_2$ together with $\k_0=\Lambda_0$ and $$\k^\alpha:=\Lambda^\alpha := T^{-\alpha}\Lambda_0.$$
+    \item The second example is the field $\k=\Z_2$ with $\k_0=\Z_2$ and the filtration $$\k^\alpha := \begin{cases}
+        \Z_2, \text{ if }\alpha\geq 0,\\
+        0, \text{ if }\alpha<0.
+    \end{cases}$$
+    \end{enumerate} 
+\end{example}
+\begin{dfn}\label{filteredchaincomplexoverkk0}
+    A filtered chain complex over $(\k,\k_0)$ consists of a chain complex $(C,d)$ over $\k$ together with an increasing filtration $(C^{\lalpha}_{\alpha\in \mathbb{R}}$ such that $$d(C^\lalpha)\subset C^\lalpha$$ for all $\alpha \in \mathbb{R}$, $$\k^\alpha\otimes_{\k_0} C^{\leq\beta}\subset C^{\leq \alpha+\beta}$$ for all $\alpha,\beta \in \mathbb{R}$ and moreover $$\lim_{\alpha\to \infty}C^\lalpha = C.$$
+\end{dfn}
+\begin{example}
+    An example of filtered chain complex over $(\k,\k_0)$ is given by $\k$ with trivial differential, together with $\k_0$ the filtration $()\k^\alpha)_\alpha$. We denote this filtered chain complex by $\k$.
+\end{example}
+\begin{dfn}
+    Let $(C,d_C)$ and $(D,d_D)$ be filtered chain complexes over $(\k_0,\k)$. A graded $\k$-linear map $f\colon C\to D$ is said to be filtered if it restricts to $\k_0$-linear maps $$f^{\leq\alpha}:=f\vert_{C^\lalpha}\colon C^\lalpha\to D^\lalpha$$ for any $\alpha\in \mathbb{R}$.
+\end{dfn}
+It is an exercise to see that filtered chain complexes over $(\k_0,\k)$ together with filtered chain maps form a category, denoted by $\mathcal{F}\ch(\k, \k_0)$.
+% Note that morphism spaces naturally come equipped with a filtration. Given filtered chain complexes $C$ and $D$ over $(\k,\k_0)$ and $\alpha\in \mathbb{R}$ we define $$\hom_{\fch(\k,\k_0)}^{\leq \alpha}(C,D):=\left\{f\in \hom_{\fch(\k,\k_0)}(C,D) \ | \ f\text{ shifts filtration by }\leq\alpha\right\}.$$
+
+Let $(C,d_C)$ and $(D,d_D)$ be filtered chain complexes over $(\k_0,\k)$. We define the tensor product $C\otimes_{(\k_0,\k)} D$ to be the filtered chain complex over $(\k_0,\k)$ consisting of the chain complex $C\otimes_\k D$ over $\k$ together with the filtration $((C\otimes_{(\k_0,\k)} D)^{\leq\alpha})_{\alpha\in \mathbb{R}}$ defined via $$(C\otimes_{(\k_0,\k)} D)^{\leq\alpha}:=\colim_{\alpha_1+\alpha_2\leq \alpha}C^{\leq\alpha_1}\otimes_{\k_0}D^{\leq \alpha_2}.$$
+\begin{lem}\label{fchclosed}
+The category $\mathcal{F}\ch(\k, \k_0)$ of filtered chain complexes over $(\k,\k_0)$ is a closed symmetric monoidal category when endowed with the tensor product $\otimes$ as monoidal product and the filtered chain complex $\k$ as unit.
+\end{lem}
+
+\begin{dfn}
+    A filtered $dg$-category over $(\k,\k_0)$ is a category enriched over $\fch(\k,\k_0)$.
+\end{dfn}
+We briefly unpack this definition. Let $A$ be a filtered $dg$-category over $(\k,\k_0)$. Then for any two objects $L_0$ and $L_1$ of $A$, the morphism space $\hom_A(L_0,L_1)$ is a filtered chain complex. We will denote the filtration by $\hom_A^{\leq\alpha}(L_0,L_1)$. Then $A$ can be seen as a $dg$-category where the composition is a filtered chain map, and such that for any object $L$ of $A$ the unit $e_L$ lies in $\hom_A^{\leq 0}(L,L)$. The first property is immediate, while the second is equivalent to the choice of a filtered chain map $\k\to \hom_A(L,L)$, which is prescribed by the notion of enrichment.
+
+The prototipical example of filtered $dg$-category over $(\k,\k_0)$ is the internal category of the closed monoidal category $\fch(\k,\k_0)$, which we will denote by $\fch_{\mathcal{F}dg}(\k,\k_0)$. We now outline its properties.
+Let $A,B$ and $C$ be filtered chain complexes over $(\k,\k_0)$. We want to sketch a proof of the fact that there is a filtered chain complex $[B,C]_{(\k,\k_0)}$ over $(\k,\k_0)$ such that $$\hom_{\fch(\k,\k_0)}(A\otimes_{(\k,\k_0)}B,C)\cong \hom_{\fch(\k,\k_0)}(A,[B,C]_{(\k,\k_0)}).$$
+We recall from \S\ref{se:chR} that given two chain complexes $B'$ and $C'$ over the ring $\k_0$, the chain complex over $\k_0$ of internal morphism $[B',C']_{\k_0}$ between them consists of $\k_0$-linear graded maps. Let now $f\colon A\otimes_{(\k,\k_0)}B\to C$ be a morphism in $\fch(\k,\k_0)$. Then $f$ restricts to chain maps of chain complexes over $\k_0$ $$f^\alpha\colon (A\otimes_{(\k,\k_0)})B)^\lalpha\to C^\lalpha$$ for any $\alpha\in \mathbb{R}$. Up to inclusion, $f^\alpha$ further restricts to chain maps $$A^{\leq\alpha_1}\otimes_{\k_0}B^{\leq \alpha-\alpha_1}\to C^\lalpha$$ which can be identified with graded $\k_0$-linear maps $$A^{\leq\alpha_1}\to [B^{\leq\alpha-\alpha_1},C^\lalpha]_{\k_0}.$$ 
+We introduce the following definition.
+\begin{dfn}
+    Let $(C,d_C)$ and $(D,d_D)$ be filtered chain complexes over $(\k_0,\k)$. A $\k$-linear graded map $f\colon C\to D$ is said to be of finite shift if there is $r\geq 0$ such that $f$ restricts to $k_0$-linear graded $$f^{\leq\alpha}:=f\vert_{C^{\leq\alpha}}\colon C^{\leq\alpha}\to D^{\leq\alpha+r}$$ for any $\alpha\in \mathbb{R}$. In the above case we say that $f$ shifts filtration by $\leq r$.
+\end{dfn}
+From our discussion above, it follows that $[B,C]_{(\k,\k_0)}$ is defined as the space of graded $\k$-linear maps $f\colon B\to C$ of finite shift, endowed with the usual differential of graded linear maps between chain complexes. Moreover, the filtration is defined as $$[B,C]_{(\k,\k_0)}^{\leq r}:= \left\{f\in [B,C]_{(\k,\k_0)} \ | \ f\text{ shifts filtration by }\leq\alpha\right\}.$$
+
+The filtered $dg$-category $\fch_{\mathcal{F}dg}(\k,\k_0)$ will be called the filtered $dg$-category of filtered chain complexes over $(\k,\k_0)$. We will write $[B,C]_{(\k,\k_0)}$ as $\hom_{\fch_{\mathcal{F}dg}(\k,\k_0)}(B,C)$.
+
+Consider now the category $\mathcal{F}dg(\k,\k_0)$ of filtered $dg$-categories over $(\k,\k_0)$. 
+\begin{dfn}
+    Let $A$ and $B$ be filtered $dg$-categories over $(\k,\k_0)$. An enriched functor $F\colon A\to B$ is called a filtered $dg$-functor.
+\end{dfn}
+\noindent In other words, a filtered $dg$-functor $F\colon A\to B$ is simply a $dg$-functor such that the induced maps $$F\colon \hom_A(L_0,L_1)\to \hom_B(FL_0,FL_1)$$ are filtered chain maps.
+\begin{dfn}
+    Let $F,G\colon A\to B$ be filtered $dg$-functors. An enriched natural transformation $\eta\colon F\to G$ is called a filtered $dg$-natural transformation.
+\end{dfn}
+\noindent In other words, a filtered natural transformation $\eta\colon F\to G$ between filtered $dg$-functors is a collection of morphisms $\eta_L\in \hom^{\leq 0}(FL,GL)$ of degree zero and closed.
+
+The following is a consequence of Lemma \ref{fchclosed}.
+\begin{dfn}
+    The category $\mathcal{F}dg(\k,\k_0)$ of filtered $dg$-categories over $(\k,\k_0)$ is a closed monoidal category with monoidal functor $\otimes_{\mathcal{F}dg}$ induced by the monoidal structure of $\mathcal{F}\chdg(R)$ and unit given by the filtered chain complex $\k$ seen as a filtered$dg$-category with a single object and trivial differential.   
+\end{dfn}
+\noindent Given two filtered $dg$-categories $B$ and $C$, the $dg$-category of internal morphisms $[B,C]_{\mathcal{F}dg}$ appearing in the isomorphisms $$\hom_{\mathcal{F}dg(\k,\k_0)}(A\otimes B,C)\cong hom_{\mathcal{F}dg(\k,\k_0)}(A, [B,C]_{\mathcal{F}dg})$$ has the same objects of $\hom_{\mathcal{F}dg(\k,\k_0)}(B,C)$ (that is, filtered $dg$-functors $B\to C$). Let $F,G\colon B\to C$ be filtered $dg$-functors, then the filtered chain complex $\hom_{[B,C]_{\mathcal{F}dg}}(F,G)$ consists of graded natural transformations $\eta\colon F\to G$ such that there is $\alpha\in \mathbb{R}$ such that $\eta_L\i \hom_C^{\leq \alpha}(FL,GL)$ for any object $L$ of $B$. As in the unfiltered case, the differential is induced object-wise by the differential on morphism spaces in the $dg$-category $C$. The filtration $(\hom_{[B,C]_{\mathcal{F}dg}}^\alpha(F,G)))_{\alpha\in \mathbb{R}}$ is defined in the obvious way, and is preserved by the above defined differential since $C$ is a filtered $dg$-category.
+
+%=-===============================
+\subsection{Shift functors}
+We look now at the case $(\k,\k_0)=(\Lambda,\Lambda_0)$, where $\Lambda$ is the Novikov field over $\Z_2$. The case of $\Z_2$ iself may be treated ad hoc or by seeing $\Z_2$ as $\varprojlim_{n \to \infty} \, \Lambda_0 / T^{1/n}\Lambda_0$.
+
+Let $\alpha\in \mathbb{R}$. We define $\Sigma^\alpha\Lambda$ to be the filtered chain complex $\Lambda$ over $\Lambda_0$ filtered by $$(\Sigma^\alpha\Lambda):= T^{\alpha-\beta}\Lambda_0.$$
+We claim that the functor $$\Sigma^\alpha\Lambda\otimes_{(\Lambda,\Lambda_0)} -\colon \fch(\Lambda,\Lambda_0)\to \fch(\Lambda,\Lambda_0)$$ is lax monoidal. This follows easily by considering the maps of filtered chain complexes $$\phi\colon \Lambda\to \Sigma^\alpha\Lambda$$ defined via multiplication by $T^\alpha$ and $$\phi_{A,B}\colon (\Sigma^\alpha\Lambda\otimes_{(\Lambda,\Lambda_0)}A)\otimes (\Sigma^\alpha\Lambda \otimes_{(\Lambda,\Lambda_0)}B)\to \Sigma^\alpha\Lambda\otimes_{(\Lambda,\Lambda_0)}(A\otimes_{(\Lambda,\Lambda_0)}B)$$ defined via multiplication by $T^{-\alpha}$. Equivalently, the two map above give $\Sigma^\alpha\Lambda$ the structure of monoidal object in $\fch(\Lambda,\Lambda_0)$. We denote $$\Sigma^\alpha:=\Sigma^\alpha\Lambda\otimes_{(\Lambda,\Lambda_0)}-$$ and call it the $\alpha$-shift functor on $\fch(\Lambda,\Lambda_0)$. 
+
+Moreover, the family $(\Sigma^\alpha)_{\alpha\in \mathbb{R}}$ packs into a monoidal functor $$\Sigma\colon \mathbb{R}\to \hom_{\mathbf{Cat}}(\fch(\Lambda,\Lambda_0),\fch(\Lambda,\Lambda_0)),$$ where $\mathbf{Cat}$ is the bicategory of categories and $\hom_{\mathbf{Cat}}(\fch(\Lambda,\Lambda_0),\fch(\Lambda,\Lambda_0))$ is the category of endofunctors $\fch(\Lambda,\Lambda_0)\to \fch(\Lambda,\Lambda_0)$ equipped with the usual monoidal structure induced by composition. In other words, $\Sigma$ assigns to any $\alpha\in \mathbb{R}$ an endofunctor $\Sigma^\alpha$ of $\fch(\Lambda,\Lambda_0)$ and satisfies $\Sigma^\alpha\circ \Sigma^\beta= \Sigma^{\alpha+\beta}$ and $\Sigma^0=id_{\fch(\Lambda,\Lambda_0)}$, and to each (unique morphism) $x\to y$ a natural transformation $\eta_{y,x}:=\Sigma(x\leq y)$.\\
+
+Since $\Sigma^\alpha$ is induced by the monoidal product $\otimes_{(\Lambda,\Lambda_0)}$ it induces a filtered $dg$-functor $$\Sigma^\alpha\colon \fch_{\mathcal{F}dg}(\Lambda,\Lambda_0)\to \fch_{\mathcal{F}dg}(\Lambda,\Lambda_0).$$ These functors pack together into a monoidal functor $$\Sigma\colon \mathbb{R}\to \hom_{dg(\Lambda,\Lambda_0)}(\fch_{\mathcal{F}dg}(\Lambda,\Lambda_0),\fch_{\mathcal{F}dg}(\Lambda,\Lambda_0)).$$ It is an exercise to see that $\Sigma$ lifts to a monoidal functor $$\Sigma\colon \Lambda\to \hom_{dg(\Lambda,\Lambda_0)}(\fch_{\mathcal{F}dg}(\Lambda,\Lambda_0),\fch_{\mathcal{F}dg}(\Lambda,\Lambda_0))$$ defined via $\Sigma(T^\alpha):=\Sigma^\alpha$ for any $\alpha\in \mathbb{R}$ and extended by linearity. Viewed in this form, $\Sigma$ is actually a filtered $dg$-functor, in the sense that $\eta_{\alpha,\beta}$ (which, in this formalism corresponds to the image to multiplication by $T^{\alpha-\beta}$) is a natural transformation of shift $\beta-\alpha$. Note that, trivially, it is a closed natural transformation between the filtered $dg$-functors $\Sigma^\alpha$ and $\Sigma^\beta$.
+
+
+\begin{dfn}
+    Let $A$ be a filtered $dg$-category over $(\Lambda,\Lambda_0)$. A shift functor on $A$ is a monoidal filtered $dg$-functor $$\Sigma\colon \Lambda\to \hom_{\mathcal{F}dg(\Lambda,\Lambda_0)}(A,A).$$
+\end{dfn}
+
+\noindent The same definition makes sense for $dg$-categories over $(\Z_2,\Z_2)$.
+
+The following result is a rewriting of Remark 2.16 in \cite{BCZ:tpc}.
+
+\begin{lem}
+    Let $A$ be a filtered $dg$-category with shift functor $\Sigma$ and let $\alpha\in \mathbb{R}$. Then for all objects $L_0$ and $L_1$ of $A$ we have $$\hom_{A}(\Sigma^\alpha L_0,L_1)\cong \Sigma^\alpha\hom_A(L_0,L_1)$$ where the first $\Sigma$ denotes the shift functor on $A$, while the second denotes the shift functor on $\fch_{\mathcal{F}dg}(\Lambda,\Lambda_0)$.
+\end{lem}
+% \subsection{$dg$-functors with linear deviation}
+
+% Let 

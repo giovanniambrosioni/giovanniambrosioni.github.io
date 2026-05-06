@@ -1,0 +1,40 @@
+\subsubsection{Definition}\label{gio:fyon-def}
+Let $\mathcal{A}$ be a filtered $A_\infty$-category with structure maps $(\mu_d)_{d\geq 1}$. Recall that we always assume that our $A_\infty$-categories are strictly unital. We upgrade the Yoneda embedding (see \cite[Section (1l)]{Se:book-fukaya-categ}) to a filtered version, that is, we define a filtered $A_\infty$-functor $$\mathcal{Y}\colon \mathcal{A}\to F\md_\mathcal{A}.$$ We will work with left $A_\infty$-modules, but the same can be analogously developed for right ones. Whenever confusion may arise we will denote by $\mathcal{Y}^l\colon \mathcal{A}\to F\md^l_\mathcal{A}$ the left Yoneda embedding and by $\mathcal{Y}^r\colon \mathcal{A}\to F\md_\mathcal{A}^r$. Sometimes we will need to specicify the $A_\infty$-category in the notation and we will write the Yoneda embedding as $\mathcal{Y}_\mathcal{A}$.\\
+
+Let $L$ be an object of $\mathcal{A}$. We define $\mathcal{Y}(L)$ via $$\mathcal{Y}(L)(L'):= \mathcal{A}(L',L)$$ for any object $L'$ of $\mathcal{A}$ and endow it with the $A_\infty$-structure given by $\mu^{\mathcal{Y}(L)}_{l|1}:=\mu_{l+1}$ for $l\geq 0$. It is straightforward to see that $\mathcal{Y}(L)$ indeed defines a filtered $A_\infty$-module.\\
+We now define higher operations of the functor $\mathcal{Y}$. To ease the notation, we will often write $\mathcal{Y}_L$ instead of $\mathcal{Y}(L)$ in the rest of this subsection. Consider two objects $L_0$ and $L_1$ of $\mathcal{A}$ and an element $c\in \mathcal{A}^{\leq \alpha}(L_0,L_1)$ for some $\alpha \in \mathbb{R}$. We define its image $\mathcal{Y}_1(c)\in F\md_\mathcal{A}(\mathcal{Y}_{L_0},\mathcal{Y}_{L_1})$ as the pre-morphism of modules with components $\mathcal{Y}_1(c)_{l|1}\colon \mathcal{A}(\vec{X})\otimes \mathcal{Y}_{L_0}(X_l)\to \mathcal{Y}_{L_1}(X_0)$ given by $$\mathcal{Y}_1(c)_{l|1}(x_1,\ldots, x_l,y):= \mu_{l+1}(x_1,\ldots,x_l, y,c).$$ We define the higher components $\mathcal{Y}_d$ of the Yoneda embedding in a similar manner using contraction maps, that is, given a tuple $\vec{L}=(L_0,\ldots, L_d)$ and an element $\vec{c}\in \mathcal{A}(\vec{L})$, we define the pre-morphism of modules $\mathcal{Y}_d(\vec{c})\in F\md_\mathcal{A}(\mathcal{Y}_{L_0},\mathcal{Y}_{L_d})$ via $$\mathcal{Y}_d(\vec{c})_{l|1}(x_1,\ldots, x_l,y) := \mu_{l+d+1}(x_1,\ldots, x_l,y,\vec{c}).$$ Notice that $\mathcal{Y}$ is a filtered $A_\infty$-functor, since the maps $\mu_d$, $d\geq 1$, are filtered by assumption.
+
+%=======================
+%=======================
+%=======================
+
+
+\subsubsection{The $\lambda$-map}\label{lambdamap}
+Consider an object $L$ of $\mathcal{A}$ and a filtered $A_\infty$-module $\mathcal{M}$. We have the following map, usually simply called the $\lambda$-map: $$\lambda\colon \mathcal{M}(L)\to F\md_\mathcal{A}(\mathcal{Y}(L),\mathcal{M})$$ defined for $c\in \mathcal{M}(L)$ via $$\lambda(c)_{l|1}(x_1,\ldots, x_l,y):= \mu^\mathcal{M}_{l+1|1}(x_1,\ldots, x_l,y,c).$$ It is clear that $\lambda$ is well-defined (i.e. that it lands in the category of \textit{filtered} modules), simply because $\mathcal{A}$ is a filtered $A_\infty$-category. Similarly to \cite[Lemma 2.12]{Se:book-fukaya-categ} and \cite[Proposition 2.5.1]{Bi-Co-Sh:LagrSh} we have the following result. This result is usually proved using spectral sequence, but strict unitality of $\mathcal{A}$ allows us for a more explicit proof, which we present here.
+\begin{prop}
+	The map $\lambda$ is a filtered quasi-isomorphism, with filtered quasi-inverse via filtered chain-homotopies. In particular, it induces an isomorphism in persistence homology.
+\end{prop}
+\begin{proof}
+	The fact that $\lambda$ is filtered is obvious, as $\mathcal{A}$ is filtered. We will prove the rest of the statement by explicitly constructing a quasi-inverse and the chain homotopies. First, we define a candidate quasi-inverse $$\theta\colon F\md_\mathcal{A}(\mathcal{Y}(L),\mathcal{M})\to \mathcal{M}(L)$$ as follows: given a pre-module morphism $\varphi\in F\md_\mathcal{A}(\mathcal{Y}(L),\mathcal{M}) $, we set $$\theta(\varphi):= \varphi_{0|1}(e_L)$$ where we recall that $e_L\in \mathcal{A}(L,L)$ stands for the (given) choice of strict unit for $L$. Clearly $\theta$ is a chain map. It is easy to see that given $c\in \mathcal{M}(L)$, $\theta(\lambda(c))=c$, exactly because $e_L$ is a \textit{strict} unit, so no chain homotopy is needed in this direction. Moreover, since $e_L\in \mathcal{A}^{\leq 0}(L,L)$ by our definition of filtered $A_\infty$-category, we get that $\theta$ is a filtered chain map, i.e. it sends pre-morphisms with shift $\alpha$ to $\mathcal{M}^{\leq \alpha}(L)$ for any $\alpha\in \mathbb R$.\\ We now define a candidate chain homotopy for the other composition: we define $$H\colon F\md_\mathcal{A}(\mathcal{Y}(L),\mathcal{M})\to F\md_\mathcal{A}(\mathcal{Y}(L),\mathcal{M})$$ by sending $\varphi \in F\md_\mathcal{A}(\mathcal{Y}(L),\mathcal{M})$ to the pre-morphism of modules $H(\varphi)$ with components $$H(\varphi)_{l|1}(x_1,\ldots, x_l,y):= \varphi_{l+1|1}(x_1,\ldots, x_l,y,e_L)$$ for any $l\geq 0$. Again, since strict units lie at vanishing filtration level, the map $H$ preserves $F\md_\mathcal{A}(\mathcal{Y}(L),\mathcal{M})^{\leq \alpha}$ for any $\alpha\in \mathbb R$. We prove that $$\lambda\circ \theta + id_{F\md_\mathcal{A}(\mathcal{Y}(L),\mathcal{M})} = \mu_1^{\md}\circ H + H \circ \mu_1^{\md},$$ that is, that $\theta$ is a right quasi-inverse of $\lambda$ via the chain-homotopy $H$. Let $\varphi\in F\md_\mathcal{A}(\mathcal{Y}(L),\mathcal{M})$ and $l\geq 0$, we compute:
+	\begin{enumerate}
+		\item first, the term \begin{align*}
+			\mu_1^{\md}(H(\varphi))_{l|1}(x_1,\ldots, x_l,y)  =&  \sum_{i=0}^l \mu^\mathcal{M}_{i|1}(x_1,\ldots, x_i, \varphi_{l-i+1|1}(x_{i+1},\ldots, x_l,y,e_L)) \\ & + \sum_{i=0}^l \varphi_{i+1|1}(x_1,\ldots, x_i, \mu_{l-i+1}(x_{i+1},\ldots, x_l,y),e_L) \\
+			& + \sum_{j=0}^{l-1}\sum_{i=1}^{l-j} \varphi_{l-i+2|1}(x_1,\ldots, x_j, \mu_{i}(x_{j+1},\ldots, x_{j+i}),x_{j+i+1},\ldots, x_l,y,e_L)
+		\end{align*}
+		\item then the term \begin{align*}
+			H(\mu_1^{\md}\varphi)_{l|1}(x_1,\ldots, x_l,y)  =& \ \   \mu_1^{\md}\varphi_{l+1|1}(x_1,\ldots, x_l,y,e_L) \\  =&   \sum_{i=0}^l \mu^\mathcal{M}_{i|1}(x_1,\ldots, x_i, \varphi_{l-i+1|1}(x_{i+1},\ldots, x_l,y,e_L) + \mu_{l+1|1}^\mathcal{M}(x_1,\ldots, x_l,y,\varphi_1(e_L))\\ & +\sum_{i=0}^l \varphi_{i|1}(x_1,\ldots, x_i, \mu_{l-i+2}(x_{i+1},\ldots, x_l,y,e_L))
+			\\ & + \sum_{j=0}^{l-1}\sum_{i=1}^{l-j} \varphi_{l-i+2|1}(x_1,\ldots, x_j, \mu_{}(x_{j+1},\ldots, x_{j+i}),x_{j+i+1},\ldots, x_l,y,e_L) \\ & + \sum_{j=0}^l \varphi_{j+1|1}(x_1,\ldots, x_j, \mu_{l-j+1}(x_{j+1},\ldots, x_l,y),e_L)
+		\end{align*}
+		and note that the second big sum after the last equality equals $\varphi_{l|1}(x_1,\ldots, x_l,y)$ since $e_L$ is a strict unit.
+		\item finally, we compute \begin{align}
+			(\lambda\circ \theta + id)(\varphi)_{l|1}(x_1,\ldots, x_l,y) = \mu_{l+1|1}^\mathcal{M}(x_1,\ldots, x_l,y,\varphi_1(e_L)) + \varphi_{l|1}(x_1,\ldots, x_l,y).
+		\end{align}
+		
+	\end{enumerate}
+	We see that summing all the contributions above we get the expected equality at the $l|1$ level. This proves the proposition.
+\end{proof}
+The following result is an easy corollary of the above. We denote by $\mathcal{Y}(\mathcal{A})=\text{image}(\mathcal{Y})$ the subcategory of $F\md_\mathcal{A}$ consisting of Yoneda modules.
+\begin{cor}
+	The induced persistence functor $H(\mathcal{Y})\colon H(\mathcal{A})\to H(\text{image}(\mathcal{Y}))$ is an equivalence of persistence categories.
+\end{cor}
+

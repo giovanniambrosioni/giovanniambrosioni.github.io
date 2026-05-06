@@ -1,0 +1,142 @@
+\begin{thebibliography}{DHKK14}
+
+\bibitem[AB24]{AbouzaidBottman2024Functoriality}
+Mohammed Abouzaid and Nathaniel Bottman.
+\newblock Functoriality in categorical symplectic geometry.
+\newblock {\em Bulletin of the American Mathematical Society}, 61(4):525--608, 2024.
+
+\bibitem[ABC26]{ABC26}
+G.~Ambrosioni, P.~Biran, and O.~Cornea.
+\newblock Approximability for {L}agrangian submanifolds.
+\newblock Preprint (2026), can be found at \url{https://arxiv.org/abs/2601.12506}, 2026.
+
+\bibitem[Amb25]{Amb:fil-fuk}
+G.~Ambrosioni.
+\newblock Filtered {F}ukaya categories.
+\newblock {\em J. Symplectic Geom.}, 23(2):423--509, 2025.
+
+\bibitem[BC07]{Bar-Cor:Serre}
+J.-F. Barraud and O.~Cornea.
+\newblock Lagrangian intersections and the {S}erre spectral sequence.
+\newblock {\em Annals of Mathematics}, 166:657--722, 2007.
+
+\bibitem[BC09]{Bi-Co:rigidity}
+P.~Biran and O.~Cornea.
+\newblock Rigidity and uniruling for {L}agrangian submanifolds.
+\newblock {\em Geom. Topol.}, 13(5):2881--2989, 2009.
+
+\bibitem[BC13]{Bi-Co:cob1}
+P.~Biran and O.~Cornea.
+\newblock Lagrangian cobordism. {I}.
+\newblock {\em J. Amer. Math. Soc.}, 26(2):295--340, 2013.
+
+\bibitem[BC14]{Bi-Co:lcob-fuk}
+P.~Biran and O.~Cornea.
+\newblock Lagrangian cobordism and {F}ukaya categories.
+\newblock {\em Geom. Funct. Anal.}, 24(6):1731--1830, 2014.
+
+\bibitem[BCS21]{Bi-Co-Sh:LagrSh}
+P.~Biran, O.~Cornea, and E.~Shelukhin.
+\newblock {L}agrangian shadows and triangulated categories.
+\newblock {\em Ast\'{e}risque}, 426:128, 2021.
+
+\bibitem[BCZ24]{BCZ:tpc}
+P.~Biran, O.~Cornea, and J.~Zhang.
+\newblock {T}riangulation, {P}ersistence, and {F}ukaya categories.
+\newblock {\em {\em To appear in} Memoirs of the European Mathematical Society}, 2024.
+\newblock Preprint versions (2023, 2024) can be found at \url{https://arxiv.org/abs/2304.01785}.
+
+\bibitem[cGG24]{CGG_bar_ent}
+E.~\c{C}ineli, V.~Ginzburg, and B.~G\"{u}rel.
+\newblock Topological {E}ntropy of {H}amiltonian {D}iffeomorphisms: {A} persistence homology and {F}loer theory perspective.
+\newblock {\em Math. Zeitschrift}, 308:2--75, 2024.
+\newblock \url{https://doi.org/10.1007/s00209-024-03627-0}.
+
+\bibitem[CL06]{Cor-La:Cluster-2}
+O.~Cornea and F.~Lalonde.
+\newblock Cluster homology: an overview of the construction and results.
+\newblock {\em Electron. Res. Announc. Amer. Math. Soc.}, 12:1--12, 2006.
+
+\bibitem[DHKK14]{DHKK:dyn_cat}
+G.~Dimitrov, F.~Haiden, L.~Katzarkov, and M.~Kontsevich.
+\newblock Dynamical {S}ystems and {C}ategories.
+\newblock {\em Contemporary Mathematics}, 621:133--170, 2014.
+
+\bibitem[FS19]{Fong_Spivak_2019}
+Brendan Fong and David~I. Spivak.
+\newblock {\em An Invitation to Applied Category Theory: Seven Sketches in Compositionality}.
+\newblock Cambridge University Press, 2019.
+
+\bibitem[Fuk93]{Fu:morse-homotopy-ai}
+K.~Fukaya.
+\newblock Morse homotopy, {$A\sp \infty$}-category, and {F}loer homologies.
+\newblock In {\em Proceedings of {GARC} {W}orkshop on {G}eometry and {T}opology '93 ({S}eoul, 1993)}, volume~18 of {\em Lecture Notes Ser.}, pages 1--102, Seoul, 1993. Seoul Nat. Univ.
+
+\bibitem[Fuk97]{Fu:Morse-homotopy}
+K.~Fukaya.
+\newblock Morse homotopy and its quantization.
+\newblock In {\em Geometric topology (Athens, GA, 1993)}, volume 2.1 of {\em AMS/IP Stud. Adv. Math.}, pages 409--440, Providence, RI, 1997. Amer. Math. Soc., Amer. Math. Soc.
+
+\bibitem[Gan12]{Gan:thesis}
+S.~Ganatra.
+\newblock {\em Symplectic {C}ohomology and {D}uality for the {W}rapped {F}ukaya {C}ategory}.
+\newblock ProQuest LLC, Ann Arbor, MI, 2012.
+\newblock Thesis (Ph.D.)--Massachusetts Institute of Technology.
+
+\bibitem[Kel05]{Kelly2005Basic}
+G.~M. Kelly.
+\newblock {\em Basic Concepts of Enriched Category Theory}.
+\newblock Number No. 10. Cambridge University Press, 2005.
+\newblock Reprint of the 1982 Cambridge Univ. Press Lecture Notes in Mathematics 64.
+
+\bibitem[Kel06]{KellerICM}
+Bernhard Keller.
+\newblock On differential graded categories.
+\newblock pages 151--190, 2006.
+
+\bibitem[Kon95]{Ko:ICM-HMS}
+M.~Kontsevich.
+\newblock Homological algebra of mirror symmetry.
+\newblock In {\em Proceedings of the {I}nternational {C}ongress of {M}athematicians, {V}ol.\ 1, 2 ({Z}\"urich, 1994)}, pages 120--139, Basel, 1995. Birkh\"auser.
+
+\bibitem[Nee22]{Neeman:approx_tri}
+A.~Neeman.
+\newblock Finite approximations as a tool for studying triangulated categories.
+\newblock In {\em Proc. Int. Cong. Math. , Vol. 3, pp.}, pages 1636 --1658. EMS Press, 2022.
+
+\bibitem[PS16]{Po-Sh:autonom-ham-flows}
+L.~Polterovich and E.~Shelukhin.
+\newblock Autonomous {H}amiltonian flows, {H}ofer's geometry and persistence modules.
+\newblock {\em Selecta Math. (N.S.)}, 22(1):227--296, 2016.
+
+\bibitem[Sei08]{Se:book-fukaya-categ}
+P.~Seidel.
+\newblock {\em Fukaya categories and {P}icard-{L}efschetz theory}.
+\newblock Zurich Lectures in Advanced Mathematics. European Mathematical Society (EMS), Z\"urich, 2008.
+
+\bibitem[Syl19]{Sylvan2019OnCategories}
+Zachary Sylvan.
+\newblock {On partially wrapped Fukaya categories}.
+\newblock {\em Journal of Topology}, 12(2):372--441, 6 2019.
+
+\bibitem[Tab05]{TABUADA200515}
+Goncalo Tabuada.
+\newblock Une structure de catégorie de modèles de quillen sur la catégorie des dg-catégories.
+\newblock {\em Comptes Rendus Mathematique}, 340(1):15–19, 2005.
+
+\bibitem[To{\"e}07]{Toen2007}
+Bertrand To{\"e}n.
+\newblock The homotopy theory of dg-categories and derived morita theory.
+\newblock {\em Inventiones mathematicae}, 167(3):615--667, 2007.
+
+\bibitem[Toe11]{To:dg-cat}
+B.~Toen.
+\newblock Lectures on dg-categories.
+\newblock In {\em Topics in algebraic and topological K-theory}, Lecture Notes in Math., pages 243--302. Springer, Berlin, 2011.
+
+\bibitem[Tur38]{Turing:approx}
+A.~Turing.
+\newblock Finite {A}pproximations to {L}ie {G}roups.
+\newblock {\em Annals of Math.}, 39(1):105--111, 1938.
+
+\end{thebibliography}

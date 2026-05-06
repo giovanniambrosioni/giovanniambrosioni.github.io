@@ -1,0 +1,120 @@
+% !TEX root = approx8.tex
+
+
+
+\subsubsection{Gromov width, cone length and sizes of approximating
+  families} \label{sbsb:gwidth-2}
+
+Let $(M, \omega)$ be a symplectic manifold of one of the types
+described in~\S\ref{s:pdfuk} and let $\lag$ be a subset of the
+collection of Lagrangians in $M$, as in~\S\ref{sb:sys-fuk}. Recall
+that we have the system of filtered $A_{\infty}$-categories
+$\widehat{\fuk}(\lag)$ and its filtered derived system of TPC's
+$PD(\widehat{\fuk}(\lag))$.
+
+Let $\mathcal{S}$ be a collection of subsets of $M$ and
+$\mathcal{L} \subset \lag$ a collection of Lagrangians from
+$\lag$. For $w > 0$ define the $w$-density index of $\mathcal{S}$
+relative $\mathcal{L}$ to be:
+\begin{equation} \label{eq:density-rel} I(\mathcal{S}, \mathcal{L}; w)
+  := \inf \bigl\{k \geq 1 \mid \exists \, S_1, \ldots, S_k \in
+  \mathcal{S} \text{ such that } \mathscr{W}(L; S_1 \cup \cdots \cup
+  S_k) \leq w, \; \forall L \in \mathcal{L} \bigr\}.
+\end{equation}
+Here and elsewhere in the paper we use the convention that
+$\inf \emptyset = \infty$, $\sup \emptyset = -\infty$. Therefore if
+$L \subset S_1 \cup \cdots \cup S_k$ for some $L \in \lag$,
+$S_1, \ldots, S_k \in \mathcal{S}$, then we have
+$\mathscr{W}(L; S_1 \cup \cdots \cup S_k) = -\infty$ hence
+$\mathscr{W}(L; S_1 \cup \cdots \cup S_k) \leq w$ is automatically
+satisfied in~\eqref{eq:density-rel}.
+
+For a subset $\mathcal{K} \subset \lag$ we denote by
+$$\widetilde{\mathcal{K}} \subset
+\widetilde{\Ob}(PD(\widehat{\fuk}(\lag)))$$ the collection of
+equivalence classes (see~\S\ref{s:approximability}) of the objects
+$\mathcal{Y}_p(K) \in \Ob(PD(\fuk(\lag; p)))$, $K \in \mathcal{K}$,
+$p \in \mathcal{P}$, where
+$\mathcal{Y}_p: \fuk(\lag; p) \longrightarrow F\md_{\fuk(\lag; p)}$ is
+the Yoneda embedding (see~\S\ref{gio:fyon-def}
+and~\S\ref{sbsb:yoneda-sys}).
+
+The following is an immediate consequence of
+Corollary~\ref{cor:link2}.
+\begin{cor} \label{c:approx-index} Let
+  $\mathcal{L}, \mathcal{F} \subset \lag$ be two collections of
+  Lagrangians. Let $w_0 > 0$ and $\mathcal{F}^0 \subset \mathcal{F}$
+  be a finite subset such that $\widetilde{\mathcal{L}}$ is
+  $w_0$-retract-approximable by $\widetilde{\mathcal{F}^0}$ in
+  $PD(\widehat{\fuk}(\lag))$. Then
+  \begin{equation} \label{eq:size-index} |\mathcal{F}^0| \geq
+    I(\mathcal{F}, \mathcal{L}; w_0).
+  \end{equation}
+  Moreover, there exists $L \in \mathcal{L}$ such that
+  $N^r(L; \widetilde{\mathcal{F}^0}, w_0) \geq I(\mathcal{F},
+  \mathcal{L}; w_0)$.
+\end{cor}
+
+\begin{rems} \label{r:approx-index}
+  \begin{enumerate}
+  \item Point (a) of Remark~\ref{rem:width-fibers} applies here as well.
+    Namely, the conclusion of Corollary~\ref{c:approx-index} continues
+    to hold for $M = D^*N$ with $\mathcal{L} = \lag$ being the
+    collection of all closed exact Lagrangians in $D^*N$ and with
+    $\mathcal{F}$ being any collection of cotangent fibers.
+  \item If $\mathcal{S}' \subset \mathcal{S}''$,
+    $\mathcal{L}' \supset \mathcal{L}''$, $w' \leq w''$, then
+    \begin{equation} \label{eq:ineq-index} I(\mathcal{S}', \mathcal{L}';
+      w') \geq I(\mathcal{S}'', \mathcal{L}'';w'').
+    \end{equation}
+    In particular, for every $\mathcal{S}$ and $\mathcal{L}$ we have
+    $I(\mathcal{S}, \mathcal{L}; w) \geq I(\mathcal{S}, \emptyset;
+    w)$. Note that the latter invariant depends on the collection
+    $\mathcal{S}$ itself and does not involve any Lagrangian
+    submanifolds.
+  \item The inequality~\eqref{eq:size-index} may become useful if we
+    fix a collection $\mathcal{F}$ that (retract) approximates
+    $\mathcal{L}$ and want to bound from below the size of any
+    possible finite family $\mathcal{F}^0 \subset \mathcal{F}$ that
+    retract-$w_0$-approximates $\mathcal{L}$. Note that there is
+    no particular assumption on the collection of Lagrangian $\mathcal{F}$
+    in Corollary~\ref{c:approx-index}, besides containing
+    $\mathcal{F}^0$ (and being a subset of $\lag$ of course). In
+    particular we do not even need assume that $\mathcal{F}$ retract
+    approximates $\mathcal{L}$. But in view of~\eqref{eq:ineq-index}
+    the most effective bounds from below in~\eqref{eq:size-index} on
+    $|\mathcal{F}^0|$ are obtained when $\mathcal{F}$ is minimal as
+    possible and in applications it makes sense to assume that
+    $\mathcal{F}$ retract approximates $\mathcal{L}$.
+  \end{enumerate}
+\end{rems}
+
+Here is a simple example showing how Corollary~\ref{c:approx-index}
+can be used in practice. Consider $M=S^2$ endowed with its standard
+symplectic structure $\omega$ normalized such that
+$\text{Area}(S^2, \omega) = 1$. Let $\lag$ be the collection of all
+closed monotone Lagrangian in $S^2$ (in this case, all the embedded
+closed curves which separate $S^2$ into two domains of area
+$\tfrac{1}{2}$). Let $\mathcal{F} \subset \lag$ be the collection of
+all great circles passing through the north and south poles of $S^2$.
+By Proposition~\ref{OCS2}, $\widetilde{\mathcal{F}}$
+retract-approximates $\widetilde{\lag}$ in $PD(\widehat{\fuk}(\lag))$.
+
+We claim that
+$I(\mathcal{F}, \emptyset; w) \geq \lceil \tfrac{1}{4w}
+\rceil$. Indeed, if $F_1, \dots, F_k \in \mathcal{F}$ then at least
+one of the connected components of
+$S^2 \setminus (F_1 \cup \cdots \cup F_k)$ must have area
+$\geq \tfrac{1}{2k}$ hence
+$\mathcal{W}(\emptyset; F_1 \cup \cdots \cup F_k) \geq \tfrac{1}{4k}$.
+It follows that
+$I(\mathcal{F}, \emptyset; w) \geq \lceil \tfrac{1}{4w} \rceil$. (In
+fact, it is not hard to see that we have equality here.)
+
+It follows from Corollary~\ref{c:approx-index} that for every
+$\mathcal{L} \subset \lag$, every $w_0>0$, and every finite collection
+$\mathcal{F}^0 \subset \mathcal{F}$ which $w_0$-retract-approximates
+$\mathcal{L}$ we have:
+$$|\mathcal{F}^0| \geq I(\mathcal{F}, \mathcal{L}; w_0) \geq
+I(\mathcal{F}, \emptyset; w_0) \geq \Bigl\lceil \frac{1}{4w_0} \Bigr
+\rceil.$$

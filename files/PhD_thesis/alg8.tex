@@ -1,0 +1,417 @@
+% !TEX root = approx8.tex
+
+\section{Triangulated persistence refinements of Fukaya
+  categories} \label{sec:alg1}
+The aim of this section is to fix the basic techniques and notation to
+deal with triangulated persistence categories and their applications
+to Fukaya categories. Persistence categories and some of their
+properties are discussed in \S\ref{subsec:PC}. One important feature
+mentioned here is that the set of objects of such a category carries a
+class of natural pseudo-distances called {\em interleaving}, see
+\eqref{eq:d-int}. Triangulated persistence categories are briefly
+recalled in \S\ref{subsec:TPC_approx} where is also introduced TPC
+approximability in Definition \ref{def:TPC-approx}. This is the
+version of approximability appearing in our main theorem, Theorem
+\ref{thmmain1}. In \S\ref{subsec:A_{infty}} we start to discuss
+filtered $A_{\infty}$ categories. The key section in this respect is
+\S\ref{sb:pdc} where are discussed derived categories associated to
+filtered $A_{\infty}$ categories. Section \ref{s:sys-tpc} makes
+explicit the formal properties of a system of $A_{\infty}$ categories
+(and the associated derived categories) that one obtains by making
+choices of perturbations that become smaller and smaller. In
+\S\ref{s:approximability} a new, more precise, version of
+approximability is defined taking into account the system of
+categories with increasing precision discussed before.  This is a
+stronger, but more technical, version of Definition
+\ref{def:TPC-approx} which is shown later in the paper to be satisfied
+in the cases of geometric interest. Finally, \S\ref{s:pdfuk} contains
+the main steps in the construction of the filtered Fukaya categories
+to which can be applied the algebraic tools described earlier in the
+section. We refer to \cite{BCZ:tpc} for further details on the
+filtered algebra background material in this section.
+
+
+\subsection{Persistence categories}\label{subsec:PC}
+In brief, a persistence category $\mathscr{C}$ is a category enriched
+over the category of persistence modules.  We fix notations and give the main
+definitions below.
+\subsubsection{Persistence modules}
+A persistence module
+$$M = \Bigl( \{M^{\alpha}\}_{\alpha \in \mathbb{R}}, \; i_{\alpha,
+  \beta}: M^{\alpha} \longrightarrow M^{\beta}, \; \forall \ \alpha
+\leq \beta \Bigr)$$ over a ring $R$ (for us $R$ will be often
+  either a field or the positive Novikov ring) is a collection of
+$R$-modules $M^{\alpha}$ for each $\alpha\in\R$ and
+morphisms $i_{\alpha,\beta}$ such that
+$i_{\beta,\gamma}\circ i_{\alpha,\beta}=i_{\alpha,\gamma}$ whenever
+$\alpha\leq\beta\leq\gamma$ and $i_{\alpha,\alpha}=id$ (sometimes
+additional constraints are imposed on these modules, as needed).  Let $u, v \in M^{\alpha}$ and $r \geq 0$. We write
+  $u \underset{r}{=}v$ to indicate that $i_{\alpha,\alpha+r}(u) = i_{\alpha,\alpha+r}(v)$.
+%\item For $\alpha \leq \beta$ we write
+%  $m_{\beta}: M^{\alpha} \longrightarrow M^{\beta}$ for the map
+%  $i_{\alpha, \beta}$.
+%\item For $u \in M^{\alpha}$, $v \in M^{\beta}$. We write
+%  $u \underset{\text{per}}{=} v$ to indicate that
+%  $m_{\gamma}(u) = m_{\gamma}(v)$, where
+%  $\gamma := \max \{\alpha, \beta \}$.
+% For $u \in M^{\alpha}$ we denote 
+%  $\ell(u) := \alpha$ and call $\ell(u)$ the persistence level of $u$.
+%
+We  denote by
+$$M_{\text{tot}} := \coprod_{\alpha \in \mathbb{R}} M^{\alpha}$$ the underlying set
+of $M$ %Note that the persistence level $\ell$ can be viewed as a function $\ell: M_{\text{tot}} \longrightarrow \mathbb{R}$.  
+and we define $$M^{\infty} := \colim_{\alpha \to \infty} M^{\alpha},$$
+where the colimit (or direct limit) is taken with respect to the
+structural maps $i_{\alpha, \beta}$, $\alpha \leq \beta$, and call it
+the $\infty$-limit of $M$.
+
+\begin{rem}
+  Let $C$ be a filtered chain complex, with an increasing filtration
+  $C^{\alpha} \subset C^{\beta} \subset C$,
+  $\forall \; \alpha \leq \beta$. We will sometimes view $C$ as a
+  persistence module with
+  $i_{\alpha, \beta}: C^{\alpha} \longrightarrow C^{\beta}$ being the
+  inclusion maps. Let $u \in C^{\alpha}$ and consider the same
+  element $u$ but now viewed in $C^{\beta}$ for some $\beta > \alpha$.
+  For many practical purposes these two elements are viewed as one
+  element that belongs to $C$. However, from the persistence module
+  viewpoint $u \in C^{\alpha}$ and its image
+  $i_{\alpha, \beta}(u) \in C^{\beta}$ should be viewed as distinct
+  elements. \end{rem}
+
+
+\subsubsection{Persistence categories} \label{sb:pc} (PC's in
+short) are (small) categories in which the morphisms between objects form
+persistence modules and the composition of morphisms is compatible
+with the persistence structures. The general theory of persistence
+categories is described in detail in~\cite[Section~2]{BCZ:tpc} and
+here we will only recall several key concepts.
+
+Unless otherwise stated, from now on we will always assume all the PC
+categories to be endowed with a shift functor (or, more precisely, a
+system of shift functors) $\Sigma = \{\Sigma^r\}_{r \in \mathbb{R}}$
+(see~\cite[Section~2.2.3]{BCZ:tpc} for the definition), and all the PC
+functors to commute with $\Sigma^r$ for every $r \in \mathbb{R}$. Part
+of the shift functor structure are the natural transformations
+  $\eta_{r,s}: \Sigma^r \longrightarrow \Sigma^s$,
+  $s, r \in \mathbb{R}$.  The special case $s=0$ will be especially
+  important and we denote it by
+  $\eta_r := \eta_{r,0}: \Sigma^r \longrightarrow \id$.
+Moreover, all persistence functors
+  $\msf: \msc \longrightarrow \msd$ between PC's will be implicitly
+  assumed to be compatible with the shift functors of these categories
+  in the following sense: $\msf \circ \Sigma^r = \Sigma^r \circ \msf$
+  for all $r \in \mathbb{R}$, and
+  $(\eta_{r,s})_{\msf A} = \msf ((\eta_{r,s})_A)$ for all
+  $A \in \Ob(\msc)$ and $r, s \in \mathbb{R}$.
+
+Let $\mathscr{C}$ be a PC category. Denote by $\mathscr{C}^0$ the
+$0$-level category associated with $\mathscr{C}$ and by
+$\mathscr{C}^{\infty}$ the limit (or $\infty$-level) category of
+$\mathscr{C}$. Isomorphisms in $\msc^0$ will be called 
+$0$-isomorphisms and the property of being $0$-isomorphic will be 
+sometimes denoted by $\cong_0$. Similarly, the existence of an isomorphism 
+in $\msc^{\infty}$ will be denoted by $\cong_{\infty}$.
+
+Most of the time we will assume our PC's $\mathscr{C}$ to be graded in
+the sense that the persistence modules $\hom_{\mathscr{C}}(A,B)$ are
+$\mathbb{Z}$-graded. We will mostly use cohomological grading
+conventions and denote by $\hom_{\mathscr{C}}(A,B)^k$,
+$k \in \mathbb{Z}$ the degree-$k$ component of
+$\hom_{\mathscr{C}}(A,B)$. For $\alpha \in \mathbb{R}$ we denote by
+$\hom^{\alpha}_{\mathscr{C}}(A,B)^k$ the $\alpha$-persistence level of
+$\hom_{\mathscr{C}}(A,B)^k$. We assume composition of morphisms
+to be degree-preserving and that identity morphisms are in degree $0$.
+
+Our PC's $\mathscr{C}$ will be often endowed with a {\em translation
+  functor} $T: \mathscr{C} \longrightarrow \mathscr{C}$. This is a PC
+isomorphism functor with the property that for all
+$A, B \in \Ob(\mathscr{C})$, $k \in \mathbb{Z}$, we have PC-natural
+isomorphisms
+$$\hom_{\mathscr{C}}(TA,B)^k \cong \hom_{\mathscr{C}}(A,B)^{k-1},
+\quad \hom_{\mathscr{C}}(A,TB)^k \cong
+\hom_{\mathscr{C}}(A,B)^{k+1}.$$ As mentioned earlier, since $T$ is a
+PC functor, we will implicitly assume that $T$ commutes with the shift
+functors, i.e.~$T \circ \Sigma^{r} = \Sigma^r \circ T$,
+$\forall \, r \in \mathbb{R}$.
+
+
+
+
+\subsubsection{Acyclic objects} \label{sbsb:acyclic} Let $\mathscr{C}$
+be a PC, $A \in \Ob(\mathscr{C})$ and $r \geq 0$. We say that $A$ is
+$r$-acyclic if the morphism $\eta_r^A: \Sigma^r A \longrightarrow A$
+equals $0$, or, equivalently, if the identity $id_{A}$ satifies
+$i_{0,r}(id_{A})=0$.  Here,
+$\eta^A_{r} \in \hom_{\mathscr{C}^0}(\Sigma^{r}A, A)$ is given by
+$\eta^{A}_{r}=\eta_{r}(A)$. An object $A$ is called acyclic if it is
+$r$-acyclic for some $r \geq 0$. Equivalently, $A$ is acyclic if and
+only if $A$ is isomorphic to $0$ in the limit category
+$\mathscr{C}^{\infty}$.  We denote by $A\mathscr{C}$ the full
+subcategory of $\mathscr{C}$ whose objects are the acyclic ones.
+
+
+\subsubsection{Pseudo metrics associated with
+  PC's} \label{sbsb:pc-metrics}
+
+Let $\mathscr{C}$ be a PC with a shift functor $\Sigma$. The
+collection of objects $\Ob(\mathscr{C})$ carries a natural pseudo-metric
+$\dint$, called the interleaving distance, which is defined as
+follows.  For $X, Y \in \Ob(\mathscr{C})$ define:
+\begin{equation} \label{eq:d-int}
+  \begin{aligned}
+    \dint(X, Y) = \inf \Bigl\{r \geq 0 & \bigm| \exists \, \varphi:
+    \Sigma^rX \longrightarrow Y, \, \exists \, \psi: \Sigma^rY
+    \longrightarrow X \\
+    & \;\;\; \text{such that} \; \psi \circ \Sigma^r \varphi =
+    \eta_{2r}^X, \; \varphi \circ \Sigma^r \psi = \eta_{2r}^Y \Bigr\}.
+  \end{aligned}
+\end{equation}
+Here, $\eta^X_{2r} \in \hom_{\mathscr{C}^0}(\Sigma^{2r}X, X)$ are the
+standard maps associated with the persistence structure of
+$\mathscr{C}$ and its shift functor and similarly for $\eta^Y_{2r}$.
+
+Note that $\dint$ is in general not a genuine metric but only a
+pseudo-metric and moreover it may have infinite values. Indeed, if $X$
+and $Y$ are isomorphic in the subcategory $\mathscr{C}^0$, then
+$\dint(X, Y) = 0$. Similarly, if $X$ and $Y$ are not isomorphic in
+$\mathscr{C}^{\infty}$ then $\dint(X,Y) = \infty$. This is compatible
+with the convention that $\inf \emptyset = \infty$ which we use
+in~\eqref{eq:d-int}.
+
+There is another variant of $\dint$ which measures how far an object
+$R$ is from being a retract of another object $X$. More precisely, for
+$R, X \in \Ob(\mathscr{C})$ we define
+\begin{equation} \label{eq:d-rint} \dret(R,X) = \inf \Bigl\{r \geq 0
+  \bigm| \exists \, \varphi: \Sigma^rR \longrightarrow X, \, \exists
+  \, \psi: \Sigma^rX
+  \longrightarrow R \\
+  \;\; \text{such that} \; \psi \circ \Sigma^r \varphi = \eta_{2r}^R
+  \Bigr\}.
+\end{equation}
+In contrast to $\dint$, the measurement $\dret(-,-)$ is in general not
+symmetric (such a structure is sometimes called a quasi-pseudometric).
+
+The pseudo-metric $\dint$, admits a shift-invariant version $\sdint$ that will play 
+an important role further on:
+\begin{equation}\label{eq:sdint}
+\sdint (X,Y)=\inf_{r,s} \dint (\Sigma^{r}X,\Sigma^{s}Y)
+\end{equation}
+It is easily seen that this is also a pseudo-metric. A similar
+construction applies also to $\dret$ and produces $\sdret$.
+
+
+Here is an additional notation to be used later in the paper. Let $Z$
+be a set endowed with a (not necessarily symmetric) pseudo-metric $d$
+and $X, Y \subset Z$. We denote by
+
+$$d(X,Y) := \sup_{x \in X} \inf_{y \in Y} d(x,y)$$
+%$$\vec{d}(X,Y) := \sup_{x \in X} \inf_{y \in Y} d(x,y)$$ 
+the longest distance
+between the points of $X$ and those of $Y$. 
+%(The arrow above the $d$ indicates that
+Note that this is not symmetric in $(X,Y)$.
+We will sometimes use this measurement for $d=\dint$  and $d=\dret$.
+%and denote it $\vec{d}_{\text{int}}$. Similarly
+%we can also define also $\vec{d}_{\text{r-int}}$ (although $\dret$ is
+%not a symmetric pseudo-metric to start with).
+
+
+To end this subsection, we list a few basic metric properties of PC
+functors in the following lemma which is immediate to establish. In
+the statement the same notation $\dint$ is used for the inteleaving
+distance in various PC categories.
+\begin{lem} \label{l:d-func} Let $\msc', \msc''$ be PC's and
+  $\msf: \msc' \longrightarrow \msc''$ a PC-functor.
+  \begin{enumerate}
+  \item For every $A, B \in \Ob(\msc')$ we have
+    $\dint(\msf A, \msf B) \leq \dint(A,B)$.
+  \item If there exists a PC functor
+    $\msg: \msc'' \longrightarrow \msc'$ such that
+    $\dint(\msg \circ \msf, \id_{\msc'}) \leq s$ then for every
+    $A, B \in \Ob(\msc')$ we have
+    $|\dint(\msf A, \msf B) - \dint (A,B)| \leq 2s$.
+  \item If there is a PC-functor $\msh: \msc'' \longrightarrow \msc'$
+    such that $\dint(\msf \circ \msh, \id_{\msc''}) \leq r$ then
+    $$\dint(\msc'', \textnormal{image\,}\msf) \leq r.$$
+  \end{enumerate}
+\end{lem}
+
+
+
+
+\subsection{Triangulated persistence categories and TPC
+  approximability}\label{subsec:TPC_approx}
+We discuss here approximability in the setting of triangulated
+persistence categories.
+
+\subsubsection{TPCs} \label{sb:tpc} A {\em Triangulated Persistence
+  Category} (TPC in short) $\mathscr{C}$ is a PC with an additional
+structure which makes its $0$-level category $\mathscr{C}^0$ a
+triangulated category. The precise definition of a TPC involves
+several other axioms and we refer the reader to~\cite{BCZ:tpc} for a
+detailed exposition of the subject.
+
+Let $\msc$ be a TPC and $S \subset \Ob(\msc)$. We write
+$\langle S \rangle^{\Delta}$ for the minimal full sub-TPC of $\msc$
+which contains all the objects of $S$ and is closed under
+$0$-isomorphisms. (Note that in particular the shift and translation
+functors of $\msc$ restrict to respective functors on
+$\langle S \rangle^{\Delta}$.) 
+
+%We denote by
+%$(\langle S \rangle^{\Delta})^0$ the $0$-level category of the TPC
+%$\langle S \rangle^{\Delta}$.
+
+\subsubsection{TPC approximability} \label{subsubsec:approx_TPC} The
+key approximability definition for the paper is the following.
+\begin{dfn}\label{def:TPC-approx} A pseudo-metric space $(X,d)$ is
+  approximable through triangulated persistence categories (in short,
+  TPC-approximable) if there exists a constant $A\geq 1$ such that for
+  each $\epsilon >0$ the following structure exists. For each
+  $0< \eta <\epsilon$ there is a TPC, $\mathscr{Y}_{\epsilon,\eta}$, with two
+  properties:
+  \begin{itemize}
+  \item[i.] There exists an $(A,\eta)$-quasi-isometric embedding (see Remark \ref{rem:def-TPC-approx}):
+    $$\Phi_{\epsilon,\eta}:(X,d) \to (\Ob(\mathscr{Y}_{\epsilon,\eta}), \sdint^{\ \epsilon,\eta})$$
+  \item[ii.] There exists a {\em finite} family
+    $\mathcal{F}_{\epsilon,\eta} \subset \Ob(\mathscr{Y}_{\epsilon,\eta})$ with the
+    property:
+    $$\sdint^{\ \epsilon,\eta}(\Phi_{\eta}(x), \Ob( \langle\mathcal{F}_{\epsilon,\eta}
+    \rangle ^{\Delta}) ) < \epsilon, \ \forall x\in X$$
+  \end{itemize} 
+  where $\sdint^{\ \epsilon,\eta}$ is the shift invariant interleaving pseudo-metric associated to
+  $\mathscr{Y}_{\epsilon,\eta}$ (see \eqref{eq:sdint}).
+\end{dfn}
+
+For fixed
+$\epsilon$, the data $(\Phi, \F)$ with  $\Phi= \{\Phi_{\epsilon,\eta}\}_{0<\eta <\epsilon}$,
+$\F=\{\F_{\epsilon,\eta} \}_{0<\eta<\epsilon}$ is called 
+TPC $\epsilon$-{\em approximating data} for $(X,d)$. Thus, $(X,d)$ is
+TPC-approximable if $\epsilon$-TPC-approximating data for $(X,d)$
+exists for each $\epsilon>0$. It can certainly happen that multiple
+choices of such data exist for the same $(X,d)$. When one of the two parameters $\epsilon$ or $\eta$ are clear from the context we omit it from the notation. For instance, for fixed $\epsilon$, we write $\Phi_{\eta}$ for the relevant quasi-isometric embeddings , $\sdint^{\ \eta}$ for the respective pseudo-metrics and so forth. 
+
+
+\
+
+This definition  is the TPC  version of Definition \ref{def:approx}. 
+We will also  use in the paper the notion of  {\em TPC retract approximability}.  TPC retract approximability is defined just as above
+without any modifications for point i. above but by using $ \sdret$ at
+point ii.  (we emphasize that the {\em only} change is at point ii. in
+Definition \ref{def:TPC-approx}). Pairs $(\Phi, \F)$ as above but ensuring retract approximability (in other words, using $\sdret$ instead of $\sdint$ for condition ii in the definition) will be called TPC {\em retract $\epsilon$-approximating data}.
+
+\
+
+Point c. in Remark \ref{rem:relation-TPCapp} below explains more precisely how  TPC  approximability, as just defined, fits with the notion of categorical metric approximability introduced in Definition \ref{def:approx}.
+
+
+\begin{rem}\label{rem:def-TPC-approx}
+  a. Recall that an $(A,B)$-quasi-isometric embedding
+  $$(X,d) \to (Y,d')$$ between two metric spaces is a
+  map $\Phi : X\to Y$ such that:
+  $$\frac{1}{A}\  d(x,y)-B \leq d'(\Phi(x),\Phi(y))\leq A\ d(x,y)+B~.~$$
+  Thus, the first point of the Definition \ref{def:TPC-approx} shows that, when $\epsilon$ is
+  fixed, the metrics
+  $\sdint^{\ \eta}$ defined on the objects of $\mathscr{Y}_{\eta}$, when
+  restricted to $X$, get closer and closer to a (pseudo)-metric
+  equivalent to $d$, when $\eta\to 0$. More precisely, we can put for
+  each $x,y\in X$
+  $$\hat{d}(x,y)=\limsup_{\eta\to 0} \sdint^{\ \eta} (x,y)~.~$$
+  This gives a pseudo-metric defined on $X$ and point i. of the
+  Definition implies that this $\hat{d}$ is equivalent to $d$, the
+  original metric on $X$.
+
+  b. A $(A,\eta)$-quasi-isometric embedding is also a
+  $(A,\eta')$-quasi-isometric embedding whenever $\eta'\geq \eta$. As
+  a result, to verify the property in the definition, one only needs
+  to show the existence of $\mathscr{Y}_{\eta}$, $\Phi_{\eta}$, and of
+  the families $\F_{\epsilon} =\{\F_{\epsilon,\eta}\}$ whenever $\eta$ is small enough.
+
+  c. This definition will be applied to the case when $(X,d)$ is a
+  space of Lagrangian submanifolds endowed with the spectral metric
+  $d=d_{\gamma}$ and the categories $\mathscr{Y}_{\eta}$ are TPC
+  refinements of derived Fukaya categories (we assume again $\epsilon$ fixed here). 
+  The role of $\eta$ is to
+  keep track of the size of the perturbations needed to define these
+  Fukaya categories. While this parameter is irrelevant in the
+  non-filtered case, for purposes of approximations it is crucial to
+  keep track of it because any choice of perturbations needed to
+  define the Fukaya category determines some $\eta$ which constraints what the approximating accuracy $\epsilon$ can be. Controlling systematically the various TPC refinements of  Fukaya categories  relative to the choices of perturbation data of varying size requires significant elaboration which is contained in \S\ref{s:sys-tpc}. In particular, the metric $\hat{d}$ above is a version  of $\widehat{d}_{\mathrm{int}}$ from Lemma \ref{l:lim-dint}. In this setting of families of filtered $A_{\infty}$-categories it is operationally useful to use a more refined and precise variant of the definition above. This is formulated  in Definition \ref{d:approx-sys} and its retract analogue is  in Definition \ref{d:approx-sys-ret}. See also Remark \ref{rem:different_approx} for a comparison between these notions.
+  
+  d. The constant $A$
+  will be equal to $2$ in the Lagrangian topology application. The  application to Lagrangian topology was determinant for our choice of the shift invariant
+ metric $\sdint$ in Definition \ref{def:TPC-approx} (as opposed to
+  $\dint$ which could as well have been used, in principle). The
+  reason is that the spectral pseudo-metric is shift invariant and
+  thus the limit $\hat{d}$ from point a above needs to also be shift
+  invariant (see also Remark \ref{rem:relation-TPCapp} ).
+
+  e. In certain contexts, when choices of perturbations are not
+  required, and $\epsilon$ is fixed, one presumably can replace the family $\mathscr{Y}_{\eta}$ by a single $PC$ (or TPC) $\mathscr{Y}_{ 0}$ - in other words include
+  $\eta=0$ - in the definition above.
+
+  f. In Definition \ref{def:TPC-approx} we have not imposed any
+  relation tying the categories $\mathscr{Y}_{\epsilon,\eta}$, when
+  $\eta \to 0$, nor did we assume any relation among the respective
+  families $\F_{\epsilon,\eta}$.  In practice, our constructions in
+  the case of Fukaya categories produce categories that satisfy a
+  property more precise than the one in Definition
+  \ref{def:TPC-approx}, in the sense that, for fixed $\epsilon >0$, the
+  categories $\mathscr{Y}_{\epsilon,\eta}$, with $\eta\to 0$, are related by
+  certain comparison functors and the corresponding families
+  $\F_{\epsilon,\eta}$ correspond one to the other through these
+  functors. This more refined property is more technical to state and
+  is formulated in Definition \ref{d:approx-sys}. Further below we
+  will also discuss the dependence of our constructions relative to $\epsilon$.
+  
+\end{rem}
+
+We will also make use of a simplified notion of TPC-approximability
+that reformulates point ii of Definition \ref{def:TPC-approx}.
+
+
+\begin{dfn} \label{def:simple_approx} Fix a triangulated persistence
+  category $\msc$ and $\mathcal{X}\subset \Ob(\msc)$.  For $\epsilon >0$, we say that $\mathcal{X}$ is $\epsilon$-{\em approximable in} $\msc$ if there
+  exists a {finite} family $\F_{\epsilon}\subset \Ob(\msc)$, called an
+  $\epsilon$-{\em approximating family} for $\mathcal{X}$ in $\msc$, such that
+  $$\dint\left( x, \Ob (\langle \F_{\epsilon}\rangle^{\Delta})\right)
+  < \epsilon, \forall x \in \mathcal{X}.~$$ The set $\mathcal{X}$ is called approximable
+  in $\msc$ if it is $\epsilon$-approximable for each $\epsilon >0$.
+ We say that $\mathcal{X}$ is  {\em retract $\epsilon$-approximable in}
+ $\msc$ if the same property as above holds but with $\dret$ in the place of $\dint$. 
+  \end{dfn} 
+
+\begin{rem}\label{rem:relation-TPCapp} a. Recall from \S\ref{sbsb:pc-metrics} that 
+both $\dint$ and $\dret$ have
+  shift-invariant versions.  Thus, one could use these shift invariant metrics,  $\sdint$ and $\sdret$, instead of $\dint$ and, respectively, $\dret$ in the definition above. However, this has no impact on the notion defined. Indeed, the set $\Ob (\langle \mathcal{S}\rangle ^{\Delta})$ where
+  $\langle \mathcal{S} \rangle ^{\Delta}$ is the smallest sub-TPC of
+  $\C$ containing $\mathcal{S}\subset \Ob (\C)$ is shift and
+  translation invariant. Thus,
+  $\dint(x, \Ob (\langle \F_{\epsilon}\rangle^{\Delta})) =\sdint(x,
+  \Ob (\langle \mathcal{F}_{\epsilon}\rangle^{\Delta}))$ for all
+  $x\in Y$, and similarly for $\dret$.  As a result, the regular and shift
+  invariant versions of approximability in the sense of Definition
+  \ref{def:simple_approx} coincide and the same is true for retract
+  approximability. 
+  
+  b. Notice that, with the terminology in Definition \ref{def:simple_approx}, point ii in Definition \ref{def:TPC-approx} is equivalent to the fact that $\mathcal{X}=\Phi_{\eta}(X)$ is $\epsilon$-approximable in $\mathscr{Y}_{\eta}$ and similarly for retract approximability ($\epsilon$ is fixed here). 
+  
+  
+  c. The notion of $\epsilon$-approximability
+ in Definition \ref{def:simple_approx} obviously implies metric categorical
+ $\epsilon$-approximability of $\mathcal{X}$ in $\msc$, as  introduced in Definition \ref{def:approx} (the difference between the two definitions is that in  \ref{def:simple_approx} the metric on the objects of the category $\msc$ is fixed to be the interleaving metric associated with the persistence structure on $\msc$).
+ 
+ d. Assume, as above, that $\msc$ is a TPC.  
+  The following statement is an exercise in manipulating exact triangles in the triangulated category $\msc^{0}$:  
+  \begin{equation}\label{eq:dint-dret}
+  \mathrm{For\ }\  x, y\in \Ob(\msc)\ \mathrm{if}\ \sdret (x,y) <\epsilon \ , \mathrm{then}\ \exists\ k_{x}\in\Ob(\msc),\ \mathrm{such\ that}\  \sdint(x\oplus k_{x},y) < 2\epsilon ~.~
+  \end{equation}
+It is immediate to see that we also have for all $x,y, k\in \Ob(\msc)$ , $\sdret(x,y)\leq \sdint (x\oplus k,y)$. From (\ref{eq:dint-dret}) we deduce that if $\mathcal{X}$ is retract $\epsilon$-approximable in $\msc$, in the sense of Definition \ref{def:simple_approx}, then it also is retract categorically $\epsilon$-approximable in the sense of \S\ref{subsec:overview}.  In other words, if $\mathcal{X}$ is retract 
+$\epsilon$-approximable in $\msc$, then for each $x\in \mathcal{X}$ there exist $k_{x}\in \msc$ and $y\in \Ob (\langle \mathcal{F}_{\epsilon}\rangle^{\Delta}))$ such that $\dint (x\oplus k_{x},y) < 2\epsilon$.
+
+e. Idempotent completion in TPCs is a subtle matter, much more so than its counterpart in triangulated categories. This topic is studied by Miller in \cite{Miller:idempotents} but we will not appeal in this paper to the results there.
+
+ f. In \cite{BCZ:tpc} were introduced a class of so-called fragmentation pseudo-metrics $d^{\F}(-,-)$ on the objects of a TPC that depend on the choice of a family $\F\subset \Ob(\C)$. These pseudo-metrics are closely related to approximability.  Given $\mathscr{C}$ as above, $d^{\F_{\epsilon}}(0,Y)\leq \epsilon/4$ implies that  $\F_{\epsilon}$ is $\epsilon$-approximating. Conversely, if $\F_{\epsilon}$ is $\epsilon$-approximating, then $d^{\F_{\epsilon}}(0,Y)\leq \epsilon$.  Understanding the behaviour of these fragmentation pseudo-metrics when the family $\mathcal{F}$ changes was one of the main motivations leading to the definition of approximability in this paper. \end{rem}
+  
+ 

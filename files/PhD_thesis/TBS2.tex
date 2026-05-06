@@ -1,0 +1,75 @@
+% !TEX root = approx8.tex
+
+
+\subsection{Complexity of equators on $S{^2}$}\label{subsec:tb_S2}
+The aim of this subsection is to complete the proof of Corollary \ref{cor:no-t-b} by showing that the space of equators on $S^{2}$
+endowed with the spectral metric is not totally bounded.  We will use the notation in \S\ref{sec:split-app}. In particular,
+the set of equators on the $2$-sphere is denoted by
+$\lag^{\text{(mon,} \mathbf{0} \text{)}}(S^2)$. Here 
+the notation reflects the fact that equators are monotone, and $\mathbf{0}$ indicates that the $\Z_{2}$-number of Maslov -$2$  $J$-holomorphic disks with boundaries on an equator $L$, and passing through a fixed point $x\in L$, vanishes. Recall  from Proposition \ref{OCS2} that this class of Lagrangians
+is retract approximable  with an $\frac{1}{4N}+2\nu(p)$-approximating family of the form
+$L_{1},\ldots, L_{N}$ where $L_{i}$ is a great circle passing through the north and south poles of $S^{2}$ and is  at angle $\frac{\pi}{2N}$ from $L_{i-1}$. We fix  $L_{1}$ such that it passes through  the point $(1,0,0)$. We assume that the metric
+on $S^{2}$ is such that its area is equal to $1$.
+
+%\ocnote{Need to add a Remark in Section 4, after the Proposition \ref{OCS2} to note that the result implies approximability of the respective class of Lagrangians with {\em the spectral metric}; same thing for the torus}.
+
+Notice that in this case, by contrast to the case of $M=D^{\ast}N$, the approximating data $(\Phi, \F)$ is simpler in the sense
+that the categories $\mathscr{Y}_{\epsilon,\eta}$ do not depend
+on $\epsilon$, the only dependence is on $p$ (we may assume $\eta=\nu(p)$) and for each $N$, the family $\mathcal{E}(N)=\{L_{1},\ldots, L_{N}\}\subset \mathcal{E}$ where $\mathcal{E}$ is the set of all great circles passing through the two poles.   
+\begin{prop} \label{prop:complex_S2}
+There exists a Hamiltonian diffeomorphism $\Psi\colon S^{2}\to S^{2}$,  $L\in\mathcal{E}$,   $N\in \N$, and  $\epsilon' \geq  2 (\frac{1}{4N}+2\nu(p))$, such that:
+\begin{equation*}
+N^{r}(\Psi ^{k}L, \mathcal{E}(N), \epsilon') \stackrel{k\to \infty}{\longrightarrow} \infty~.~
+\end{equation*}
+\end{prop}
+In view of this proposition and of Remark \ref{rem:tb_complex} it follows that the space
+$(\lag^{\text{(mon,} \mathbf{0} \text{)}}(S^2), d_{\gamma})$
+is not totally bounded.
+
+\begin{proof}[Proof of Proposition \ref{prop:complex_S2}]
+We start by identifying $\Psi$: this is the Dehn twist along the 
+horizontal equator on the sphere with support inside the annulus
+$$U=\{(x,y,z)\in S^{2} \ |  -a  < z < a  \}$$ with $a>0$ picked in such
+a way that the area of $U$ is smaller than $\frac{1}{4}$.
+Next we pick $L$ to be the great circle on $S^{2}$ that passes through the north and south poles and also through the 
+point $(0,1,0)$. Note that $L$ intersects transversely $L_{1}$, the first element in the family $\mathcal{E}(N)$.
+
+The idea of the proof is simple: we would like to use an analogue of the first  inequality in Corollary \ref{cor:ineq_bar2}, for a fixed $\epsilon'$ and some $N$ (with $\mathcal{E}(N)$ in the place of $\F'_{\epsilon}$),  and then show that the number of bars of length larger than $2\epsilon'$ in 
+$HF(L_{1},\Psi^{k}L)$ goes  to infinity with $k$. The key issue to be resolved is that we work here in the monotone context and over the Novikov field $\La$, as in \S\ref{sb:fuk-mon}. As a result, the algebraic
+results in Proposition \ref{prop:lower-bd}  and (\ref{eq:ineq-r-bar}) need to be adjusted to this context. This can be achieved by using the results of Usher-Zhang \cite{Usher-Zhang:perh} as we will briefly
+review next.
+
+Assume that $C$ is a finite dimensional, filtered chain-complex defined over the Novikov field  $\La$.  The homology $H(C)$ is a persistence module in the classical sense over the field $\Z_{2}$.  However, counting bars in the usual way does not make sense because if one bar of type $[a,b)$ appears, all translates of type $T^{\alpha}[a,b)$ also appear for all $\alpha\in\R$.  The tools required to deal with this problem are introduced in \cite{Usher-Zhang:perh} together with a specific terminology.  First, the methods in 
+\cite{Usher-Zhang:perh} apply to rings of Novikov type but more general than our choice here, that are denoted there by $\La^{\mathcal{K},\Gamma}$ where $\mathcal{K}$ is the ground field ( $\Z_{2}$ in our case), and $\Gamma$ is an additive subgroup of $\R$. In our case, $\Gamma=\R$. Moreover, \cite{Usher-Zhang:perh} applies to so-called {\em non-Archimedean normed vector spaces that are orthogonalizable} which means vector spaces $C$ over $\La$ endowed with a filtration function $\ell :C\to \R\cup \{-\infty\}$ with the properties typical for action functionals together with a property of admitting special ``orthogonal'' bases. Such complexes are called of Floer-type  in  Definition 4.1 in \cite{Usher-Zhang:perh} and, in particular, all Floer complexes in our paper fit into this class.  All Floer-type complexes   will always be finite dimensional over $\La$ in our case. To such a Floer-type chain complex $C$ \cite{Usher-Zhang:perh} assigns
+a bar-code $\bar{\mathcal{B}}_{HC}$, called there the {\em concise} bar-code of $C$, that consists
+of intervals of non-negative length, possibly infinite and that all have $0$ as
+lower bound (this is, of course, different from the case considered earlier in this section; the fact that the lower bound of the bars is always $0$ reflects  the issue mentioned above having to do with the action of $\La$). It is shown that such a bar-code determines $C$ up to filtered chain-homotopy equivalence (which explains why we use $H(C)$ in the notation). The construction of this barcode parallels the standard construction over a non filtered field: it goes through a writing of the differential of the complex $C$, $d:C\to C$,
+ in  a special basis over $\La$ such that the matrix of the differential is upper triangular and only contains $0$'s and $1$'s, with at most a single $1$ on each row and column.  We denote by $\bar{\mathcal{B}}^{\delta}_{H(C)}$ the 
+barcode formed by eliminating from $\bar{\mathcal{B}}_{H(C)}$ all
+the bars of length $\leq\delta$, just as in  \S\ref{subsec:pers}. The construction of the barcode $\bar{\mathcal{B}}_{H(C)}$ easily shows that the analogue of 
+Lemma \ref{lem:noc-chains} remains true in this context with the place of 
+$V$ being taken by a Floer-type finite dimensional complex over $\La$ and 
+with $\bar{\mathcal{B}}$ in the place of $\mathcal{B}$. As result 
+ Proposition \ref{prop:lower-bd}  and (\ref{eq:ineq-r-bar}) remain also true
+ with the  modification that the base $A_{\infty}$-category is a Fukaya
+ filtered category  over $\La$ and that $\bar{\mathcal{B}}$ takes the place of $\mathcal{B}$. 
+ 
+ In brief, to prove the proposition we need to show that 
+ \begin{equation}\label{eq:estimate_bars3}
+ \#\  \left(\bar{\mathcal{B}}^{2\epsilon'}_{HF(L_{1},\Psi^{k}L)}\right)\stackrel{k\to\infty}{\longrightarrow} \infty ~.~
+ \end{equation} 
+
+At this point we pick the value  $\epsilon'= \frac{1}{32}$. We will consider the complex $CF(L_{1}, \Psi^{k}L)$ defined over $\La$. The generators of this complex  are the intersection points $L_{1}\cap \Psi^{k}L$. The number of these intersection points is $2k+2$: two of them
+are the north and south poles and there are two others for each successive application of $\Psi$.  Floer trajectories are holomorphic and by using the open mapping theorem it is easy to see that if a Floer trajectory starts at a point $\in L_{1}\cap \Psi^{k}L \cap U$ then it  can not remain entirely inside $U$ and thus it fills a connected region of $S^{2}\backslash ( U \cup L_{1} \cup L)$. As a result each such Floer trajectory has area at least $\frac{3}{32}$. At the same time the Floer homology with $\Z_{2}$ coefficients $HF(L_{1}, \Psi^{k}L;\Z_{2})$ is well defined (this is obtained by making $T=1$) and is isomorphic
+to $HF(L_{1}, L;\Z_{2})$ which is of dimension $2$ over $\Z_{2}$ and is generated by the north and the south poles. It follows that $\bar{\mathcal{B}}_{HF(L_{1},\Psi^{k}L)}$ contains at least $k$ bars and each of them is of length more than $\frac{2}{32}=2\epsilon'$. This concludes the proof.
+\end{proof}
+
+
+\begin{rem} \label{rem:equators1}
+It is easy to reformulate Proposition \ref{prop:complex_S2} in terms of the non-vanishing of an entropy type measurement that one may call $\epsilon$-weighted  {\em slow} (categorical) entropy which is defined just as in formula (\ref{eq:cat_entropy2}) except that $\log (n)$ is used at the denominator, in the place of $n$. In these terms, what we have shown in the proof above is that the slow $\epsilon$-weighted retract entropy of $\Psi$ with respect to $L$, both chosen as in the proof, is  at least $1$ as soon as $\epsilon \leq \frac{1}{32}$. Because  $\Psi$ is a Hamiltonian diffeomorphism, it is easy to see that for $\epsilon=\infty$ the slow entropy vanishes. Relations between entropy and Floer theoretic calculations have been initiated in  \cite{FS:vol-growth}. See  \cite{DawFlBar} \cite{DawA3} for some other results involving bar-code entropy estimates.
+
+
+
+
+
+\end{rem}

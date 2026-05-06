@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d (TeX Live 2023)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: approx8.aux
+The style file: alpha.bst
+Database file #1: biblio_approx8.bib
+Warning--I didn't find a database entry for "Abouzaid2011APlumbings"
+Warning--there's a number but no series in Kelly2005Basic
+Warning--empty journal in KellerICM
+You've used 68 entries,
+            2543 wiz_defined-function locations,
+            1038 strings with 14782 characters,
+and the built_in function-call counts, 26511 in all, are:
+= -- 2777
+> -- 990
+< -- 55
++ -- 316
+- -- 307
+* -- 1873
+:= -- 4275
+add.period$ -- 222
+call.type$ -- 68
+change.case$ -- 376
+chr.to.int$ -- 65
+cite$ -- 70
+duplicate$ -- 1112
+empty$ -- 2012
+format.name$ -- 409
+if$ -- 5455
+int.to.chr$ -- 4
+int.to.str$ -- 0
+missing$ -- 74
+newline$ -- 350
+num.names$ -- 206
+pop$ -- 301
+preamble$ -- 1
+purify$ -- 453
+quote$ -- 0
+skip$ -- 903
+stack$ -- 0
+substring$ -- 1799
+swap$ -- 176
+text.length$ -- 55
+text.prefix$ -- 34
+top$ -- 0
+type$ -- 508
+warning$ -- 2
+while$ -- 278
+width$ -- 74
+write$ -- 911
+(There were 3 warnings)

@@ -1,0 +1,310 @@
+% !TEX root = approx8.tex
+
+
+\section{The Novikov ring}\label{intro:novikov}
+In this section we introduce the Novikov ring and field over the field $\Z_2$ as a completion of rings of polynomials. 
+
+Let $G<\mathbb R$ be a subgroup of the additive real line. We recall the definition of the Novikov ring $\Lambda^G_0$ associated to $G$ over the field $\Z_2$. Let $G_{\geq 0}:= G\cap \mathbb{R}_{\geq 0}$ and consider the polynomial ring $\Z_2[G_{\geq 0}]$; an arbitrary element of $\Z_2[G_{\geq 0}]$ will be denoted by $\sum_{i=0}^n a_iT^{\lambda_i}$, where $a_i\in \Z_2$ and $\lambda_i\in G_{\geq 0}$ are ordered increasingly, i.e. $\lambda_0\leq \lambda_1\leq \cdots\leq\lambda_n$. For any $r\in \mathbb{R}_{\geq 0}$ we define the ideal $$I(r):= \left\{\sum_{i=0}^na_iT^{\lambda_i}\in \Z_2[G_{\geq 0}] : \ r<\lambda_0\in G_{\geq 0}\right\}.$$ We then define the Novikov ring associated to $G$ over $\Z_2$ as $$\Lambda^G_0:=\varprojlim \frac{\Z_2[G_{\geq 0}]}{I(r)}$$ and denote its field of fractions by $\Lambda^G$, which is called the Novikov field associated to $G$. In the case $G=\mathbb{R}$, $\Lambda_0:=\Lambda_0^\mathbb{R}$ will be called the (universal) Novikov ring, and $\Lambda:=\Lambda^{\mathbb{R}}$ the (universal) Novikov field.
+
+We will usually write $$\Lambda:= \left\{\sum_{i=0}^\infty a_iT^{\lambda_i}: \ a_i\in \mathbb{Z}_2, \ \lambda_i\in \mathbb{R} \text{ such that } \lim_{i\to + \infty}\lambda_i=+\infty\right\},$$ and $$\Lambda_0:= \left\{\sum_{i=0}^\infty a_iT^{\lambda_i}\in \Lambda:\ \lambda_i\in [0,+\infty)\right\}.$$ Given an element $P(T)=\sum_{i=0}^\infty a_iT^{\lambda_i}\in \Lambda$ (or $\Lambda_0$), we will always assume that $a_0=1$ and $\lambda_0\leq \lambda_i$ for any $i\geq 1$.
+
+
+%================================
+%================================
+
+
+\section{Filtered $dg$-categories as enriched categories}\label{se:cch}
+
+
+In this section we introduce $dg$-categories as categories enriched over chain complexes and filtered $dg$-categories as categories enriched over filtered chain complexes. Most of the content of this section is well-known to experts. We included this material, which do not appear neither in \cite{Amb:fil-fuk} nor in \cite{ABC26}, in the thesis as we believe that (i) it provides a motivation behind some of the contructions developed in \cite{ABC26} (and outlined later in this chapter) with filtered $A_\infty$-categories and (ii) we believe that the language of enriched categories can be used in the case of $A_\infty$-and triangulated categories in order to better understand the concept of approximability (outlined in \S\ref{se:approx}). The latter point will not be undertaken in this thesis but will be the subject of future work.
+
+\subsection{Categories of chain complexes}\label{se:chR}
+Let $R$ be a commutative ring with unit. For us, a chain complex over $R$ will be a graded chain complex of $R$-modules, that is a graded $R$-module $C=\oplus_{n\in \mathbb{Z}}C_n$ together with moprhisms of modules $d_n\colon C_n\to C_{n-1}$ such that $d_n\circ d_{n+1}=0$. As usual in the literature, we will often drop the degree $n\in \mathbb{Z}$ from the notation.\\
+
+We denote by $\ch(R)$ the following category of chain complexes of chain complexes over $R$. Objects of $\ch(R)$ are chain complexes over $R$ and morphisms are chain maps between them. We denote by $\chfg(R)$ the full subcategory of chain complexes over finitely generated $R$-modules, which from now on will be called finitely generated chain complexes over $R$; $\chb(R)$ the full subcategory of bounded chain complexes over $R$; $\chproj(R)$ the full subcategory of chain complexes over projective $R$-modules, which from now on will be called projective chain complexes over $R$. We allow for obvious mixes in the notation: for instance, $\ch^{\text{b},\text{fg},\text{proj}}(R)$ is the category of bounded finitely generated projective chain complexes over $R$. \\
+
+One remarkable property of $\ch(R)$ is that it comes with a canonical notion of cone.
+\begin{dfn}
+    Let $(C,d_C)$ and $(D,d_D)$ be chain complexes over $R$ and $f\colon  C\to D$ a chain map. The cone of $f$ is the chain complex $$\cone(f):= D\oplus C[1]$$ with differential $$d_{\cone}:= \begin{pmatrix}
+        d_D & f\\
+        0 & d_{C[1]}
+    \end{pmatrix}$$ where $C[1]$ is the chain complex $C$ shifted down by $1$ in degree.
+\end{dfn}
+Let $f$ be as above, then the sequence of chain complexes $$0\to C\xrightarrow{f}D\to \cone(f)\to 0$$ where the third map is the inclusion into the first factor, is exact. We call this sequence the cone sequence associated to $f$.\\ 
+
+Let $(C,d_C)$ and $(D,d_D)$ be chain complexes. We define their tensor product $(C,d_C)\otimes (D,d_C)$ as the chain complex defined on degree $n\in \mathbb{Z}$ as the $R$-module $\bigoplus_{p+q=n}C_p\otimes_R D_q$ with differential $$d_\otimes := d_C\otimes id_D+id_C\otimes d_D.$$
+The following result is an exercise.
+\begin{lem}\label{chisclosed}
+   The category $\ch(R)$ is a closed symmetric monoidal category when endowed with the tensor $\otimes$ as monoidal product and the trivial chain complex $(R,0)$ as unit. 
+\end{lem}
+It is straightforward to see that both the cone and tensor product constructions are well-defined in all of the subcategories of $\ch(R)$ introduced at the beginning of this section. Note that $\ch(R)$ is not compact closed, while $\ch^{\text{b},\text{fg},\text{proj}}$ is.\\
+
+We recall that closedness means that the right tensor functor $-\otimes C$ has a right adjoint for any chain complex $C$ over $R$. Let $C_0=(C_0,d_0), C_1=(C_1,d_1)$ and $C_2=(C_2,d_2)$ be chain complexes over $R$. Dropping differential from the notation, Closedness of $\ch(R)$ means that for any three chain complexes $(C_0,d_0), (C_1,d_1)$ and $(C_2,d_2)$ there is a chain complex $[C_1,C_2]$ such that $$\hom_{\ch(R)}(C_0\otimes C_1,C_2)\cong \hom_{\ch(R)}(C_0,[C_1,C_2]).$$
+It is an exercise to realise that $[C_1,C_2]$ is the complex of graded linear maps $f\colon C_1\to C_2$ endowed with the differential \begin{equation}\label{partf}
+\partial f := d_2\circ f+ f\circ d_1.
+\end{equation} Suppose we are given a chain map $g\colon C_0\otimes C_1\to C_2$. This means that for any $c_0\otimes c_1\in C_0\otimes C_1$ we have $$g(d_0c_0\otimes c_1)+ g(c_0\otimes d_1c_1)+d_2g(c_0\otimes c_1)=0$$ By writing $g_{c_0}(c_1):=g(c_0\otimes c_1)$ this can be rewritten as $$g_{dc_0}(c_1)+(d_2g_{c_0}(c_1)+g_{c_0}(d_1c_1))=0.$$ This provides an hint on how $g$ can be seen as a chain map in $\hom_{\ch(R)}(C_0,[C_1,C_2])$; the shift in grading depends on the input $c_0$ and appears as a result of the definition of $\otimes$ on $\ch(R)$.
+
+\begin{remark}
+    Indeed, we observe that a generalized element of $[B,C]_R$, i.e. a chain map $R\to [B,C]_R$ is precisely a choice of chain map $B\to C$.
+\end{remark}
+
+The complex $[C_1,C_2]$ is called the complex of internal morphisms. It is a standard result that the category with the same objects as $\ch(R)$ and morphism spaces given by complexes of internal morphisms is a category enriched over $\ch(R)$. In the case of chain complexes, the resulting composition is the standard composition of graded maps. We denote this category by $\chdg(R)$ and call it the $dg$-category of chain complexes.
+The following is a consequence of standard abstract non-sense.
+
+% The category $\ch(R)$ does not contain enough structure to be useful in practice. Indeed, while the notion of chain map seem to be the natural notion of morphism between chain complexes, it is also limiting. \\
+% We introduce another category of chain complexes over $R$, denoted by $\chdg(R)$. Its objects are chain complexes over $R$ and its morphisms are graded linear maps between them. In particular, $\ch(R)$ can be seen as a subcategory of $\chdg(R)$. Similarly to the case above, we define natural subcategories $\chdgfg(R)$, $\chdgb(R)$ and $\chdgproj(R)$.\\
+% Note that we can endow morphisms spaces in $\chdg(R)$ with the structure of chain complex. Given two chain complexes $(C,d_C)$ and $(D,d_D)$ and a morphism $f\in \hom_{\ch(R)}((C,d_C), (D,d_D))$ we define $$df:= d_D\circ f + f\circ d_C.$$ A morphism with vanishing differential will be called a chain map.
+
+\begin{lem}
+   The category $\chdg(R)$ is a closed symmetric monoidal category when endowed with the tensor $\otimes$ as monoidal product and the trivial chain complex $(R,0)$ as unit. 
+\end{lem}
+
+We can define yet another category of chain complexes, which will be denoted by $H_0(\chdg(R)$ and called the homological category of $\chdg(R)$. Its objects are chain complexes over $R$ and its morphism spaces are the homologies of the morphism spaces of $\chdg(R)$. It is well-known that he homological category $H^0(\chdg(R))$ of $\chdg(R)$ (and of all the subcategories introduced above) is a triangulated category, with exact triangles induced by sequences isomorphic to a cone sequence. It is easy to see that this category is isomorphic to the homotopy category of chain complexes, that is the category $\ch(R)$ with morphism spaces quotiented by chain homotopies.
+
+
+%=====================================
+%=====================================
+%=====================================
+
+
+\subsection{$dg$-categories}\label{se:dgcat}
+The discussion in the previous section motivates the following definition.
+\begin{dfn}
+    A $dg$-category over $R$ is a category enriched over $\ch(R)$.
+\end{dfn}
+Unpacked, what the above definition means is that a $dg$-category $A$ is a category where the morphisms space $\hom_A(L_0,L_1)$ is a chain complex for any couple of objects $L_0$ and $L_1$ of $A$, composition is a chain map -- which, due to the definition of the tensor product above, means that the composition is compatible with differentials via the Leibniz rule -- and for all objects $L$ of $A$ there is an element $e_L\in \hom_A(L,L)$ which is a cycle and is a multiplicative identity for the composition. The element $e_L$ will be called the unit of $L$.
+
+The following is immediate.
+
+\begin{lem}
+    The category $\chdg(R)$ is a $dg$-category.
+\end{lem}
+
+\noindent We denote by $dg(R)$ the category of $dg$-categories over $R$. It naturally admits the structure of a bicategory.
+\begin{dfn}
+    Let $A$ and $B$ be $dg$-categories. An enriched functor $F\colon A\to B$ is called a $dg$-functor. An enriced natural transformation $\eta\colon F\to G$ between two $dg$-functors $F,G\colon A\to B$ is called a $dg$-natural transformation.
+\end{dfn}
+\noindent Unpacked this means that a $dg$-functor $F\colon A\to B$ is a functor such that for any objects $L_0$ and $L_1$ of $A$, the map $$F\colon \hom_A(L_0,L_1)\to \hom_B(FL_0,FL_1)$$ is a chain map. A $dg$-natural transformation $\eta\colon F\to G$ is a natural transformation such that for any object $L$ of $A$ the element $\eta_L\in \hom_B(FL,GL)$ is of degree zero\footnote{We recall that a natural transformation $\eta\colon F\to G$ is graded of degree $d$ if for any object $L$ of $A$ the morphism $\eta_L$ in the chain complex $\hom_B(FL,GL)$ is of degree $d$.} and closed (i.e. a cycle with respect to the differential on the chain complex $\hom_B(FL,GL))$.\\
+As hinted aove, $dg(R)$ is a bicategory, that is in particular, for any $dg$-categories $A$ and $B$ over $R$, $dg$-functors $A\to B$ together with $dg$-natural transformations form a category $\hom_{dg(R)}(A,B)$.
+
+The following is a standard consequence of Lemma \ref{chisclosed}.
+\begin{lem}
+    The category $dg(R)$ is closed symmetric monoidal, with monoidal functor $\otimes_{dg}$ induced by the monoidal structure of $\chdg(R)$ and unit given by the ring $R$ seen as a $dg$-category with a single object and trivial differential.\\
+    Given two $dg$-categories $B$ and $C$, the $dg$-category of internal morphisms $[B,C]_{dg}$ appearing in the isomorphisms $$\hom_{dg(R)}(A\otimes B,C)\cong hom_{dg(R)}(A, [B,C]_{dg})$$ has the same objects of $\hom_{dg}(B,C)$ (that is, $dg$-functors $B\to C$). Let $F,G\colon B\to C$ be $dg$-functors, then the morphism complex $\hom_{[B,C]_{dg}}(F,G)$ consists of graded natural transformations $\eta\colon F\to G$ with differential induced object-wise by the differential on morphism spaces in the $dg$-category $C$. In other words, given a natural transformation $\eta\colon F\to G$ and an object $L$ of $B$ we have $$(d\eta)_L = d(\eta_L)$$ where the first differential is on $\hom_{[B,C}(F,G)$ and the second on $\hom_C(FL,GL)$. Composition of morphisms in $[B,C]$ is the usual composition of graded natural transformations.
+\end{lem}
+
+\noindent We omit the proof of this Lemma. %The proof is basically analogous to the case of $\chdg(R)$.
+\begin{remark}
+    Let's stop for a moment to observe the following seemingly surprising fact. In the case of chain complexes, internal morphisms consist of graded linear maps (not necessarily chain maps), while in the case of $dg$-categories, objects of the internal morphism $dg$-category are still $dg$-functors, and not something more general (as, for instance \say{graded linear functors}). The difference lies at the level of natural transformations. One can convince themselves that this is indeed correct by considering morphisms between tensors of morphisms between tensor $dg$-categories: the shift in grading \say{absorbed} by the fact that the target is a tensor of chain complexes, in contrast with the case of $\ch(R)$.
+\end{remark}
+
+The following definition is, in the case of $dg$-categories, redundant, but we hope it provides some insight in the $A_\infty$-case (cfr. \cite[Section (1d)]{Se:book-fukaya-categ}).
+\begin{dfn}
+    Let $B$ and $C$ be $dg$-categories over $R$. Then a morphism in the $dg$-category $[B,C]_{dg}$ is called a pre-$dg$-natural transformation.
+\end{dfn}
+
+Let $A$ be a $dg$-category. We recall, that this means that morphisms spaces in $A$ are chain complexes. We can then define a category by taking the homology of these complexes. In other words, we define a category $H_0(A)$ with the same objects as $A$ and, given objects $L_0$ and $L_1$ of $A$, morphisms $$\hom_{H_0(A)}(L_0,L_1):=H_0(\hom_{A}(L_0,L_1))$$ where $H_0$ is the homology functor in degree $0$. We call this the homotopy category of $A$. This is a preadditive category, which is moreover enriched over $R-\md$. Similarly, we can define the category enriched over graded $R$-modules $H_*(A)$ by considering the homology of morphism spaces in all degrees, this will be called the graded homotopy category of $A$.\\
+
+
+We briefly elaborate on a point that is often source of confusion. Being a bicategory, $dg(R)$ comes with a notion of equivalence, that is an adjunction where the natural transformations are isomorphisms. Equivalently, a $dg$-functor $F\colon A\to B$ is said to be an enriched equivalence (from now, a $dg$-equivalence) if and only if $F$ is fully faithful and dense on objects. What this means, is that on morphisms $$F\colon \hom_A(L_0,L_1)\to \hom_B(FL_0,FL_1)$$ is an isomorphism in $\ch_R$, i.e. a chain isomorphism. This notion is often too restrictive in the case of concrete applications (see, for instance, \S\ref{contfunc}). This is why the weaker notion of quasi-equivalence is often preferred.
+\begin{dfn}
+    A $dg$-functor $F\colon A\to B$ is said to be a quasi-equivalence if and only if it is dense on objects and the chain maps induced on morphism spaces are quasi-isomorphisms of chain complexes.
+\end{dfn} 
+
+\begin{remark}
+    At this point we want to highlight how $A_\infty$-structure naturally arise from an homotopical treatment of $dg$-categories. It was discovered by Tabauda in \cite{TABUADA200515} that the category $dg(R)$ admits the structure of a Quillen model category, with weak equivalences given by quasi-equivalences and fibrations given by certain degreewise surjecive $dg$-functors. It was proved in \cite{Toen2007} that the homotopy category $\text{Ho}(dg(R))$ of $dg(R)$ is a closed symmetric monoidal category, and Kontsevich proved that the $dg$-category $[A,B]_{\text{Ho}(dg(R))}$ can be identified with the $dg$-category of \textit{$A_\infty$-functors} from $A$ to $B$. We will introduce this $dg$-category, denoted $\hom_{A_\infty}(A,B)$ in \S\ref{a:sb:fil-ai}.
+\end{remark}
+
+\subsection{The $dg$-category of $dg$-(bi)modules}
+
+In this subsection we define $dg$-modules and $dg$-bimodules.
+We fix a $dg$-category $A$ over $R$.
+\begin{lem}\label{Yoneda1}
+    For any object $L$ of $A$, there is a $dg$-functor $$\mathcal{Y}^A_L\colon A\to \ch_{dg}(R)$$ given by $\mathcal{Y}^A_L(L'):=\hom_A(L',L)$ on objects and, given a morphism $\hom_A(L_0,L_1)$, the image $\mathcal{Y}^A_L(f)\in \hom_{\ch_{dg}(R)}(\hom_A(L_0,L), \hom_A(L_0,L))$ is given by postcomposition with $f$.
+\end{lem}
+\begin{proof}
+    The fact that the functor is well-defined at the level of objects follows from the definition of $dg$-category as a category enriched over $\ch(R)$. In order for $\mathcal{Y}^A_L$ to be a dg-functor, we have to check that the induced map $$\mathcal{Y}^A_L\colon \hom_A(L_0,L_1)\to \hom_{\ch_{dg}(R)}(\hom_A(L_0,L), \hom_A(L_1,L)$$ is a morphism in $$\hom_{\ch(R)}\left(\hom_A(L_0,L_1),\hom_{\ch_{dg}(R)}(\hom_A(L_0,L), \hom_A(L_1,L)\right)$$ i.e. a chain map. 
+    
+    We recall that a morphism in the category $\ch_{dg}(R)$ is an internal hom in $\ch(R)$, that is a graded linear map, and the differential is defined via Eq. (\ref{partf}).
+    Let $f\in \hom_A(L_0,L_1)$. Then for $g\in \hom_A(L_0,L)$ we have $$ (\partial\mathcal{Y}^A_L)(f) = d(g\circ f) + (dg\circ f) = \left((dg\circ f) + (g\circ df) \right)+(dg\circ f) = \mathcal{Y}^A_L(df)$$ and this proves the claim.
+\end{proof}
+\begin{remark}
+    A $dg$-functor $A\to \ch_{dg}(R)$ is also called a $\ch(R)$-valued presheaf on $A^{op}$. If such a functor isomorphic (in the category of $dg$-categories) to a functor of the form $\mathcal{Y}^A_L$ for some $L$, it is called a representable sheaf.
+\end{remark}
+We recall that the $dg$-category of $dg$-functors between $dg$-categories $B$ and $C$ has been defined as the $dg$-category $[B,C]_{dg(R)}$ of internal homs in the category of $dg$-categories $dg(R)$.
+
+\begin{lem}
+    There is a $dg$-functor $$\mathcal{Y}^A\colon A\to [A,\ch_{dg}(R)]$$ given by $\mathcal{Y}^A(L):=\mathcal{Y}^A_L$ on objects and, given a morphism $f\in \hom_A(L_0,L_1)$, the image $$\mathcal{Y}^A(f)\in \hom_{[A,\ch_{dg}(R)]}(\mathcal{Y}^A_{L_0},\mathcal{Y}^A_{L_1}))$$ is given by postcomposition with $f$.
+\end{lem}
+\begin{proof}
+    The fact that, given an object $L$ of $A$, the image $\mathcal{Y}^A(L)=\mathcal{Y}^A_L$ is a $dg$-functor is proved in Lemma \ref{Yoneda1}. The fact that $\mathcal{Y}^A(f)$ is a natural transformation is immediate.
+\end{proof}
+
+The following is a consequence of the strong Yoneda Lemma in enriched category theory.
+\begin{thm}[(left) Yoneda lemma for $dg$-categories]
+    Let $L$ be an object of $A$. There is an isomorphism $$\hom_A(L_0,L_1)\to \hom_{[A,\ch_{dg}(R)]}(\mathcal{Y}^A_{L_0},\mathcal{Y}^A_{L_1}))$$ in $\ch(R)$.
+\end{thm}
+
+The functor $\mathcal{Y}^A$ will be called the Yoneda embedding functor of $A$.
+
+
+\begin{dfn}
+    A left $dg$-module on $A$ is a $dg$-functor $A\to \ch_{dg}(R)$. A right $dg$-module over $A$ is a $dg$-functor $A^{op}\to \ch_{dg}(R)$. If $B$ is another dg-category, a $dg$-bimodule over $(A,B)$ is a $dg$-functor $A^{op}\otimes_{dg}B\to \ch_{dg}(R)$.
+\end{dfn}
+We briefly unpack the definition of left $dg$-module. Let $M\colon A\to \ch_{dg}(R)$ be a $dg$-functor, then for any object $L$ of $A$ we have a chain complex $M(L)$. Let $f\in \hom_A(L_0,L_1)$ be a morphism in $A$, then $M(f)$ will be an element of $\hom_{\ch_{dg}(R)}(M(L_0),M(L_1))$. We will not look at morphisms this way, but rather as follows. Given $L_0$ and $L_1$ objects of $A$, $M$ prescibes a morphism in $$\hom_{\ch(R)}(\hom_A(L_0,L_1), \hom_{\ch_{dg}(R)}(M(L_0),M(L_1))).$$ Since $\hom_{\ch_{dg}(R)}(M(L_0),M(L_1)):= [M(L_0), M(L_1)]_{\ch(R)}$, we get that $M$ indeed prescribes a chain map $$\hom_A(L_0,L_1)\otimes M(L_0)\to M(L_1)$$ for any object $L_0$ and $L_1$. We will denote this map by $\circ_M$. \\Similarly, a right $dg$-module $N$ over $A$ consists of a collection $N(L)$ of chain complexes, one for every object $L$ of $A$, together with chain maps $\hom_A(L_0,L_1)\otimes N(L_1)\to N(L_0)$. \\ A $dg$-bimodule $P$ over $(A,B)$ consists of a collection $P(L,K)$ of chain complexes, for any object $L$ of $A$ and $K$ of $B$, together with chain maps $$\hom_A(L_0,L_1)\otimes \hom_B(K_0,K_1)\otimes P(L_1,K_0)\to P(L_0,K_1).$$ Equivalently,  we can see $P$ as a collection $P(L,K)$ as above together with chain maps $$\hom(L_0,L_1)\otimes P(L_1,K)\to P(L_0,K) \text{    and    }P(L,K_0)\otimes \hom_B(K_0,K_1)\to P(L,K_1)$$ satisying the obvious associativity considitions.
+
+We write $$\modl_A:= [A,\ch_{dg}(R)]_{dg(R)},\qquad \modr_A:= [A^{op},\ch_{dg}(R)]_{dg(R)}$$ and $$ \text{   and   }\bimd_{(A,B)}:=[A^{op}\otimes_{dg}B, \ch_{dg}(R)]_{dg(R)}.$$ It is clear that these are $dg$-categories. We will call a natural transformation between $dg$-(bi)modules a pre-morphism of $dg$-(bi)modules, while $dg$-natural transformations (i.e. cycles) will be called morphisms of $dg$-(bi)modules.
+
+Given a $dg$-cateogory $A$ we write $\mathcal{Y}^A(A)\subset\modl_A$ for the image of the Yoneda embedding of $A$. This is a full-subcategory of $\modl_A$, and its elements are called Yoneda (or representable) $dg$-modules. We define $\overline{\mathcal{Y}^A(A)}\subset \modl_A$ to be the closure of $\mathcal{Y}^A(A)$ with respect to quasi-isomorphisms. This is a full-subcategory of $\modl_A$, and we call its objects quasi-representable $dg$-modules. Of course, $\mathcal{Y}^A(A)$ and $\overline{\mathcal{Y}^A(A)}$ are quasi-equivalent $dg$-categories.
+
+
+\subsection{Pullback and pushforward(s) of $dg$-modules}\label{dgpullpush}
+In this section we recall the definition of the pullback of a $dg$-functor and develop a model for a notion of pushforward. The goal of this section is to motivate the definition of the filtered pushforward of $A_\infty$-functors with linear deviation in \S\ref{ap:pshf}.\\
+
+Let $F\colon A\to B$ be a dg-functor. For the moment we restrict ourselves to left $dg$-modules. There is a canonical $dg$-functor $F^*\colon \modl_B\to \modl_A$ induced by precomposition with $F$ (see for instance \cite{Se:book-fukaya-categ}). We call $F^*$ the pullback of $F$ to $dg$-modules. In the above interpretation of left $dg$-modules as collection of chain complexes with decoration, the action of $F^*$ can be described as follows. Let $N$ be a $dg$-module over $B$, then $F^*N$ is the $dg$-module over $A$ such that $$F^*N(L):=N(FL)$$ for any object $L$ of $A$ and comes with the chain map $$\circ_{F^*N}:=-\circ_NF(-)\colon  \hom_A(L_0,L_1)\otimes F^*N(L_0)\to F^*N(L_1).$$ Let $f\colon N_0\to N_1$ be a pre-morphism of $dg$-modules over $B$, then we set $F^*f\colon F^*N_0\to F^*N_1$ to be the pre-morphism of $dg$-modules over $A$ given as $F^*f(x):=f(x)$ for any $x\in \hom_A(F^*N_0L, F^*N_1L)$.\\
+
+We would like to define a functor $\modl_A\to \modl_B$ adjoint to $F^*$. In other words, we want to construct left and right Kan extensions for $F$ together with any $dg$-module $M$ over $A$.
+
+We recall that, given a left $dg$-module $N$ over $B$, the object $\hom_{\modl_B}(\hom_B(-,F(-)), N)$ can be seen as a left $dg$-module over $A$, with multiplication $$\hom_A(L_0,L_1)\otimes \hom_{\modl_B}(\hom_B(-,F(L_1)), N) \to \hom_{\modl_B}(\hom_B(-,F(L_0)), N)$$ given by sending a pure tensor $a\otimes f$ to the pre-morphism $af$ of left $dg$-modules over $B$ given by $$(af)(b) := f(F(a)\circ b)$$ for $b\in \hom_B(K,F(L_0))$.
+
+The following is a consequence of the Yoneda lemma.
+\begin{lem}
+    The functor $F^*\colon \modl_B\to\modl_A$ is quasi-isomorphic to the functor $$\hom_{\modl_B}(\mathcal{Y}^B\circ F, -)\colon \modl_B\to\modl_A.$$
+\end{lem}
+% Note the following. The restriction of the functor above to the image $\mathcal{Y}^B(B)\subset \modl_B$ of the Yoneda embedding can be identified with the $(A,B)$-bimodule $\overline{F}$ defined via $\overline{F}(L,K):=\hom_B(F(L),K)$ with the obvious composition map.
+
+Note the following. The functor $\mathcal{Y}^B\circ F\colon A\to \modl_B$ can be seen as a $(B,A)$-bimodule $\underline{F}$ with the obvious composition maps. It is well-known that a left adjoint of the functor $$\hom_{\modl_B}(\underline{F},-)\colon \modl_B\to \modl_A$$ is the functor $\modl_A\to \modl_B$ given by the convolution tensor product $\underline{F}\otimes_A - $ that we now define.
+Let $M$ be a $dg$-module over $A$, then $\underline{F}\otimes_A M$ is the $dg$-module over $B$ defined via $$(\underline{F}\otimes_A M)(K):= \bigotimes_{L\in \Ob(A)}\underline{F}(K,L)\otimes_{\ch(R)}M(L)$$ on an object $K$ of $B$, with the obvious differentials coming from the $dg$-structure of $B$ and the $dg$-module structure of $M$, and composition maps coming from the $dg$-bimodule structure of $\underline{F}$. Given a morphism $f\in \hom_{\modl_A}(M_0,M_1)$ of $dg$-modules, we define $\underline{F}\otimes_Af\in \hom_{\modl_F}(\underline{F}\otimes_AM_0,\underline{F}\otimes_AM_1)$ via $$\underline{F}\otimes_A f(b\otimes m):= b\otimes f(m).$$
+
+\begin{cor}
+    We have $\underline{F}\otimes_A - \dashv F^*$.
+\end{cor}
+
+\begin{example}\label{q.i.tensor}
+    The fundamental problem of $\otimes_A$ is that it does not preserve quasi-isomorphisms. A very simple example goes as follows. Let $R=\mathbb{Z}$ and consider $A=B$ to be the $dg$-category with one object. A $dg$-module over $A$ is a chain complex of abelian groups. Let $M$ be the chain complex $\Z_2$ concentrated in degree $0$ and $N$ be the chain complex $$0\to \Z\to\Z\to 0$$ where the middle map is multiplication by $2$, the first $\Z$ lies in degree $1$ and the second in degree $0$. Then $N$ is quasi-isomorphic to $M$. It is easy to see that if we consider $\Z_2$ as a $dg$-bimodule we have $\Z_2\otimes_\Z M\cong M$ while $\Z_2\otimes_\Z N$ is the complex $0\to\Z_2\to \Z_2\to 0$, which has non-trivial first homology. 
+\end{example}
+
+The issue raised in Example \ref{q.i.tensor} is solved by using the machinery of Quillen adjunction. In particular, since the pullback is well-behaved with respect to the Quillen model structure on $dg$-categories of $dg$-modules (see \cite{To:dg-cat}), it induces an adjunction at the level of derived categories. In particular, the functor $\underline{F}\otimes_A -$ induces a derived functor $\underline{F}\otimes_A^\mathbb{L}-$ by replacing a $dg$-module with a cofibrant replacement. Since in the canonical Quillen model structure on the category $\modl_A$ every object is fibrant, this functor is adjoint to $F^*$ seen as a functor on derived categories.
+
+\begin{example}
+Note that $N$ above is a free resolution of $M$, in particular projective, i.e. a cofibrant replacement in the standard projective model category structure on bounded chain complexes. In this case, it is immediate that to see that the derived tensor product preserves the quasi-isomorphism.
+\end{example}
+
+In the standard model structure on $\modl_A$, there is a standard cofibrant replacement to any $dg$-module $M$ via the so-called bar construction. Let $M$ be a $dg$-module over $A$. Then we define $\overline{M}$ to be the $dg$-module defined via $$\overline{M}(L):=\bigoplus_{d\geq 0}\bigoplus_{L_0,\ldots, L_d\in \Ob(A)}A(\vec{L})\otimes M(L_d)$$ with the obvious decorations, where we used the notation $\vec{L}:=(L_0,\ldots L_d)$ and $A(\vec{L}):= \hom_A(L_0,L_1)\otimes \cdots \otimes \hom_A(L_{d-1},L_d)$. It is well-known that $\overline{M}$ is cofibrant (since it is semi-free) and quasi-isomorphic to $M$ (indeed, in the derived category $\overline{M}\cong \Delta_A\otimes^{\mathbb{L}}_AM\cong M$, where $\Delta_A$ is the diagonal bimodule of $A$).\\
+
+The above discussion motivates the following definition.
+\begin{dfn}
+    Let $F\colon A\to B$ be a $dg$-functor. We define the pushforward functor induced by $F$ on left $dg$-modules to be the functor $$F_*\colon \modl_A\to \modl_B$$ defined as follows:
+    \begin{enumerate}
+        \item Given a left $dg$-module $M$ over $A$ and an object $K$ of $B$, define $F_*M(K)$ to be the chain complex $$F_*M(K):= \bigoplus_{d\geq 0}\bigoplus_{L_0,\ldots,L_d\in \Ob(A)}\underline{F}(K,L_0)\otimes A(\vec{L})\otimes M(L_d)$$ with differential induced by the differentials on $A$, $B$ and $M$ as well as composition on $A$, left-module structure on $M$ and right-module structure on $F$; the left-composition for $F_*M$ is induced by the left-composition of $F$.
+        \item given a pre-morphism $f\colon M_0\to M_1$ of $dg$-modules over $A$, i.e. a natural transformation, we define the pre-morphism $F_*f\colon F_*M_0\to F_*M_1$ via $$F_*f(b\otimes a_1\otimes \cdots \otimes a_d\otimes m):= b\otimes a_1\otimes \cdots \otimes a_d\otimes f(m)$$ for a pure tensor in $F_*M_0$ applied to some object of $B$, and extend linearly.
+    \end{enumerate}
+\end{dfn}
+The following lemma is a simple exercise.
+\begin{lem}
+    Let $L$ be an object of $A$, then $F_*\mathcal{Y}^A_L$ is quasi-isomorphic to $\mathcal{Y}^B_{FL}$. In particular, $F_*$ preserves the class of quasi-representable modules.
+\end{lem}
+\begin{remark}
+    We are not aware of how to define a right-adjoint to $F^*$. All the naive attempts via manipulation of bimodules induced by functors seem to send left modules to right ones. Hence, additional assumptions such as the Calabi-Yau property (see \cite{Gan:thesis}) seem necessary. Anyway, in the followings we are gonna deal with pushforwards of quasi-equivalences only. In this case, we believe that, when defined, the right adjoint to the pullback is quasi-isomorphic to the left one described above. 
+\end{remark}
+
+
+
+% \newpage
+
+% When is left adjoint isomorphic to right adjoints?\\
+
+% Most importantly, the image of a representable module might not be representable, causing issues when passing to functors induced on derived categories in \ref{}SYSTEMS
+
+% \subsection{Hochschild homology of $dg$-categories}
+
+% PROOF THAT YONEDA MODULES ARE COFIBRANT
+
+% \begin{proof}
+% Let $\mathcal A$ be a dg category and let $\modl(\mathcal A)$ denote the category of
+% right dg $\mathcal A$-modules, i.e.\ dg functors
+% \[
+% M:\mathcal A^{op}\to \ch(k).
+% \]
+% For an object $X\in\mathcal A$, the \emph{Yoneda module} is
+% \[
+% h_X := \mathcal A(-,X).
+% \]
+
+% Recall that a dg module $P$ is \emph{cofibrant} if for every surjective
+% quasi-isomorphism $p:L\twoheadrightarrow M$ and every morphism
+% $f:P\to M$, there exists a morphism $\tilde f:P\to L$ such that
+% $p\circ \tilde f=f$.
+
+% We prove that $h_X$ is cofibrant.
+
+% \medskip
+
+% \noindent\textbf{Step 1: Maps out of $h_X$.}
+% Let $M$ be any dg $\mathcal A$-module. A dg natural transformation
+% $f:h_X\to M$ is uniquely determined by the element
+% \[
+% m := f_X(1_X)\in M(X)^0.
+% \]
+% Since $f_X$ is a chain map,
+% \[
+% d(m)=f_X(d(1_X))=0,
+% \]
+% so $m\in Z^0(M(X))$.
+% Naturality implies that for every $a\in\mathcal A(Y,X)$,
+% \[
+% f_Y(a)=M(a)(m).
+% \]
+
+% \medskip
+
+% \noindent\textbf{Step 2: Lifting the defining cycle.}
+% Let $p:L\twoheadrightarrow M$ be a surjective quasi-isomorphism of dg
+% $\mathcal A$-modules, and let $f:h_X\to M$ be a morphism.
+% Set $K:=\ker(p)$. Since $p$ is objectwise surjective and a quasi-isomorphism,
+% each complex $K(Y)$ is acyclic.
+
+% Let $m=f_X(1_X)\in Z^0(M(X))$. By surjectivity of $p_X$, choose
+% $l_0\in L(X)^0$ with $p_X(l_0)=m$.
+% Then
+% \[
+% p_X(d l_0)=d(p_X(l_0))=d(m)=0,
+% \]
+% so $d l_0\in K(X)^1$.
+% Because $K(X)$ is acyclic, there exists $k\in K(X)^0$ such that
+% $d k=d l_0$.
+% Define
+% \[
+% l:=l_0-k.
+% \]
+% Then $p_X(l)=m$ and $d l=0$, so $l\in Z^0(L(X))$.
+
+% \medskip
+
+% \noindent\textbf{Step 3: Constructing the lift.}
+% Define a natural transformation $\tilde f:h_X\to L$ by
+% \[
+% \tilde f_X(1_X):=l,
+% \qquad
+% \tilde f_Y(a):=L(a)(l)\quad\text{for }a\in\mathcal A(Y,X).
+% \]
+% This is a dg morphism because $l$ is a cycle and the module structure
+% maps are chain maps. Moreover, for all $Y$ and $a\in\mathcal A(Y,X)$,
+% \[
+% p_Y(\tilde f_Y(a))
+% = p_Y(L(a)(l))
+% = M(a)(p_X(l))
+% = M(a)(m)
+% = f_Y(a),
+% \]
+% so $p\circ\tilde f=f$.
+
+% \medskip
+
+% \noindent\textbf{Conclusion.}
+% Every morphism $h_X\to M$ lifts along any surjective quasi-isomorphism
+% $L\twoheadrightarrow M$. Hence the Yoneda module $h_X$ is cofibrant.
+% \end{proof}
+
+
+% Let $\overline{M}:=bar(A,M)$ the bar complex of $M$. Then the composition in $M$ induces $\overline{M}\to M$

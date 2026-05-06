@@ -1,0 +1,388 @@
+\newpage
+\section{Systems of Fukaya categories with increasing accuracy}\label{sysnew}
+
+Let $(X,\omega)$ be a closed monotone symplectic manifold and let $\lagmon$ be a class of closed monotone Lagrangians in $(X,\omega)$. In this section we explain how to set up a system of Fukaya categories with increasing accuracy $\widehat{\fuk}(\lagmon)$ (see ...) appearing in the statement of Theorem \ref{thmA}. We remark that all what is contained in this section continues to hold (with the adequate usual modifications) in the case of closed exact Lagrangians in Liouville domains. This will be briefly explained in \S\ref{sb:fuk-ex} This section is not part of \cite{Amb:fil-fuk} and is a short revisitation of \cite[Section 2.6.6]{ABC26}.
+
+Consider the space $\mathcal{P}$ of perturbation data defined in \S \ref{actualconstruction}. Recall to any $p\in \mathcal{P}$ we associate a filtered Fukaya category $\fuk(\lagmon;p)$. In \S\ref{actualconstruction}, we showed that $\mathcal{P}$ is non-empty by construction; indeed, we inductively constructed what we called $\varepsilon$-perturbation data. In the following, we will consider a subset of $\mathcal{P}$, but for ease of discussing, we will still denote it by $\mathcal{P}$ (as, morally, there is no difference between the two). Let $B>0$ be a real positive number. We will only consider $p\in \mathcal{P}$ such that for any couple of geometrically different Lagrangians $L,L'\in \lagmon$, the Hamiltonian term $H^{L,L'}_p$ in the Floer data for $(L,L')$ associated to $p$ is uniformly bounded by $B$. Of course, for any choice of $B>0$, there are instances of $p$ satisfying the above: an example is an arbitrary regular $\varepsilon$-perturbation datum for $\varepsilon>0$ small enough. 
+
+We define a function $\nu\colon \mathcal{P}\to (0,\infty)$ which will play the role of \say{size} function (see ...) for our system $\widehat{\fuk}(\lagmon)$. The idea is that $\varepsilon$-perturbation data should satisfy $\nu(p)\leq \varepsilon$. Let $p\in \mathcal{P}$ and define \begin{equation} \label{eq:nu-fuk}
+  \nu(p) := \sup \Bigl\{H_p^{L_0, L_1}(t,x) \bigm| L_0, L_1 \in \lagmon
+  \text{\ are geometrically distinct, }
+  (t,x) \in [0,1]\times X\Bigr\}.
+\end{equation}
+We define a relation $\preceq$ on $\mathcal{P}$. Let $p,q\in \mathcal{P}$. We will write $p\preceq q$ if and only if for any two geometrically different Lagrangians $L_0,L_1\in \lagmon$ we have 
+$$H_q^{L_0, L_1}(t,x) \leq H_p^{L_0, L_1}(t,x), \; \forall \; (t,x) \in
+[0,1] \times X.$$
+The following result is an easy exercise.
+\begin{lem}\label{direction}
+The relation $\preceq$ on $\mathcal{P}$ is a direction, that is $(\mathcal{P},\preceq)$ is a directed preorder.
+\end{lem}
+The following is a consequence of \dots
+\begin{lem}\label{syscf}
+  Let $p,q\in \mathcal{P}$ be perturbation data such that $p\preceq q$. Then 
+  \begin{enumerate}
+  \item any continuation functor $$\mathcal{H}_{p,q}\colon \fuk(\lagmon;p)\to \fuk(\lagmon ;q)$$ as defined in \S\ref{contfunandfiltr} is filtered, and any two functors in this class are $0$-homotopic.
+  \item any continuation functor $$\mathcal{H}_{q,p}\colon \fuk(\lagmon;p)\to \fuk(\lagmon;q)$$ as defined in \S\ref{contfunandfiltr} is an $A_\infty$-functor with linear deviation rate $\leq 2\nu(p)-\nu(q)$, and any two functors in this class are $0$-homotopic.
+  \end{enumerate}
+\end{lem}
+\begin{remark}
+  Note the following. Let $p,q\in \mathcal{P}$ be perturbation data with $\nu(p)=\nu(q)$. Then it might not be the case the $p\preceq q$ nor $q\preceq p$. Indeed, in general, a continuation functor $\mathcal{H}_{p,q}$ in our class has linear deviation $\frac{1}{2}\nu(p)$.
+\end{remark}
+In the terminology of \S\ref{s:sys-tpc} we can summarize the content of this section as follows.
+\begin{cor}\label{ffc1}
+  The system $$\widehat{\fuk}(\lagmon):= \left((\fuk(\lagmon;p))_{p\in \mathcal{P}}, (\mathcal{H}^h_{p,q})_{p,q\in \mathcal{P}, h\in \mathcal{P}^{p,q}}\right)$$ is a homotopy system of $A_\infty$-categories with increasing accuracy.
+\end{cor}
+Let $p,q\in \mathcal{P}$. We denote by $$\msh_{p,q}:= PD(\mathcal{H}_{p,q}): PD(\fuk(\lagmon; p))
+\longrightarrow PD(\fuk(\lagmon; q))$$ the TPC-functor induced by the $A_\infty$-functor $\mathcal{H}_{p,q}$. By the constructions in \S\ref{s:sys-tpc} we have the following result
+\begin{cor}\label{ffc2}
+The system $$PD(\widehat{\fuk}(\lagmon)):=\left((PD(\fuk(\lagmon;p)))_{p\in \mathcal{P}}, (\msh^h_{p,q})_{p,q\in \mathcal{P}, h\in \mathcal{P}^{p,q}}\right)$$ is a system of TPCs with increasing accuracy.
+\end{cor}
+\begin{remark}
+  \begin{enumerate}
+    \item Note that although $\mathcal{H}_{q,p}$ has linear deviation, its induced functor $\msh_{p,q}$ on the persistence derived category is a TPC-functor.
+    \item The system $PD(\widehat{\fuk}(\lagmon))$ does not have a coherent full base of objects. However, all the TPCs $PD(\fuk(\lagmon;p)$ have a common subset of objects, which can be identified with $\lagmon$.
+  \end{enumerate}
+\end{remark}
+
+
+%=================
+%=================
+%================
+
+\section{The exact case}\label{sb:fuk-ex} The content of this section is adapted from Sections 2.6.1 and 2.6.2 in \cite{ABC26}.
+
+Here we assume that
+$X$ is Liouville (with a given Liouville form $\lambda$). In order to
+obtain a graded theory we add the following assumption: $2c_1(X)=0$,
+where $c_1(X)$ stands for the 1'st Chern class of the tangent bundle
+of $X$, viewed as a complex vector bundle by endowing $X$ with any
+$\omega$-compatible almost complex structure.  We also fix a nowhere
+vanishing quadratic complex $n$-form (where
+$n = \dim_{\mathbb{C}} X$), namely a nowhere vanishing section
+$\Theta$ of the bundle $\Omega^n(X, J)^{\otimes 2}$.
+
+Denote by $\lagex$ the collection of closed, graded, marked, exact
+Lagrangian submanifold $L = (\overline{L}, h_L, \theta_L)$. Here
+$\overline{L} \subset X$ is a closed $\lambda$-exact Lagrangian
+submanifold, which we call the {\em underlying Lagrangian of $L$},
+$h_L: \overline{L} \longrightarrow \mathbb{R}$ is a primitive of
+$\lambda|_{\overline{L}}$ and
+$\theta_L: \overline{L} \longrightarrow \mathbb{R}$ is a grading of
+$\overline{L}$, see
+e.g.\cite{Se:graded},~\cite[Section~3.2.2.2]{BCZ:tpc} for more
+details. Sometimes we will write $\lagex(X)$ or $\lagex_{\lambda}(X)$,
+instead of simply $\lagex$, in order to keep track of the additional
+data $X$ or $\lambda$.
+
+We can now form the Fukaya category of exact Lagrangians in $X$ following the recipe outlined in the sections above for the monotone case. 
+% We will follow here a variant of the standard construction
+% from~\cite{Se:book-fukaya-categ} due to Ambrosioni~\cite{Amb:fil-fuk}
+% (see also~\cite{BCZ:tpc} for a somewhat simpler implementation in a special case) which
+% yields a filtered $A_{\infty}$-category. 
+The objects of our Fukaya
+category are the elements of $\lagex$.
+%  To define the morphisms and
+% higher structures we need perturbation data. 
+The space of admissible
+perturbation data $\mathcal{P}$ is defined as in the monotone case.
+% described in detail
+% in~\cite{Amb:fil-fuk}.
+ Once we fix $p \in \mathcal{P}$ we can define
+the filtered Fukaya category $\fuk(\lagex; p)$ as. 
+% (Sometimes we will write $\fuk(X, \lagex; p)$
+% to emphasize the ambient manifold $X$.) For $L_0, L_1 \in \lagex$ we
+% will sometime denote $\hom_{\fuk(\lagex;p)}(L_0,L_1)$ by
+% $CF(L_0, L_1; p)$ or  by $\hom(L_0,L_1; p)$. 
+The most important structural difference between this case and the monotone one described in \S \ref{mbfuk} is the choice of coefficient. Whereas in the monotone case the Floer complexes are filtered chain complexes over $(\Lambda,\Lambda_0)$, here we work with filtered chain complexes over $(\Z_2,\Z_2)$. Hence, the exact filtered Fukaya category is a filtered $A_\infty$-category over $(\Z_2,\Z_2)$. 
+The grading on the Floer complexes
+$CF(L_0, L_1; p)$ is defined using the given grading functions
+$\theta_{L_0}, \theta_{L_1}$ with which $L_0$, $L_1$ are endowed,
+respectively.\\
+
+In the following we briefly sketch the definition of the filtration and grading on exact Fukaya categories and describe some of its properties.
+
+Let $p\in \mathcal{P}$ a filtered perturbation data, constructed exactly as in the monotone case.
+Given two geometrically distinct elements
+$L_0, L_1 \in \lagex$ (i.e.~$\overline{L}_0 \neq \overline{L}_1$) and
+$p \in \mathcal{P}$, denote by
+$H^{L_0,L_1}_p: [0,1] \times X \longrightarrow \mathbb{R}$ the
+Hamiltonian function prescribed by $p$ for the Floer datum of
+$(L_0, L_1)$. Let $x \in CF(L_0, L_1; p)$ be a generator (i.e.~an
+$H^{L_0,L_1}_p$-Hamiltonian chord with endpoints on $L_0, L_1$). Its
+action is defined by
+\begin{equation} \label{symp-act-1} \mathcal A(x) := \int_0^1
+  H_p^{L_0,L_1}(t, x(t))dt - \int_0^1 \lambda(\dot{x}(t)) dt +
+  h_{L_1}(x(1)) - h_{L_0}(x(0)).
+\end{equation}
+There is a function $\nu\colon \mathcal{P}\to (0,\infty)$ and a direction $\preceq$ on $\mathcal{P}$ defined as in the monotone case in \S\ref{sysnew}, and the obvious analogous statement of Lemma \ref{direction} holds.\\
+
+We use the action to filter the chain complexes $CF(L_0, L_1; p)$,
+$L_0, L_1 \in \lagex$. The grading on $CF(L_0, L_1;p)$ follows the
+standard recipe~\cite{Se:graded}, using the grading functions
+$\theta_{L_0}, \theta_{L_1}$.
+
+In case $\overline{L}_0 = \overline{L}_1$ the Floer complex
+$CF(L_0, L_1; p)$ coincides (up to a shift in grading) with the Morse
+complex of $\overline{L}:= \overline{L}_0 = \overline{L}_1$ and we set
+the action level $\mathcal{A}(x)$ of all the (non-zero) elements
+$x \in CF(L_0, L_1; p)$ to be $h_{L_1} - h_{L_0}$ (note that the
+latter is a constant since $\overline{L}_0 = \overline{L}_1$). The
+(cohomological) grading of a generator $x \in CF(L_0, L_1; p)$ is
+defined as $|x| = (n- \textnormal{ind}_f(x)) + \kappa$, where
+$f: \overline{L} \longrightarrow \mathbb{R}$ is the Morse function on
+$\overline{L}$ presribed by $p$, $\textnormal{ind}_f(x)$ is the Morse
+index of the critical point $x$, $n := \dim \overline{L}$, and
+$\kappa = \theta_{L_1} - \theta_{L_0}$ (which is again an integer).
+
+The Fukaya category $\fuk(\lagex;p)$ is a genuine
+filtered and strictly unital $A_{\infty}$-category. 
+
+Let $p,q\in \mathcal{P}$. Between the associated filtered Fukaya categories $\fuk(\lagex;p)$ and $\fuk(\lagex;q)$ one can define a class of continuation functors as in \S\ref{contfunc}. The continuation functors in the exact case have the same properties as in the monotone case. In particular, the deviation of $\msh_{p,q}$ is controlled by $\nu(p)$ and $\nu(q)$ as in the monotone case and the analogous to Lemma \ref{syscf} holds with $\lagmon$ replaced by $\lagex$.
+
+
+We endow the
+category $\fuk(\lagex;p)$ with translation and shift functors as
+follows. Let $L = (\overline{L}, h_L, \theta_L) \in \lagex$. We define
+the translation and shift functors, respectively, on objects by:
+\begin{equation} \label{eq:T-Sigma-ex-1} TL := (\overline{L}, h_L,
+  \theta_L+1), \quad \Sigma^r L := (\overline{L}, h_L+r, \theta_L), \;
+  \forall r \in \mathbb{R}.
+\end{equation}
+These extend to maps on $\hom_{\fuk(\lagex;p)}$'s in the obvious way
+and furthermore to filtered $A_{\infty}$-functors
+$\fuk(\lagex;p) \longrightarrow \fuk(\lagex;p)$ with trivial higher
+order terms.  With these definitions we have natural isomorphisms:
+\begin{equation} \label{eq:T-Sigma-ex-2}
+  \begin{aligned}
+    & CF(T^kL_0, T^lL_1; p)^i \cong
+    CF(L_0, L_1; p)^{i-k+l}, \; \forall \; k,l \in \mathbb{Z}, \\
+    & CF^{\alpha}(\Sigma^rL_0, \Sigma^sL_1;p) \cong
+    CF^{\alpha+r-s}(L_0, L_1; p), \; \forall \; \alpha, r, s \in
+    \mathbb{R}.
+  \end{aligned}
+\end{equation}
+The superscripts $i, i-k+l$ in the first line stand for degrees and
+the superscripts $\alpha, \alpha+r-s$ in the second line are action
+levels.  In the first line we have used cohomological grading
+conventions. In homological grading conventions the isomorphism from
+the first line takes the following form:
+$CF(T^kL_0, T^lL_1; p)_j \cong CF(L_0, L_1; p)_{j+k-l}, \; \forall \;
+k,l \in \mathbb{Z}$. In case no confusion between grading and  action levels may arise
+we will sometimes also write $CF^i(L_0, L_1;p)$ instead of
+$CF(L_0, L_1; p)^i$ and similarly in homology.
+
+The following is the analogous of Corollary \ref{ffc1} and \ref{ffc2} above.
+\begin{cor}
+  The system $$\widehat{\fuk}(\lagex):= \left((\fuk(\lagex;p))_{p\in \mathcal{P}}, (\mathcal{H}^h_{p,q})_{p,q\in \mathcal{P}, h\in \mathcal{P}^{p,q}}\right)$$ is a homotopy system of $A_\infty$-categories with increasing accuracy. Hence, writing $\msh_{p,q}:= PD(\mathcal{H}_{p,q})$ we have that the system $$PD(\widehat{\fuk}(\lagex)):=\left((PD(\fuk(\lagex;p)))_{p\in \mathcal{P}}, (\msh^h_{p,q})_{p,q\in \mathcal{P}, h\in \mathcal{P}^{p,q}}\right)$$ is a system of TPCs with increasing accuracy.
+\end{cor}
+
+Before we proceed we remark that the filtered Fukaya category
+$\fuk(\lagex;p)$ depends on the choice of $\lambda$ in two
+ways. Firstly, the set of objects $\lagex$ depends on $\lambda$ and
+secondly the filtrations on the hom's depend  on $\lambda$.
+Whenever we need to emphasize the dependence on $\lambda$ we will
+write $\lagex_{\lambda}$ for the set of objects and denote this
+category by $\fuk(\lagex_{\lambda}, \lambda ;p)$. (The second
+$\lambda$ in the notation indicates that the action is measured with
+respect to $\lambda$.) Note that if $\lambda' = \lambda + dG$, where
+$G: X \longrightarrow \mathbb{R}$ is a smooth function, compactly
+supported in the interior of $X$, then there is a canonical
+isomorphism of filtered $A_{\infty}$-categories
+\begin{equation} \label{eq:can-iso-fuk-lam} \fuk(\lagex_{\lambda},
+  \lambda;p) \longrightarrow \fuk(\lagex_{\lambda'}, \lambda';p).
+\end{equation}
+Its action on objects is given by
+$(\overline{L}, h, \theta) \longmapsto (\overline{L},
+h+G|_{\overline{L}}, \theta)$. Its action on morphisms is induced by
+the identity map and it has zero higher order terms. We will often
+identify all the categories $ \fuk(\lagex_{\lambda'}, \lambda';p)$
+with $\lambda'$ as above.
+
+However if $\lambda'$ differs form $\lambda$ by a non-exact closed
+form then the collection $\lagex$ entirely changes, so in that case
+$\fuk(\lagex_{\lambda}, \lambda ;p)$ and
+$\fuk(\lagex_{\lambda'}, \lambda' ;p)$ have completely different
+objects and there is no general way to compare these categories.
+
+
+
+\section{Functors associated with
+  symplectomorphisms} \label{sbsb:symplecto-fun} This section is Section 2.6.7 in \cite{ABC26}.
+
+  Let $(X, \omega)$ be
+ either a monotone symplectic manifold or a Liouville manifold, and $\lag$ be either $\lagex(X)$ or $\lagmon(X)$. 
+
+Let $\phi : X \longrightarrow X$ be a symplectic diffeomorphism
+compactly supported in the interior of $X$. We will define below an endo-functor of each of the systems of TPC's $PD(\widehat{\fuk}(\lag))$ and
+$PD^c(\widehat{\fuk}(\lag))$, that is induced by $\phi$.
+
+In order to define such a functor we need several additional
+assumptions on $\phi$. First of all we assume that $\phi$ preserves
+the collection of underlying Lagrangians $\overline{L}$ with
+$L \in \lag$. The other assumptions on $\phi$ depend on the collection
+of Lagrangians (exact, monotone or weakly exact) which $\lag$ is
+associated with.
+
+We begin with the case of exact Lagrangians. Here we first need to
+keep in mind the Liouville form $\lambda$. Let
+$\lag_{\lambda} \subset \lagex_{\lambda}$ be a subset which is closed
+under translations and shifts. We will make the following additional
+assumptions: $\phi$ is assumed to be exact, namely
+$\phi^*\lambda = \lambda + dF$ for some smooth function
+$F: X \longrightarrow \mathbb{R}$ which is compactly supported inside
+the interior of $X$. We also assume that $\phi$ preserves the homotopy
+class of the quadratic complex $n$-form $\Theta$ (among non-vanishing
+forms of this type, and after indentifying $(T(X),J)$ with
+$(T(X), \phi^*J)$). We also assume that $\phi$ is graded
+(see~\cite{Se:graded} for the definition of a graded
+symplectomorphism) and denote its action on graded Lagrangians by
+$(\overline{L}, \theta) \longmapsto (\phi(\overline{L}),
+\phi_*(\theta))$.
+
+Under the above assumptions we obtain a bijective map,
+\begin{equation} \label{eq:phi-obj-lam-1} \Ob(\fuk(\lag, \lambda; p))
+  \longrightarrow \Ob(\fuk(\lag, \lambda';q)), \quad (\overline{L}, h,
+  \theta) \longmapsto (\phi(\overline{L}), h \circ
+  \phi^{-1}|_{\phi(\overline{L})}, \phi_*(\theta)),
+\end{equation}
+where $\lambda' := (\phi^{-1})^*\lambda$. Here $p,q$ are any two
+choices of perturbation data (indeed, below we will need to work with
+$p \neq q$).
+
+By the assumptions on $\phi$ we have
+$\lambda' = \lambda - d(F \circ \phi^{-1})$, hence after composing the
+preceding map with the canonical
+isomorphism~\eqref{eq:can-iso-fuk-lam} we obtain a bijection
+\begin{equation} \label{eq:phi-obj}
+  \begin{aligned}
+    & \phi: \Ob(\fuk(\lag, \lambda;p)) \longrightarrow \Ob(\fuk(\lag,
+    \lambda;q)),
+    \\
+    & (\overline{L}, h, \theta) \longmapsto (\phi(\overline{L}), h
+    \circ \phi^{-1}|_{\phi(\overline{L})} - F|_{\overline{L}} \circ
+    \phi^{-1}|_{\phi(\overline{L})}, \phi_*(\theta)),
+  \end{aligned}
+\end{equation}
+which by abuse of notation we still denote by $\phi$.
+
+Next we define a map
+$\phi_* : \mathcal{P} \longrightarrow \mathcal{P}$ by pushing forward
+the structures in the perturbation datum. Specifically, let
+$p \in \mathcal{P}$ be a perturbation data. Recall that $p$ assigns to
+each tuple of Lagrangians in $\lag$ some auxiliary structures.  In the
+simplest case, when this tuple $\vec{L} = (L_0, \ldots, L_d)$ has no
+consecutive entries (in the cyclic sense) with the same underlying
+Lagrangians, the perturbation $p$ assigns to $\vec{L}$ a tuple
+$(K^p, J^p)$ with two components: the first is a family
+$K^p =\{K^p_S \in \Omega^1(S; C_0^{\infty}(X))\}_{S \in \mathcal{S}}$
+of $1$-forms parametrized by the space $\mathcal{S}$ of
+boundary-punctured disks (with any number $\geq 2$ of punctures). Each
+member of the family $K^p$ is a $1$-form $K_S^p$ on the punctured disk
+$S$ with values in the space of compactly supported smooth functions
+on $X$ (which should be viewed as Hamiltonian functions). The second
+component $J^p$ is a family $\{J_S^p\}_{S \in \mathcal{S}}$ of (domain
+dependent) almost complex structure, or more precisely each $J^p_S$ is
+itelsf an $S$-parametrized family $\{J^p_{S,z}\}_{z \in S}$ of
+$\omega$-compatible almost complex structures on $X$ which are also
+compatible with the symplectic convexity of $(X, \omega)$ at infinity
+(in case $X$ is not closed).  The push forward $\phi_*(p)$ of $p$ by
+$\phi$ assigns to $\phi(\vec{L}) := (\phi(L_0), \ldots, \phi(L_d))$
+the perturbation data $\phi_*(p) = (\phi_* K^p, \phi_* J^p)$, where
+\begin{equation} \label{eq:push-forward}
+%  \begin{aligned}
+  (\phi_*K^p)_S (\xi) :=  K^p_S(\xi) \circ \phi^{-1}, \; \forall
+  \xi \in T(S), \quad (\phi_* J^p)_{S,z} := D \phi \circ J_{S,z}
+  \circ D \phi^{-1}, \; \forall S \in \mathcal{S}, z \in S.
+%  \end{aligned}
+\end{equation}
+This completes the definition of $\phi_*(p)$ in the case when
+$\vec{L}$ does not contain consecutive entries whose underlying
+Lagrangians coincide.
+
+When the tuple of Lagrangians does contain consecutive entries with
+the same underlying Lagrangians the perturbation data $p$ are defined
+over the space clusters. In essence these combine punctured disks
+and some trees attached to some of the boundary arcs of the punctured
+disks. Over each punctured disk in the cluster the perturbation data
+are as before (namely, they consits of a pair $(K^p,J^p)$ as described
+above). Over each tree the perturbation data consists of a Morse data,
+which is a collection of paramter-depending Morse functions and
+Riemannian metrics assigned to each edge of the graph (and depending
+on a parameter varying along each edge). The push forward by $\phi$
+of the Morse data (in the tree part of a cluster) is simply done by
+composing the Morse functions with $\phi^{-1}$ and similarly for the
+Riemannian metrics. Finally, over each punctured disk in a cluster we
+use the same recipe as in~\eqref{eq:push-forward}.
+
+The space of admissible perturbation data
+$\mathcal{P}$ is closed under the action of $\phi$, namely for every
+$p \in \mathcal{P}$ we have $\phi_*(p) \in \mathcal{P}$. This follows directly
+from the definition of $\mathcal{P}$. Moreover,
+it follows from~\eqref{eq:nu-fuk} that for every $p \in \mathcal{P}$ we
+have $\nu(\phi_*(p)) = \nu(p)$ and that for every $p \preceq q$ we
+have $\phi_*(p) \preceq \phi_*(q)$.
+
+The diffeomorphism $\phi$ also induces obvious chain isomorphisms,
+defined for every $L_0, L_1 \in \lag_{\lambda}$ and
+$p \in \mathcal{P}$:
+\begin{equation} \label{eq:phi-chain} \phi^{CF} : CF(L_0, L_1;
+  \lambda; p) \longrightarrow CF(\phi(L_0), \phi(L_1); \lambda;
+  \phi_*(p)).
+\end{equation}
+Note that we are using here the same Liouville form $\lambda$ both in
+the domain and target of $\phi^{CF}$, as we have done also
+in~\eqref{eq:phi-obj}. Since
+$(\phi^{-1})^*\lambda = \lambda - d(F \circ \phi^{-1})$ it follows
+that the chain map $\phi^{CF}$ preserves action filtrations.
+
+The maps $\phi^{CF}$ extend to a filtered $A_{\infty}$-functor (in
+fact an $A_{\infty}$-isomorphism)
+\begin{equation} \label{eq:phi-fun-1} \phi^{\fuk}_p: \fuk(\lag,
+  \lambda; p) \longrightarrow \fuk(\lag, \lambda; \phi_*(p))
+\end{equation}
+whose first order terms are $\phi^{CF}$ and with vanishing higher
+order terms. These functors fit together to a functor of systems of
+filtered $A_{\infty}$-categories,
+$$\widehat{\phi}^{\fuk}: \widehat{\fuk}(\lag, \lambda) \longrightarrow
+\widehat{\fuk}(\lag, \lambda),$$ as defined at the end
+of~\S\ref{sb:sys-ainfty} (see also~\S\ref{sbsb:func-sys-pc}).
+
+Passing to the persistence derived level, we obtain TPC functors:
+\begin{equation} \label{eq:phi-fun-2} PD(\phi^{\fuk}_p): PD(\fuk(\lag,
+  \lambda, p)) \longrightarrow PD(\fuk(\lag, \lambda, \phi_*(p))).
+\end{equation}
+
+The collection of functors $PD(\phi_p^{\fuk})$, $p \in \mathcal{P}$,
+and the push forward map
+$\phi_*: \mathcal{P} \longrightarrow \mathcal{P}$, form together one
+functor of systems of TPC's, according to the definitions
+from~\S\ref{sb:sys-tpc}:
+\begin{equation} \label{eq:phi-fun-3} PD(\widehat{\phi}^{\fuk}) :
+  PD(\widehat{\fuk}(\lag, \lambda)) \longrightarrow
+  PD(\widehat{\fuk}(\lag, \lambda)).
+\end{equation}
+The compatibility with respect to the comparison functors, as required
+by diagrams~\eqref{sys-fun-diag-1} and~\eqref{sys-fun-diag-2}, follows
+by standard arguments.
+
+There is also a similar functor
+$PD^c(\widehat{\phi}^{\fuk}) : PD^c(\widehat{\fuk}(\lag, \lambda))
+\longrightarrow PD^c(\widehat{\fuk}(\lag, \lambda))$, defined
+analogously to~\eqref{eq:phi-fun-3}, in which we just replace $PD$ by
+$PD^c$ everywhere in~\eqref{eq:phi-fun-2}.
+
+
+The definition of $\phi^{\fuk}_{p}$, $\widehat{\phi}^{\fuk}$ and their
+persistence derived versions $PD(\phi^{\fuk}_{p})$,
+$PD(\widehat{\phi}^{\fuk})$ in the monotone and the weakly exact cases
+is very similar to the above. In these cases, the action on the
+perturbation data $p \mapsto \phi_*(p)$ is precisely the same as in
+the exact case described above. The action of $\phi$ on the grading in
+the weakly exact case is the same as in the exact case, while in the
+montone case it follows the receipe
+from~\cite[Section~2.b]{Se:graded}. Finally, the action of $\phi$ on
+the middle parameter $a_L \in \mathbb{R}$ of an object
+$L = (\overline{L}, a_L, -)$ is the identity in both the monotone and
+the weakly exact cases.
+
+

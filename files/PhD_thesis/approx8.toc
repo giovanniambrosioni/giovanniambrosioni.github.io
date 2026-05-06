@@ -1,0 +1,23 @@
+\contentsline {chapter}{\tocchapter {Chapter}{}{Sommario}}{1}{chapter*.1}%
+\contentsline {chapter}{\tocchapter {Chapter}{}{Abstract}}{3}{chapter*.2}%
+\contentsline {chapter}{\tocchapter {Chapter}{}{Acknowledgments}}{5}{chapter*.3}%
+\contentsline {chapter}{\tocchapter {Chapter}{1}{Introduction}}{9}{chapter.1}%
+\contentsline {section}{\tocsection {}{1.1}{Chapter 2: Algebraic preliminaries}}{10}{section.1.1}%
+\contentsline {section}{\tocsection {}{1.2}{Chapter 3: Filtered Fukaya categories}}{12}{section.1.2}%
+\contentsline {section}{\tocsection {}{1.3}{Chapter 4: Approximability for Lagrangian submanifolds}}{14}{section.1.3}%
+\contentsline {section}{\tocsection {}{1.4}{Organisation of the thesis}}{16}{section.1.4}%
+\contentsline {subsection}{\tocsubsection {}{}{Chapter 1: Algebraic preliminaries}}{16}{section*.4}%
+\contentsline {subsection}{\tocsubsection {}{}{Chapter 2: Filtered Fukaya categories}}{16}{section*.5}%
+\contentsline {subsection}{\tocsubsection {}{}{Chapter 3: Approximability for Lagrangian submanifolds}}{17}{section*.6}%
+\contentsline {chapter}{\tocchapter {Chapter}{2}{Algebraic preliminaries}}{19}{chapter.2}%
+\contentsline {section}{\tocsection {}{2.1}{Introduction}}{19}{section.2.1}%
+\contentsline {section}{\tocsection {}{2.2}{The Novikov ring}}{20}{section.2.2}%
+\contentsline {section}{\tocsection {}{2.3}{Filtered $dg$-categories as enriched categories}}{21}{section.2.3}%
+\contentsline {subsection}{\tocsubsection {}{2.3.1}{Categories of chain complexes}}{21}{subsection.2.3.1}%
+\contentsline {subsection}{\tocsubsection {}{2.3.2}{$dg$-categories}}{23}{subsection.2.3.2}%
+\contentsline {subsection}{\tocsubsection {}{2.3.3}{The $dg$-category of $dg$-(bi)modules}}{25}{subsection.2.3.3}%
+\contentsline {subsection}{\tocsubsection {}{2.3.4}{Pullback and pushforward(s) of $dg$-modules}}{27}{subsection.2.3.4}%
+\contentsline {subsection}{\tocsubsection {}{2.3.5}{The category of filtered chain complexes}}{30}{subsection.2.3.5}%
+\contentsline {subsection}{\tocsubsection {}{2.3.6}{Shift functors}}{33}{subsection.2.3.6}%
+\contentsline {section}{\tocsection {}{2.4}{A dry introduction to filtered $A_\infty $-categories}}{34}{section.2.4}%
+\contentsline {chapter}{\tocchapter {Chapter}{}{Bibliography}}{37}{chapter*.7}%

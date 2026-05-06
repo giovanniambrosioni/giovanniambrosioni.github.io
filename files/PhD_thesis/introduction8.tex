@@ -1,0 +1,187 @@
+% !TEX root = approx8.tex
+
+
+
+\section{Introduction} \label{sec-intro}
+
+\subsection{Overview of results} \label{subsec:overview}
+Let $(M^{2n},\omega)$ be a symplectic manifold. In this paper we study
+metric spaces $(\mathcal{L}ag(M), d_{\gamma})$ consisting of classes $\mathcal{L}ag(M)$ of Lagrangian submanifolds in $M$ endowed with the so-called spectral Lagrangian metric $d_{\gamma}$ (see \S\ref{subsec:nearby-TPC} and \S\ref{subsec:proof_ThmAii} for definitions of this metric in the setting of the paper). The metric space $(\mathcal{L}ag(M), d_{\gamma})$ is separable \cite{Chasse:metrics2} 
+but neither complete, nor compact or locally compact. 
+
+Nonetheless we will see that in several meaningful cases this space satisfies a property more general than compactness called  {\em  categorical (metric)  approximability} that we introduce in this paper and that has some interesting symplectic consequences. 
+
+To explain this property assume that $X$ is a subset of a metric space $(Y,d)$, and, more generally,  $d$ may be only a pseudo-metric, and possibly take infinite values.  For $\epsilon>0$, an $\epsilon$-approximation  (also called an $\epsilon$-net) of $X$ in $Y$ is a subspace $X_{\epsilon}\subset Y$ such that for all $x\in X$ there is $y\in X_{\epsilon}$ with $d(x,y)<\epsilon$. Recall that $(X,d)$ is called {\em totally bounded} if, for all $\epsilon > 0$, there is a {\em finite} $\epsilon$-net.  This is equivalent to the space $(X,d)$ being {\em precompact} in the sense that its completion is compact. Obviously, a compact metric space is totally bounded, but not vice-versa.
+
+Categorical approximability in the sense used here is weaker than the totally bounded property in  that  the $\epsilon$-nets no longer need to be finite but we only require that they be {\em generated} by a finite set in a sense made more explicit in the next definition.  
+
+\begin{dfn}\label{def:approx} Assume that $(X,d)\subset (Y,d)$ is an inclusion of metric spaces such that the points in $Y$ are the objects of a triangulated category $\mathcal{C}$. For $\epsilon > 0$, we say that 
+$X$ is   {\em categorically metric $\epsilon$-approximable} in $\mathcal{C}$ if there exists a subspace $X_{\epsilon}\subset Y$ such that the elements of $X_{\epsilon}$ are the objects of a {\em finitely generated} (in the sense of triangular generation) subcategory of $\mathcal{C}$ and, additionally, $X_{\epsilon}$ is an $\epsilon$-net for $X$.  If this property is satisfied for all $\epsilon >0$ we say that $X$ is {\em categorically metric approximable} in $\mathcal{C}$. \end{dfn}
+
+To put this definition in context see Remark \ref{rem:turing} below. Of course, producing categories $\C$ that are triangulated and also carry a natural (pseudo) metric is not obvious. One source of such structures is a type of categories called {\em triangulated persistence categories} (TPC) that
+were introduced in \cite{BCZ:tpc} (the main relevant definitions are recalled in \S\ref{sec:alg1}).  Indeed, we will use in the paper a more precise version of approximability that is specific to TPCs. This version, in Definition \ref{def:TPC-approx} (see also Definition \ref{def:simple_approx}), is called {\em TPC approximability} and is applied to TPC refinements of the derived Fukaya category.  In Definition \ref{def:approx} the triangular structure and the metric are unrelated.  However, TPC approximability  ties these two structures in a natural fashion (we could have tied the two structures already in
+Definition \ref{def:approx} through some simple axioms but we preferred to keep the presentation simpler at this point and we have skipped this aspect). 
+An important notion associated with Definition \ref{def:approx}  (see again Definition \ref{def:simple_approx} for the TPC case) is that of an $\epsilon$-approximating family. This is a finite family of objects  of $\C$, often denoted by $\F_{\epsilon}$, with the property that $X_{\epsilon}$ from Definition \ref{def:approx} is included in the triangulated completion of the family $\F_{\epsilon}$.
+
+\begin{rem}\label{rem:usual_triang}
+In triangulated category theory there exists a different notion of approximability,
+unrelated to any underlying metric structures, like in \cite{Neeman:approx_tri}. This is why we use the word {\em metric} in our definition. We will drop this qualifier frequently in this paper as the only meaning used here is that of Definition \ref{def:approx} and its TPC variants.
+\end{rem}
+
+\
+
+We will also use a weaker notion of approximability, called {\em retract categorical (metric) $\epsilon$-approximability} which is obtained by replacing in Definition \ref{def:approx} the condition that $X_{\epsilon}$ is an $\epsilon$-net for $X$ by the weaker requirement that for each $x\in X$
+there exists an object $k_{x}$ in $\C$ such that $x\oplus k_{x}$ satisfies
+$d(x\oplus k_{x}, X_{\epsilon}) < 2\epsilon$. To emphasize, the stronger form, in Definition \ref{def:approx}, is equivalent to being able to pick $k_{x}=0, \ \forall x$, and replacing  $2\epsilon$ by $\epsilon$ (the factor $2$ here is irrelevant as we are interested in $\epsilon$-approximability for all $\epsilon >0$; in practice, it is a consequence of some of the conventions in the paper, see Remark \ref{rem:relation-TPCapp}). 
+
+Retract approximability has the advantage to be easier to estimate algebraically, as will be discussed below, while at the same time being sufficiently robust to bound from above the complexity (in a sense that will be made precise) of the objects of $X$ by the complexity of the elements in $X_{\epsilon}$. A corresponding notion of $TPC$ {\em retract approximability} is  defined  in \S\ref{subsubsec:approx_TPC} and it is this form that will be used in our applications.
+
+The main result of this paper is that several natural classes of Lagrangians
+are categorically approximable.
+
+\begin{mainthm} \label{thmmain1} The following three classes of Lagrangians $\mathcal{L}ag(M)$ are approximable, as below.
+\begin{itemize} 
+\item[i.] Closed, exact Lagrangians in unit cotangent disk bundles $M=D^{\ast} N$ for any closed manifold $N$
+(and any metric on $N$) are  TPC approximable.
+\item[ii.] Equators on the $2$-sphere, $M=S^{2}$, are  TPC retract approximable.
+\item[iii.] Non-contractible Lagrangians on the $2$-torus, $M=\mathbb{T}^{2}$, are  TPC retract approximable.
+\end{itemize} 
+In all three cases  TPC approximability takes place in appropriate TPC refinements of the 
+certain derived Fukaya categories and the relevant spaces of Lagrangian submanifolds $\mathcal{L}ag(M)$ are endowed with the metric structure given by the spectral metric $d_{\gamma}$ in the cases i and ii and with a metric that restricts to the spectral metric on each Hamiltonian isotopy class at point iii. 
+\end{mainthm}
+
+The symplectic form on the cotangent disk bundles $D^{\ast}N$ is the derivative of the 
+Liouville form $\la$ and the exactness of Lagrangians is understood with respect to $\la$.
+The relevant Fukaya categories $\C$ are made precise in the body of the paper. The $\epsilon$-approximating families in the three cases consist of: fibers of the cotangent-disk bundle in the first case; great circles on the sphere connecting the north and south poles in the second; one latitude and a (finite) collection of longitudes on the torus in the third. 
+
+\
+
+To place the next result in context notice that if $(\mathcal{L}ag(M),d_{\gamma})$ would be totally bounded in the case $M=D^{\ast}N$, then the space of exact, closed Lagrangian submanifolds in the unit cotangent bundle would have bounded diameter in the spectral metric (because totally bounded implies bounded). This statement was conjectured by Viterbo and it was proven in some cases by Shelukhin  \cite{Shl:vit-2},\cite{Shl:vit-1}  but is not known in full generality. Our next result claims that, in general, these spaces of Lagrangian submanifolds are not totally bounded. 
+
+\begin{cor}\label{cor:no-t-b} The spaces $(\mathcal{L}ag(M),d_{\gamma})$ are not totally bounded when
+$M=D^{\ast}N$ and $N$ is endowed with a hyperbolic metric and $\mathcal{L}ag(M)$ consists of closed exact Lagrangians, as well as when $M=S^{2}$ and $\mathcal{L}ag(S^{2})$ consists of equators.
+\end{cor}
+
+The metric completion  of the space $(\mathcal{L}ag(M),d_{\gamma})$ has been studied under 
+the name of Humili\`ere completion (see, for instance, \cite{AGHI:micro}). Thus, Corollary \ref{cor:no-t-b} can be reformulated to say that, in the cases listed, this completion is not compact.
+
+\
+
+The proof of Corollary \ref{cor:no-t-b} is related to a natural application of categorical approximability that is of interest in itself and is worth pointing out here. Namely, one can use categorical approximability of $(X,d)\subset (Y,d)$ to define and study notions of complexity for both $X$ and for its points. There are several variants but the general recipe is the same. One starts with some notion of complexity for triangulated categories, particularly for finitely generated ones,  as well as for the objects of such categories. We will make some of these choices explicit later in the paper but they include, in the case of categories, the Rouquier dimension, generation time, the minimal number of triangular generators, and, for objects, the cone-length (originating in homotopy theory \cite{Gan:cat} \cite{Cor:cone-LS}), complexity in the sense of Dimitrov-Haiden-Katzarkov-Kontsevich  \cite{DHKK:dyn_cat}.  
+ Assuming that $c(-)$ is such a choice of complexity for the objects of a 
+ triangulated category one can then define the corresponding $\epsilon$-complexity of an element $x\in X$ by: 
+ $$\bar{c}(x; \epsilon)=\inf \{ c(y) \ | \  y\in X_{\epsilon}\ ,\  d(x,y)\leq \epsilon\} .$$ The complexity of $x$, without reference to $\epsilon$, can then be analyzed through the asymptotic behaviour of $\bar{c}(x; \epsilon)$  when $\epsilon \to 0$.  A similar construction can be applied to $X$ itself starting  with some notion of complexity for $X_{\epsilon}$. These notions of complexity can be applied to study the complexity of self maps $\phi : X\to X$ by analyzing how 
+ $\bar{c}(\phi^{k}x; \epsilon)$ changes with 
+ respect to $k$. 
+ 
+ \
+ 
+ One application to the spaces $(\mathcal{L}ag(M), d)$ as in the statement of 
+ Theorem \ref{thmmain1},  uses in the place of $c(y)$ the cone length of $y$ which
+ is  the minimal number of iterated exact triangles formed with elements from the family $\F_{\epsilon}$ that
+ are needed to obtain $y$ starting from the $0$ object. The resulting $\epsilon$-complexity is denoted by 
+ $N(- ; \F_{\epsilon},\epsilon)$ (to keep the notation shorter we will denote
+ it here by $N(-; \epsilon)$) and is called the $\epsilon$-weight cone-length with linearization in $\F_\epsilon$, see Definition
+ \ref{def:w-cl}.  We relate this $N(-;\epsilon)$ to counts of bars of length at least $\epsilon$ in the barcodes of certain Floer persistence modules. This relation is used to analyze the entropy of symplectic diffeomorphisms by relating the resulting $\epsilon$-weighted categorical entropy - which is a weighted version of a notion introduced by Dimitrov-Haiden-Katzarkov-Kontsevich \cite{DHKK:dyn_cat} -  to the barcode entropy introduced by  \c{C}ineli-Ginzburg-Gurel \cite{CGG_bar_ent}. When $M=D^{\ast}N$ and $N$ is endowed with a hyperbolic metric we can relate the growth of $N(\phi^{k}L; {\epsilon})$, $k\in\N$, for well chosen
+ Hamiltonian diffeomorphism $\phi:M\to M$ and $L\in\mathcal{L}ag(M)$, to the exponential growth of numbers of geodesics of increasing length in $N$ and we deduce exponential growth of  $N(\phi^{k}L; {\epsilon})$ with respect to $k$.
+ As a byproduct, we obtain in this case examples of Lagrangians in $\mathcal{L}ag(M)$ of arbitrarily high complexity $N(-;\epsilon)$ which implies immediately that the space $(\mathcal{L}ag(M),d_{\gamma})$  is not totally bounded, as is claimed in 
+ Corollary \ref{cor:no-t-b}. A similar argument also proves  Corollary \ref{cor:no-t-b} for the case
+ $M=S^{2}$ by using a complexity variant $N^{r}(-;\epsilon)$ that is adapted to retract approximability.
+
+\
+
+In each of the three  cases in Theorem \ref{thmmain1}, by construction, the Lagrangians in the respective $\epsilon$-approximating families are distributed inside the ambient manifolds in a somewhat uniform way. Indeed, this property is necessary for a family $\F_{\epsilon}$ to be an $\epsilon$- aproximating family, when
+$\epsilon$ is small enough. Making this statement  rigorous goes beyond the scope of 
+this paper but some intuition in this direction can be gained from the following two results,
+Corollaries \ref{cor:quasi-rig} and \ref{cor:link}, that establish some geometric properties of these families.
+
+The first such result only applies to the case $M=D^{\ast}N$ and is a quasi-rigidity property relative to the $\epsilon$-approximating families $\F_{\epsilon}$.  To formulate this property,  for an exact Lagrangian  $L\subset  D^{\ast}N$, denote by $h_{L}:L\to \R$ a choice of a primitive of the restriction of the Liouville form $\la$ to $L$ (see \S\ref{sbsb:fil-ex} for the rest of our  conventions). 
+
+\begin{cor}\label{cor:quasi-rig} Let $M=D^{\ast}N$ and assume that  $\phi :D^{\ast}N\to D^{\ast}N$ is an exact symplectomorphism with support in the
+interior of $D^{\ast}N$. Let $\F_{\epsilon}$ be a finite family of fibers of $D^{\ast}N$ that is $\epsilon$-approximating in the sense of Theorem \ref{thmmain1} i. Let
+$$\chi (\phi; \F_{\epsilon}) =\max_{F\in\F_{\epsilon}}\ \{ \max h_{\phi(F)} - \min h_{\phi(F)}\}~.~$$
+Then, for any $L\in \mathcal{L}ag(M)$, we have $$d_{\gamma}(L,\phi(L)) \leq 4(\epsilon + N(L;\F_{\epsilon}, \epsilon) \chi(\phi;\F_{\epsilon}))~.~$$
+In particular, if $\phi(F)=F$ for all $F\in \F_{\epsilon}$, we have $d_{\gamma}(L,\phi(L)) \leq 4\epsilon$, $\forall L$ closed exact $\subset D^{\ast}N$.
+\end{cor}
+
+ The next result is an easy consequence of Corollary 6.13  in \cite{Bi-Co-Sh:LagrSh}.
+To state it,  recall \cite{Bar-Cor:Serre} \cite{Bi-Co:rigidity} that the relative Gromov width of $L$ relative to some subset $K$ of $M$ is the supremum
+of $\frac{\pi r^{2}}{2}$ for all embeddings $e: B_{r}\to M$ such that $e^{-1}(L)=B_{r}\cap \R^{n}$, $e^{\ast}\omega=\omega_{0}$,  and $e(B_{r})\cap K=\emptyset$ (here and later in the paper $B_{r}\subset \R^{2n}$ is the ball of radius $r$, centered at the origin and $\omega_{0}$ is the standard symplectic form on $\R^{2n}$).
+
+Assume that $(\mathcal{L}ag (M), d_{\gamma})$ is TPC retract $\epsilon$-approximable  and assume additionally that there  are $\epsilon$-approximating families $\F_{\epsilon}$ that are geometric in the sense that they are Yoneda modules in the relevant TPC category $\C$. 
+
+\begin{cor}\label{cor:link} In the setting above, let $L\in\mathcal{L}ag(M)$. The  Gromov width of $L$ relative to the union of the submanifolds in $\F_{\epsilon}$ is bounded above by $2\epsilon$. In particular, this bound applies to the three classes of Lagrangians in Theorem \ref{thmmain1}. 
+\end{cor}
+An obvious consequence of this Corollary is that when $\epsilon \to 0$, the set $\cup_{F\in\F_{\epsilon}} F$
+becomes dense in $M$.
+
+
+
+\
+
+
+In a less precise form,  Corollaries  \ref{cor:link} and \ref{cor:quasi-rig} can be read independently of approximability and of the machinery that serves in their proof. To focus ideas consider only the case $M=D^{\ast}N$. These corollaries imply the following statement: {\em for  every $\epsilon >0$, there exists a  finite family   of fibers, $\F_{\epsilon}$, of $D^{\ast}N$ with both the properties in Corollary \ref{cor:link} and in Corollary \ref{cor:quasi-rig}}.  While this statement appears new, it was noted by Egor Shelukhin and  by Mark Gudiev - see Remark \ref{rem:direct_cor} - that certain parts of it can be established by making use of the types of functions constructed in \S\ref{subsec:Morse}, followed by more direct arguments, that do not appeal to Fukaya category machinery. 
+
+\
+
+\begin{rem}\label{rem:turing} a. Categorical approximability, as introduced here, is related to a notion due to Turing from 1938 \cite{Turing:approx}. Turing's definition is concerned with a metric group $(G,d)$. This is approximable in Turing's sense if there are  $\epsilon$-nets  $X_{\epsilon}$ (for each $\epsilon>0$) that are finite groups with a group structure that is $\epsilon$ close to the one of $G$  (see \cite{Thom:approx} for a recent overview of developments in geometric group theory that originate in this notion). Turing proved that a Lie group that is approximable in this sense is compact abelian.
+Categorical metric approximability  is a categorification of a  variant of Turing's notion.  This variant, called here {\em finite type approximable},   no longer  requires that  $X_{\epsilon}$ be a finite group but,
+instead, $X_{\epsilon}$ is a {\em finitely generated} subgroup of $Y$. For instance, any subset of $\R^{2}$, with $\R^{2}$ viewed as a group and endowed with the usual euclidean distance,  admits $1/m$- approximations by lattices $L_{1/m}\subset \R^{2}$ generated by two vectors $(1/2m,0), (0,1/2m)\in\R^{2}$ for each $m\in \N^{*}$, thus it is finite type approximable. Any compact metric group is trivially finite type approximable. On the other hand, it is easy to find examples of functional spaces that are not  approximable in this sense. For instance, the space of smooth real functions on $[0,1]$ is not finite type approximable inside the space of continuous functions on $[0,1]$ with the {\em sup} metric (and the obvious group structure). Similarly, the space of step functions on $[0,1]$, with only a finite number of discontinuities, endowed with the {\em sup} metric, is not finite type approximable in itself. 
+
+b. It is easy to see that if $(X,d)$ is  categorically approximable in $\C$ in the sense of Definition \ref{def:approx}, then the image of $X$ inside the Grothendieck $K$-group of $\C$, $K(\C)$, is finite type approximable with respect to the pseudo-metric $\bar{d}$  induced on $K(\C)$ from $d$. In other words,
+categorical metric approximability is a categorification of finite type approximability for groups.
+
+c. The approximability approach to complexity of maps, as described above, bypasses two difficulties encountered when trying to define directly  invariants - such as entropy - for a map $\phi : X \to X$. The first is that, generally, the metric space $X=(\mathcal{L}ag(M), d_\gamma)$ is not totally bounded (as shown in
+Corollary \ref{cor:no-t-b}), and thus defining directly invariants analogous to topological entropy for  continuous self-maps $\phi :X\to X$ induced by symplectic diffeomorphisms of $M$ is not possible. A  second difficulty is that, in general, such $\phi$ do not preserve $\epsilon$-approximations, in the sense that for a fixed $\delta>0$ and for any $0<\epsilon \leq \delta $ there are some elements of $X_{\epsilon}$ that are mapped  outside $X_{\delta}$, and thus approximating $\phi$ by presumably simpler maps $\phi_{\epsilon}:X_{\epsilon}\to X_{\epsilon}$ is not practical. The formalism above avoids this second difficulty because the complexity $\bar{c}_{\epsilon}(\phi^{k}x)$
+is well defined for all $k\in \Z$, $\epsilon>0$, $x\in X$ as soon as $\phi$ preserves $X$, as is our assumption.
+
+d. The notion of approximability discussed here is quite strong. Consider again the case $M=D^{\ast}N$.  Approximability not only  means that any $L\in\lag (D^{\ast}N)$ can be approached as close as needed by an iterated cone of fibers but, moreover, for fixed $\epsilon$, we can get $\epsilon$-close to {\em any} $L$  by only using fibers from the {\em same fixed, finite family} $\F_{\epsilon}$, independent of $L$. 
+\end{rem}
+
+Our proof of Theorem \ref{thmmain1} is based on certain properties of relevant filtered Fukaya categories and the main ingredients in our arguments are outlined in the next subsection.  Before proceeding, we mention  a recent result due to Guillermou-Viterbo-Zhang \cite{Gu-Vi-Zh:approx} that shows approximability for the cotangent bundle (part i in Theorem \ref{thmmain1}) through a different approach, by using as receptacle category  the Tamarkin category.
+
+ 
+
+
+\subsection{Overview of the main ingredients, technical tools and novelties}
+Much of this paper makes use of the theory of triangulated persistence categories as developed in \cite{BCZ:tpc}. This framework, inspired by symplectic considerations but independent of them,  turned out to be essential to formulate the correct definitions and statements related to approximability and it is further developed here, particularly with regards to notions of complexity in \S\ref{subsec:complex_alg} which can be read and used independently of the applications in this paper.  
+
+Another essential tool is provided by the filtered version of the construction of the Fukaya category and of its derived versions, in a way that is precise enough for applications and so that it fits naturally  with the TPC formalism. The starting point for the construction is Seidel's setup \cite{Se:book-fukaya-categ}. The filtered version uses ingredients from 
+\cite{Bi-Co-Sh:LagrSh}, \cite{BCZ:tpc} with an essential addition provided by the perturbative methods introduced in \cite{Amb:fil-fuk}. The paper brings some novelties
+in this direction. In particular,  the process of choosing perturbative data with increasing degrees of accuracy is formalized in \S\ref{s:pdfuk} in a way that is likely to be of use beyond the applications to approximability. More importantly, the paper contains, in \S\ref{sec:split-app}, a persistence version of Abouzaid's split generation result \cite{Ab:geom-crit}, including persistence versions of Hochschild homology and cohomology and of the open-closed and closed-open maps. We will see that persistence split-generation is  extremely tightly related to retract-approximability (see Proposition \ref{gio:algfilabo}).
+
+A third important tool appears in the study of approximability for cotangent bundles in \S\ref{sec:nearby} and has 
+to do with some Lefschetz fibration considerations. The root of this part lies in the Fukaya-Seidel-Smith approach \cite{FSS:ex} as adjusted from the perspective  of Lagrangian cobordism in \cite{Bi-Co:lefcob-pub} and \cite{Bi-Co:mspectral}. An essential  ingredient in this part, that allows sufficient precision for the quantitative estimates required,
+is provided by Giroux's work \cite{Gir:Lef-cot}.
+
+The definition of categorical approximability  is sufficiently flexible and natural that it is highly likely that this notion is applicable beyond symplectic topology.  This said,
+symplectic topology is our main focus in the paper and approximability appears to be a deep new feature of symplectic rigidity.  A concurring sign pointing in this direction is provided by 
+the recent result in \cite{Gu-Vi-Zh:approx} that was already mentioned before.
+
+ \subsection{Structure of the paper} In \S\ref{sec:alg1} we set up the necessary technical foundations to be able to analyze approximability in the setting of TPC refinements of Fukaya categories. We recall in this section the main required definitions and properties of triangulated persistence categories. We then discuss how this formalism applies to Fukaya categories.    The starting point is the construction due to Ambrosioni \cite{Amb:fil-fuk} that provides filtered, strictly unital $A_{\infty}$-Fukaya categories by making use of Seidel's classical scheme but using a special,  well-chosen system of perturbations.  Continuing from there, one encounters several delicate points, some of them of technical nature, but also some more conceptual. One of them is that a choice of perturbations used in constructing  the filtered Fukaya categories comes with a certain ``size''.  It is possible to pick perturbations of arbitrarily small size, of course. Nonetheless, once a choice of perturbation is picked
+the associated category can only be used to study approximability for $\epsilon$ bigger than that size. This is a somewhat obvious point, similar to saying that a measuring tool needs to have  a precision margin better than the scale of the phenomena studied, but it has significant consequences for the involved formalism. It implies that we need to relate as tightly as possible the various categories and associated constructions for systems of perturbations of decreasing size and  we also need to formulate approximability and related notions for TPCs,
+taking these sizes into account. 
+
+In \S\ref{sec:nearby} we prove the first point in Theorem \ref{thmmain1}. The proof makes use of a remarkable Lefschetz fibration structure constructed by Giroux on cotangent bundles \cite{Gir:Lef-cot}. Some important elements of this construction are recalled \S\ref{subsec:Giroux}.   Giroux's construction makes possible some quantitative refinements of some of the arguments in \cite{Bi-Co:lefcob-pub} that studied Lagrangian cobordisms in Lefschetz fibrations. These are recalled in \S\ref{subsec:Lef-Dehn}. Finally, the  other important ingredient in the proof is a  ``soft'' construction, having to  do with producing certain Morse functions with small variation but big differential almost everywhere, that appears in \S\ref{subsec:Morse}. The various ingredients are put togehter in \S\ref{subsec:finish-proof}.
+
+Section \ref{sec:split-app} shows 
+the points ii and iii in Theorem \ref{thmmain1}. The main step is to establish a persistence
+version of the Abouzaid split generation result. To achieve this, several significant algebraic aspects need to be developed, in particular persistence Hochschild homology and cohomology. The persistence split generation result is then used to show  by explicit calculations Theorem \ref{thmmain1} in the case of $S^{2}$ and of $\mathbb{T}^{2}$.
+
+The last section, \S\ref{sec:complex}, is focused on weighted numerical complexity measurements for Lagrangian
+submanifolds and their applications. In particular, in this section are included the arguments necessary to deduce Corollary \ref{cor:no-t-b}. The section also contains the proofs of 
+Corollaries  \ref{cor:quasi-rig} and \ref{cor:link}.
+
+ 
+ \
+ 
+  
+ \noindent {\bf Acknowledgements.} We thank Viktor Ginzburg who suggested to the third author to investigate relations between TPCs and the categorical entropy of Dimitrov-Haiden-Katzarkov-Kontsevich as well as for several useful discussions related to barcode entropy and relevant examples, see also Remark \ref{rem:thanks_VG}. We  thank  Emmanuel Giroux  for useful discussions and for sharing with us an early version of his preprint \cite{Gir:Lef-cot}. We thank Claude Viterbo for sharing with us an early version of the preprint \cite{Gu-Vi-Zh:approx} as well as for many useful discussions with all three of us, in particular in relation to metric aspects of 
+ persistence categories. We thank Egor Shelukhin  and Mark Gudiev for 
+ sharing with us their more direct approach to some of the geometric corollaries in the paper, see Remark \ref{rem:direct_cor}. The first named author thanks  Nick Sheridan for references in relation to Hochschild homology and to him and to Kenji Fukaya for helpful discussions.   
+
+Part of this work was accomplished while  members of the team were graciously hosted by several 
+research institutions for short and medium length research visits:  the CRM in Montr\'eal, 
+the FIM in Z\"urich, the IHP in Paris, Universit\'e Paris-Saclay (Orsay). 
+We thank them all for their support. 
+ 

@@ -1,0 +1,138 @@
+% !TEX root = approx8.tex
+
+\section{Triangulated persistence categories}\label{se:TPC}
+
+Triangulated persistence categories (from now on TPCs) have been introduced by Biran-Cornea-Zhang in \cite{BCZ:tpc} inspired by the properties of Lagrangian cobordisms. A TPC is roughly speaking a persistence categories $\mathcal{C}$ such that its $0$-level $\msc^0$ is a triangulated category in a well-behaved sense.
+
+\subsection{Triangulated categories}\label{se:TC}
+Triangulated categories were introduced in an attempt to formalize the properties of derived categories as introduced by Grothendieck. In this section we briefly recall the definition of a trinagulated category. 
+
+We recall that an additive category is a category enriched over the symmetric monoidal category of abelian groups, and such that it admits all finite products and a zero (i.e. initial and final) zero object. An enriched functor between categories enriched over abelian groups is called an additive functor.
+
+\begin{dfn}
+    Let $\Tau$ be an additive category, $T\colon \Tau\to \Tau$ an additive endofunctor of $\Tau$. A $T$-triangle in $\Tau$ is a diagram of the form  $$X\xrightarrow{f} Y\xrightarrow{g} Z\xrightarrow{h} TX$$ where $X,Y$ and $Z$ are objects of $\Tau$ and $f,g$ and $h$ are morphisms in $\Tau$, such that  $g\circ f$ and $h\circ Tf$ vanish. A morphism between two $T$-triangles is a triple of \say{horizontal} maps such that the three resulting squares commute. The set of $T$-triangles with morphism of $T$-triangles form a category.
+\end{dfn}
+\begin{dfn}
+    Let $\Tau$ be an additive category, $T\colon \Tau\to \Tau$ an additive endofunctor of $\Tau$. and $\Delta$ a collection of so-called $T$-distinguished triangles, i.e. a subset of the set of $T$-triangles in $\Tau$. We say that $(\Tau,T,\Delta)$ is a triangulated category if the following conditions hold.
+    \begin{enumerate}
+        \item[TR0] Every $T$-triangle which is isomorphic to an element of $\Delta$ lies in $\Delta$.
+        \item[TR1] The triangle $X\xrightarrow{id_X} X \to 0\to TX$ lies in $\Delta$ for any object $X$ of $\Tau$.
+        \item[TR2] Any morphism $f\colon X\to Y$ in $\Tau$ can be extended to an element $$X\xrightarrow{f}Y\to Z\to TX$$ of $\Delta$.
+        \item[TR3] A $T$-triangle $$X\xrightarrow{f} Y\xrightarrow{g} Z\xrightarrow{h} TX$$ lies in $\Delta$ if and only if $$Y\xrightarrow{g} Z\xrightarrow{h} TX\xrightarrow{Tf} TY$$ lies in $\Delta$.
+        \item[TR4] Given two morphisms $f\colon X\to X'$ and $g\colon Y\to Y'$ in $\Tau$ such that the left square in the diagram
+\[
+\xymatrix{
+X \ar[r]^u \ar[d]_f
+  & Y \ar[r]^v \ar[d]_g
+  & Z \ar@{-->}[d]^{\exists h} \ar[r]^w
+  & TX \ar[d]^{TF} \\
+X' \ar[r]_{u'}
+  & Y' \ar[r]_{v'}
+  & Z' \ar[r]_{w'}
+  & TX'
+}
+\]
+commutes, there is a morphism $h\colon Z\to Z'$ in $\Tau$ such that $(f,g,h)$ is a morphism of $T$-triangles.
+        \item[TR5] Let $f\colon X\to Y$ and $g\colon Y\to Z$ be morphisms in $\Tau$ and consider the following three elements of $\Delta$ $$X\xrightarrow{f}Y\to C_f\to TX, \quad Y\xrightarrow{g}Z \to C_g\to TY, \text{ and } X\xrightarrow{g\circ f}Z\to C_{gf}\to TX.$$ Then there is an element $$C_f\to C_{gf} \to C_g\to TC_f$$ of $\Delta$ such that the following diagram commutes
+
+\[
+\xymatrix{
+& & C_f \ar[rr] \ar[rd]
+  & & TX \ar[rd]^{Tf} & &  \\
+& Y \ar[ru] \ar[rd]^g
+  & &  C_{gf} \ar[ru] \ar[rd]
+  & &  TY \ar[rd]
+  & \\
+X \ar[rr]^{g\circ g}\ar[ru]^f  & & Z \ar[rr]\ar[ru] & & C_g \ar[rr]\ar[ru] & & TC_f
+}
+\]
+    \end{enumerate}
+\end{dfn}
+
+\begin{remark}
+    Axioms TR1-TR3 give basic sense to the theory of triangulated categories and reflect many properties from homological algebra (e.g. existence of cones and unboundedness of long exact sequences). TR4 asks that what we might interpret as a mapping cone is \say{somewhat} functorial. Indeed, TR4 is the weak point of triangulated category theory, as we cannot impose $h$ to be uniquely defined. TR5 ensures that cones are well-behaved with respect to composition and allow for a variety of constructions, such as Verdier localisations. It is well-known that TR4 can be derived from the other axioms.
+\end{remark}
+
+\subsection{Triangulated persistence categories}
+
+In this section we recall the definition of a triangulated persistence categories as well as weighted exact triangles. Weighted exact triangles will be used in \S\ref{sec:nearby}.
+
+\begin{dfn}[Definition 2.21 in \cite{BCZ:tpc}]\label{def:tpc}
+    Let $\msc$ be a persistence category endowed with a shift functor $\Sigma$ (see \S\ref{se:pc}). Assume that the following three conditions hold.
+    \begin{enumerate}
+        \item The category $\msc^0$ comes endowed with the structure of triangulated category, with translation endofunctor denoted by $T$.
+        \item The restriction of any $\Sigma^r$, $r\in \mathbb{R}$ to the category of endomorphisms of $\msc^0$ is a triangulated functor.
+        \item For any $r\geq 0$ and any obect $A$ of $\msc$, the morphism $\eta^A_r\colon \Sigma^rA\to A$ in $\msc^0$ extends to a distinguished triangle $$\Sigma^rA\xrightarrow{\eta_r^A}A\to K\to T\Sigma^rA$$ in $\msc^0$ such that the object $K$ of $\msc$ is $r$-acyclic in the sense of Definition \ref{racyclic}.
+    \end{enumerate}
+\end{dfn}
+
+\begin{dfn}\label{trcompl}
+Let $\msc$ be a TPC and $S \subset \Ob(\msc)$. We write
+$\langle S \rangle^{\Delta}$ for the minimal full sub-TPC of $\msc$
+which contains all the objects of $S$ and is closed under
+$0$-isomorphisms.
+\end{dfn}
+
+It is a consequence of Definition \ref{def:tpc} that if $\msc$ is a TPC, then its terminal category $\msc^\infty$ can be endowed with a canonical structure of triangulated category (this is \cite[Proposition 2.39(ii)]{BCZ:tpc}).\\
+
+There is a notion of TPC-functor between TPCs, defined as a persistence functor that respects all the structures of a TPC.
+\begin{dfn}
+    Let $\msc$ and $\msc'$ be TPCs. A TPC functor is a persistence functor $\mathcal{F}\colon \msc\to \msc'$ such that it commutes with $r$-values of the shift functors on $\msc$ and $\msc'$ for any $r\in\mathbb{R}$ and such that the restriction $\mathcal{F}\vert_{\msc^0}\colon \msc^0\to (\msc')^0$ is a triangulated functor.
+\end{dfn}
+The following lemma is an easy exercise.
+\begin{lem}
+    TPCs together with TPC-functors and persistence natural transformations form a bicategory.
+\end{lem}
+We define a TPC-equivalence to be an equivalence in the bicategory of TPCs.\\
+
+In the following definition lies the utility of the theory of TPCs.
+\begin{dfn}
+    Let $\msc$ be a TPC. A morphism $f\in \hom_{\msc^0}(X,Y)$ is said to be an $r$-isomorphism, $r\in \mathbb{R}$, if it extends to a distinguished triangle $$X\xrightarrow{f}Y\to K\to TX$$ in $\msc^0$ such that $K$ is $r$-acyclic.
+\end{dfn}
+
+\noindent A $r$-isomorphism admits left and right inverses in a persistence sense (see \cite[Proposition 2.28(i)]{BCZ:tpc}). However, note that \say{being $r$-isomorphic} is not an equivalence relation on the set of objects of a TPC (see \cite[Proposition 2.28(i)]{BCZ:tpc}). Anyway, $r$-isomorphism induce an equivalence relation as follows.
+
+\begin{dfn}[see Section 2.4.4 in \cite{ABC26}]
+    Let $X$ and $Y$ be two objects in a TPC $\msc$. We say that they are almost isomorphic if there is a $r$-isomorphism $X\to \Sigma^sY$ for some $r,s\in \mathbb{R}$.
+\end{dfn}
+The following is a consequence of Lemma 2.85 in \cite{BCZ:tpc}.
+\begin{lem}
+    Let $X$ and $Y$ be two objects in a TPC $\msc$. Then $X$ and $Y$ are almost isomorphic if and only if $\dint(X,Y)<\infty$. In particular, being almost isomorphic is an equivalence relation.
+\end{lem}
+
+\subsection{Weighted exact triangles in a TPC}
+
+Let $\mathcal{C}$ be a TPC and $\Delta^0$ denote the class of distinguished triangles carried by the triangulated structure of the $0$-level category $\mathcal{C}^0$ of $\mathcal{C}$. We recall that $\Delta^0$ is by definition a subcategory of the category of triangles in $\msc^0$, that is of diagrams $$X\to Y\to Z\to TX$$ where $X,Y$ and $Z$ are object of $\msc$, the arrows denote \textit{morphisms in $\C^0$}, the composition of two consecutive diagram vanishes, and $T$ is the translation endofunctor presribed in the triangulated structure.
+
+Let $f\colon A\to B$ be a morphism in $\msc$, and assume it lies at persistence level $r>0$. We would like to be able to extend $f$ to a triangle that looks as close as possible to a triangle in $\Delta^0$ and with properties that are approximations of the axioms TR0-TR5 of a triangulated category (see \S\ref{se:TC}).
+
+\begin{dfn}
+    Let $\msc$ be a TPC. A weighted (or strict) exact triangle in $\msc$ consists of a non-negative real number $r\in[0,\infty]$ together with a diagram $$X\xrightarrow{\overline{f}}Y\xrightarrow{\overline{g}}\xrightarrow{\overline{h}}\Sigma^{-r}TX$$ of morphisms in $\msc^0$ such that there is
+    \begin{enumerate}
+    \item a triangle $$X\xrightarrow{f}Y\xrightarrow{g}\tilde{Z} \xrightarrow{h}TX$$ in $\Delta^0$,
+    \item an $r$-isomorphism $\phi\colon \tilde Z\to Z$ and
+    \item a right $r$-inverse $\varphi\colon \Sigma^rZ\to \tilde Z$ of $\phi$, that is a map such that $\phi\circ\varphi=\eta_r^Z$
+    \end{enumerate} 
+    such that the diagram
+    \[
+\xymatrix{
+  & 
+  & \Sigma^rZ\ar[d]^{\varphi} \ar[dr]^{\Sigma^r\overline{h}}
+  &  \\
+X \ar[r]^{f}
+  & Y \ar[r]_{g}\ar[dr]_{\overline{g}}
+  & \tilde Z \ar[r]^{h}\ar[d]^\phi
+  & TX\\
+ & & Z
+}
+\]
+    commutes. We call $r$ the weight of the triangle.
+
+\end{dfn}
+Note that a weighted exact triangle of weight zero is isomorphic to a triangle in $\Delta^0$, and hence a triangle in $\Delta^0$ itself. Weighted exact triangles are used in \cite{BCZ:PKth} to define so-called \textit{fragmentation pseudometrics} on the objects of a TPC. The takeaway message is: if a triangulated category admits a TPC refinement, then it admits a variety of meaningful metrics on its set of objects.
+
+
+%===========================
+%=========================
+%==========================
+

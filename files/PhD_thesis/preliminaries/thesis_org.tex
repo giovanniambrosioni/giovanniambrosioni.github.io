@@ -1,0 +1,43 @@
+
+\section{Organisation of the thesis}
+
+\subsection*{Chapter 1: Algebraic preliminaries}
+
+The Fukaya categories appearing in this thesis will be filtered $A_\infty$-categories over either the field $\Z_2$ or over the Novikov field over $\Z_2$. In \S\ref{intro:novikov} we define the version of the Novikov ring used in this thesis.
+
+In \S\ref{se:cch} we introduce $dg$-categories and filtered $dg$-categories as categories enriched over chain complexes and filtered chain complexes. The monoidal symmetric category of chain complex is introduced in \S\ref{se:chR}.
+
+In \S\ref{se:Ainf} we introduce all the machinery around the concept of filtered $A_\infty$-category used in this thesis. 
+
+In \S\ref{se:PCs} we introduce persistence categories \cite{BCZ:tpc} as categories enriched over the category of persistence modules and highlight a few properties. The symmetric monoidal category of persistence modules is introduced in \S\ref{se:catpm}.
+
+In \S\ref{se:TPC} we briefly recall the definition of triangulated persistence category from \cite{BCZ:tpc} and its basic properties. Along the way, we recall the classical concept of triangulated category in \S\ref{se:TC}.
+
+In \S\ref{se:approx} we first recall a few variants of a notion of approximability due to Turing \cite{Turing:approx} and then introduce the concept of categorical metric approximability \cite{ABC26} of a pseudo-metric space in a TPC and suggest a way to extend this concept. 
+
+The last section, \S\ref{se:sys}, is dedicated to the (highly technical) concept of $A_\infty$/persistence categories with increasing accuracy, which is needed to deal with filtered Fukaya categories. Along the way, we prove that the Hochschild homology of a system of $A_\infty$-categories and the $K$-group of a system of TPCs are well-defined.
+
+\subsection*{Chapter 2: Filtered Fukaya categories}
+In \S \ref{mbfuk} we work out the `cluster' model for Fukaya categories and in \S \ref{wfs} we adapt the work of \cite{Bi-Co-Sh:LagrSh} to show that our Fukaya categories naturally inherit the structure of weakly-filtered $A_\infty$-categories with filtered unit.
+ 
+In \S \ref{actualconstruction} we construct the classes of $\varepsilon$-perturbation data, which ensure that the associated Fukaya categories are genuinely filtered. This proves a first part of Theorem \ref{thmA}, namely we shows that the space $\mathcal{P}$ is indeed non-empty. In \S \ref{addend} we argue why the cluster model seems necessary to have a filtered Fukaya category. 
+ 
+In \S \ref{contfunc} we develop the machinery of continuation functors between filtered Fukaya categories, and show that they are $A_\infty$-functors with linear deviation, with deviation controlled by the size of domain and target.
+
+We conclude this chapter by summarizing our constructions as a system of categories with increasing accuracy in \ref{sysnew}.
+
+ \subsection*{Chapter 3: Approximability for Lagrangian submanifolds}
+%  In \S\ref{sec:alg1} we set up the necessary technical foundations to be able to analyze approximability in the setting of TPC refinements of Fukaya categories. We recall in this section the main required definitions and properties of triangulated persistence categories. We then discuss how this formalism applies to Fukaya categories.    The starting point is the construction due to Ambrosioni \cite{Amb:fil-fuk} that provides filtered, strictly unital $A_{\infty}$-Fukaya categories by making use of Seidel's classical scheme but using a special,  well-chosen system of perturbations.  Continuing from there, one encounters several delicate points, some of them of technical nature, but also some more conceptual. One of them is that a choice of perturbations used in constructing  the filtered Fukaya categories comes with a certain ``size''.  It is possible to pick perturbations of arbitrarily small size, of course. Nonetheless, once a choice of perturbation is picked the associated category can only be used to study approximability for $\epsilon$ bigger than that size. This is a somewhat obvious point, similar to saying that a measuring tool needs to have  a precision margin better than the scale of the phenomena studied, but it has significant consequences for the involved formalism. It implies that we need to relate as tightly as possible the various categories and associated constructions for systems of perturbations of decreasing size and  we also need to formulate approximability and related notions for TPCs,
+% taking these sizes into account. 
+In this chapter we prove Theorem \ref{thmmain1} and the corollaries mentioned in \S\ref{intro:approx}.
+
+
+In \S\ref{sec:nearby} we prove approximability of the space of closed and exact Lagrangians in disk cotangent bundles, that is, point $i.$ in Theorem \ref{intro:thmapprox}.
+% %the first point in Theorem \ref{thmmain1}. 
+% The proof makes use of a remarkable Lefschetz fibration structure constructed by Giroux on cotangent bundles \cite{Gir:Lef-cot}. Some important elements of this construction are recalled \S\ref{subsec:Giroux}.   Giroux's construction makes possible some quantitative refinements of some of the arguments in \cite{Bi-Co:lefcob-pub} that studied Lagrangian cobordisms in Lefschetz fibrations. These are recalled in \S\ref{subsec:Lef-Dehn}. Finally, the  other important ingredient in the proof is a  ``soft'' construction, having to  do with producing certain Morse functions with small variation but big differential almost everywhere, that appears in \S\ref{subsec:Morse}. The various ingredients are put togehter in \S\ref{subsec:finish-proof}.
+
+In \S\ref{sec:split-app} we develop a retract-approximability criterion by studying open-closed maps in the persistence setting. %The main step is to establish a persistence
+% version of the Abouzaid split generation result. To achieve this, several significant algebraic aspects need to be developed, in particular persistence Hochschild homology and cohomology. The persistence split generation result is then 
+We then use it to show (by explicit calculations) approximability of equators on $S^{2}$ and of non-contractible circles on $\mathbb{T}^{2}$, that is, points $ii.$ and $iii.$ in Theorem \ref{intro:thmapprox}.
+
+The last section, \S\ref{sec:complex}, is focused on weighted numerical complexity measurements for Lagrangian submanifolds and their applications. In particular, in this section are included the arguments necessary to deduce Corollary \ref{cor:no-t-b}. The section also contains the proofs of Corollaries \ref{cor:quasi-rig} and \ref{cor:link}. 

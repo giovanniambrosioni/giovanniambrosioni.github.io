@@ -1,0 +1,184 @@
+% !TEX root = approx8.tex
+
+\chapter{Introduction}
+
+% This thesis attempts to build the foundations for the study of persistence structures in symplectic topology from a categorical viewpoint. It is mainly based on material which appeared in \cite{Amb:fil-fuk} and \cite{ABC26}. 
+
+% The usage of methods of persistence homology in symplectic topology dates back to \cite{Po-Sh:autonom-ham-flows} and is a consolidated trend in the field. The basic fact is that, often, Floer complexes admit a filtration by the action functional. On the other hand, categorical structures in symplectic topology are studied at least since the pioneering work of Fukaya \cite{Fu:Morse-homotopy} and are at the core of the homological mirror symmetry conjecture by Kontsevich \cite{Ko:ICM-HMS}. 
+
+
+This thesis aims to lay the foundations for the study of persistence structures in symplectic topology from a categorical perspective. It is primarily based on material developed in \cite{Amb:fil-fuk} and \cite{ABC26}. 
+
+The use of persistent homology methods in symplectic topology dates back to \cite{Po-Sh:autonom-ham-flows} and has since become a well-established direction of research. The key observation is that Floer complexes often admit a natural filtration induced by the action functional. Independently, categorical structures in symplectic topology have been studied at least since Fukaya’s pioneering work \cite{Fu:Morse-homotopy} and play a central role in Kontsevich’s homological mirror symmetry conjecture \cite{Ko:ICM-HMS}. 
+
+In this thesis we try to bridge the gap between these two directions of study. To this aim, work on both algebraic and geometric foundations of such a theory needs to be undertaken.
+
+On the algebraic side, we build on the work of Biran--Cornea--Zhang \cite{BCZ:tpc} on triangulated persistence categories (TPCs) and introduce the notion of \emph{categorical metric approximability} in Chapter~\ref{ch:approx}. This concept is inspired by Turing’s notion of approximability for metric groups \cite{Turing:approx}. Categorical metric approximability for Fukaya categories constitutes the main focus of the joint work \cite{ABC26} with Biran and Cornea.
+
+On the geometric side, we develop a model for the Fukaya category of (certain) symplectic manifolds that is compatible in a precise sense with the filtration coming from the action functional. This is the content of Chapter \ref{ch:ffuk} and is based on the publication \cite{Amb:fil-fuk}.
+
+Summarizing:
+\begin{itemize}
+    \item Chapter \ref{ch:prelim} contains material on filtered $dg$ and $A_\infty$-categories, persistence categories, TPCs and (categorical metric) approximability, and is an extension of material contained in \cite{Amb:fil-fuk} and \cite{ABC26}.
+    \item Chapter \ref{ch:ffuk} contains an exposition of the construction of the filtered Fukaya category from \cite{Amb:fil-fuk}, with some extensions.
+    \item Chapter \ref{ch:approx} contains the proof of the approximability results for spaces of Lagrangian submanifolds from \cite{ABC26}.
+\end{itemize}
+% In the remaining of this chapter we introduce the material discussed in Chapters \ref{ch:prelim}, \ref{ch:ffuk} and \ref{ch:approx} more in detail. We then explain how the thesis is organised.
+In the remainder of this chapter, we describe in greater detail the material covered in Chapters~\ref{ch:prelim}, \ref{ch:ffuk}, and \ref{ch:approx}, and explain the overall organization of the thesis.
+
+\newpage
+
+\section{Chapter 2: Algebraic preliminaries}\label{intro:chapter1}
+We briefly summarize the content of Chapter \ref{ch:prelim}.
+
+In this chapter we first introduce filtered $dg$-categories as enriched categories over filtered chain complexes. We then introduce filtered $A_\infty$-categories, and some related machinery, such as filtered $A_\infty$-functors with linear deviation and persistence Hochschild homology. Given a filtered $A_\infty$-category $\mathcal{A}$, we explain how to obtain a pre-triangulated filtered $A_\infty$-category $\mathcal{A}^\triangle$ via filtered $A_\infty$-modules and filtered twisted complexes.\\
+
+We discuss the basic properties of persistence categories, originally introduced in \cite{BCZ:tpc}. In this thesis, we adopt a slighlty different viewpoint and present persistence categories as categories enriched over the symmetric monoidal category of persistence modules. We hope that, in future work, this viewpoint might be helpful to shed light on metric properties of triangulated categories of interest in symplectic topology. In particular, the morphism spaces of a persistence category $\msc$ is a persistence module $\hom_\msc(L_0,L_1)$ for any two objects $L_0$ and $L_1$ of $\msc$. It follows that a persistence category $\msc$ naturally defines two other categories $\msc^0$ and $\msc^\infty$. Both $\msc^0$ and $\msc^\infty$ have the same objects as $\msc$, but morphism spaces defined by $$\hom_{\msc^0}(L_0,L_1):= \hom_\msc(L_0,L_1)^0 \text{   and   }\hom_{\msc^\infty}(L_0,L_1):= \hom_\msc(L_0,L_1)^\infty$$ where the superscript $0$ indicates the module lying at persistence level $0$ in a persistence module, while the superscript $\infty$ indicates the terminal module of a persistence module.
+
+A persistence category $\msc$ naturally admits a pseudo-metric $\dint$ on its objects. This metric is induces from the classical interleaving distance on persistence modules, which, we recall, are the basis of the enrichment of a persistence category. We will hence call $\dint$ the \say{interleving distance of $\msc$}. Note that, since $\dint$ comes from the interleaving distance, two objects $L_0$ and $L_1$ of $\msc$ satisfy $\dint(L_0,L_1)<\infty$ if and only if they become isomorphic objects in $\msc^\infty$.
+
+One should think of persistence categories as quantitative refinements of (preadditive) categories. Given a category $\mathcal{D}$ it is sometimes of interest to find a persistence category $\msc$ such that $\mathcal{D}$ is equivalent to $\msc^\infty$. If this is the case, then one gets an interleaving distance on the objects of $\mathcal{D}$.
+
+Note that persistence categories naturally appear as the homotopy category of filtered $A_\infty$-categories, similarly to how persistence modules appear as homologies of filtered chain complexes.\\
+
+The central categorical object of this chapter are triangulated persistence categories, a refinement of the classical notion of triangulated categories in the persistence setting, also introduced in \cite{BCZ:tpc}. A triangulated persistence category is, roughly said, a persistence category $\msc$ such that the $0$-level category $\msc^0$ is a triangulated category in the classical sense, i.e. it comes with a translation endofunctor and a distinguished class of couple of morphisms, usually called \say{exact triangles}. It easily follows by the properties of a TPC, that the terminal category $\msc^\infty$ naturally admits the structure of triangulated category.
+
+Similarly as in the case of persistence categories above, one should think of TPCs as enhancements of triangulated categories: let $\Tau$ be a triangulated category (usually of geometric origin), we say that $\Tau$ admits a TPC refinement if there is a TPC $\msc$ such that $\msc^\infty$ is triangulated equivalent to $\Tau$.
+
+
+In TPCs, we can exploit the persistence structure to refine classical notions and invariants for triangulated category. Most importantly, the structure of a TPC allows for the definition of \say{categorical metric approximability} introduced in \cite{ABC26}. We briefly sketch the definition here. First, we consider the intrinsic case, then we introduce the extrinsic definition.
+
+Let $\Tau$ be a triangulated category and consider a triangular generator $L$ of $\Tau$. Then, given any object $L'$ of $\Tau$, there is an iterated cone $C$ in $\Tau$, built from $L$, such that $L'$ is isomorphic to $C_{L'}$ in $\Tau$. Assume that $\Tau$ admits a TPC refinement $\msc$. Via algebraic manipulation, one can transform $C_{L'}$ into an iterated cone $\C_{L'}^0$ in $\msc^0$, and we say that $L$ $\varepsilon$-approximates $L'$ if $$\dint(L',C_{L'}^0)\leq \varepsilon$$ for some $\varepsilon\geq0$, where $\dint$ is the interleaving distance on $\msc$. We can ask ourselves the following question: do we get a better approximation, if instead of a single generator $L$ we consider a family of generators $\mathcal{F}$ and iterated cones built from objects of $\mathcal{F}$? It turns out that this question is of interest in the case of Fukaya categories (see Chapter \ref{ch:approx}). 
+
+This motivates the following two definitions, which are a rough version of the definitions appearing in \S\ref{se:approx}, which are categorified versions of a notion of approximability for metric groups due to Turing \cite{Turing:approx} (see the discussion in \S\ref{se:Turing}).
+\begin{dfn}
+    Let $\Tau$ be a triangulated category and $\mathcal{F}$ and $\mathcal{S}$ two families of objects in $\Tau$. We say that $\mathcal{F}$ approximates $\mathcal{S}$ if there is a TPC refinement $\msc$ of $\Tau$ such that for any $\varepsilon>0$ there is a \say{finite} subset $\mathcal{F}_\varepsilon\subset \mathcal{F}$ such that for any object $L$ of $\mathcal{S}$ there is a finite iterated cone $C_L$ in $\msc^0$ built from objects of $\mathcal{F}_\varepsilon$ satisfying $$\dint(L,C_L)\leq \varepsilon.$$ 
+\end{dfn}
+We will often say that, in the situation above, the subset $\mathcal{S}$ of $\Ob(\Tau)$ is approximable in the refinement $\msc$ of $\Tau$.
+The extrinsic viewpoint is as follows.
+\begin{dfn}\label{intro:defapprox2}
+    Let $(\mathcal{L}, d)$ be a pseudo-metric space. We say that $(\mathcal{L}, d)$ is approximable if there is a triangulated category $\Tau$ such that 
+    \begin{enumerate}
+    \item $\mathcal{L}$ can be identified with a subset $\mathcal{S}_\mathcal{L}$ of the objects of $\Tau$,
+    \item There is a TPC refinement $\msc$ of $\Tau$ such that the restriction of the interleaving distance $\dint$ on $\msc$ to the subset $\mathcal{S}_\mathcal{L}$ coincides with $d$,
+    \item $\mathcal{S}_\mathcal{L}$ is approximable in $\msc$.
+    \end{enumerate}
+\end{dfn}
+
+\noindent We define a weaker notion than approximability, which we call \say{retract} approximability, and can be thought of as the counterpart of split-generation for triangulated categories in this quantitative context.
+
+\begin{remark}
+    It is worth remarking at this point that there is another notion of approximability for triangulated categories, due to Neeman \cite{Neeman:approx_tri}.
+\end{remark}
+\begin{remark}
+    a. We relate the concept of approximability in Definition \ref{intro:defapprox2} to the classical concept of total boundedness. See the introduction to \cite{ABC26} for a more detailed exposition. We recall that a pseudo-metric subspace $(X,d_X)\subset (Y,d_Y)$ is totally bounded if for any $\varepsilon>0$ there is a finite $\varepsilon$-net for $X$ in $Y$, that is a finite set $X_\varepsilon\subset Y$ such that for any $x\in X$ there is $y\in X_\varepsilon$ such that $d_Y(x,y)<\varepsilon$. Approximability can be seen as a weak version of total boundedness in the sense that the $\varepsilon$-net $X_\varepsilon = \langle F_\varepsilon \rangle$ is only assumed to be a \textit{finitely generated} (in a triangular sense) subcategory of a triangulated category.
+
+    b. Recall that a totally bounded pseudometric space is in particular bounded, and hence of finite diameter. The reverse implication does not hold. We are not aware neither of a relationship between TPC approximability and boundedness, neither of an example of pseudometrispace being approximable but not bounded.
+\end{remark}
+\begin{remark}\label{polemics}
+    The notion of approximability can be defined without appealing to the machinery of TPCs (see Definition \ref{def:approx}). However all the examples known to date make use of TPCs.
+\end{remark}
+
+Along the way, in \S\ref{s:sys-tpc}, we define the concept of system of $A_\infty$-cateogories and TPCs with increasing accuracy, which is, at the moment, needed to deal with filtered Fukaya categories.
+Indeed, in our geometric situation in Chapters \ref{ch:ffuk} and \ref{ch:approx} one naturally obtains not a single filtered
+$A_\infty$-category but a family of filtered $A_\infty$-categories
+depending on auxiliary choices. This is formalized by a directed parameter space
+$(\mathcal{P},\preceq,\nu)$, where $\nu(p)\ge 0$ measures the error and can
+be made arbitrarily small. A \emph{system of filtered $A_\infty$-categories
+with increasing accuracy} consists of categories
+$\{\mathcal{A}_p\}_{p\in\mathcal{P}}$ together with comparison
+$A_\infty$-functors $\mathcal{H}_{p,q}\colon \mathcal{A}_p\to \mathcal{A}_q$ and $\mathcal{H}_{q,p}$ for all $p,q\in \mathcal{P}$, such that $\mathcal{H}_{p,q}$ preserves the filtration for $p\preceq q$. These functors are unique up to
+isomorphism in persistence homology, compatible with composition, and
+approximately inverse in the sense that the failure of
+$\mathcal{H}_{q,p}\circ\mathcal{H}_{p,q}$ to be the identity is controlled
+linearly by $|C\nu(p)-\nu(q)|$, $C\in[0,\infty)$. As $\nu(p)\to 0$ these comparisons become arbitrarily precise
+and all categories represent the same object up to homotopy. If, in
+addition, all comparison functors are unique up to $0$-homotopy and their
+compositions are $0$-homotopic to the direct comparisons, the system is
+called a \emph{homotopy system}, which ensures that invariants such as
+persistence Hochschild homology are well defined at the level of the
+whole system. A closely analogous notion exists for TPC.
+
+
+\section{Chapter 3: Filtered Fukaya categories}
+We briefly summarize the content of Chapter \ref{ch:ffuk}.
+
+%We will denote the standard Novikov field over $\Z_2$ as $$\Lambda:=\left\{ \sum_{k=0}^\infty a_kT^{\lambda_k}: \ a_k\in \Z_2, \ \lambda_k\in \mathbb{R} \ \lim_{k\rightarrow \infty}\lambda_k= \infty\right\}$$ and by $\Lambda_0$ the positive Novikov field over $\Z_2$, that is $$\Lambda_0:=\left\{ \sum_{k=0}^\infty a_kT^{\lambda_k}: \ a_k\in \Z_2, \ \lambda_k\geq 0, \ \lim_{k\rightarrow \infty}\lambda_k= \infty\right\}$$
+Let $(X,\omega)$ be a closed or convex at infinity symplectic manifold, and denote by $\lag^*$ a family of closed Lagrangian submanifolds of $X$ belonging to some class $*$ (e.g. $*=m$ for monotone Lagrangians, $*=w\text{-}ex$ for weakly exact Lagrangians, $*=ex$ for exact Lagrangians). In this chapter of the thesis we will work with monotone Lagrangians, but our construction works for weakly exact Lagrangians and exact Lagrangians in Lioville manifolds too.\\ We will refer to the model of the Fukaya category developed in Seidel's book \cite{Se:book-fukaya-categ} as the \textit{standard model for the Fukaya category of $X$} (see also e.g. \cite{Bi-Co:cob1, Bi-Co:lcob-fuk,Bi-Co-Sh:LagrSh} for this model adapted to the monotone setting). In this standard model, morphism sets are Floer complexes $CF(L,L')$ where $L,L'\in \lag^*$ and the $A_\infty$-maps $$\mu_d: CF(L_0,L_1)\otimes \cdots \otimes CF(L_{d-1},L_d)\to CF(L_0,L_d)$$ are defined for any $d\geq 1$ and any tuple $(L_0,\ldots, L_d)$ of Lagrangians in $\lag^*$ by counting Hamiltonian perturbed pseudoholomorphic polygons with Lagrangian boundary conditions, so-called Floer polygons. The representatives of homological units are constructed by counting Floer \say{$1$-gons}. The action functional (defined in \S \ref{wfs}) induces an increasing real filtration on Floer complexes, that is a choice of subspaces $CF^{\leq \alpha}(L,L')$ for any $\alpha \in \R$ such that $$CF^{\leq \alpha}(L,L')\subset CF^{\leq \beta}(L,L') \textnormal{   for any }\alpha\leq \beta.$$ It is well-known that $\mu_1$ preserves the above defined filtration, while in general higher order maps do not, and representatives of the units lie at positive filtration levels (see \cite{Bi-Co-Sh:LagrSh}). Theorem \ref{mainthm} in this chapter, asserts that it is possible to construct a model for the Fukaya category admitting filtration-preserving $A_\infty$-maps as well as units lying in filtration level $\leq 0$. We show that there is a space $\mathcal{P}$ of perturbation data indexing a family of filtered Fukaya categories. Subsequently, we construct continuation $A_\infty$-functors, an $A_\infty$-extension of continuation chain maps, in \S \ref{contfunc}, following \cite{Sylvan2019OnCategories}. In Theorem \ref{mainCF}, we show that continuation functors are $A_\infty$-functor with controlled linear deviation.
+
+Using the algebraic notions developed in Chapter \ref{ch:prelim}, the results contained in this chapter can be summarized as follows.
+
+\begin{thm}\label{thmA} There is a non-empty space $\mathcal{P}$ of perturbation data and, for any $p,q\in \mathcal{P}$, a non-empty space $\msj_{p,q}$ of \say{continuation} data indexing a homotopy system of filtered and strictly unital $A_\infty$-categories with increasing accuracy $$\widehat{\fuk}(\lag^*) = \left( \fuk(\lag^*;p)_{p\in \mathcal{P}}, (\mathcal{H}_{p,q}^h\colon \fuk(\lag^*;p)\to \fuk(\lag^*;q))_{p,q\in \mathcal{P}, h\in \msj_{p,q}}\right)$$
+where each $A_\infty$-category $ \fuk(\lag^*;p)$, $p\in \mathcal{P}$, is quasi-equivalent to the standard model from \cite{Se:book-fukaya-categ}.
+\end{thm}
+
+To prove Theorem \ref{thmA} we have to tackle two problems: define $A_\infty$-maps that do not shift filtration, and find represenatives of the unit lying at vanishing filtration levels. To solve the first problem we will inductively construct a class of perturbation data (à la \cite{Se:book-fukaya-categ}) so that the associated Fukaya category is filtered.
+However, as we will argue in \S \ref{addend}, it is not possible to find representatives of the units at zero filtration levels by using Seidel's standard model. We solve this problem by replacing self-Floer complexes with Morse complexes, whence the need for the so-called cluster complex.\\
+The idea behind the construction of our perturbation data is roughly as follows: we pick \say{flat enough} Hamiltonian Floer data for any couple of Lagrangians in $\lag^*$ and use coordinates induced by strip-like ends on Floer polygons to interpolate between the Hamiltonian Floer datum and the zero function by a particular class of monotone homotopies. The precise construction is given in \S \ref{actualconstruction}. In \S \ref{addend} we argue that it is not possible to find representatives of the units at zero filtration levels by using the standard model for the Fukaya category. To cope with this fact, we use a Morse-bott, or \say{cluster}, model for Fukaya categories, by defining a new $A_\infty$-category whose self-morphisms spaces are pearl complexes, instead of Floer ones, and by considering \say{clusters} of pearly-Morse trees and Floer polygons. This model was first introduced in \cite{Cor-La:Cluster-2} and later outlined in \cite{BCZ:tpc} in the exact case; we work out more details of this model in \S \ref{mbfuk}.\\
+
+% After developing the machinery of $\varepsilon$-perturbation data and the associated filtered Fukaya categories we introduce continuation $A_\infty$-functors, an $A_\infty$-extension of continuation chain maps, in \S \ref{contfunc}, following \cite{Sylvan2019OnCategories}. The main result from \S \ref{contfunc} may be roughly stated as follows.
+% \vspace{1.5mm}
+% \begin{thm}\label{thmB}
+%     Let $\varepsilon_1,\varepsilon_2>0$, $p\in E^{\varepsilon_1}_\text{reg}$ and $q\in E^{\varepsilon_2}_\text{reg}$. There is a unital $A_\infty$-quasi equivalence $$\mathcal{F}^{p,q}\colon \mathcal{F}uk(M;p)\to \mathcal{F}uk(M;q)$$ canonical up to quasi-isomorphism of $A_\infty$-functors which shifts filtration by $\leq \max\left( \varepsilon_2-\frac{\varepsilon_1}{2},0\right)$.
+% \end{thm}
+% \noindent The bound in the shift on filtration of those functors is obtained by constructing perturbation data for continuation functors following the same principles as in the construction of the spaces $E^\varepsilon$ mentioned above.
+
+Note that, as argued in \cite{BCZ:tpc}, a filtered $A_\infty$-category $\mathcal{A}$ induces a tringulated persistence category $PD(\mathcal{A})$ (see \ref{ch:prelim}). Since, moreover, homotopy systems behave well when passing to the persistence derived level, Theorem \ref{thmA} has the following corollary, which will be crucial for the results developed in Chapter \ref{ch:approx}.
+\begin{cor}
+    The homotopy system $\widehat{\fuk}(\lag^*)$ induces a system of TPCs with increasing accuracy $PD(\widehat{\fuk}(\lag^*))$.
+\end{cor}
+We remark that, by construction, the TPCs in the system $PD(\widehat{\fuk}(\lag^*))$ share a subset of objects, that is $\lag^*$. However, even though $\widehat{\fuk}(\lag^*)$ is a homotopy system, $PD(\widehat{\fuk}(\lag^*))$ does not have a coherent fixed base of objects (see Remark \ref{r:coh-base}).
+
+\section{Chapter 4: Approximability for Lagrangian submanifolds}\label{intro:approx}
+We briefly summarize the content of Chapter \ref{ch:approx}.
+
+This chapter of the thesis contains the central three sections in \cite{ABC26}. The main result is as follows.
+
+\begin{thm}\label{intro:thmapprox}
+    \label{thmmain1} The following three classes of Lagrangians $\lag^*$ are approximable, as below.
+\begin{itemize} 
+\item[i.] Closed, exact Lagrangians in unit cotangent disk bundles $M=D^{\ast} N$ for any closed manifold $N$
+(and any metric on $N$) are  TPC approximable.
+\item[ii.] Equators on the $2$-sphere, $M=S^{2}$, are TPC retract approximable.
+\item[iii.] Non-contractible Lagrangians on the $2$-torus, $M=\mathbb{T}^{2}$, are  TPC retract approximable.
+\end{itemize} 
+In all three cases  TPC approximability takes place in appropriate TPC refinements of the derived Fukaya category and the relevant spaces of Lagrangian submanifolds $\mathcal{L}ag(M)$ are endowed with the metric structure given by the spectral metric $d_{\gamma}$ in the cases i and ii and with a metric that restricts to the spectral metric on each Hamiltonian isotopy class at point iii. 
+\end{thm}
+
+The symplectic form on the cotangent disk bundles $D^{\ast}N$ is the derivative of the 
+Liouville form $\la$ and the exactness of Lagrangians is understood with respect to $\la$. The $\varepsilon$-approximating families in the three cases consist of: fibers of the cotangent-disk bundle in the first case; great circles on the sphere connecting the north and south poles in the second; one latitude and a (finite) collection of longitudes on the torus in the third. \\
+
+As explained in \S\ref{intro:chapter1}, approximability of a metric space can be viewed as a \say{triangular relaxation} of total boundedness. We prove that there are examples of spaces of Lagrangian endowed with $d_\gamma$ that are approximable but not totally bounded.
+
+\begin{cor}\label{cor:no-t-b} The spaces $(\mathcal{L}ag(M),d_{\gamma})$ are not totally bounded when
+$M=D^{\ast}N$ and $N$ is endowed with a hyperbolic metric and $\mathcal{L}ag(M)$ consists of closed exact Lagrangians, as well as when $M=S^{2}$ and $\mathcal{L}ag(S^{2})$ consists of equators.
+\end{cor}
+
+Corollary \ref{cor:no-t-b} is proved by studying the cone length of iterated distinguished triangles needed in order to approximate a Lagrangian as the approximation threshold $\varepsilon$ goes to zero. Along the way, we define a persistence version of the notion of categorical entropy due to Dimitrov-Haiden-Katzarkov-Kontsevich \cite{DHKK:dyn_cat}, which we call \textit{weighted categorical entropy}, and relate itemize to the barcode entropy introduced by \c{C}ineli-Ginzburg-Gurel \cite{CGG_bar_ent}.
+
+\begin{remark}
+    The term \say{weighted} might be misleading. A candidate name for the above named refinement of categorical entropy would be \textit{persistence} categorical entropy. However, we believe that persistence might not be a necessary tool in order to define approximability, and hence all the related notions (see Remark \ref{polemics}).
+\end{remark}
+
+The rest of the chapter is dedicated to the proof of two geometric corollaries, that we now state. 
+
+\begin{cor}[Corollary 1.1.4 in \cite{ABC26}]\label{cor:quasi-rig} Let $M=D^{\ast}N$ and assume that  $\phi :D^{\ast}N\to D^{\ast}N$ is an exact symplectomorphism with support in the
+interior of $D^{\ast}N$. Let $\F_{\varepsilon}$ be a finite family of fibers of $D^{\ast}N$ that is $\varepsilon$-approximating in the sense of Theorem \ref{thmmain1} i. Let
+$$\chi (\phi; \F_{\varepsilon}) =\max_{F\in\F_{\varepsilon}}\ \{ \max h_{\phi(F)} - \min h_{\phi(F)}\}$$ where $h_{\phi(F)}$ is the $\lambda$-primitive of the Lagrangian $F\in \mathcal{F}_\varepsilon$.
+Then, for any $L\in \mathcal{L}ag(M)$, we have $$d_{\gamma}(L,\phi(L)) \leq 4(\varepsilon + N(L;\F_{\varepsilon}, \varepsilon) \chi(\phi;\F_{\varepsilon}))~.~$$
+In particular, if $\phi(F)=F$ for all $F\in \F_{\varepsilon}$, we have $d_{\gamma}(L,\phi(L)) \leq 4\varepsilon$, for every closed and exact Lagrangian $L$ in $D^{\ast}N$.
+\end{cor}
+
+For the next result, we recall the following notion introduced in \cite{Bar-Cor:Serre,Bi-Co:rigidity}. Let $L$ be a Lagrangian in a symplectic manifold $M$ and $K\subset M$ be a subset. The relative Gromov width of $L$ to $K$ is defined as \begin{eqnarray*}\mathscr{W}(L; K)=\sup \Bigl\{ \pi \frac{r^{2}}{2} \ | \ \exists\  j: (B_{r}, \omega_{0})\to (M,\omega) , \  j \ \text{is an embedding}, \\ j^{\ast}\omega=\omega_{0}, \ \ j^{-1}(L)= B_{r}\cap \R^{n}, \ j(B_{r})\cap K=\emptyset \Bigr\} 
+\end{eqnarray*}
+where $(B_{r},\omega_{0})\subset (\mathbb{C}^{n},\omega_{0})$ is the standard symplectic $r$-ball in $\mathbb{C}^{n}$, centered at the origin. 
+
+
+\begin{cor}\label{cor:link}
+Let $M$ be one of the symplectic manifolds appearing in Theorem \ref{thmmain1} and consider the associated class $\lag^*(M)$ of Lagragians, endowed with the metric $d_\gamma$. 
+For each $L\in \lag^*(M)$ we have
+$$\mathscr{W}(L;  \cup_{F\in \F_{\varepsilon}}F)\leq 2\varepsilon ~.~$$\end{cor}
+
+\begin{remark}
+    The version we will prove in Chapter \ref{ch:approx} (i.e. Corollary \ref{cor:link2}, which is Corollary 1.1.5 in \cite{ABC26}) is actually a more general version of Corollary \ref{cor:link}.
+\end{remark}

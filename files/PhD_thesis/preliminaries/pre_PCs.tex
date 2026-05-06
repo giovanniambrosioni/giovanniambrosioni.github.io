@@ -1,0 +1,254 @@
+% !TEX root = approx8.tex
+
+\section{Persistence categories}\label{se:PCs}
+The theory of persistence modules originates in topological data analysis, where persistence homology of Rips complexes have been proved to be useful to extract properties from data clouds. In this section, we introduce the notion of persistence categories, originally developed in \cite{BCZ:tpc}. Indeed, all the concept appering in this section already appeared in \cite{BCZ:tpc}.  We provide a compact category theoretical definition of persistence category, and to this goal we introduce persistence modules as functors. Some of the material presented here appears in a slighlty different setting in \cite{bubenik2021}.
+
+\subsection{The monoidal category of persistence modules.}\label{se:catpm}
+In this section, we consider the set of real number $\mathbb{R}$ endowed with the usual relation $\leq$ and the sum $+$ as a symmetric monoidal preorder with unit $0\in \mathbb{R}$, and denote it, abusing notation, simply by $\mathbb{R}$. We will view $\mathbb{R}$ as a symmetric monoidal category in the standard way: its set of object is $\mathbb{R}$ itself, and, given $x,y\in \mathbb{R}$, the morphism space $\hom_\mathbb{R}(x,y)$ is non-trivial if and only if $x\leq y$, in which case it is a singleton. By abuse of notation, in the case $x\leq y$, this unique morphism is denoted by $x\leq y$.
+\begin{dfn}
+    Let $\mathcal{C}$ be a category. A persistence module over $\mathcal{C}$ is a functor $\mathbb{R}\to \mathcal{C}$.
+\end{dfn}
+We will be mainly interested in the following case. Let $R$ be a commutative ring with unit, and $R-\md$ be the category of $R$-modules. 
+\begin{dfn}
+    A persistence module over $R$ is a persistence module over $R-\md$.
+\end{dfn}
+We briefly unpack this definition. Let $M\colon \mathbb{R}\to R-\md$ be a persistence module over $R$. This means that for each $\alpha\in \mathbb{R}$, the image $M^\alpha:=M(\alpha)$ is an $R$-module, and whenever $\alpha\leq \beta$, the image $i^M_{\alpha,\beta}:=M(\alpha\leq \beta)$ is a map $M^\alpha\to M^\beta$. Moreover, by definition of functor, we get the following compatibility conditions:
+$$i^M_{\alpha,\alpha}=id_{M^\alpha}\text{  for all  }\alpha \in \mathbb{R}$$ and $$ i^M_{\beta,\gamma}\circ i^M_{\alpha,\beta}=i^M_{\alpha,\gamma}\text{   for all }\alpha\leq\beta\leq \gamma.$$
+We call the maps $(i^M_{\alpha,\beta})_{\alpha\leq \beta}$ the \say{structural maps} of the persistence module $M$. We will often drop the superscript $M$ from the notation.
+Given a persistence module $M$ and $\alpha\in \mathbb{R}$ we will often abuse notation and write an element $f\in M^\alpha$ as $(f,\alpha)\in M$.
+
+An important example of persistence module are so-colled interval persistence modules. Let $r\in \mathbb{R}$ be a real number. We define the persistence module $R_{[r,\infty)}$ to be the characteristic functor for the subcategory $[r,\infty)$ of $R$. In other words: $$R_{[r,\infty)}^\alpha= \begin{cases}
+    0, \text{  if }\alpha<r,\\
+    R, \text{  if }\alpha\geq r
+\end{cases}$$
+with structural map given by either the identity or the zero map.
+
+Given a persistence module $M$ over $R$, we define its $\infty$-limit to be the $R$-module $$M^\infty:=\colim M^\alpha$$ where the colimit is taken with respect to the structural maps $(i^M_{\alpha,\beta})_{\alpha,\beta}$ of $M$. In fact, we will often look at a persistence module $M$ as the \say{set} $$\bigsqcup_{\alpha\in \mathbb{R}}M^\alpha.$$
+
+We denote by $\textbf{Pers}(R)$ the category of persistence modules over $R$, that is, the category of functors $\mathbb{R}\to R-\md$. Using the standard category theoretic vocabulary, we have that a morphism of persistence modules is simply a natural transformation. Let $M$ and $N$ be persistence modules and consider a natural transformation $f\colon M\to N$. This consists of morphisms of $R$-modules $f^\alpha\colon M^\alpha\to N^\alpha$ for all $\alpha \in \mathbb{R}$ subject to the condition $$i^N_{\alpha,\beta}\circ f^\alpha = f^\beta\circ i^M_{\alpha,\beta}.$$ In particular, the categorical description of morphism of persistence modules as natural transformations agrees with the usual notion of morphism of persistence modules (see, for instance, \cite{PRSZ:top-pers}). 
+
+As it will be apparent from our geometric discussions in Chapter \ref{ch:ffuk} and \ref{ch:approx}, we are often interested in \say{morphisms} of persistence modules that shift the persistence structure (or, equivalently, morphisms between shifted persistence modules). To this aim, we refine $\textbf{Pers}(R)$ to another category, which will be denoted by $\msc\textbf{Pers}(R)$. We first need some additional structure.  
+
+Note that the category $R-\md$ of $R$-modules is naturally a symmetric monoidal category (indeed, a ring is a monoid in the symmetric monoidal category of abelian groups). In particular, since $\mathbb{R}$ is monoidal too, the category $\mathbf{Pers}(R)$ of persistence modules over $R$ inherits a convolution monoidal product, which we will denote by $\otimes$. More explicitly, given two persistence modules $M$ and $N$ over $R$, the product $M\otimes N$ is the functor such that $$(M\otimes N)^\alpha = \colim_{\alpha_0+\alpha_1\leq \alpha}M^{\alpha_1}\otimes_R M^{\alpha_2}  \text{ for all }\alpha \in \mathbb{R}$$ and $i^{M\otimes N}_{\alpha,\beta}$ for $\alpha\leq \beta$ are induced by functoriality of colimits. It is an exercise to see that the monoidal unit is given by the interval persistence module $R_{[0,\infty)}$. Moreover, as noted by \cite{bubenik2021}, the category $\pers(R)$ is closed monoidal (but not compact closed, i.e. there is no categorically satisfying notion of dual persistence module).
+
+Let $r\in \mathbb{R}$. We define the $r$-shift of persistence modules to be the functor $$\Sigma^r:=R_{[r,\infty)}\otimes -\colon\pers(R)\to \pers(R).$$ Let $M$ be a persistence module over $R$ and $\alpha\in \mathbb{R}$, then $$\Sigma^rM^\alpha = M^{\alpha-r},$$ and given a morphism of persistence modules $f\colon M\to N$, the morphism $\Sigma^rf\colon \Sigma^rM\to \Sigma^rN$ satisfies $$(\Sigma^rf)^{\alpha}=f^{\alpha-r}.$$ Note that the family $(\Sigma^r)_{r\in \mathbb{R}}$ induces a bifunctor $$\Sigma\colon \mathbb{R}\times \pers(R)\to \pers(R).$$ We recall, that in any category the $\hom$ functor is indeed a bifunctor on the category. For any two persistence modules $M$ and $N$, we can hence make sense of the functor $\hom_{\pers(R)}(M,\Sigma N)$ as a functor $$\hom_{\pers(R)}(M,\Sigma N)\colon \mathbb{R} \to R-\md$$ (recall that the category of $R$-modules is enriched over itself), that is, a persistence module over $R$.
+
+We define the category $\Cpers(R)$ to have the same objects of $\pers(R)$ and, given persistence modules $M$ and $N$, define their morphism set as $$\hom_{\Cpers(R)}(M,N):=\hom_{\pers(R)}(M,\Sigma N).$$
+
+The composition $$\circ_{\Cpers(R)} \colon \hom_{\Cpers(R)}(M,N)\to \hom_{\Cpers(R)}(N,P)\to \hom_{\Cpers(R)}(M,P)$$ is defined as $$-\circ_{\Cpers(R)}-:= \Sigma(-)\circ_{\pers(C)} -$$ and, of course, denoted simply by $\circ$.
+
+It is an exercise to see that $\Cpers(R)$ is itself symmetric monoidal. The definition of the monoidal product, still denoted by $\otimes$, is identical on object to the case of $\pers(R)$. Consider two morphisms $(f,r)\colon M_0\to N_0$ and $(g,s)\colon M_1\to N_1$ in $\Cpers(R)$. As morphisms of $\pers(C)$, they are natural transformations $f\colon \Sigma^rM_0\to N_0$ and $g\colon \Sigma^sM_1\to N_1$, and their tensor product $f\otimes g$ is an element of $\hom_{\pers(R)}(\Sigma^rM_0\otimes \Sigma^sM_1,N_0\otimes N_1)$. Because of the definition of $\Sigma$ and the fact that $\pers(R)$ is symmetric monoidal, plus the readily checked $R_{[r,\infty)}\otimes R_{[s,\infty)}\cong R_{[r+s,\infty)}$, it follows that we can see $f\otimes g$ as an element of $\hom_{\pers(R)}(\Sigma^{r+s}(M_0\otimes M_1),N_0\otimes N_1)$. In particular, by defining $$(f,s)\otimes (g,s):= (f\otimes g, r+s),$$ as an element of $\hom_{\Cpers}(M_0\otimes M_1,N_0\otimes N_1)$, the category $\Cpers(R)$ inherits the structure of symmetric monoidal category. In fact, similarly to the case of $\pers(R)$, it is closed monoidal.\\
+
+As noted in \cite{bubenik2021}, both $\pers(R)$ and $\Cpers(R)$ are enriched over themselved. The following is the missing enrichment in \cite{bubenik2021} and motivates the definition in the following section.
+\begin{lem}\label{taut}
+    The category $\Cpers(R)$ is enriched over $\pers(R)$.
+\end{lem}
+
+
+
+%=================================
+%================================
+%==================================
+
+\subsection{Persistence categories}\label{se:pc}
+Let $R$ be a commutative ring with unit, and consider the symmetric monoidal category $\pers(R)$ of persistence module over $R$ introduced above.
+\begin{dfn}
+    A persistence category over $R$ is a category enriched over $\pers(R)$.
+\end{dfn}
+We will often shorten the name \say{persistence category} to simply \say{PC}. Let's unpack the above. Let $\msc$ be a persistence category over $R$. Let $L_0,L_1$ be objects of $\msc$, then $\hom_\msc(L_0,L_1)$ is a persistence module over $R$ (i.e. an object of $\pers(R))$. We will usually write the $R$-module at level $r\in \mathbb{R}$ as $\hom^r_\msc(L_0,L_1)$ and write an element of it as $(f,r)$. We will very often drop $L_0$ and $L_1$ from the notation of the structural map of $\hom_\msc(L_0,L_1)$ and simply write it as $i^\msc_{\alpha,\beta}$, or even $i_{\alpha,\beta}$. Moreover, for any triple of objects $L_0$, $L_1$ and $L_2$ of $\msc$, the composition $$\circ \colon \hom_\msc(L_0,L_1)\otimes \hom(L_1,L_2)\to \hom_\msc(L_0,L_2)$$ is a morphism in $\pers(R)$, i.e. it sends $\hom^r_\msc(L_0,L_1)\otimes \hom^s_\msc(L_1,L_2)$ to $\hom_\msc^{r+s}(L_0,L_2)$ for any $s,r\in \mathbb{R}$ is compatible with the structural maps of $\msc$.\\
+
+A persistence category $\msc$ naturally induces two categories $\msc^0$ and $\msc^\infty$, defined as follows.
+\begin{enumerate}
+    \item[0] The category $\msc^0$ has the same objects of $\msc$ and morphism sets $$\hom_{\msc^0}(L_0,L_1):= \hom_\msc^0(L_0,L_1)$$ for any objects $L_0$ and $L_1$ of $\msc$, with composition induced by the restriction of the composition on $\msc$. We call $\msc^0$ the \textit{zero level} category of $\msc$.
+    \item[$\infty$] The category $\msc^\infty$ has the same objects of $\msc$ and morphism sets $$\hom_{\msc^\infty}(L_0,L_1):= \colim_{r\to \infty}\hom_\msc^r(L_0,L_1)$$ where the colimit is taken with respect to the structural maps of $\msc$, and the composition is induced by the colimit. We call $\msc^\infty$ the terminal category of $\msc$.
+\end{enumerate}
+
+It is easy to see that both $\msc^0$ and $\msc^\infty$ are categories enriched over $R-\md$, and, in particular, pre-additive.
+
+\begin{dfn}
+    Let $\mathcal{D}$ be a pre-additive category. A PC refinement of $\mathcal{D}$ is a category $\msc$ such that $\msc^\infty$ is additive equivalent to $\mathcal{D}$. A PC enrichment of $\mathcal{D}$ is a PC $\tilde \msc $ such that $tilde{\msc^0}$ is additive equivalent to $\mathcal{D}$.
+\end{dfn}
+
+Clearly, $\Cpers(R)$ is a PC enrichment of $\pers(R)$. We claim that $\Cpers(R)$ is a PC refinement of $R-mod$.
+
+\subsection{Persistence functors and persistence natural transformations}
+We introduce the notion of persistence functor and the PC enrichment of the category of persistence functors.
+\begin{dfn}
+    An enriched functor between persistence categories will be called a persistence functor. An enriched natural transformation between persistence functors will be called a persistence natural transformation of shift zero.
+\end{dfn}
+\noindent We will often shorten \say{persistence functor} to \say{PC functor}.
+
+Let $\msc$ and $\mathcal{D}$ be persistence categories. Persistence functors from $\msc$ to $\mathcal{D}$ form a category, which we will denote by $\mathcal{P}\fun^0(\msc,\mathcal{D})$ with persistence natural transformations of shift zero as morphisms. In the case $\msc=\mathcal{D}$ we will write $\mathcal{P}\fun^0(\msc,\mathcal{D})$ as $\mathcal{P}\text{End}^0(\msc)$. 
+
+\begin{lem}
+    Let $\msc$ and $\mathcal{D}$ be persistence category. Then the category $\mathcal{P}\text{Fun}^0(\msc,\mathcal{D})$ of persistence functors between $\msc$ and $\mathcal{D}$ admits a PC enrichment $\pfun(\msc,\mathcal{D})$.
+\end{lem}
+\begin{proof}
+    We define $\pfun(\msc,\mathcal{D})$ to have the same objects of $\pfun^0(\msc,\mathcal{D})$. Given two persistence functors $\mathcal{F}, \mG\colon \msc\to \mathcal{D}$, we say that a natural transformation $\eta\colon \mF\to \mG$ between the underlying functors is a persistence natural transformation of shift $r\in \mathbb{R}$ if for any object $L$ of $\msc$ we have $\eta_L\in \hom_\mathcal{D}^r(\msc,\mathcal{D})$. We define $\hom_{\pfun(\msc,\mathcal{D})}(\mF,\mG)$ to be the persistence module of persistence natural transformations of finite shift, with structural map induced by those of $\mathcal{D}$. It is clear that $$\pfun(\msc,\mathcal{D})^0= \pfun^0(\msc,\mathcal{D}),$$ hence the statement.
+\end{proof}
+
+\begin{remark}
+    An intrinsic way to get to the persistence category $\pfun(\mathcal{C},\mathcal{D})$
+    is to construct it as the internal homs in the category of persistence categories (similarly to what has been done above in the case of the category of $dg$-categories and of filtered $dg$-categories).
+\end{remark}
+% One can consider the category of persistence categories. This is not a persistence category, as we cannot add functors in general. However, there is some persistence structure on spaces of enriched functors.
+% \begin{dfn}
+%     A persistence functor between two persistence categories $\msc$ and $\mathcal{D}$ is an enriched functor $F\colon \msc\to \mathcal{D}$ such that for all objects $L_0$ and $L_1$ of $\msc$ we have that the action of $F$ on them is an element of $\hom_{\Cpers(R)}^0(\msc(L_0,L_1),\mathcal{D}(FL_0,FL_1))$.
+% \end{dfn}
+
+Let us go back to the case of $\Cpers(R)$ for a second. By Lemma \ref{taut}, $\Cpers(R)$ is a persistence category. Note that the functor $\Sigma$ induces a monoidal functor $$\Sigma\colon \mathbb{R}\to \mathcal{P}\text{End}(\Cpers(R)),$$ that is, each $\Sigma^r$, $r\in \mathbb{R}$ is a persistence endofunctor of $\Cpers(R)$. More is true. Given $x\leq y$, the induced natural transformation $\Sigma^\alpha\to \Sigma^\beta$ lies in $$\hom_{\mathcal{P}\text{End}(\Cpers(R))}^{\beta-\alpha}(\Sigma^\alpha,\Sigma^\beta).$$ This means that, by endowing $\mathbb{R}$ with the obvious persistence structure, i.e. setting the morphism $x\leq y$ at persistence level $y-x$ (note that this is the only non-trivial possibility to make sense of the triangle inequality at persistence level), the functor $\Sigma$ is a persistence functor, i.e. an element of $$\mathcal{P}\text{fun}(\mathbb{R}, \mathcal{P}\text{End}(\Cpers(R))).$$
+This motivates the following crucial definition (see \cite[Definition 2.15]{BCZ:tpc}).
+
+\begin{dfn}
+    Let $\mathcal{C}$ be a persistence category. A shift functor on $\mathcal{C}$ is a persistence monoidal functor $\mathbb{R}\to \mathcal{P}\text{End}(\msc)$.
+\end{dfn}
+\noindent We will often denote any shift functor by $\Sigma$.
+
+We introduce a last important definition for this subsection.
+\begin{dfn}\label{racyclic}
+    Let $r\in\mathbb{R}$. An object $L$ in a persistence category $\msc$ is said to be $r$-acyclic if for all $s\in \mathbb{R}$ we have $$i_{s,s+r}^{\hom_\msc(L,L)}=0.$$
+    We denote by $A\msc$ the full subcategory of $\msc$ consisting of acyclic objects.
+\end{dfn}
+\begin{remark}
+    We have seen that persistence categories over $R$ are categories enriched over $\pers(R)$. Persistence categories will appear in the subsequent chapters of this thesis. The more general notion of categories enriched over $\Cpers(R)$ might be of interest. For instance persistence semi-categories, introduced in \cite{Miller:idempotents}, are indeed a somewhat rigid instance of categories enriched over $\Cpers(R)$.
+\end{remark}
+
+%=====================================
+%=====================================
+%=====================================
+
+\subsection{The interleaving distance(s)}\label{sec:dint}
+One of the most interesting features of a persistence category $\msc$ is the fact that the enrichment over persistence modules provides a natural pseudometric $\dint$ on the objects of $\msc$. In the case of $\msc=\Cpers(R)$, this metric is indeed the classical interleaving distance for persistence modules (see \cite{PRSZ:top-pers}). We will hence call the metric $\dint$ the \textit{interleving distance} on $\msc$.\\
+
+Let $\msc$ be a persistence category endowed with a shift functor $\Sigma$. We define two measurement on the objects of $\msc$: the \textit{interleaving distance} $\dint$, introduced in \cite{BCZ:tpc}, and the \textit{retract interleaving distance} $\dret$, introduced in \cite{ABC26}. For any two objects $X$ and $Y$ of $\msc$ we define 
+\begin{equation} \label{eq:d-int}
+  \begin{aligned}
+    \dint(X, Y) = \inf \Bigl\{r \geq 0 & \bigm| \exists \, \varphi:
+    \Sigma^rX \longrightarrow Y, \, \exists \, \psi: \Sigma^rY
+    \longrightarrow X \\
+    & \;\;\; \text{such that} \; \psi \circ \Sigma^r \varphi =
+    \eta_{2r}^X, \; \varphi \circ \Sigma^r \psi = \eta_{2r}^Y \Bigr\}.
+  \end{aligned}
+\end{equation}
+and call it the interleaving distance between $X$ and $Y$. Similarly, we define 
+\begin{equation} \label{eq:d-rint} \dret(X,Y) = \inf \Bigl\{r \geq 0
+  \bigm| \exists \, \varphi: \Sigma^rX \longrightarrow Y, \, \exists
+  \, \psi: \Sigma^rY
+  \longrightarrow X \\
+  \;\; \text{such that} \; \psi \circ \Sigma^r \varphi = \eta_{2r}^X
+  \Bigr\}
+\end{equation}
+and call it the retract-interleaving distance between $X$ and $Y$.
+\begin{lem}
+    The measurement $\dint$ defines a pseudometric on $\Ob(\msc)$. The measurement $\dret$ defines a Lawvere metric on $\Ob(\msc)$.
+\end{lem}
+\
+Given a function $d\colon \Ob(\msc)\times \Ob(\msc)\to \mathbb{R}$ (such as, for instance, $\dint$ or $\dret$) we can define its \text{shift invariant version} $\overline{d}$ via $$\overline{d}(X,Y):= \sup_{r\in \mathbb{R}}d(\Sigma^rX,Y).$$
+
+Here is an additional notation to be used later in the paper. Let $Z$
+be a set endowed with a (not necessarily symmetric) pseudo-metric $d$
+and $X, Y \subset Z$. We denote by
+
+$$d(X,Y) := \sup_{x \in X} \inf_{y \in Y} d(x,y)$$
+%$$\vec{d}(X,Y) := \sup_{x \in X} \inf_{y \in Y} d(x,y)$$ 
+the longest distance
+between the points of $X$ and those of $Y$. 
+%(The arrow above the $d$ indicates that
+Note that this is not symmetric in $(X,Y)$.
+We will sometimes use this measurement for $d=\dint$  and $d=\dret$.
+%and denote it $\vec{d}_{\text{int}}$. Similarly
+%we can also define also $\vec{d}_{\text{r-int}}$ (although $\dret$ is
+%not a symmetric pseudo-metric to start with).
+
+
+To end this subsection, we list a few basic metric properties of PC
+functors in the following lemma which is immediate to establish. In
+the statement the same notation $\dint$ is used for the inteleaving
+distance in various persistence categories.
+\begin{lem} \label{l:d-func} Let $\msc', \msc''$ be persistence categories and
+  $\msf: \msc' \longrightarrow \msc''$ a persistence functor.
+  \begin{enumerate}
+  \item For every $A, B \in \Ob(\msc')$ we have
+    $\dint(\msf A, \msf B) \leq \dint(A,B)$.
+  \item If there exists a PC functor
+    $\msg: \msc'' \longrightarrow \msc'$ such that
+    $\dint(\msg \circ \msf, \id_{\msc'}) \leq s$ then for every
+    $A, B \in \Ob(\msc')$ we have
+    $|\dint(\msf A, \msf B) - \dint (A,B)| \leq 2s$.
+  \item If there is a persistence functor $\msh: \msc'' \longrightarrow \msc'$
+    such that $\dint(\msf \circ \msh, \id_{\msc''}) \leq r$ then
+    $$\dint(\msc'', \textnormal{image\,}\msf) \leq r.$$
+  \end{enumerate}
+\end{lem}
+
+\subsection{Various completions} \label{sbsb:comp} This is an adjustement off Section 2.3.2 in \cite{ABC26}.
+
+Most of the time we will assume our PC's $\mathscr{C}$ to be graded in
+the sense that the persistence modules $\hom_{\mathscr{C}}(A,B)$ are
+$\mathbb{Z}$-graded. We will mostly use cohomological grading
+conventions and denote by $\hom_{\mathscr{C}}(A,B)^k$,
+$k \in \mathbb{Z}$ the degree-$k$ component of
+$\hom_{\mathscr{C}}(A,B)$. For $\alpha \in \mathbb{R}$ we denote by
+$\hom^{\alpha}_{\mathscr{C}}(A,B)^k$ the $\alpha$-persistence level of
+$\hom_{\mathscr{C}}(A,B)^k$. We assume composition of morphisms
+to be degree-preserving and that identity morphisms are in degree $0$.
+
+Our PC's $\mathscr{C}$ will be often endowed with a {\em translation
+  functor} $T: \mathscr{C} \longrightarrow \mathscr{C}$. This is a persistence
+isomorphism functor with the property that for all
+$A, B \in \Ob(\mathscr{C})$, $k \in \mathbb{Z}$, we have PC-natural
+isomorphisms
+$$\hom_{\mathscr{C}}(TA,B)^k \cong \hom_{\mathscr{C}}(A,B)^{k-1},
+\quad \hom_{\mathscr{C}}(A,TB)^k \cong
+\hom_{\mathscr{C}}(A,B)^{k+1}.$$ As mentioned earlier, since $T$ is a
+PC functor, we will implicitly assume that $T$ commutes with the shift
+functors, i.e.~$T \circ \Sigma^{r} = \Sigma^r \circ T$,
+$\forall \, r \in \mathbb{R}$.
+
+
+Given subsets $S_1, S_2, S_3 \subset \Ob(\mathscr{C})$ we define
+their completions with respect to shifts, translations and
+$0$-isomorphisms, respectively, as follows:
+\begin{equation}
+  \begin{aligned}
+    & S_1^{\Sigma} := \{ \Sigma^r(A) \mid A \in S_1, \, r \in
+    \mathbb{R}\}, \quad
+    S_2^{T} := \{T^j(A) \mid A \in S_2, \, j \in \mathbb{Z}\}, \\
+    & S_3^{\ziso} := \{ A \in \Ob(\mathscr{C}) \mid A \text{ is
+      isomorphic in } \mathscr{C}^0 \text{ to an object from } S_3\}.
+  \end{aligned}
+\end{equation}
+We will also need the completion of a subset
+$S \subset \Ob(\mathscr{C})$ with respect to several of the above
+procedures, for example $S^{\Sigma, T} := (S^{\Sigma})^T$ etc.
+
+Another important completion is with respect to the interleaving
+distance. Given a subset $S_4 \subset \Ob(\msc)$ we define
+$$S_4^{\text{int}} :=
+\{ A \in \Ob(\mathscr{C}) \mid \dint(A, B) < \infty \text{ for some }
+B \in S_4\}.$$ To simplify the notation, for $S \subset \Ob{\msc}$ we
+will write $S^{c} := (S^{T})^{\text{int}}$.
+%$$S^{c,0} := S^{\Sigma, T, \ziso}, \quad S^{c} := (S^{T})^{\text{int}}.$$
+Note that $S^c$ is automatically complete with respect to both shifts
+and translations.
+% completing with respect to the interleaving distance already
+% includes the completion with respect to shifts and to
+% $\msc^0$-isomorphisms, hence we can omit them when defining $S^c$.
+One can also define $S^{c,\text{r-int}}$ in a similar way to $S^c$,
+but with $\dint$ replaced by $\dret$.
+
+If $\mathscr{D} \subset \mathscr{C}$ is a full sub-PC we define its
+various completions, e.g.~$\mathscr{D}^{\Sigma}$, $\mathscr{D}^{T}$,
+$\mathscr{D}^{(\text{iso}, 0)}$, $\mathscr{D}^{c}$ etc.~by taking the
+full sub-PC's of $\mathscr{C}$ with the respective completed sets of
+objects $\Ob(\mathscr{D})^{\Sigma}$, $\Ob(\mathscr{D})^{T}$,
+$\Ob(\mathscr{D})^{\ziso}$, $\Ob(\mathscr{D})^{c}$ etc. In the case of
+$A_{\infty}$-categories $\mathcal{A}$, we define analogous
+completions, by completing the subsets of objects using the respective
+structures in $PH(\mathcal{A})$.
+%=====================================
+%=====================================
+%=====================================
+%=====================================
+%=====================================
+%=====================================

@@ -1,0 +1,938 @@
+\documentclass[12pt,reqno]{amsbook}
+\renewcommand{\baselinestretch}{1.1}
+
+% ----------------------------------------------------------------------
+% Packages
+% ----------------------------------------------------------------------
+
+\usepackage[T1]{fontenc}
+
+\usepackage[colorlinks=true,
+  urlcolor=blue,
+  bookmarks=true,
+  bookmarksopen=true,
+  citecolor=blue,
+  linkcolor=orange
+]{hyperref}
+
+\usepackage{epigraph}
+\usepackage{xcolor}
+\usepackage{soul}
+\setstcolor{red}
+\sethlcolor{green}
+
+\usepackage{pdfsync}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{bm}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsxtra}
+\usepackage{amscd}
+\usepackage{latexsym}
+\usepackage{enumerate}
+\usepackage[normalem]{ulem}
+\usepackage{enumitem}
+\usepackage{dsfont}
+\usepackage{epsfig}
+\usepackage[mathscr]{eucal}
+\usepackage{bbm}
+\usepackage{subcaption}
+\usepackage{textcase}
+\usepackage{microtype}
+\usepackage{dirtytalk}
+
+\usepackage[all,cmtip]{xy}
+
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{tikz-3dplot}
+\usepackage{tikz-qtree}
+\usepackage{pgfplots}
+% \pgfplotsset{compat=1.18}
+
+\usetikzlibrary{
+  arrows,
+  arrows.meta,
+  calc,
+  decorations.markings,
+  positioning,
+  tqft
+}
+
+\tikzset{
+  edge/.style = {
+    thick,
+    postaction={decorate},
+    decoration={markings, mark=at position 0.5 with {\arrow{>}}}
+  },
+}
+
+% ----------------------------------------------------------------------
+% Typography helpers
+% ----------------------------------------------------------------------
+
+\DeclareRobustCommand{\spacedlowsmallcaps}[1]{%
+  \textls[80]{\scshape\MakeTextLowercase{#1}}%
+}
+\DeclareRobustCommand{\spacedallcaps}[1]{%
+  \textls[200]{\MakeTextUppercase{#1}}%
+}
+
+% ----------------------------------------------------------------------
+% Theorem environments
+% ----------------------------------------------------------------------
+
+\theoremstyle{plain}
+
+\newtheorem{mainthm}{Theorem}
+\setcounter{mainthm}{0}
+\renewcommand{\themainthm}{\Alph{mainthm}}
+
+\newtheorem{maincor}[mainthm]{Corollary}
+\newtheorem{thm}{Theorem}[subsection]
+\newtheorem*{thm*}{Theorem}
+\newtheorem{propspec}[thm]{Proposition$^*$}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{corspec}[thm]{Corollary$^*$}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cnj}{Conjecture}
+\newtheorem{statement}[thm]{}
+
+\theoremstyle{definition}
+\newtheorem{dfn}[thm]{Definition}
+\newtheorem{example}[thm]{Example}
+\newtheorem*{dfnnonum}{Definition}
+\newtheorem{claim}[thm]{Claim}
+\newtheorem*{claim-nonum}{Claim}
+
+\theoremstyle{remark}
+\newtheorem{remark}[thm]{Remark}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem*{remnonum}{Remark}
+\newtheorem{rems}[thm]{Remarks}
+\newtheorem*{remsnonum}{Remarks}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{exs}[thm]{Examples}
+\newtheorem*{exnonum}{Example}
+\newtheorem*{exsnonum}{Examples}
+\newtheorem{qs}[thm]{Question}
+\newtheorem{qss}{Questions}
+\newtheorem*{qsnonum}{Question}
+\newtheorem*{qssnonum}{Questions}
+\newtheorem{axio}{Axiom}
+\newtheorem{assumption}{Assumption}
+
+% ----------------------------------------------------------------------
+% Basic symbols and operators
+% ----------------------------------------------------------------------
+
+\def\nsubset{\not\subset}
+\def\co{\colon\thinspace}
+\def\delbar{\bar{\partial}}
+\def\barmu{\bar{\mu}}
+\def\barnu{\bar{\nu}}
+\def\ep{\epsilon}
+
+\DeclareMathOperator{\coker}{coker}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+% ----------------------------------------------------------------------
+% Useful abbreviations
+% ----------------------------------------------------------------------
+
+\newcommand{\Qed}{\hfill \qedsymbol \medskip}
+\newcommand{\INS}{{\noindent{\large\textbf{{\color{red}INSERT HERE:}}}}}
+\newcommand{\INSREF}{{\large{\textbf{INSERT REF.}}}}
+\newcommand{\NOTE}{\noindent{\large\textbf{NOTE !!!}}}
+\newcommand{\TBD}{{\noindent{\large\textbf{{\color{red}TO BE DONE}}}}}
+
+\newcommand{\Id}{{{\mathchoice {\rm 1\mskip-4mu l} {\rm 1\mskip-4mu l}
+      {\rm 1\mskip-4.5mu l} {\rm 1\mskip-5mu l}}}}
+
+\newcommand{\hooklongrightarrow}{\lhook\joinrel\longrightarrow}
+\newcommand{\cobto}{\leadsto}
+\newcommand{\id}{\textnormal{id}}
+
+% ----------------------------------------------------------------------
+% Page layout
+% ----------------------------------------------------------------------
+
+\oddsidemargin -3pt
+\evensidemargin -3pt
+\marginparwidth 40pt
+\marginparsep 10pt
+
+\topmargin 0pt
+\headsep 15pt
+\textheight 8.6in
+\textwidth 6.6in
+\headheight 12pt
+
+% ----------------------------------------------------------------------
+% Local definitions
+% ----------------------------------------------------------------------
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+
+\def\C{\mathcal{C}}
+\def\A{\mathcal{A}}
+\def\L{\mathcal{L}}
+\def\K{\mathcal K}
+\def\P{\mathcal P}
+\def\D{\mathcal{D}}
+\def\p{\mathfrak{p}}
+\def\ev{\mathbf{ev}}
+\def\CF{{\rm CF}}
+\def\rk{\mathop{rank}\nolimits}
+\def\QH{{\rm QH}}
+\def\HF{{\rm HF}}
+\def\F{\mathcal F}
+\def\T{\mathcal T}
+\def\G{\mathcal G}
+\def\U{\mathbb U}
+\def\V{\mathbb V}
+\def\W{\mathbb W}
+\def\J{{J_{\dagger}}}
+\def\I{{\mathds{1}}}
+\def\Mor{{\hom}}
+
+\newcommand{\la}{\lambda}
+\newcommand{\La}{\Lambda}
+\newcommand{\Nn}{{\mathcal{N}}}
+\newcommand{\Mm}{{\mathcal{M}}}
+\newcommand{\mm}{\mbox{\large \mathcal{m}}}
+\newcommand{\nn}{\mbox{\large \mathcal{n}}}
+\newcommand{\Crit}{\textnormal{Crit\/}}
+\newcommand{\cob}{\mathcal{C}ob}
+\newcommand{\cobc}{\mathcal{C}ob}
+\newcommand{\fuk}{\mathcal{F}uk}
+\newcommand{\fk}{\mathcal{F}uk}
+\newcommand{\fukcob}{\mathcal{F}uk_{cob}}
+\newcommand{\fukd}{\mathcal{F}uk^d}
+\newcommand{\fukcb}{\mathcal{F}uk^d_{cob}}
+\newcommand{\fukcben}{\mathcal{F}uk^d_{{cob, 1/2}}}
+\newcommand{\gcob}{G_{cob}(M)}
+
+\newcommand{\Ham}{{\mathrm{Ham}}}
+\newcommand{\rank}{\mathrm{rank\/}}
+\newcommand{\ind}{{\textnormal{ind}}}
+\newcommand{\mubar}{{\bar{\mu}}}
+\newcommand{\mor}{{\hom}}
+\def\Hom{{\hom}}
+
+\renewcommand{\k}{\mathbf{k}}
+
+\newcommand{\clift}{\mathbb{T}_{\textnormal{clif}}}
+\newcommand{\sym}{\textnormal{symb\/}}
+\newcommand{\form}{\Theta}
+\newcommand{\trl}{trail}
+\newcommand{\thmb}{\mathscr{T}}
+\newcommand{\barthmb}{\bar{\mathscr{T}}}
+\newcommand{\fuket}{\mathcal{F}uk^{*}_{\pm}}
+
+\def\hfch{H^{0}(\F\mathbf{Ch})}
+
+\newcommand{\bme}{\bm{\epsilon}}
+\newcommand{\eh}{\epsilon^h}
+\newcommand{\bmeh}{\bm{\epsilon}^h}
+\newcommand{\ea}{\epsilon^{\mathcal{A}}}
+\newcommand{\bmea}{\bm{\epsilon}^{\mathcal{A}}}
+\newcommand{\emm}{\epsilon^m}
+\newcommand{\bmemm}{\bm{\epsilon}^m}
+\newcommand{\bmd}{\bm{\delta}}
+\newcommand{\ua}{u^{\mathcal{A}}}
+\newcommand{\ds}{\displaystyle}
+
+\newcommand{\on}{O(\mathcal{N})}
+\newcommand{\onx}[1]{O({#1})}
+
+\newcommand{\toba}{\textnormal{Ob}(\mathcal{A})}
+\newcommand{\tmod}{\textnormal{mod}}
+\newcommand{\rmod}{\mathrm{mod}}
+\newcommand{\mdly}{\mathscr{Y}}
+\newcommand{\tcn}{{\mathcal{C}one}}
+\newcommand{\assmpe}{\hyperlink{h:asmp-e}{\lbe(\bmemm, \bmea)}}
+\newcommand{\assmpen}{\hyperlink{h:asmp-e}{\lbe}}
+\newcommand{\assmpue}{\hyperlink{h:asmp-ue}{\lbue}}
+
+\newcommand{\hhat}{roof diagram}
+\newcommand{\hhats}{roof diagrams}
+
+% ----------------------------------------------------------------------
+% Additional definitions from second snippet
+% ----------------------------------------------------------------------
+
+\newcommand{\Cpers}{\msc\mathbf{Pers}}
+\newcommand{\pers}{\mathbf{Pers}}
+\newcommand{\lalpha}{{\leq\alpha}}
+\newcommand{\mA}{\mathcal{A}}
+\newcommand{\mB}{\mathcal{B}}
+\newcommand{\mF}{\mathcal{F}}
+\newcommand{\mG}{\mathcal{G}}
+\newcommand{\pfun}{\mathcal{P}\fun}
+
+\newcommand{\red}{\textnormal{red}}
+\newcommand{\col}{\textnormal{col}}
+
+\newcommand{\Tau}{\mathcal{T}}
+
+\newcommand{\ac}{\mathscr{A}}
+\newcommand{\fil}{\mathscr{F}}
+\newcommand{\ch}{\mathbf{Ch}}
+\newcommand{\chfg}{\ch^{\text{fg}}}
+\newcommand{\chb}{\ch^{\text{b}}}
+\newcommand{\chproj}{\ch^{\text{proj}}}
+\newcommand{\chdg}{\mathbf{Ch}_{dg}}
+\newcommand{\chdgfg}{\chdg^{\text{fg}}}
+\newcommand{\chdgb}{\chdg^{\text{b}}}
+\newcommand{\chdgproj}{\chdg^{\text{proj}}}
+\newcommand{\KK}{K}
+\newcommand{\fch}{\mathcal{F} \ch}
+\newcommand{\fchfg}{\fch^{\text{fg}}}
+\newcommand{\fcht}{\fch^{\text{t}}}
+\newcommand{\Ob}{\text{Obj}}
+\newcommand{\ho}{\hom}
+\newcommand{\ta}{\text{t}}
+\newcommand{\fg}{\text{fg}}
+\newcommand{\op}{\text{op}}
+\newcommand{\laideal}{\Lambda_P^{(0)}}
+\newcommand{\md}{\text{mod}}
+\newcommand{\bimd}{\text{bimod}}
+\newcommand{\cl}{\Sigma}
+\newcommand{\tr}{\text{tr}}
+\newcommand{\srf}{S}
+\newcommand{\extp}{\text{ep}}
+\newcommand{\clus}{\text{Clus}}
+\newcommand{\fun}{\text{Fun}}
+\newcommand{\cone}{\text{Cone}}
+\newcommand{\icone}{\text{icone}}
+
+\newcommand{\dint}{{d_{\text{int}}}}
+\newcommand{\dret}{{d_{\text{r-int}}}}
+\newcommand{\sdint}{{\bar{d}_{\text{int}}}}
+\newcommand{\sdret}{{\bar{d}_{\text{r-int}}}}
+
+\newcommand{\lag}{{\mathcal{L}\text{ag}}}
+\newcommand{\lagex}{{\lag}^{\text{(ex)}}}
+\newcommand{\lagwex}{{\lag}^{\text{(wex)}}}
+\newcommand{\lagmon}{\lag^{\text{(mon,} \mathbf{d} \text{)}}}
+
+\newcommand{\tsn}{{T^*N}}
+\newcommand{\dsn}{{D^*N}}
+
+\newcommand{\aiso}{{(\text{\tiny{iso}},*)}}
+\newcommand{\qaiso}{{(\text{\tiny{qiso}},*)}}
+\newcommand{\ziso}{{(\text{\tiny{iso}},0)}}
+\newcommand{\qziso}{{(\text{\tiny{qiso}},0)}}
+
+\newcommand{\msc}{{\mathscr{C}}}
+\newcommand{\msd}{{\mathscr{D}}}
+\newcommand{\msf}{{\mathscr{F}}}
+\newcommand{\msh}{{\mathscr{H}}}
+\newcommand{\msj}{{\mathscr{J}}}
+\newcommand{\msg}{{\mathscr{G}}}
+
+\newcommand{\modl}{\text{mod}^l}
+\newcommand{\modr}{\text{mod}^r}
+
+\newcommand{\mntlf}{strongly monotone}
+\newcommand{\Mntlf}{Strongly monotone}
+
+% ----------------------------------------------------------------------
+% colim / limits
+% ----------------------------------------------------------------------
+
+\makeatletter
+\newcommand{\colim@}[2]{%
+  \vtop{\m@th\ialign{##\cr
+    \hfil$#1\operator@font colim$\hfil\cr
+    \noalign{\nointerlineskip\kern1.5\ex@}#2\cr
+    \noalign{\nointerlineskip\kern-\ex@}\cr}}%
+}
+\newcommand{\colim}{%
+  \mathop{\mathpalette\colim@{\rightarrowfill@\scriptscriptstyle}}\nmlimits@
+}
+\renewcommand{\varprojlim}{%
+  \mathop{\mathpalette\varlim@{\leftarrowfill@\scriptscriptstyle}}\nmlimits@
+}
+\renewcommand{\varinjlim}{%
+  \mathop{\mathpalette\varlim@{\rightarrowfill@\scriptscriptstyle}}\nmlimits@
+}
+\makeatother
+
+% ----------------------------------------------------------------------
+% Remarks and colours in the text
+% ----------------------------------------------------------------------
+
+\newcommand{\pbred}[1]{{\textbf{{\color{red} #1}}}}
+\newcommand{\pbblue}[1]{#1}
+\newcommand{\pbgreen}[1]{#1}
+\newcommand{\pbor}[1]{#1}
+\newcommand{\pbhl}[1]{#1}
+\newcommand{\pbnote}[1]{#1}
+\newcommand{\pbrev}[1]{#1}
+\newcommand{\pbrrvv}[1]{#1}
+\newcommand{\ocnote}[1]{{\color{red}#1}}
+\newcommand{\ganote}[1]{{\textbf{{\color{purple} #1}}}}
+\newcommand{\pbst}[1]{{\sout{#1}}}
+
+% ----------------------------------------------------------------------
+% Numbering / TOC
+% ----------------------------------------------------------------------
+
+\setcounter{tocdepth}{1}
+\numberwithin{section}{chapter}
+% Double space printing.
+% ----------------------
+% %\renewcommand{\baselinestretch}{1.2}
+% \renewcommand{\baselinestretch}{1.1}
+
+
+% %\usepackage{hyperref}
+% \usepackage[colorlinks=true,urlcolor=blue,
+% bookmarks=true,bookmarksopen=true,citecolor=blue,linkcolor=orange
+% %,hypertex
+% ]{hyperref}
+% \usepackage{epigraph}
+% %\usepackage{epstopdf}
+% \usepackage{color,soul}
+% \setstcolor{red}
+% %\definecolor{lightblue}{rgb}{.90,.95,1}
+% %\sethlcolor{lightblue}
+% %\sethlcolor{green}
+% %\sethlcolor{yellow}
+% %\usepackage{ulem}
+
+% %\usepackage{pdfcomment}
+
+% \usepackage{pdfsync}
+% \usepackage[all, cmtip]{xy}
+% \usepackage{graphicx}
+
+% %giovanni's packages
+% \usepackage{subcaption} 
+% \usepackage{tikz}
+% \usepackage{tikz-3dplot}
+% \usepackage{pgfplots}
+% %\pgfplotsset{compat=1.18}
+% \usepackage{textcase}   % for stable uppercase/lowercase commands
+% \usepackage{microtype}  % for letter spacing (\textls)
+% % \usepackage{classicthesis} 
+% \DeclareRobustCommand{\spacedlowsmallcaps}[1]{%
+%   \textls[80]{\scshape\MakeTextLowercase{#1}}%
+% }
+% \DeclareRobustCommand{\spacedallcaps}[1]{%
+%   \textls[200]{\MakeTextUppercase{#1}}%
+% }
+
+
+% %JUN'S PACKAGES
+% %\usepackage[all]{xy}
+% \usepackage{dsfont}
+% %\usepackage{hyperref}
+% %\usepackage{graphicx}
+% \usepackage{float}
+% \usepackage{bm}
+% \usepackage{mathtools}
+% \usepackage{amssymb}
+% \usepackage[T1]{fontenc}
+
+% %%%%%%%%%%%%%%%%
+
+% \usepackage{epsfig}
+% \usepackage{amscd}
+% \usepackage[mathscr]{eucal}
+% %\usepackage[mathscr]{euscript}
+% \usepackage{amssymb}
+% \usepackage{bm}
+% \usepackage{amsxtra}
+% \usepackage{amsmath}
+% \usepackage{latexsym} 
+% \usepackage[all]{xy}
+% \usepackage{enumerate}
+% \usepackage[normalem]{ulem}
+% %\usepackage{mathrsfs}
+
+% \usepackage{enumitem}
+
+% \usepackage{color}
+% \setlength{\textwidth}{100cm}
+% \setlength{\textheight}{100cm}
+
+
+% %\usepackage[dvipsnames]{xcolor}
+% %\usepackage{xcolor}
+% \usepackage{xcolor, soul}
+% \sethlcolor{green}
+
+% \usepackage{bbm}
+
+% %----------------------------------------------------------------------
+% % Definitions.
+% %
+
+% \theoremstyle{plain}
+
+% \newtheorem{mainthm}{Theorem}
+% \setcounter{mainthm}{0}
+% \renewcommand{\themainthm}{\Alph{mainthm}}
+
+
+% \newtheorem{maincor}[mainthm]{Corollary}
+% \newtheorem{thm}{Theorem}[subsection]
+% \newtheorem*{thm*}{Theorem}
+% \newtheorem{propspec}[thm]{Proposition$^*$}
+% \newtheorem{cor}[thm]{Corollary}
+% \newtheorem{corspec}[thm]{Corollary$^*$}
+% \newtheorem{lem}[thm]{Lemma}
+% \newtheorem{prop}[thm]{Proposition}
+% \newtheorem{cnj}{Conjecture}
+
+% \theoremstyle{definition}
+% \newtheorem{dfn}[thm]{Definition}
+% \newtheorem{example}[thm]{Example}
+% \newtheorem*{dfnnonum}{Definition}
+% \newtheorem{claim}[thm]{Claim}
+% \newtheorem*{claim-nonum}{Claim}
+% %\newtheorem{rem}[thm]{Remark}
+
+
+% %\newtheorem*{assumption}{Assumption $\mathcal{E}$}
+% %\setcounter{assumption}{0}
+% %\renewcommand{\theassumption}{\alph{assumption}}
+
+% %\usepackage{moreenum}
+
+% %\setcounter{assumption}{4}
+% %\renewcommand{\theassumption}{\greek{assumption}}
+
+% \theoremstyle{remark}
+% \newtheorem{remark}[thm]{Remark}
+% \newtheorem{rem}[thm]{Remark}
+% \newtheorem*{remnonum}{Remark}
+% \newtheorem{rems}[thm]{Remarks}
+% \newtheorem*{remsnonum}{Remarks}
+% \newtheorem{ex}[thm]{Example}
+% \newtheorem{exs}[thm]{Examples}
+% \newtheorem*{exnonum}{Example}
+% \newtheorem*{exsnonum}{Examples}
+% \newtheorem{qs}[thm]{Question}
+% \newtheorem{qss}{Questions}
+% \newtheorem*{qsnonum}{Question}
+% \newtheorem*{qssnonum}{Questions}
+% \newtheorem{axio}{Axiom}
+% \newtheorem{assumption}{Assumption}
+
+
+% \theoremstyle{plain}
+% \newtheorem{statement}[thm]{}
+
+% %JUN'S DEfinitions
+
+% %\usepackage{kpfonts}
+
+% %\newtheorem{theorem}{Theorem}[section]
+% %\newtheorem{prop}[theorem]{Proposition}
+% \newtheorem{lemma}[thm]{Lemma}
+% %\newtheorem{cor}[theorem]{Corollary}
+% %\newtheorem{assm}[theorem]{Assumption}
+% %\newtheorem{conv}[theorem]{Convention}
+% %\newtheorem{conj}[theorem]{Conjecture}
+% %\newtheorem{cond}[theorem]{Condition}
+% %\newtheorem{question}[theorem]{Question}
+% %\newtheorem{ex}[theorem]{Example}
+% %\theoremstyle{remark}
+% %\newtheorem{dfn}[theorem]{Definition}
+% %\newtheorem{remark}[theorem]{Remark}
+% %\newtheorem{claim}[theorem]{Claim}
+
+% \def\nsubset{\not\subset}
+% \def\co{\colon\thinspace}
+% \def\delbar{\bar{\partial}}
+% \def\barmu{\bar{\mu}}
+% \def\barnu{\bar{\nu}}
+% \def\ep{\epsilon}
+
+
+
+% %\def\R{\mathbb{R}}
+% %\def\Z{\mathbb{Z}}
+% %\def\N{\mathbb{N}}
+% \def\C{\mathcal{C}}
+% \def\A{\mathcal{A}}
+% \def\L{\mathcal{L}}
+% \def\I{\mathbb{I}}
+% \def\K{\mathcal K}
+% \def\P{\mathcal P}
+% \def\D{\mathcal{D}}
+% \def\p{\mathfrak{p}}
+% \def\ev{\mathbf{ev}}
+% %\def\Ham{{\rm Ham}}
+% \def\CF{{\rm CF}}
+% %\def\mm{\mathop{\min\!\max}\nolimits}
+% \def\rk{\mathop{rank}\nolimits}
+% \DeclareMathOperator{\coker}{coker}
+% \def\QH{{\rm QH}}
+% \def\HF{{\rm HF}}
+% \def\k{{\bf k}}
+% \def\F{\mathcal F}
+% \def\T{\mathcal T}
+% \def\G{\mathcal G}
+% \def\U{\mathbb U}
+% \def\V{\mathbb V}
+% \def\W{\mathbb W}
+% \def\J{{J_{\dagger}}}
+% \def\I{{\mathds{1}}}
+% \def\Mor{{\hom}}
+
+% \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+% \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+
+
+
+% %----------------------------------------------------------------------
+% % Useful abbreviations.
+% %
+
+% \newcommand{\Qed}{\hfill \qedsymbol \medskip}
+% \newcommand{\INS}{{\noindent{\large\textbf{{\color{red}INSERT HERE:}}}}}
+% \newcommand{\INSREF}{{\large{\textbf{INSERT REF.}}}}
+% \newcommand{\NOTE}{\noindent{\large\textbf{NOTE !!!}}}
+% \newcommand{\TBD}{{\noindent{\large\textbf{{\color{red}TO BE DONE}}}}}
+
+
+% % Fat 1.
+% % ------
+% \newcommand{\Id}{{{\mathchoice {\rm 1\mskip-4mu l} {\rm 1\mskip-4mu l}
+%       {\rm 1\mskip-4.5mu l} {\rm 1\mskip-5mu l}}}}
+% % ---------------
+% % Long immersion
+% \newcommand{\hooklongrightarrow}{\lhook\joinrel\longrightarrow}
+
+% % ---------------
+% % cobordism arrow
+% \newcommand{\cobto}{\leadsto}
+% %\newcommand{\id}{\mathds{1}}
+% \newcommand{\id}{\textnormal{id}}
+
+% % -----------------------------------------
+% % abbreviations with / without decorations
+
+% % \newcommand{\cobc}{\mathcal{C}ob^{d}_{0}}
+% % \newcommand{\fk}{\mathcal{F}uk^d}
+% % \newcommand{\lag}{\mathcal{L}^{\ast}_{d}}
+
+% % \newcommand{\cobc}{\mathcal{C}ob^{\mathcal{L}}}
+% % \newcommand{\fk}{\mathcal{F}uk^{\mathcal{L}}}
+% % \newcommand{\lag}{\mathcal{L}}
+
+% \newcommand{\cobc}{\mathcal{C}ob}
+% \newcommand{\fk}{\mathcal{F}uk}
+% \newcommand{\gcob}{G_{cob}(M)}
+
+% \newcommand{\mntlf}{strongly monotone}
+% \newcommand{\Mntlf}{Strongly monotone}
+
+% %----------------------------------------------------------------------
+% % Printing style.
+% %
+
+% % Double space printing.
+% % ----------------------
+% %\renewcommand{\baselinestretch}{1.2}
+
+% % MARGINS ETC.
+% % ------------
+% \oddsidemargin -3pt % Left margin on odd-numbered pages.
+% \evensidemargin -3pt % Left margin on even-numbered pages.
+% \marginparwidth 40pt % Width of marginal notes.
+% \marginparsep 10pt % Horizontal space between outer margin and
+%                         % marginal note
+
+% % VERTICAL SPACING:
+% % -----------------
+% \topmargin 0pt % Nominal distance from top of page to top of
+%                          % box containing running head.
+% \headsep 15pt % Space between running head and text.
+
+% % DIMENSION OF TEXT:
+% % ------------------
+% \textheight 8.6in % Height of text(including footnotes and figures,
+%                          % excluding running head and foot).
+% \textwidth 6.6in % Width of text line.
+% \topmargin 0pt
+% %\textheight 8.4in % Height of text(including footnotes and figures,
+%                          % excluding running head and foot).
+% %\textwidth 6.0in % Width of text line.
+% %\baselineskip = 18pt
+
+% \headheight12pt % important for printing in 12pt (?).
+
+% %----------------------------------------------------------------------
+% % Local Definitions.
+% %
+% \newcommand{\R}{\mathbb{R}}
+% \newcommand{\Z}{\mathbb{Z}}
+% \newcommand{\Q}{\mathbb{Q}}
+% \newcommand{\N}{\mathbb{N}}
+% %\newcommand{\C}{\mathbb{C}}
+% \newcommand{\la}{\lambda}
+% \newcommand{\La}{\Lambda}
+% \newcommand{\Nn}{{\mathcal{N}}}
+% \newcommand{\Mm}{{\mathcal{M}}}
+% \newcommand{\mm}{\mbox{\large \mathcal{m}}}
+% \newcommand{\nn}{\mbox{\large \mathcal{n}}}
+% \newcommand{\Crit}{\textnormal{Crit\/}}
+% \newcommand{\cob}{\mathcal{C}ob}
+% \newcommand{\fuk}{\mathcal{F}uk}
+% \newcommand{\fukcob}{\mathcal{F}uk_{cob}}
+% \newcommand{\fukd}{\mathcal{F}uk^d}
+% \newcommand{\fukcb}{\mathcal{F}uk^d_{cob}}
+% \newcommand{\fukcben}{\mathcal{F}uk^d_{{cob, 1/2}}}
+
+% \newcommand{\Ham}{{\mathrm{Ham}}}
+
+% \newcommand{\rank}{\mathrm{rank\/}}
+
+% \newcommand{\ind}{{\textnormal{ind}}}
+% \newcommand{\mubar}{{\bar{\mu}}}
+% \newcommand{\mor}{{\hom}}
+
+% %%%%%%%%%%%%% We  used  only MOR and not HOM in the 
+% %% algebra part of the paper.
+
+% \def\Hom{{\hom}}
+% %\renewcommand{\hom}{{\textnormal{Mor\/}}}
+
+% %\def\Hom{{\rm{Hom}}}
+
+
+% \newcommand{\clift}{\mathbb{T}_{\textnormal{clif}}}
+% \newcommand{\sym}{\textnormal{symb\/}}
+
+% \renewcommand{\k}{\mathbf{k}}
+
+% \newcommand{\form}{\Theta}
+
+% %\newcommand{\trl}{course}
+% %\newcommand{\trl}{trace}
+% \newcommand{\trl}{trail}
+
+% %\newcommand{\thmb}{\mathcal{T}^{\uparrow}}
+% \newcommand{\thmb}{\mathscr{T}}
+% \newcommand{\barthmb}{\bar{\mathscr{T}}}
+
+% \newcommand{\fuket}{\mathcal{F}uk^{*}_{\pm}}
+
+% %%%%%%%%%%%%%%%
+
+% \def\hfch{H^{0}(\F\mathbf{Ch})}
+
+% %%%%%%%%%%%%%%%%
+
+% \newcommand{\bme}{\bm{\epsilon}}
+% \newcommand{\eh}{\epsilon^h}
+% \newcommand{\bmeh}{\bm{\epsilon}^h}
+% \newcommand{\ea}{\epsilon^{\mathcal{A}}}
+% \newcommand{\bmea}{\bm{\epsilon}^{\mathcal{A}}}
+% \newcommand{\emm}{\epsilon^m}
+% \newcommand{\bmemm}{\bm{\epsilon}^m}
+% \newcommand{\bmd}{\bm{\delta}}
+% \newcommand{\ua}{u^{\mathcal{A}}}
+% \newcommand{\ds}{\displaystyle}
+
+% \newcommand{\on}{O(\mathcal{N})}
+% \newcommand{\onx}[1]{O({#1})}
+% %\newcommand{\on}{O(\mathcal{N},0)}
+
+% \newcommand{\toba}{\textnormal{Ob}(\mathcal{A})}
+% \newcommand{\tmod}{\textnormal{mod}}
+% \newcommand{\rmod}{\mathrm{mod}}
+% \newcommand{\mdly}{\mathscr{Y}}
+% \newcommand{\tcn}{{\mathcal{C}one}}
+% \newcommand{\assmpe}{\hyperlink{h:asmp-e}{\lbe(\bmemm, \bmea)}}
+% \newcommand{\assmpen}{\hyperlink{h:asmp-e}{\lbe}}
+% \newcommand{\assmpue}{\hyperlink{h:asmp-ue}{\lbue}}
+
+% \newcommand{\hhat}{roof diagram}
+% \newcommand{\hhats}{roof diagrams}
+
+
+
+
+% \makeatletter
+% \newcommand{\colim@}[2]{%
+%   \vtop{\m@th\ialign{##\cr
+%     \hfil$#1\operator@font colim$\hfil\cr
+%     \noalign{\nointerlineskip\kern1.5\ex@}#2\cr
+%     \noalign{\nointerlineskip\kern-\ex@}\cr}}%
+% }
+% \newcommand{\colim}{%
+%   \mathop{\mathpalette\colim@{\rightarrowfill@\scriptscriptstyle}}\nmlimits@
+% }
+% \renewcommand{\varprojlim}{%
+%   \mathop{\mathpalette\varlim@{\leftarrowfill@\scriptscriptstyle}}\nmlimits@
+% }
+% \renewcommand{\varinjlim}{%
+%   \mathop{\mathpalette\varlim@{\rightarrowfill@\scriptscriptstyle}}\nmlimits@
+% }
+% \makeatother
+
+
+
+% %\numberwithin{section}{chapter}
+% %\numberwithin{subsection}{section}
+
+% %----------------------------------------------------------------------
+% % remarks and colours in the text:
+
+% %\newcommand{\CCPB}[1]{{\color{blue} \textbf{[PB: #1]}}}
+% %\newcommand{\CPB}[1]{{\color{blue} PB: #1}}
+
+% \newcommand{\pbred}[1]{{\textbf{{\color{red} #1}}}}
+% %\newcommand{\pbred}[1]{#1}
+
+
+% %\newcommand{\pbblue}[1]{{\textbf{{\color{blue} #1}}}}
+% \newcommand{\pbblue}[1]{#1}
+
+% %\newcommand{\pbgreen}[1]{{\textbf{{\color{green} #1}}}}
+% \newcommand{\pbgreen}[1]{#1}
+
+% %\newcommand{\pbor}[1]{{\textbf{{\color{orange} #1}}}}
+% \newcommand{\pbor}[1]{#1}
+
+% %\newcommand{\pbhl}[1]{{\hl{#1}}}
+% \newcommand{\pbhl}[1]{#1}
+
+% %\newcommand{\pbnote}[1]{{\textbf{{\color{blue} #1}}}}
+% \newcommand{\pbnote}[1]{#1}
+
+% %\newcommand{{\pbrev}}[1]{{\textbf{{\color{red} #1}}}}
+% % \newcommand{{\pbrev}}[1]{{\textbf{{\color{green} #1}}}}
+% \newcommand{\pbrev}[1]{#1}
+
+% %\newcommand{{\pbrrvv}}[1]{{\textbf{{\color{blue} #1}}}}
+% \newcommand{\pbrrvv}[1]{#1}
+
+% \newcommand{\ocnote}[1]{{\color{red}#1}}
+% %\newcommand{\ocnote}[1]{#1}
+% \newcommand{\ganote}[1]{{\textbf{{\color{purple} #1}}}}
+
+% \newcommand{\pbst}[1]{{\sout{#1}}}
+% %\newcommand{\pbst}[1]{}
+
+
+
+% % Depth of table of contents
+% \setcounter{tocdepth}{1}
+% \numberwithin{section}{chapter}
+
+%----------------------------------------------------------------------
+%d
+% Beginning of the document.
+%
+
+
+
+%
+%\newcommand{\pbaddress}{biran@math.ethz.ch}
+%\newcommand{\ocaddress}{cornea@dms.umontreal.ca}
+%\newcommand{\gaaddress}{giovanni.ambrosioni@math.ethz.ch}
+%       
+ \begin{document}
+ 
+\title{On some quantitative aspects of categorical Lagrangian topology}
+
+\date{February 2026}
+
+\author{Giovanni Ambrosioni}
+
+%\address{Giovanni Ambrosioni, Department of Mathematics, ETH-Z\"{u}rich,
+%  R\"{a}mistrasse 101, 8092 Z\"{u}rich, Switzerland}
+%\email{\gaaddress}
+%
+%\address{Paul Biran, Department of Mathematics, ETH-Z\"{u}rich,
+%  R\"{a}mistrasse 101, 8092 Z\"{u}rich, Switzerland}
+%\email{\pbaddress}
+%
+%\address{Octav Cornea, Department of Mathematics and Statistics,
+%  University of Montreal, C.P. 6128 Succ.  Centre-Ville Montreal, QC
+%  H3C 3J7, Canada}
+% \email{\ocaddress}
+
+ 
+
+
+%\keywords{Triangulated category, Persistence module, Symplectic
+ % manifold, Lagrangian submanifold, Floer homology, Fukaya category.}
+%\subjclass[2020]{ 53D12 (Primary); 53D37, 55N31 (Secondary)}
+
+\bibliographystyle{alpha}
+%\bibliographystyle{alphanum}
+
+% ----------------------------------------------------------------------
+%
+
+
+
+\maketitle
+\input{preliminaries/titlepage.tex}
+
+% ----------------------------------------------------------------------
+%
+% Beginning of text
+%
+
+
+
+\input{sommario.tex}
+\input{acknowledgments.tex}
+\tableofcontents 
+
+\input{tesi_introduzione.tex}
+\input{preliminaries/thesis_org.tex}
+\input{preliminaries/intro.tex}
+\input{preliminaries/pre_dg.tex}
+\input{preliminaries/pre_fildg.tex}
+\input{preliminaries/pre_Ainf.tex}
+% \input{preliminaries/pre_Ainf_approxpaper.tex}
+% \input{preliminaries/pre_PCs.tex}
+% \input{preliminaries/pre_TPCs.tex}
+% \input{preliminaries/pre_sys.tex}
+% \input{preliminaries/pre_approx.tex}
+% \chapter{Filtered Fukaya categories}\label{ch:ffuk}
+% This chapter contains a shortened and slighlty adjusted version of the article \cite{Amb:fil-fuk}. The material in \S\ref{sysnew} is an original text but heavily inspired from \cite[Section 2.6.6]{ABC26}.
+% \input{filtered_fuk_whole.tex}
+% \input{filtered_fuk_systems.tex}
+% \chapter{Approximability of Lagrangian submanifolds}\label{ch:approx}
+% This chapter contains a shortened and slighlty adjusted version of the article \cite{ABC26}. We Theorem \ref{thmmain1} in two parts. First, we prove that closed exact Lagrangians in disc cotangent bundles are TPC approximable by cotangent fibers by ad-hoc methods in \S\ref{sec:nearby}, which is point $i.$ in Theorem \ref{thmmain1}. In \S\ref{sec:split-app} we prove a geometric criterion for retract TPC-approximability of Lagrangians, and apply it to the case of the sphere and of the two dimensional torus in order to prove points $ii.$ and $iii.$ of Theorem \ref{thmmain1}. In the last section, \S\ref{sec:complex}, we prove the corollaries of approximability mentioned in the introduction of the thesis.
+% \input{nearby8.tex}
+% \input{split-app12.tex}
+% \input{complex8.tex}
+% \input{gcorollaries8.tex} 
+
+\bibliography{biblio_approx8.bib}
+
+
+
+\end{document}
+
+%%OLD APPENDIX FROM APPROX PAPER
+% \input{appendix8.tex}
+
+%%OLD INTRODUCTORY CHAPTERS FROM APPROX PAPER
+% \input{introduction8}
+% \input{alg8.tex}
+% \input{tpc-generalities8}
+% \input{sys-tpc8.tex}
+% \input{pdfuk8.tex}

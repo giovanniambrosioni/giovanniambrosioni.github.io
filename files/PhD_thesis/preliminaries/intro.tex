@@ -1,0 +1,20 @@
+\chapter{Algebraic preliminaries}\label{ch:prelim}
+This chapter should be thought as a companion for the geometric applications in Chapter \ref{ch:ffuk} and \ref{ch:approx}. The definitions and results appearing in this chapter are mostly due to other authors. We decided to introduce the theory of $dg$-categories and persistence categories through the lenses of enriched category theory, which the author learned in \cite{Kelly2005Basic, Fong_Spivak_2019}. \S\ref{se:dgcat} is a rewriting of the basic standard theory of $dg$-categories (that the author learned in \cite{KellerICM,Se:book-fukaya-categ}) while \S\ref{se:catpm} and \S\ref{se:pc} contains an introduction to the theory of persistence categories (originally introduced in \cite{BCZ:tpc}).
+
+
+\S\ref{se:Ainf} contains an introduction to filtered $A_\infty$-categories. Most of the material presented there is by now standard, with the exception of the discussion of of $dg$-functors (appearing in \S\ref{dgpullpush}), filtered $A_\infty$-functors (appearing in \S\ref{ap:pshf}) and persistence Hochschild homology (appearing in \S\ref{app:PHH}). These results are due to the author and collaborators and were originally established in \cite{ABC26}.
+
+\S\ref{se:TPC} contains a quick introduction to the theory of triangulated persistence categories (TPCs), as originally introduced in \cite{BCZ:tpc}. In \S\ref{se:approx} we define the concept of \say{categorical metric approximability} for objects of TPCs. This concept was introduced in \cite{ABC26} and is a quantitative generalization of the concept of generation and split-generation in triangulated categories, and can be seen - in a sense to be explained - as a genralization of the concept of total boundedness in the theory of metric spaces.
+
+Finally, in \S\ref{se:sys} we describe the notion of a \emph{system of categories with increasing accuracy}, as defined in \cite{ABC26}. Although technically involved, this framework is currently necessary for the study of persistence Fukaya categories.
+
+\section{Introduction}
+$A_\infty$-categories were introduced by Fukaya in \cite{Fu:morse-homotopy-ai} as a homotopical generalization of $dg$-categories. In turn, $dg$-categories arose as a response to foundational difficulties in the theory of triangulated categories (see, for example, the survey \cite{KellerICM}). Triangulated categories, originally introduced by Verdier to formalize derived categories, appear naturally in many areas of mathematics. However, it is well known that they exhibit several undesirable categorical properties. 
+
+For instance, the bicategory of triangulated categories does not admit a monoidal structure. This deficiency reflects a more fundamental issue: mapping cones are not functorial. Concretely, given a triangulated category $\Tau$, there is no cone functor from the arrow category of $\Tau$ to $\Tau$.
+
+The introduction of $dg$-categories was motivated by the desire to remedy these shortcomings. While this approach is successful from several perspectives (again, see \cite{KellerICM}), it comes at the cost of increased complexity. $dg$-categories encode a substantial amount of information, and $A_\infty$-categories even more so. Consequently, when working with a (pre-triangulated) $A_\infty$-category, one often ultimately discards part of the structure and passes to the associated triangulated homotopy category.
+
+Filtered $dg$-categories and filtered $A_\infty$-categories are natural refinements of their unfiltered counterparts, in which the algebraic structures are required to be compatible with a filtration on the morphism complexes indexed by the real line. In symplectic topology, the motivation for such structures is clear: Floer complexes are naturally filtered chain complexes whenever the action functional is defined (see Chapter~\ref{ch:ffuk}). 
+
+Just as the homology of a filtered chain complex naturally carries the structure of a persistence module, the homotopy category of a filtered $dg$- or $A_\infty$-category inherits the structure of a \say{persistence category}, namely a category enriched over the category of persistence modules.
