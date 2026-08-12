@@ -1,0 +1,37 @@
+---
+layout: default
+title: RSVP
+---
+
+<h2>RSVP</h2>
+
+<p>Please let me know if you can make it to the dinner!</p>
+
+<form action="https://formspree.io/f/xzepgzva" method="POST" style="max-width: 400px;">
+  <p>
+    <label for="name">Name</label><br>
+    <input type="text" id="name" name="name" required style="width: 100%;">
+  </p>
+
+  <p>
+    <label for="attending">Attending?</label><br>
+    <select id="attending" name="attending" style="width: 100%;">
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select>
+  </p>
+
+  <p>
+    <label for="guests">Guests (besides yourself)</label><br>
+    <input type="number" id="guests" name="guests" min="0" value="0" style="width: 100%;">
+  </p>
+
+  <p>
+    What will you bring?<br>
+    <label><input type="checkbox" name="bringing" value="Salad"> Salad</label><br>
+    <label><input type="checkbox" name="bringing" value="Dessert"> Dessert</label><br>
+    <label><input type="checkbox" name="bringing" value="Focaccia"> Focaccia</label>
+  </p>
+
+  <button type="submit">Send RSVP</button>
+</form>
