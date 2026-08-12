@@ -1,37 +1,89 @@
 ---
-layout: default
-title: RSVP
+layout: null
 ---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>RSVP</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      color: #111;
+    }
+    .rsvp-layout {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    .rsvp-form {
+      flex: 1 1 320px;
+      max-width: 400px;
+    }
+    .rsvp-image {
+      flex: 1 1 280px;
+      max-width: 380px;
+      margin: 0 auto;
+    }
+    .rsvp-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    label { display: block; margin-top: 12px; }
+    input[type="text"], input[type="number"], select {
+      width: 100%;
+      padding: 6px;
+      margin-top: 4px;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 20px;
+      padding: 8px 16px;
+    }
+  </style>
+</head>
+<body>
 
-<h2>RSVP</h2>
+  <h2>RSVP</h2>
 
-<p>Please let me know if you can make it to the dinner!</p>
+  <p>Please let me know if you can make it to the dinner!</p>
 
-<form action="https://formspree.io/f/xzepgzva" method="POST" style="max-width: 400px;">
-  <p>
-    <label for="name">Name</label><br>
-    <input type="text" id="name" name="name" required style="width: 100%;">
-  </p>
+  <div class="rsvp-layout">
+    <form class="rsvp-form" action="https://formspree.io/f/xzepgzva" method="POST">
+      <label for="name">Name
+        <input type="text" id="name" name="name" required>
+      </label>
 
-  <p>
-    <label for="attending">Attending?</label><br>
-    <select id="attending" name="attending" style="width: 100%;">
-      <option value="yes">Yes</option>
-      <option value="no">No</option>
-    </select>
-  </p>
+      <label for="attending">Attending?
+        <select id="attending" name="attending">
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </label>
 
-  <p>
-    <label for="guests">Guests (besides yourself)</label><br>
-    <input type="number" id="guests" name="guests" min="0" value="0" style="width: 100%;">
-  </p>
+      <label for="guests">Guests (besides yourself)
+        <input type="number" id="guests" name="guests" min="0" value="0">
+      </label>
 
-  <p>
-    What will you bring?<br>
-    <label><input type="checkbox" name="bringing" value="Salad"> Salad</label><br>
-    <label><input type="checkbox" name="bringing" value="Dessert"> Dessert</label><br>
-    <label><input type="checkbox" name="bringing" value="Focaccia"> Focaccia</label>
-  </p>
+      <p>What will you bring?</p>
+      <label><input type="checkbox" name="bringing" value="Salad"> Salad</label>
+      <label><input type="checkbox" name="bringing" value="Dessert"> Dessert</label>
+      <label><input type="checkbox" name="bringing" value="Focaccia"> Focaccia</label>
 
-  <button type="submit">Send RSVP</button>
-</form>
+      <button type="submit">Send RSVP</button>
+    </form>
+
+    <div class="rsvp-image">
+      <img src="invite.jpeg" alt="Party invite">
+    </div>
+  </div>
+
+</body>
+</html>
