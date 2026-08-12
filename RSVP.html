@@ -47,6 +47,12 @@ layout: null
       margin-top: 20px;
       padding: 8px 16px;
     }
+    .inline-input {
+      width: auto;
+      display: inline-block;
+      margin-top: 0;
+      margin-left: 4px;
+    }
   </style>
 </head>
 <body>
@@ -76,6 +82,9 @@ layout: null
       <label><input type="checkbox" name="bringing" value="Salad"> Salad</label>
       <label><input type="checkbox" name="bringing" value="Dessert"> Dessert</label>
       <label><input type="checkbox" name="bringing" value="Focaccia"> Focaccia</label>
+      <label><input type="checkbox" name="bringing" value="Other"> Other:
+        <input type="text" name="bringing_other" placeholder="What else?" class="inline-input">
+      </label>
 
       <button type="submit">Send RSVP</button>
     </form>
