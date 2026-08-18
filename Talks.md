@@ -10,6 +10,7 @@ ol { line-height: 2; }
 </style>
 
 <ol reversed>
+  <li><a href="https://www.ias.edu/math/events/symplectic-geometry-seminar-57">IAS symplectic geometry seminar</a>, 27th October 2026, Princeton.</li>
   <li>Invited to talk at the conference <a href="https://math.ethz.ch/fim/activities/conferences/symplectic-topology-hamiltonian-dynamics-persistence-structures-octav-cornea.html">Symplectic Topology, Hamiltonian Dynamics, and Persistence Structures. A conference in honour of Octav Cornea</a>, June 2026, Zürich.</li>
 
   <li><i>Approximability for Lagrangian submanifolds</i>, <a href="">Geometry & Dynamics seminar</a>, TAU, 29th April 2026.    <button class="abstract-link" onclick="toggleAbstract(this)">Abstract</button>

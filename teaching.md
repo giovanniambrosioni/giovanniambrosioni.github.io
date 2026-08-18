@@ -4,6 +4,7 @@ title: Teaching
 ---
 
 ## Teaching
+- Spring 2026: Course coordinator for *Grundlagen der Mathematik II* by Prof. Marc Auer
 - Autumn 2025: Course coordinator for *Funktionentheorie* by Prof. Thomas Willwacher
 - Spring 2025: Course coordinator for *Algebraic Topology II* by Prof. Paul Biran, co-organiser of the Junior symplectic seminar at ETH (with Baptiste Serraille)
 - Fall 2024: Course coordinator for *Algebraic Topology I* by Prof. Paul Biran
