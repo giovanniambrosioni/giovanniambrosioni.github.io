@@ -1,0 +1,51 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cycling Brochure</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #333;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    }
+    .pdf-container {
+      width: 100%;
+      height: 100vh;
+    }
+    embed {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .fallback {
+      display: none;
+      color: #eee;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .fallback a {
+      color: #9cf;
+    }
+    @media (max-width: 600px) {
+      embed { display: none; }
+      .fallback { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <div class="pdf-container">
+    <embed src="Cycling_Brochure_sept26.pdf" type="application/pdf">
+  </div>
+  <div class="fallback">
+    <p>Your browser can't display the PDF inline.</p>
+    <p><a href="Cycling_Brochure_sept26.pdf">Open the Cycling Brochure</a></p>
+  </div>
+</body>
+</html>
