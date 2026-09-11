@@ -9,7 +9,7 @@ title: Home
     <img src="{{ site.baseurl }}/img.png" alt="My Image" title="My Image"
          style="border-radius: 50%; width: auto; height: 200px; object-fit: cover; aspect-ratio: 1 / 1;" />
          <br><br>
-        <p style="text-align: center;"><span style="font-size: 80%;">giovanni.ambrosioni[at]math.ethz.ch</span></p>
+        <p style="text-align: center;"><span style="font-size: 80%;">giovanni.ambrosioni[at]umontreal.ca</span></p>
   </div>
   
   <!--
@@ -26,7 +26,7 @@ title: Home
  <p> I am a postdoc at <a href="crmath.ca">CRM</a> at Université de Montreal.</p>
 
 <p> I recently defended my PhD thesis "<i>On some quantitative aspects of categorical Lagrangian topology</i>" at ETH Zürich under the supervision of Paul Biran. Here are the <a href="files/difesafinal.pdf">slides</a> of my defense.</p>
-From September 2027 I will be a postdoc at the Institut de Mathématiques de Jussieu-Paris Rive Gauche at Sorbonne Unviersité in Paris.</p> 
+<p>From September 2027 I will be a postdoc at the Institut de Mathématiques de Jussieu-Paris Rive Gauche at Sorbonne Unviersité in Paris.</p> 
   
   <p>You can find a recent CV <a href="CurriculumVitae/AcademicCV_210126.pdf">here</a>.</p>
   </div>
