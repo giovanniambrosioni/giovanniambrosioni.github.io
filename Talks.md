@@ -20,18 +20,17 @@ TBD
 <b>From Biran-Cornea's intersection criterion to approximability.</b> In recent joint work with Biran and Cornea, we developed a quantitative refinement of Abouzaid's split-generation criterion using triangulated persistence categories. Abouzaid's criterion, in turn, can be viewed as a categorification of an earlier intersection criterion of Biran and Cornea. The talk is intended as an introductory overview, emphasizing the main ideas behind these three results and introducing, along the way, the geometric and algebraic structures needed to pass from one to the next.
   </div></li>
 
-  <li><i>Approximability for Lagrangian submanifolds</i>, <a href="">Geometry & Dynamics seminar</a>, TAU, 29th April 2026.    <button class="abstract-link" onclick="toggleAbstract(this)">Abstract</button>
+  <li><a href="">Geometry & Dynamics seminar</a>, TAU, 29th April 2026.    <button class="abstract-link" onclick="toggleAbstract(this)">Abstract</button>
   <div class="abstract-text">
-TBD
+<i>Approximability for Lagrangian submanifolds</i>. 
   </div></li>
 
 <li>
-  <i>Categorical metric approximability and applications to Lagrangian topology</i>, 
-  <a href="https://www.thibaultpoiret.com/st-andrews-geometry-seminar">Geometry seminar</a>, 
+    <a href="https://www.thibaultpoiret.com/st-andrews-geometry-seminar">Geometry seminar</a>, 
   St. Andrews University, 28th November 2025. 
   <button class="abstract-link" onclick="toggleAbstract(this)">Abstract</button>
   <div class="abstract-text">
-In this talk I will introduce a new notion of approximability for metric spaces that can be seen as a categorification of a concept introduced by Turing for metric groups in 1938 and as a generalization of total-boundedness. Categorical metric approximability relies on the theory of triangulated persistence categories introduced by Biran-Cornea-Zhang and allows for the definition of refinements of classical measurements of complexity of objects of triangulated categories such as categorical entropy.  I will discuss approximablity of spaces of Lagrangian submanifolds and present some examples. If time permits, I will discuss applications to rigidity and complexity of Lagrangians, as well as potential relations to open problems in Lagrangian topology. This talk is based on joint work with Paul Biran and Octav Cornea.
+<i>Categorical metric approximability and applications to Lagrangian topology</i>. In this talk I will introduce a new notion of approximability for metric spaces that can be seen as a categorification of a concept introduced by Turing for metric groups in 1938 and as a generalization of total-boundedness. Categorical metric approximability relies on the theory of triangulated persistence categories introduced by Biran-Cornea-Zhang and allows for the definition of refinements of classical measurements of complexity of objects of triangulated categories such as categorical entropy.  I will discuss approximablity of spaces of Lagrangian submanifolds and present some examples. If time permits, I will discuss applications to rigidity and complexity of Lagrangians, as well as potential relations to open problems in Lagrangian topology. This talk is based on joint work with Paul Biran and Octav Cornea.
   </div>
 </li>
 
