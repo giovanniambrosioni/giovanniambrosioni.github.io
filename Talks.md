@@ -47,14 +47,14 @@ ol { line-height: 2; }
 </li> 
   
 
-  <li><i>Approximability for Lagrangian submanifolds</i>, <a href="https://mathematics.stanford.edu/events/approximability-lagrangian-submanifolds">Symplectic geometry seminar</a>, Stanford University, 20th October 2025.     <button class="abstract-link" onclick="toggleAbstract(this)">Abstract</button>
+  <li><a href="https://mathematics.stanford.edu/events/approximability-lagrangian-submanifolds">Symplectic geometry seminar</a>, Stanford University, 20th October 2025.     <button class="abstract-link" onclick="toggleAbstract(this)">Abstract</button>
   <div class="abstract-text">
-In this talk I will introduce a new notion of approximability for metric spaces that can be seen as a categorification of a concept introduced by Turing for metric groups and as a generalization of total-boundedness. I will explain how recent technological advances in symplectic topology and persistence category theory allow us to talk about approximablity of spaces of Lagrangian submanifolds and discuss applications to rigidity and complexity of Lagrangians, as well as potential relations to open problems in Lagrangian topology. This talk is based on joint work with Paul Biran and Octav Cornea.
+<i>Approximability for Lagrangian submanifolds</i>. In this talk I will introduce a new notion of approximability for metric spaces that can be seen as a categorification of a concept introduced by Turing for metric groups and as a generalization of total-boundedness. I will explain how recent technological advances in symplectic topology and persistence category theory allow us to talk about approximablity of spaces of Lagrangian submanifolds and discuss applications to rigidity and complexity of Lagrangians, as well as potential relations to open problems in Lagrangian topology. This talk is based on joint work with Paul Biran and Octav Cornea.
   </div>
 </li>
 
-  <li><i>Filtered Fukaya categories</i>, <a href="https://math.ethz.ch/news-and-events/events/research-seminars/symplectic-geometry-seminar.html?s=hs22">Symplectic geometry seminar</a>, ETH Zürich, 24th October 2022.  <button class="abstract-link" onclick="toggleAbstract(this)">Abstract</button><div class="abstract-text">
-It is known that Fukaya categories are not filtered $A_\infty$ categories for arbitrary choices of the parameters needed for their construction, but only weakly-filtered. In this talk we will present a trick to construct classes of such parameters so that the associated Fukaya categories are filtered. Then, we will discuss how different choices of parameters will affect the persistence structure of Fukaya categories at the derived level. If time permits we will show some applications of the filtered structures on Fukaya categories. 
+  <li><a href="https://math.ethz.ch/news-and-events/events/research-seminars/symplectic-geometry-seminar.html?s=hs22">Symplectic geometry seminar</a>, ETH Zürich, 24th October 2022.  <button class="abstract-link" onclick="toggleAbstract(this)">Abstract</button><div class="abstract-text">
+<i>Filtered Fukaya categories</i>. It is known that Fukaya categories are not filtered $A_\infty$ categories for arbitrary choices of the parameters needed for their construction, but only weakly-filtered. In this talk we will present a trick to construct classes of such parameters so that the associated Fukaya categories are filtered. Then, we will discuss how different choices of parameters will affect the persistence structure of Fukaya categories at the derived level. If time permits we will show some applications of the filtered structures on Fukaya categories. 
   </div>
 </li>
 </ol>
