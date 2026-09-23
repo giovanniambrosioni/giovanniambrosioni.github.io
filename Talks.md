@@ -11,13 +11,13 @@ ol { line-height: 2; }
 
 <ol reversed>
   <li><a href="https://www.ias.edu/math/events/symplectic-geometry-seminar-57">IAS symplectic geometry seminar</a>, 27th October 2026, Princeton.</li>
-  <li><a href="https://www.crmath.ca/en/activities/#/colloquia-seminars/SERIESEM0230">Symplectic geometry seminar</a>, 25th September 2026, Universite de Montreal.
+  <li><a href="https://www.crmath.ca/en/activities/#/colloquia-seminars/SERIESEM0230">Symplectic geometry seminar</a>, 25th September 2026, Université de Montreal.<button class="abstract-link" onclick="toggleAbstract(this)">Abstract</button>
     <div class="abstract-text">
-TBD
-  </div></li>
-  <li>Invited to talk at the conference <a href="https://math.ethz.ch/fim/activities/conferences/past-conferences/2026/symplectic-topology-hamiltonian-dynamics-persistence-structures-octav-cornea.html">Symplectic Topology, Hamiltonian Dynamics, and Persistence Structures. A conference in honour of Octav Cornea</a>, June 2026, Zürich.
-  <div class="abstract-text">
 <b>From Biran-Cornea's intersection criterion to approximability.</b> In recent joint work with Biran and Cornea, we developed a quantitative refinement of Abouzaid's split-generation criterion using triangulated persistence categories. Abouzaid's criterion, in turn, can be viewed as a categorification of an earlier intersection criterion of Biran and Cornea. The talk is intended as an introductory overview, emphasizing the main ideas behind these three results and introducing, along the way, the geometric and algebraic structures needed to pass from one to the next.
+  </div></li>
+  <li>Invited to talk at the conference <a href="https://math.ethz.ch/fim/activities/conferences/past-conferences/2026/symplectic-topology-hamiltonian-dynamics-persistence-structures-octav-cornea.html">Symplectic Topology, Hamiltonian Dynamics, and Persistence Structures. A conference in honour of Octav Cornea</a>, June 2026, Zürich.<button class="abstract-link" onclick="toggleAbstract(this)">Abstract</button>
+  <div class="abstract-text">
+
   </div></li>
 
   <li><a href="">Geometry & Dynamics seminar</a>, TAU, 29th April 2026.    <button class="abstract-link" onclick="toggleAbstract(this)">Abstract</button>
@@ -34,15 +34,15 @@ TBD
   </div>
 </li>
 
-  <li><i>Approximability for Lagrangian submanifolds</i>, <b><a href="https://math.ethz.ch/news-and-events/events/research-seminars/symplectic-geometry-seminar.html?s=hs25">Symplectic geometry seminar</a></b>, ETH Zürich, 10th November 2025.    <button class="abstract-link" onclick="toggleAbstract(this)">Abstract</button>
+  <li><a href="https://math.ethz.ch/news-and-events/events/research-seminars/symplectic-geometry-seminar.html?s=hs25">Symplectic geometry seminar</a>, ETH Zürich, 10th November 2025.    <button class="abstract-link" onclick="toggleAbstract(this)">Abstract</button>
   <div class="abstract-text">
-In this talk I will introduce a new notion of approximability for metric spaces that can be seen as a categorification of a concept introduced by Turing for metric groups and as a generalization of total-boundedness. I will explain how recent technological advances in symplectic topology and persistence category theory allow us to talk about approximablity of spaces of Lagrangian submanifolds and discuss applications to rigidity and complexity of Lagrangians, as well as potential relations to open problems in Lagrangian topology. This talk is based on joint work with Paul Biran and Octav Cornea.
+<i>Approximability for Lagrangian submanifolds</i>. In this talk I will introduce a new notion of approximability for metric spaces that can be seen as a categorification of a concept introduced by Turing for metric groups and as a generalization of total-boundedness. I will explain how recent technological advances in symplectic topology and persistence category theory allow us to talk about approximablity of spaces of Lagrangian submanifolds and discuss applications to rigidity and complexity of Lagrangians, as well as potential relations to open problems in Lagrangian topology. This talk is based on joint work with Paul Biran and Octav Cornea.
   </div></li>
 
-  <li><i>Approximability for Lagrangian submanifolds</i>, <a href="https://www.math.ias.edu/~sarabt/zoominar/?tab=next">Symplectic zoominar</a>, 31st October 2025. (<a href="https://www.math.ias.edu/~sarabt/zoominar/slides/251031c_Ambrosioni.pdf">slides</a>, <a href="https://www.youtube.com/watch?v=T_0lCgveOkQ">video</a>)
+  <li><a href="https://www.math.ias.edu/~sarabt/zoominar/?tab=next">Symplectic zoominar</a>, 31st October 2025. (<a href="https://www.math.ias.edu/~sarabt/zoominar/slides/251031c_Ambrosioni.pdf">slides</a>, <a href="https://www.youtube.com/watch?v=T_0lCgveOkQ">video</a>)
       <button class="abstract-link" onclick="toggleAbstract(this)">Abstract</button>
   <div class="abstract-text">
-In this talk I will introduce a new notion of approximability for metric spaces that can be seen as a categorification of a concept introduced by Turing for metric groups and as a generalization of total-boundedness. I will explain how recent technological advances in symplectic topology and persistence category theory allow us to talk about approximablity of spaces of Lagrangian submanifolds and discuss applications to rigidity and complexity of Lagrangians, as well as potential relations to open problems in Lagrangian topology. This talk is based on joint work with Paul Biran and Octav Cornea.
+<i>Approximability for Lagrangian submanifolds</i>. In this talk I will introduce a new notion of approximability for metric spaces that can be seen as a categorification of a concept introduced by Turing for metric groups and as a generalization of total-boundedness. I will explain how recent technological advances in symplectic topology and persistence category theory allow us to talk about approximablity of spaces of Lagrangian submanifolds and discuss applications to rigidity and complexity of Lagrangians, as well as potential relations to open problems in Lagrangian topology. This talk is based on joint work with Paul Biran and Octav Cornea.
   </div>
 </li> 
   
