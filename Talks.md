@@ -85,8 +85,14 @@ ol { line-height: 2; }
 </style>
 
 <ol reversed>
+  <li><a href="https://cmsa.fas.harvard.edu/event/lftworkshop/">Workshop on Lagrangian Floer Theory and Applications</a>, CMSA, Harvard University, 28th September &ndash; 2nd October 2026.</li>
+
+  <li><a href="https://math.ethz.ch/fim/activities/conferences/past-conferences/2026/symplectic-topology-hamiltonian-dynamics-persistence-structures-octav-cornea.html">Symplectic Topology, Hamiltonian Dynamics, and Persistence Structures. A conference in honour of Octav Cornea</a>, ETH Zürich, 15th&ndash;19th June 2026.</li>
+
+  <li><a href="https://viterbo2024.sciencesconf.org/">From Hamiltonian Dynamics to Symplectic Topology and Beyond. A 2024 celebration of Claude Viterbo and his mathematics</a>, Institut Henri Poincaré, Paris, 3rd&ndash;7th June 2024.</li>
+
+  <li><a href="https://math.ethz.ch/fim/activities/conferences/past-conferences/2023/lp60-geometry-and-dynamics-polterovich.html">LP-60: Geometry and Dynamics. A Conference in Honour of Leonid Polterovich</a>, ETH Zürich, 26th&ndash;30th June 2023.</li>
   </ol>
-    <li></li>
   <style>
 .abstract-link {
   background: none;
