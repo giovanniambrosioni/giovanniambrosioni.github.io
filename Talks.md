@@ -10,7 +10,7 @@ ol { line-height: 2; }
 </style>
 
 <ol reversed>
-  <li><a href="https://www.ias.edu/math/events/symplectic-geometry-seminar-57">IAS symplectic geometry seminar</a>, 27th October 2026, Princeton.</li>
+  <li><a href="https://www.ias.edu/math/events/symplectic-geometry-seminar-57">IAS symplectic geometry seminar</a>, 27th October 2026, IAS Princeton.</li>
   <li><a href="https://www.crmath.ca/en/activities/#/colloquia-seminars/SERIESEM0230">Symplectic geometry seminar</a>, 25th September 2026, Université de Montreal.<button class="abstract-link" onclick="toggleAbstract(this)">Abstract</button>
     <div class="abstract-text">
 <b>From Biran-Cornea's intersection criterion to approximability.</b> In recent joint work with Biran and Cornea, we developed a quantitative refinement of Abouzaid's split-generation criterion using triangulated persistence categories. Abouzaid's criterion, in turn, can be viewed as a categorification of an earlier intersection criterion of Biran and Cornea. The talk is intended as an introductory overview, emphasizing the main ideas behind these three results and introducing, along the way, the geometric and algebraic structures needed to pass from one to the next.

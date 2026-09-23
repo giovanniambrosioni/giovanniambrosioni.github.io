@@ -5,6 +5,7 @@ title: Seminars and Conferences
 
 
 
+<!--
 <h2>Future conferences and workshops</h2>
 
 Some conferences that I will (probably) attend.
@@ -16,6 +17,7 @@ Some conferences that I will (probably) attend.
 <li> 24-28.08.2026: <a href="https://www.uni-augsburg.de/en/fakultaet/mntf/math/prof/geom/Kai60/">Symplectic Topology - A conference in honor of Kai Cieliebak</a>, University of Augsburg.</li>
 
 </ul>
+-->
 
 Where to look for conferences in Math:
 <ul>
